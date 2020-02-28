@@ -28,7 +28,7 @@ public class Debug {
 	 * @param msg : le message.
 	 */
 	public static void debug(String msg) {
-		if(debugMode) System.out.println("\n[DEBUG] : "+msg);
+		if(debugMode) System.out.println("[DEBUG] : "+msg);
 	}
 	
 	/**
@@ -36,7 +36,7 @@ public class Debug {
 	 * @param msg : le message.
 	 */
 	public static void error(String msg) {
-		if(debugMode) System.out.println("\n[ERROR] : "+msg);
+		if(debugMode) System.out.println("[ERROR] : "+msg);
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class Debug {
 				display += "\nMUNITION : "+ ((Munition) weapon).getQuantity();
 			}
 			
-			display += "\nTYPE : "+ weapon.getType();
+			display += "\nTYPE : "+ weapon.getType()+"\n";
 			
 			System.out.println(display);
 		}

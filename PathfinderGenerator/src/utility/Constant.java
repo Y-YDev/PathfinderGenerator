@@ -93,10 +93,10 @@ public class Constant {
 		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("trident", null, null,Type.CAC_1M, TypeMaterial.STEEL), 1));
 		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("marteau de guerre", null, null,Type.CAC_1M, TypeMaterial.STEEL), 3));
 		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("fouet", null, null,Type.CAC_1M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps légère", null, null, Type.CAC_LIGHT, null), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à une main", null, null, Type.CAC_1M, null), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à deux mains", null, null, Type.CAC_2M, null), 2));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("autre arme à distance",null,null, new Munition("à determiner"),null), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps légère", null, Material.NOTHING, Type.CAC_LIGHT, null), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à une main", null, Material.NOTHING, Type.CAC_1M, null), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à deux mains", null, Material.NOTHING, Type.CAC_2M, null), 2));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("autre arme à distance",null,Material.NOTHING, new Munition("à determiner"),null), 2));
 		
 		return res;
 	}

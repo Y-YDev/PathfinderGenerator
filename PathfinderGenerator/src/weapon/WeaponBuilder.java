@@ -26,6 +26,8 @@ public class WeaponBuilder{
      * @return l'arme créée.
      */
     public Weapon createWeapon(int rarity){
+    	Debug.debug("Create weapon with rarity "+rarity+"...");
+    	
     	//Membre x du tuple : genre d'arme.
     	//Membre y du tuple : propriété spéciale.
         Data<Tuple<Integer,Integer>> data = new Data<Tuple<Integer,Integer>>();
@@ -56,6 +58,8 @@ public class WeaponBuilder{
      * @return l'arme créée.
      */
     public Weapon specificWeapon(int rarity){
+    	Debug.debug("Create specific weapon with rarity "+rarity+"...");
+    	
         Data<Weapon> select = new Data<Weapon>();
         
         switch(rarity){
@@ -78,7 +82,8 @@ public class WeaponBuilder{
      * @return l'arme créée.
      */
     public Weapon magicWeapon(String alteration){
-        
+    	Debug.debug("Create magic weapon with alteration "+alteration+"...");
+    	
         Data<Weapon> data = new Data<Weapon>();
         data.addAll(Constant.weaponList());
         
@@ -124,10 +129,12 @@ public class WeaponBuilder{
         Weapon select = data.selectObject(randomValue);
             
         if(select.getType() == Type.MUN){
+        	 Debug.debug("Creation of the munition...");
             //L'arme est devenue une munition.
             select.setName(weapon.getMunition().getName());
         }
         else{
+        	 Debug.debug("Create munitions for the weapon...");
         	//On ratache les munitions à l'arme.
             select.setName(weapon.getName());
             select.setTypeMaterial(weapon.getTypeMaterial());
@@ -145,6 +152,8 @@ public class WeaponBuilder{
      * @return l'arme modifiée.
      */
     public Weapon weaponMaterial(Weapon weapon){
+    	 Debug.debug("Creation of weapon material...");
+    	
         Data<Material> data = new Data<Material>();
         
         if(weapon.getTypeMaterial() == TypeMaterial.WOOD){
@@ -153,7 +162,7 @@ public class WeaponBuilder{
         else if(weapon.getTypeMaterial() == TypeMaterial.STEEL){
             data.addAll(Constant.steelMaterial());//On charge le matériel métal.
         }
-        else{
+        else{//Cas normalement impossible
         	Debug.error("No type material");
             return weapon;
         }
