@@ -16,6 +16,14 @@ public class Debug {
 	}
 	
 	/**
+	 * Affiche un message.
+	 * @param msg : le message.
+	 */
+	public static void display(String msg) {
+		if(displayMode) System.out.println(msg);
+	}
+	
+	/**
 	 * Affiche un message de debug.
 	 * @param msg : le message.
 	 */
