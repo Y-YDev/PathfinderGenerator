@@ -32,6 +32,17 @@ public class Constant {
 		return res;
 	}
 	
+	//Tableau de drop pour arme de rareté 2.
+	public static Data<Tuple<Integer, Integer>> rarity2(){
+		Data<Tuple<Integer, Integer>> res = new Data<Tuple<Integer,Integer>>();
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 0), 26));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(2, 0), 27));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 1), 27));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(0, 0), 20));
+		
+		return res;
+	}
+	
 	// Tableau de drop des armes spécifique rareté 1.
 	public static Data<Weapon> specificWeapon1(){
 		Data<Weapon> res = new Data<Weapon>();
@@ -51,6 +62,19 @@ public class Constant {
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Balle fouisseuse"), 2));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Carreau asséchant"), 8));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Flèche mortelle"), 8));
+		
+		return res;
+	}
+	
+	// Tableau de drop des armes spécifique rareté 2.
+	public static Data<Weapon> specificWeapon2(){
+		Data<Weapon> res = new Data<Weapon>();
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Dague en adamantium"), 20));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Hache d’armes en adamantium"), 20));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Balle fouisseuse supérieure"), 10));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Flèche mortelle supérieure"), 20));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Lance de joute"), 10));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Brise-arme"), 20));
 		
 		return res;
 	}

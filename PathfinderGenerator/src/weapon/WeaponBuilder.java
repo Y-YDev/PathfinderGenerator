@@ -35,6 +35,8 @@ public class WeaponBuilder{
         switch(rarity) {
         case 1 : data.addAll(Constant.rarity1()); //On charge le tableau de drop de rareté 1.
         	break;
+        case 2 : data.addAll(Constant.rarity2());//On charge le tableau de drop de rareté 2.
+        	break;
         default : Debug.error("erreur case createWeapon"); 
         }
         
@@ -50,6 +52,7 @@ public class WeaponBuilder{
         
         Weapon weapon = magicWeapon(alteration);
         
+        //On doit ajouter une propriété spéciale
         if(tuple.getY() > 0) {
         	weapon = weaponSpecialPropertie(weapon,tuple.getY());
         }
@@ -69,6 +72,8 @@ public class WeaponBuilder{
         
         switch(rarity){
             case 1: select.addAll(Constant.specificWeapon1());//Arme spécifique de rareté 1.
+            	break;
+            case 2: select.addAll(Constant.specificWeapon2());//Arme spécifique de rareté 2.
             	break;
             default : Debug.error("erreur case specificWeapon");
         }
@@ -143,6 +148,7 @@ public class WeaponBuilder{
         	//On ratache les munitions à l'arme.
             select.setName(weapon.getName());
             select.setTypeDamage(weapon.getTypeDamage());
+            select.setMaterial(weapon.getMaterial());
             select.setTypeMaterial(weapon.getTypeMaterial());
             ((RangeWeapon) select).getMunition().setName(weapon.getMunition().getName());
         }
@@ -184,8 +190,14 @@ public class WeaponBuilder{
         return weapon;
     }
     
+    /**
+     * Donne une propriété spéciale à l'arme.
+     * @param weapon : l'arme à modifiée.
+     * @param magicAlteration : le niveau d'altération de l'arme.
+     * @return L'arme modifiée.
+     */
     public Weapon weaponSpecialPropertie(Weapon weapon,int magicAlteration) {
-    	Debug.debug("Creation of special propertie...");
+    	Debug.debug("Creation of special propertie "+magicAlteration+"...");
     	
     	//Cas indéterminable
     	if(weapon.getName() == "autre arme de corps à corps légère" 
@@ -237,6 +249,12 @@ public class WeaponBuilder{
     	return weapon;
     }
     
+    /**
+     * Renvoie true si l'arme répond au restriction, false sinon.
+     * @param weapon : l'arme à testée.
+     * @param specialPropertie : la propriété spéciale.
+     * @return l'arme modifiée.
+     */
     public boolean restriction(Weapon weapon,WeaponSpecialPropertie specialPropertie) {
     	
     	if(specialPropertie.getName() == "Mortelle") {

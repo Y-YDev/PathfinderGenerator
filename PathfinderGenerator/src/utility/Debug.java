@@ -65,6 +65,8 @@ public class Debug {
 			if(debugMode) display += "\nTYPE : "+ weapon.getType();
 			if(debugMode) display += "\nTYPE DAMAGE : "+ weapon.getTypeDamage();
 			
+			display += "\nSPECIAL PROPERTIE : "+ weapon.getSpecialPropertie().getName();
+			
 			display += "\n";
 			
 			System.out.println(display);
