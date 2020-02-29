@@ -9,8 +9,8 @@ public class RangeWeapon extends Weapon{
     private Munition munition;//La munition de l'arme à distance.
     
     /* CONSTRUCTOR */
-    public RangeWeapon(String name, String alteration, Material material,Munition munition, TypeMaterial typeMaterial){
-        super(name,alteration,material,Type.DIST,typeMaterial);
+    public RangeWeapon(String name, String alteration, Material material,Munition munition, TypeDamage typeDamage, TypeMaterial typeMaterial){
+        super(name,alteration,material,Type.DIST,typeDamage,typeMaterial);
         this.munition = munition;
     }
 

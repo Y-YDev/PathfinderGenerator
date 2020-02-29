@@ -48,8 +48,13 @@ public class WeaponBuilder{
         if (tuple.getX() == -1) alteration = "maitre";//L'arme est une arme de maitre.
         else alteration = "+"+tuple.getX();//L'arme est une arme magique.
         
-        return magicWeapon(alteration);
+        Weapon weapon = magicWeapon(alteration);
         
+        if(tuple.getY() > 0) {
+        	weapon = weaponSpecialPropertie(weapon,tuple.getY());
+        }
+        
+        return weapon;
     }
     
     /**
@@ -137,6 +142,7 @@ public class WeaponBuilder{
         	 Debug.debug("Create munitions for the weapon...");
         	//On ratache les munitions à l'arme.
             select.setName(weapon.getName());
+            select.setTypeDamage(weapon.getTypeDamage());
             select.setTypeMaterial(weapon.getTypeMaterial());
             ((RangeWeapon) select).getMunition().setName(weapon.getMunition().getName());
         }
@@ -152,7 +158,7 @@ public class WeaponBuilder{
      * @return l'arme modifiée.
      */
     public Weapon weaponMaterial(Weapon weapon){
-    	 Debug.debug("Creation of weapon material...");
+    	Debug.debug("Creation of weapon material...");
     	
         Data<Material> data = new Data<Material>();
         
@@ -176,6 +182,98 @@ public class WeaponBuilder{
         weapon.setMaterial(select);
         
         return weapon;
+    }
+    
+    public Weapon weaponSpecialPropertie(Weapon weapon,int magicAlteration) {
+    	Debug.debug("Creation of special propertie...");
+    	
+    	//Cas indéterminable
+    	if(weapon.getName() == "autre arme de corps à corps légère" 
+    			|| weapon.getName() == "autre arme de corps à corps à une main" 
+    			|| weapon.getName() == "autre arme de corps à corps à deux mains" 
+    			|| weapon.getName() == "autre arme à distance"
+    			|| weapon.getName() == "autre munition") {
+    		weapon.setSpecialPropertie(new WeaponSpecialPropertie("à determiner"));
+    		return weapon;
+    	}
+    	
+    	Data<WeaponSpecialPropertie> data = new Data<WeaponSpecialPropertie>();
+    	
+    	//Chargement de data.
+    	if(weapon.getType() == Type.CAC_1M || weapon.getType() == Type.CAC_LIGHT || weapon.getType() == Type.CAC_2M) {
+    		switch(magicAlteration) {
+    		case 1: data.addAll(Constant.meleeSpecialPropertie1());
+    			break;
+    		default: Debug.error("Error case special melee");
+    		}
+    	}
+    	if(weapon.getType() == Type.DIST) {
+    		switch(magicAlteration) {
+    		case 1: data.addAll(Constant.rangeSpecialPropertie1());
+    			break;
+    		default: Debug.error("Error case special range");
+    		}
+    	}
+    	if(weapon.getType() == Type.MUN) {
+    		switch(magicAlteration) {
+    		case 1: data.addAll(Constant.munitionSpecialPropertie1());
+    			break;
+    		default: Debug.error("Error case special munition");
+    		}
+    	}
+    	
+    	int randomValue = r.nextInt(100)+1;
+    	WeaponSpecialPropertie specialPropertie = data.selectObject(randomValue);
+    	
+    	//Propriété compatible avec l'arme
+    	while(!restriction(weapon,specialPropertie)) {
+    		randomValue = r.nextInt(100)+1;
+    		specialPropertie = data.selectObject(randomValue);
+    	}
+    	
+    	Debug.debug("n_prop = "+randomValue);
+    	weapon.setSpecialPropertie(specialPropertie);
+    	
+    	return weapon;
+    }
+    
+    public boolean restriction(Weapon weapon,WeaponSpecialPropertie specialPropertie) {
+    	
+    	if(specialPropertie.getName() == "Mortelle") {
+    		if(weapon.getName() != "bolas" || weapon.getName() != "fouet" || weapon.getName() != "matraque") {
+    			return false;
+    		}
+    	}
+    	
+    	if(specialPropertie.getName() == "Acérée") {
+    		if(weapon.getTypeDamage() != TypeDamage.P || weapon.getTypeDamage() != TypeDamage.T) return false;
+    	}
+    	
+    	//Les autres cas ne peuvent apparaitre.
+    	if(specialPropertie.getName() == "Boomerang") {
+    		if(weapon.getName() != "dague" || weapon.getName() != "gourdin" || weapon.getName() != "lance" 
+    				|| weapon.getName() != "marteau léger" || weapon.getName() != "trident" || weapon.getName() != "bolas") {
+    			return false;
+    		}
+    	}
+    	
+    	if(specialPropertie.getName() == "Tueuse") {
+    		Data<String> data2 = new Data<String>();
+    		
+    		int randomValue2 = r.nextInt(100)+1;
+    		Debug.debug("n_tueuse = "+randomValue2);
+    		
+    		data2.addAll(Constant.tueuseType());
+    		String tueuseType = data2.selectObject(randomValue2);
+    		
+    		specialPropertie.setName(specialPropertie.getName()+" ("+tueuseType+")");
+    	}
+    	
+    	//S'applique qu'aux armes à feu (que l'on ne peut avoir qu'avec "autre arme a distance" déjà gérer précédemment).
+    	if(specialPropertie.getName() == "Chanceux") return false;
+    	if(specialPropertie.getName() == "Fiable") return false;
+    	
+    	return true;
     }
 }
 

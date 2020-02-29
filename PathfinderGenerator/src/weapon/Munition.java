@@ -10,12 +10,12 @@ public class Munition extends Weapon{
     
     /* CONSTRUCTOR */
     public Munition(String name, String alteration, Material material,String quantity){
-        super(name,alteration,material,Type.MUN,TypeMaterial.STEEL); //Une munition est forcément en métal.
+        super(name,alteration,material,Type.MUN,TypeDamage.NOTHING,TypeMaterial.STEEL); //Une munition est forcément en métal.
         this.quantity = quantity;
     }
     
     public Munition(String name) {
-    	super(name,null,null,Type.MUN,TypeMaterial.STEEL);
+    	super(name,null,null,Type.MUN,TypeDamage.NOTHING,TypeMaterial.STEEL);
     	this.quantity = "_";
     }
     

@@ -61,7 +61,11 @@ public class Debug {
 				display += "\nMUNITION : "+ ((Munition) weapon).getQuantity();
 			}
 			
-			display += "\nTYPE : "+ weapon.getType()+"\n";
+			//Info pour propriété spéciale.
+			if(debugMode) display += "\nTYPE : "+ weapon.getType();
+			if(debugMode) display += "\nTYPE DAMAGE : "+ weapon.getTypeDamage();
+			
+			display += "\n";
 			
 			System.out.println(display);
 		}

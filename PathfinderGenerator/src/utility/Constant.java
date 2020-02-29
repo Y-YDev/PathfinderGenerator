@@ -4,8 +4,10 @@ import weapon.MeleeWeapon;
 import weapon.Munition;
 import weapon.RangeWeapon;
 import weapon.Type;
+import weapon.TypeDamage;
 import weapon.TypeMaterial;
 import weapon.Weapon;
+import weapon.WeaponSpecialPropertie;
 
 /**
  * Constant contient les constantes pour les tirages du générateur.
@@ -24,8 +26,8 @@ public class Constant {
 	// Tableau de drop pour arme de rareté 1.
 	public static Data<Tuple<Integer,Integer>> rarity1(){
 		Data<Tuple<Integer,Integer>> res = new Data<Tuple<Integer,Integer>>();
-		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, null), 80));
-		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(0, null), 20));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 0), 80));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(0, 0), 20));
 		
 		return res;
 	}
@@ -56,47 +58,47 @@ public class Constant {
 	// Tableau de drop des armes.
 	public static Data<Weapon> weaponList(){
 		Data<Weapon> res = new Data<Weapon>();
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("épée bâtarde", null, null, Type.CAC_1M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hache d’armes", null, null,Type.CAC_1M, TypeMaterial.STEEL), 4));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("bolas",null,null, new Munition("bolas"),TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("gourdin", null, null, Type.CAC_1M, TypeMaterial.WOOD), 2));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arc long composite",null,null, new Munition("flèche"),TypeMaterial.WOOD), 2));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arc court composite",null,null, new Munition("flèche"),TypeMaterial.WOOD), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("dague", null, null,Type.CAC_LIGHT ,TypeMaterial.STEEL), 4));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("fléchette",null,null, new Munition("fléchette"),TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hache d’armes de nain", null, null,Type.CAC_1M ,TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("cimeterre à deux mains", null, null,Type.CAC_2M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("gantelet", null, null,Type.CAC_LIGHT, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("coutille", null, null,Type.CAC_2M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("grande hache", null, null, Type.CAC_2M, TypeMaterial.STEEL), 3));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("massue", null, null,Type.CAC_2M , TypeMaterial.WOOD), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("épée à deux mains", null, null, Type.CAC_2M, TypeMaterial.STEEL), 3));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hallebarde", null, null,Type.CAC_2M ,TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hachette", null, null,Type.CAC_LIGHT ,TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arbalète lourde",null,null, new Munition("carreau"),TypeMaterial.STEEL), 3));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("fléau d’armes lourd", null, null,Type.CAC_2M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("masse d’armes lourde", null, null,Type.CAC_1M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("lance d’arçon", null, null,Type.CAC_2M, TypeMaterial.STEEL), 2));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arbalète légère",null,null, new Munition("carreau"),TypeMaterial.STEEL), 3));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("fléau d’armes léger", null, null,Type.CAC_1M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("marteau léger", null, null,Type.CAC_LIGHT ,TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("masse d’armes légère", null, null,Type.CAC_LIGHT, TypeMaterial.STEEL), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("pic de guerre léger", null, null, Type.CAC_LIGHT ,TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arc long",null,null, new Munition("flèche"),TypeMaterial.STEEL), 4));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("pique", null, null, Type.CAC_2M, TypeMaterial.WOOD), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("épée longue", null, null, Type.CAC_1M,TypeMaterial.STEEL), 7));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("morgenstern", null, null, Type.CAC_1M,TypeMaterial.STEEL), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("nunchaku", null, null,Type.CAC_LIGHT, TypeMaterial.WOOD), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("bâton", null, null, Type.CAC_2M,TypeMaterial.WOOD), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("rapière", null, null,Type.CAC_1M, TypeMaterial.STEEL), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("lance", null, null,Type.CAC_2M, TypeMaterial.STEEL), 3));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("trident", null, null,Type.CAC_1M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("marteau de guerre", null, null,Type.CAC_1M, TypeMaterial.STEEL), 3));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("fouet", null, null,Type.CAC_1M, TypeMaterial.STEEL), 1));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps légère", null, Material.NOTHING, Type.CAC_LIGHT, null), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à une main", null, Material.NOTHING, Type.CAC_1M, null), 2));
-		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à deux mains", null, Material.NOTHING, Type.CAC_2M, null), 2));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("autre arme à distance",null,Material.NOTHING, new Munition("à determiner"),null), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("épée bâtarde", null, null, Type.CAC_1M, TypeDamage.T, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hache d’armes", null, null,Type.CAC_1M, TypeDamage.T, TypeMaterial.STEEL), 4));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("bolas",null,null, new Munition("bolas"),TypeDamage.C,TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("gourdin", null, null, Type.CAC_1M,TypeDamage.C, TypeMaterial.WOOD), 2));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arc long composite",null,null, new Munition("flèche"),TypeDamage.P,TypeMaterial.WOOD), 2));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arc court composite",null,null, new Munition("flèche"),TypeDamage.P,TypeMaterial.WOOD), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("dague", null, null,Type.CAC_LIGHT ,TypeDamage.P_T,TypeMaterial.STEEL), 4));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("fléchette",null,null, new Munition("fléchette"),TypeDamage.P,TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hache d’armes de nain", null, null,Type.CAC_1M ,TypeDamage.T, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("cimeterre à deux mains", null, null,Type.CAC_2M,TypeDamage.T, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("gantelet", null, null,Type.CAC_LIGHT, TypeDamage.C, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("coutille", null, null,Type.CAC_2M, TypeDamage.T, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("grande hache", null, null, Type.CAC_2M,TypeDamage.T,TypeMaterial.STEEL), 3));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("massue", null, null,Type.CAC_2M ,TypeDamage.C, TypeMaterial.WOOD), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("épée à deux mains", null, null, Type.CAC_2M, TypeDamage.T, TypeMaterial.STEEL), 3));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hallebarde", null, null,Type.CAC_2M ,TypeDamage.P_T, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("hachette", null, null,Type.CAC_LIGHT ,TypeDamage.T, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arbalète lourde",null,null, new Munition("carreau"),TypeDamage.P, TypeMaterial.STEEL), 3));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("fléau d’armes lourd", null, null,Type.CAC_2M,TypeDamage.C, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("masse d’armes lourde", null, null,Type.CAC_1M,TypeDamage.C, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("lance d’arçon", null, null,Type.CAC_2M, TypeDamage.P, TypeMaterial.STEEL), 2));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arbalète légère",null,null, new Munition("carreau"),TypeDamage.P, TypeMaterial.STEEL), 3));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("fléau d’armes léger", null, null,Type.CAC_1M, TypeDamage.C, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("marteau léger", null, null,Type.CAC_LIGHT ,TypeDamage.C, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("masse d’armes légère", null, null,Type.CAC_LIGHT,TypeDamage.C, TypeMaterial.STEEL), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("pic de guerre léger", null, null, Type.CAC_LIGHT ,TypeDamage.P, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("arc long",null,null, new Munition("flèche"),TypeDamage.P, TypeMaterial.STEEL), 4));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("pique", null, null, Type.CAC_2M,TypeDamage.P, TypeMaterial.WOOD), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("épée longue", null, null, Type.CAC_1M, TypeDamage.T, TypeMaterial.STEEL), 7));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("morgenstern", null, null, Type.CAC_1M, TypeDamage.C_P,TypeMaterial.STEEL), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("nunchaku", null, null,Type.CAC_LIGHT, TypeDamage.C, TypeMaterial.WOOD), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("bâton", null, null, Type.CAC_2M, TypeDamage.C, TypeMaterial.WOOD), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("rapière", null, null,Type.CAC_1M, TypeDamage.P ,TypeMaterial.STEEL), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("lance", null, null,Type.CAC_2M, TypeDamage.P, TypeMaterial.STEEL), 3));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("trident", null, null,Type.CAC_1M,TypeDamage.P, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("marteau de guerre", null, null,Type.CAC_1M,TypeDamage.C,  TypeMaterial.STEEL), 3));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("fouet", null, null,Type.CAC_1M, TypeDamage.T, TypeMaterial.STEEL), 1));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps légère", null, Material.NOTHING, Type.CAC_LIGHT, TypeDamage.NOTHING, null), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à une main", null, Material.NOTHING, Type.CAC_1M, TypeDamage.NOTHING, null), 2));
+		res.add(new Tuple<Weapon, Integer>(new MeleeWeapon("autre arme de corps à corps à deux mains", null, Material.NOTHING, Type.CAC_2M, TypeDamage.NOTHING, null), 2));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon("autre arme à distance",null,Material.NOTHING, new Munition("autre munition"), TypeDamage.NOTHING,null), 2));
 		
 		return res;
 	}
@@ -106,9 +108,9 @@ public class Constant {
 		Data<Weapon> res = new Data<Weapon>();
 		res.add(new Tuple<Weapon, Integer>(new Munition(null, null, null, "2d10"),10));
 		res.add(new Tuple<Weapon, Integer>(new Munition(null, null, null, "4d10"),10));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon(null, null, null, new Munition(null), null), 60));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon(null, null, null, new Munition(null, null, null, "2d10"), null), 10));
-		res.add(new Tuple<Weapon, Integer>(new RangeWeapon(null, null, null, new Munition(null, null, null, "4d10"), null), 10));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon(null, null, null, new Munition(null),null, null), 60));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon(null, null, null, new Munition(null, null, null, "2d10"),null, null), 10));
+		res.add(new Tuple<Weapon, Integer>(new RangeWeapon(null, null, null, new Munition(null, null, null, "4d10"),null, null), 10));
 		
 		return res;
 	}
@@ -147,6 +149,131 @@ public class Constant {
 		res.add(new Tuple<Material, Integer>(Material.BOIS_VERT, 10));
 		res.add(new Tuple<Material, Integer>(Material.RACINE_DE_WYR, 5));
 		
+		return res;
+	}
+	
+	//Tableau de drop des propriétés speciale de rareté 1. (mêlée)
+	public static Data<WeaponSpecialPropertie> meleeSpecialPropertie1(){
+		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Solide"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Mimétisme"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Alliance"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Tueuse"), 5));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Soutient"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Rappel"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Conductrice"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Corrosive"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Contre-attaque"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Courageuse"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Cruelle"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Rusée"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Mortelle"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Gardienne"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Dissipation"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Feu"), 6));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Froid"), 6));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Furieuse"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Spectrale"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Flammegrise"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Protection contre l'électricité"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Protectrice"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Cherche-coeur"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Chasseresse"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Juge"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Acérée"), 5));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Focalisation ki"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Révélatrice"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Menaçante"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Miséricordieuse"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Enchainement"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Mimétique"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Neutralisante"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Intimidante"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Planaire"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Extinction"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Aquatique"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Foudre"), 6));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Stockage de sort"), 5));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Dégivrante"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Lancer"), 5));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Tonnerre"), 5));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Vaillante"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Vicieuse"), 3));
+		
+		return res;
+	}
+	
+	//Tableau de drop des propriétés speciale de rareté 1. (distance)
+	public static Data<WeaponSpecialPropertie> rangeSpecialPropertie1(){
+		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Polyvalent"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Solide"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Mimétisme"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Alliance"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Tueuse"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Rappel"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Conductrice"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Préservation"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Corrosive"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Cruelle"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Rusée"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Longue portée"), 8));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Feu"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Froid"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Chasseresse"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Juge"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Révélatrice"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Chanceux"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Miséricordieuse"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Planaire"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Fiable"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Boomerang"), 8));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Traqueuse"), 8));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Foudre"), 8));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Tonnerre"), 8));
+		
+		return res;
+	}
+	
+	//Tableau de drop des propriétés speciale de rareté 1. (munition)
+	public static Data<WeaponSpecialPropertie> munitionSpecialPropertie1(){
+		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Charge étanche"), 5));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Tueuse"), 11));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Conductrice"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Corrosive"), 11));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Cruelle"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Rusée"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Feu"), 13));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Froid"), 13));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Spectrale"), 8));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Révélatrice"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Miséricordieuse"), 2));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Planaire"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Traqueuse"), 5));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Foudre"), 13));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Tonnerre"), 14));
+			
+		return res;
+	}
+	
+	//Tableau de drop pour une arme tueuse.
+	public static Data<String> tueuseType(){
+		Data<String> res = new Data<String>();
+		res.add(new Tuple<String, Integer>("Aberrations", 5));
+		res.add(new Tuple<String, Integer>("Animaux", 4));
+		res.add(new Tuple<String, Integer>("Créatures artificielles", 7));
+		res.add(new Tuple<String, Integer>("Dragons", 6));
+		res.add(new Tuple<String, Integer>("Fées", 5));
+		res.add(new Tuple<String, Integer>("Humanoïdes (choisir un sous-type)", 33));
+		res.add(new Tuple<String, Integer>("Créatures magiques", 5));
+		res.add(new Tuple<String, Integer>("Humanoïdes monstrueux", 5));
+		res.add(new Tuple<String, Integer>("Vases", 2));
+		res.add(new Tuple<String, Integer>("Extérieurs (choisir un sous-type)", 16));
+		res.add(new Tuple<String, Integer>("Plantes", 2));
+		res.add(new Tuple<String, Integer>("Morts-vivants", 8));
+		res.add(new Tuple<String, Integer>("Vermine", 2));
+
 		return res;
 	}
 }
