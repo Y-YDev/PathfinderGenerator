@@ -139,7 +139,7 @@ public class WeaponBuilder{
         Weapon select = data.selectObject(randomValue);
             
         if(select.getType() == Type.MUN){
-        	 Debug.debug("Creation of the munition...");
+        	 Debug.debug("Change weapon type to munition...");
             //L'arme est devenue une munition.
             select.setName(weapon.getMunition().getName());
         }
@@ -164,7 +164,7 @@ public class WeaponBuilder{
      * @return l'arme modifiée.
      */
     public Weapon weaponMaterial(Weapon weapon){
-    	Debug.debug("Creation of weapon material...");
+    	Debug.debug("Create weapon material...");
     	
         Data<Material> data = new Data<Material>();
         
@@ -197,7 +197,10 @@ public class WeaponBuilder{
      * @return L'arme modifiée.
      */
     public Weapon weaponSpecialPropertie(Weapon weapon,int magicAlteration) {
-    	Debug.debug("Creation of special propertie "+magicAlteration+"...");
+    	//Une arme magique peut aussi avoir une propriété particulière.
+    	weapon = weaponParticularPropertie(weapon);
+    	
+    	Debug.debug("Create special propertie "+magicAlteration+"...");
     	
     	//Cas indéterminable
     	if(weapon.getName() == "autre arme de corps à corps légère" 
@@ -243,7 +246,7 @@ public class WeaponBuilder{
     		specialPropertie = data.selectObject(randomValue);
     	}
     	
-    	Debug.debug("n_prop = "+randomValue);
+    	Debug.debug("n_spe_prop = "+randomValue);
     	weapon.setSpecialPropertie(specialPropertie);
     	
     	return weapon;
@@ -292,6 +295,27 @@ public class WeaponBuilder{
     	if(specialPropertie.getName() == "Fiable") return false;
     	
     	return true;
+    }
+    
+    /**
+     * Donne une propriété particulière à l'arme.
+     * @param weapon : l'arme à modifiée
+     * @return l'arme modifiée.
+     */
+    public Weapon weaponParticularPropertie(Weapon weapon) {
+    	Debug.debug("Create particular propertie...");
+    	
+    	int randomValue = r.nextInt(100)+1;
+    	Debug.debug("n_part_prop = "+randomValue);
+    	
+    	if(randomValue <= 30) {
+    		weapon.setParticularPropertie("Lumière");//L'arme émet de la lumière.
+    	}
+    	else if(randomValue <= 45) {
+    		weapon.setParticularPropertie("Indice");//Indice sur la propriété spéciale
+    	}
+    	
+		return weapon;
     }
 }
 

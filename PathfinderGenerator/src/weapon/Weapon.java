@@ -13,6 +13,7 @@ public class Weapon {
     private TypeDamage typeDamage;//Le type de dégat de l'arme.
     private TypeMaterial typeMaterial;//Le type du matériel de l'arme.
     private WeaponSpecialPropertie specialPropertie;//Propriété speciale de l'arme.
+    private String particularPropertie;//Propriété particulière de l'arme.
     
     /* CONSTRUCTOR */
     public Weapon(String name, String aliteration, Material material, Type type, TypeDamage typeDamage, TypeMaterial typeMaterial){
@@ -23,6 +24,7 @@ public class Weapon {
         this.typeDamage = typeDamage;
         this.typeMaterial = typeMaterial;
         this.specialPropertie = new WeaponSpecialPropertie("_");
+        this.particularPropertie = "_";
     }
     
     public Weapon(String name) {
@@ -33,6 +35,7 @@ public class Weapon {
     	this.typeDamage = TypeDamage.NOTHING;
     	this.typeMaterial = null;
     	this.specialPropertie = new WeaponSpecialPropertie("_");
+    	this.particularPropertie = "_";
     }
     
     /* GETTERS AND SETTERS */
@@ -86,5 +89,13 @@ public class Weapon {
 
 	public void setSpecialPropertie(WeaponSpecialPropertie specialPropertie) {
 		this.specialPropertie = specialPropertie;
+	}
+
+	public String getParticularPropertie() {
+		return particularPropertie;
+	}
+
+	public void setParticularPropertie(String particularPropertie) {
+		this.particularPropertie = particularPropertie;
 	}
 }
