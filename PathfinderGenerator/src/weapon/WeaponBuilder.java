@@ -37,6 +37,8 @@ public class WeaponBuilder{
         	break;
         case 2 : data.addAll(Constant.rarity2());//On charge le tableau de drop de rareté 2.
         	break;
+        case 3 : data.addAll(Constant.rarity3());//On charge le tableau de drop de rareté 3.
+        	break;
         default : Debug.error("erreur case createWeapon"); 
         }
         
@@ -80,6 +82,8 @@ public class WeaponBuilder{
             case 1: select.addAll(Constant.specificWeapon1());//Arme spécifique de rareté 1.
             	break;
             case 2: select.addAll(Constant.specificWeapon2());//Arme spécifique de rareté 2.
+            	break;
+            case 3: select.addAll(Constant.specificWeapon3());//Arme spécifique de rareté 3.
             	break;
             default : Debug.error("erreur case specificWeapon");
         }
@@ -232,12 +236,16 @@ public class WeaponBuilder{
     		switch(magicAlteration) {
     		case 1: data.addAll(Constant.meleeSpecialPropertie1());
     			break;
+    		case 2: data.addAll(Constant.meleeSpecialPropertie2());
+    			break;
     		default: Debug.error("Error case special melee");
     		}
     	}
     	if(weapon.getType() == Type.DIST) {
     		switch(magicAlteration) {
     		case 1: data.addAll(Constant.rangeSpecialPropertie1());
+    			break;
+    		case 2: data.addAll(Constant.rangeSpecialPropertie2());
     			break;
     		default: Debug.error("Error case special range");
     		}
@@ -246,20 +254,22 @@ public class WeaponBuilder{
     		switch(magicAlteration) {
     		case 1: data.addAll(Constant.munitionSpecialPropertie1());
     			break;
+    		case 2: data.addAll(Constant.munitionSpecialPropertie2());
+    			break;
     		default: Debug.error("Error case special munition");
     		}
     	}
     	
     	int randomValue = r.nextInt(100)+1;
     	WeaponSpecialPropertie specialPropertie = data.selectObject(randomValue);
+    	Debug.debug("n_spe_prop = "+randomValue);
     	
     	//Propriété compatible avec l'arme
     	while(!restriction(weapon,specialPropertie)) {
     		randomValue = r.nextInt(100)+1;
     		specialPropertie = data.selectObject(randomValue);
+    		Debug.debug("n_spe_prop = "+randomValue);
     	}
-    	
-    	Debug.debug("n_spe_prop = "+randomValue);
     	
     	if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(specialPropertie);
     	else weapon.setSpecialPropertie2(specialPropertie);
@@ -276,7 +286,7 @@ public class WeaponBuilder{
     public boolean restriction(Weapon weapon,WeaponSpecialPropertie specialPropertie) {
     	
     	if(specialPropertie.getName() == "Mortelle") {
-    		if(weapon.getName() != "bolas" || weapon.getName() != "fouet" || weapon.getName() != "matraque") {
+    		if(weapon.getName() != "bolas" && weapon.getName() != "fouet" && weapon.getName() != "matraque") {
     			return false;
     		}
     	}
@@ -287,10 +297,31 @@ public class WeaponBuilder{
     	
     	//Les autres cas ne peuvent apparaitre.
     	if(specialPropertie.getName() == "Boomerang") {
-    		if(weapon.getName() != "dague" || weapon.getName() != "gourdin" || weapon.getName() != "lance" 
-    				|| weapon.getName() != "marteau léger" || weapon.getName() != "trident" || weapon.getName() != "bolas") {
+    		if(weapon.getName() != "dague" && weapon.getName() != "gourdin" && weapon.getName() != "lance" 
+    				&& weapon.getName() != "marteau léger" && weapon.getName() != "trident" && weapon.getName() != "bolas") {
     			return false;
     		}
+    	}
+    	
+    	//Les autres armes de jet qui peuvent apparaitre sont des armes au CAC.
+    	if(specialPropertie.getName() == "Inamovible") {
+    		Type type = weapon.getType();
+    		if(type != Type.CAC_1M && type != Type.CAC_2M && type != Type.CAC_LIGHT && weapon.getName() != "bolas") 
+    			return false;
+    	}
+    	
+    	if(specialPropertie.getName() == "Destruction") {
+    		if(weapon.getTypeDamage() != TypeDamage.C && weapon.getTypeDamage() != TypeDamage.C_P) return false;
+    	}
+    	
+    	if(specialPropertie.getName() == "Percutante") {
+    		if(weapon.getType() == Type.CAC_LIGHT) return false;
+    	}
+    	
+    	if(specialPropertie.getName() == "Munitions inépuisables") {
+    		String name = weapon.getName();
+    		if(name != "arc long composite" && name != "arc court composite" && name != "arbalète lourde"
+    				&& name != "arbalète légère" && name != "arc long") return false;
     	}
     	
     	if(specialPropertie.getName() == "Tueuse") {

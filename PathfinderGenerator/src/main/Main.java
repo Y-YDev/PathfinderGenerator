@@ -12,6 +12,10 @@ public class Main {
 		WeaponBuilder weaponBuilder = new WeaponBuilder();
 		
 		//Creation d'arme
+		Weapon weapon = weaponBuilder.createWeapon(3);
+		Debug.printWeapon(weapon);
+		
+		/*
 		//Arme de rareté 1.
 		Weapon weapon = weaponBuilder.createWeapon(1);
 		Debug.debug("");
@@ -62,6 +66,7 @@ public class Main {
 		
 		Debug.display("--- Arme d'altération +2 ---");
 		Debug.printWeapon(weapon8);
+		*/
 		
 		Debug.debug("SUCCEED");
 	}

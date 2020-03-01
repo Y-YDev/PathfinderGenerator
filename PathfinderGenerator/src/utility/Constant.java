@@ -43,6 +43,21 @@ public class Constant {
 		return res;
 	}
 	
+	//Tableau de drop pour arme de rareté 3.
+	public static Data<Tuple<Integer, Integer>> rarity3(){
+		Data<Tuple<Integer, Integer>> res = new Data<Tuple<Integer,Integer>>();
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 0), 10));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(2, 0), 10));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(3, 0), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 1), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 11), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 2), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(2, 1), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(0, 0), 20));
+			
+		return res;
+	}	
+	
 	// Tableau de drop des armes spécifique rareté 1.
 	public static Data<Weapon> specificWeapon1(){
 		Data<Weapon> res = new Data<Weapon>();
@@ -76,6 +91,31 @@ public class Constant {
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Lance de joute"), 10));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Brise-arme"), 20));
 		
+		return res;
+	}
+	
+	// Tableau de drop des armes spécifique rareté 3.
+	public static Data<Weapon> specificWeapon3(){
+		Data<Weapon> res = new Data<Weapon>();
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Kukri de la saignée"), 3));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Masse de roc"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Gourdin bestial "), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Fourche de guerre"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Goupillon intarissable"), 3));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Bâton des ouragans"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Dague venimeuse"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Lame obscure"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Fronde morsure-du-froid"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Trident de stabilité"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Trident d’alerte sous-marine"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Dague de l’assassin"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Dague jumelle"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Fléau de terre"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Grande hache de vitesse"), 8));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Marteau de polarité"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Entrave"), 8));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Regret du changeant"), 7));
+			
 		return res;
 	}
 	
@@ -227,6 +267,37 @@ public class Constant {
 		return res;
 	}
 	
+	//Tableau de drop des propriétés speciale de rareté 2. (mêlée)
+	public static Data<WeaponSpecialPropertie> meleeSpecialPropertie2(){
+		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Placement"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Anarchique"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Inamovible"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Axiomatique"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Explosion corrosive"), 7));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Survie"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Dissipation intense"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Destruction"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Feu intense"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Entêtée"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Glorieuse"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Sainte"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Froid intense"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Enflammée"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Percutante"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Revigorante"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Intensification ki"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Élan vital"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Atténuante"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Ancrage dimensionnel"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Foudre intense"), 9));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Filature"), 1));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Impie"), 7));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Sanglante"), 9));
+		
+		return res;
+	}
+	
 	//Tableau de drop des propriétés speciale de rareté 1. (distance)
 	public static Data<WeaponSpecialPropertie> rangeSpecialPropertie1(){
 		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
@@ -259,6 +330,27 @@ public class Constant {
 		return res;
 	}
 	
+	//Tableau de drop des propriétés speciale de rareté 2. (distance)
+	public static Data<WeaponSpecialPropertie> rangeSpecialPropertie2(){
+		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Anarchique"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Inamovible"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Axiomatique"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Explosion corrosive"), 8));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Marquage"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Munitions inépuisables"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Feu intense"), 11));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Sainte"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Froid intense"), 11));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Enflammée"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Ancrage dimensionnel"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Foudre intense"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Filature"), 4));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Impie"), 10));
+		
+		return res;
+	}
+	
 	//Tableau de drop des propriétés speciale de rareté 1. (munition)
 	public static Data<WeaponSpecialPropertie> munitionSpecialPropertie1(){
 		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
@@ -278,6 +370,24 @@ public class Constant {
 		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Foudre"), 13));
 		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Tonnerre"), 14));
 			
+		return res;
+	}
+	
+	//Tableau de drop des propriétés speciale de rareté 2. (munition)
+	public static Data<WeaponSpecialPropertie> munitionSpecialPropertie2(){
+		Data<WeaponSpecialPropertie> res = new Data<WeaponSpecialPropertie>();
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Anarchique"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Axiomatique"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Explosion corrosive"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Marquage"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Feu intense"), 12));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Sainte"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Froid intense"), 12));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Enflammée"), 3));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Ancrage dimensionnel"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Foudre intense"), 10));
+		res.add(new Tuple<WeaponSpecialPropertie, Integer>(new WeaponSpecialPropertie("Impie"), 10));
+				
 		return res;
 	}
 	
