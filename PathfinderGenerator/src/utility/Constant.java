@@ -58,6 +58,21 @@ public class Constant {
 		return res;
 	}	
 	
+	//Tableau de drop pour arme de rareté 4.
+	public static Data<Tuple<Integer, Integer>> rarity4(){
+		Data<Tuple<Integer, Integer>> res = new Data<Tuple<Integer,Integer>>();
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(2, 0), 10));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(3, 0), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 1), 10));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(1, 2), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(2, 1), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(2, 2), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(3, 1), 12));
+		res.add(new Tuple<Tuple<Integer,Integer>, Integer>(new Tuple<Integer, Integer>(0, 0), 20));
+				
+		return res;
+	}
+	
 	// Tableau de drop des armes spécifique rareté 1.
 	public static Data<Weapon> specificWeapon1(){
 		Data<Weapon> res = new Data<Weapon>();
@@ -99,7 +114,7 @@ public class Constant {
 		Data<Weapon> res = new Data<Weapon>();
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Kukri de la saignée"), 3));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Masse de roc"), 6));
-		res.add(new Tuple<Weapon, Integer>(new Weapon("Gourdin bestial "), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Gourdin bestial"), 5));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Fourche de guerre"), 6));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Goupillon intarissable"), 3));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Bâton des ouragans"), 5));
@@ -116,6 +131,29 @@ public class Constant {
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Entrave"), 8));
 		res.add(new Tuple<Weapon, Integer>(new Weapon("Regret du changeant"), 7));
 			
+		return res;
+	}
+	
+	// Tableau de drop des armes spécifique rareté 4.
+	public static Data<Weapon> specificWeapon4(){
+		Data<Weapon> res = new Data<Weapon>();
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Piégeuse de dragons"), 7));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Épée à dix anneaux"), 8));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Trident des tritons"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Masse de démolition inférieure"), 8));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Rapière désarmante"), 8));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Fouet urticant"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Brise-bouclier"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Trident de domination aquatique"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Bâton de l’acrobate"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Pistolet drake-de-feu"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Marteau de ricochet"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Épée ardente"), 6));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Comète"), 8));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Épée de bonne fortune (0 souhait)"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Épée de précision"), 5));
+		res.add(new Tuple<Weapon, Integer>(new Weapon("Épée des plans"), 5));
+				
 		return res;
 	}
 	

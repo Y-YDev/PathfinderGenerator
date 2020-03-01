@@ -39,6 +39,8 @@ public class WeaponBuilder{
         	break;
         case 3 : data.addAll(Constant.rarity3());//On charge le tableau de drop de rareté 3.
         	break;
+        case 4 : data.addAll(Constant.rarity4());//On charge le tableau de drop de rareté 4.
+        	break;
         default : Debug.error("erreur case createWeapon"); 
         }
         
@@ -84,6 +86,8 @@ public class WeaponBuilder{
             case 2: select.addAll(Constant.specificWeapon2());//Arme spécifique de rareté 2.
             	break;
             case 3: select.addAll(Constant.specificWeapon3());//Arme spécifique de rareté 3.
+            	break;
+            case 4: select.addAll(Constant.specificWeapon4());//Arme spécifique de rareté 4.
             	break;
             default : Debug.error("erreur case specificWeapon");
         }
