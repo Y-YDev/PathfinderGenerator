@@ -41,6 +41,10 @@ public class WeaponBuilder{
         	break;
         case 4 : data.addAll(Constant.rarity4());//On charge le tableau de drop de rareté 4.
         	break;
+        case 5 : data.addAll(Constant.rarity5());//On charge le tableau de drop de rareté 5.
+        	break;
+        case 6 : data.addAll(Constant.rarity6());//On charge le tableau de drop de rareté 6.
+        	break;
         default : Debug.error("erreur case createWeapon"); 
         }
         
@@ -89,6 +93,10 @@ public class WeaponBuilder{
             	break;
             case 4: select.addAll(Constant.specificWeapon4());//Arme spécifique de rareté 4.
             	break;
+            case 5: select.addAll(Constant.specificWeapon5());//Arme spécifique de rareté 5.
+        		break;
+            case 6: select.addAll(Constant.specificWeapon6());//Arme spécifique de rareté 6.
+        		break;
             default : Debug.error("erreur case specificWeapon");
         }
         
@@ -188,8 +196,8 @@ public class WeaponBuilder{
         else if(weapon.getTypeMaterial() == TypeMaterial.STEEL){
             data.addAll(Constant.steelMaterial());//On charge le matériel métal.
         }
-        else{//Cas normalement impossible
-        	Debug.error("No type material");
+        else{//Cas d'arme indéterminer.
+        	weapon.setMaterial(Material.CHOOSE);
             return weapon;
         }
         
@@ -242,6 +250,12 @@ public class WeaponBuilder{
     			break;
     		case 2: data.addAll(Constant.meleeSpecialPropertie2());
     			break;
+    		case 3: data.addAll(Constant.meleeSpecialPropertie3());
+				break;
+    		case 4: data.addAll(Constant.meleeSpecialPropertie4_5());
+				break;
+    		case 5: data.addAll(Constant.meleeSpecialPropertie4_5());
+				break;
     		default: Debug.error("Error case special melee");
     		}
     	}
@@ -251,6 +265,13 @@ public class WeaponBuilder{
     			break;
     		case 2: data.addAll(Constant.rangeSpecialPropertie2());
     			break;
+    		case 3: data.addAll(Constant.rangeSpecialPropertie3_4());
+				break;
+    		case 4: data.addAll(Constant.rangeSpecialPropertie3_4());
+				break;
+			//Possibilité de ne rien faire.
+    		case 5: data.addAll(Constant.rangeSpecialPropertie3_4());
+				break;
     		default: Debug.error("Error case special range");
     		}
     	}
@@ -259,6 +280,13 @@ public class WeaponBuilder{
     		case 1: data.addAll(Constant.munitionSpecialPropertie1());
     			break;
     		case 2: data.addAll(Constant.munitionSpecialPropertie2());
+    			break;
+    		case 3: data.addAll(Constant.munitionSpecialPropertie3());
+    			break;
+    		//Possibilité de ne rien faire.
+    		case 4: data.addAll(Constant.munitionSpecialPropertie3());
+    			break;
+    		case 5: data.addAll(Constant.munitionSpecialPropertie3());
     			break;
     		default: Debug.error("Error case special munition");
     		}
@@ -328,6 +356,17 @@ public class WeaponBuilder{
     				&& name != "arbalète légère" && name != "arc long") return false;
     	}
     	
+    	//Les autres cas ne peuvent pas apparaitre.
+    	if(specialPropertie.getName() == "Deuxième chance") {
+    		String name = weapon.getName();
+    		if(name != "arc long composite" && name != "arc court composite" && name != "arc long") return false;
+    	}
+    	
+    	//Les autres cas ne peuvent pas apparaitre.
+    	if(specialPropertie.getName() == "Duel") {
+    		if(weapon.getType() != Type.CAC_LIGHT && weapon.getName() != "rapière" && weapon.getName() != "fouet") return false;
+    	}
+    	
     	if(specialPropertie.getName() == "Tueuse") {
     		Data<String> data2 = new Data<String>();
     		
@@ -342,7 +381,9 @@ public class WeaponBuilder{
     	
     	//S'applique qu'aux armes à feu (que l'on ne peut avoir qu'avec "autre arme a distance" déjà gérer précédemment).
     	if(specialPropertie.getName() == "Chanceux") return false;
+    	if(specialPropertie.getName() == "Chanceux supérieur") return false;
     	if(specialPropertie.getName() == "Fiable") return false;
+    	if(specialPropertie.getName() == "Fiable supérieure") return false;
     	
     	return true;
     }

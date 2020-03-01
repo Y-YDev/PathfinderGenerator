@@ -12,7 +12,7 @@ public class Main {
 		WeaponBuilder weaponBuilder = new WeaponBuilder();
 		
 		//Creation d'arme
-		Weapon weapon = weaponBuilder.createWeapon(3);
+		Weapon weapon = weaponBuilder.createWeapon(6);
 		Debug.printWeapon(weapon);
 		
 		/*
