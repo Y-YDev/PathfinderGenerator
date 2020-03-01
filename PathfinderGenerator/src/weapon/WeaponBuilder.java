@@ -54,7 +54,13 @@ public class WeaponBuilder{
         
         //On doit ajouter une propriété spéciale
         if(tuple.getY() > 0) {
-        	weapon = weaponSpecialPropertie(weapon,tuple.getY());
+        	//Le chiffre de l'unité indique l'altération de la premiere propriété.
+        	weapon = weaponSpecialPropertie(weapon,tuple.getY()%10,1);
+        	
+        	if(tuple.getY() > 10) {//L'arme à une deuxième propriété spéciale.
+        		//Le chiffre de la dizaine indique l'altération de la deuxième propriété.
+        		weapon = weaponSpecialPropertie(weapon,tuple.getY()/10,2);
+        	}
         }
         
         return weapon;
@@ -194,11 +200,15 @@ public class WeaponBuilder{
      * Donne une propriété spéciale à l'arme.
      * @param weapon : l'arme à modifiée.
      * @param magicAlteration : le niveau d'altération de l'arme.
+     * @param specialPropertieNumber : le numéro de la propriété spéciale à modifiée.
      * @return L'arme modifiée.
      */
-    public Weapon weaponSpecialPropertie(Weapon weapon,int magicAlteration) {
+    public Weapon weaponSpecialPropertie(Weapon weapon,int magicAlteration, int specialPropertieNumber) {
+    	
     	//Une arme magique peut aussi avoir une propriété particulière.
-    	weapon = weaponParticularPropertie(weapon);
+    	if(specialPropertieNumber == 1) {//Si c'est la premiere fois qu'on créer la propriété spéciale.
+    		weapon = weaponParticularPropertie(weapon);
+    	}
     	
     	Debug.debug("Create special propertie "+magicAlteration+"...");
     	
@@ -208,7 +218,10 @@ public class WeaponBuilder{
     			|| weapon.getName() == "autre arme de corps à corps à deux mains" 
     			|| weapon.getName() == "autre arme à distance"
     			|| weapon.getName() == "autre munition") {
-    		weapon.setSpecialPropertie(new WeaponSpecialPropertie("à determiner"));
+    		
+    		if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(new WeaponSpecialPropertie("à determiner"));
+    		else weapon.setSpecialPropertie2(new WeaponSpecialPropertie("à determiner"));
+    		
     		return weapon;
     	}
     	
@@ -247,7 +260,9 @@ public class WeaponBuilder{
     	}
     	
     	Debug.debug("n_spe_prop = "+randomValue);
-    	weapon.setSpecialPropertie(specialPropertie);
+    	
+    	if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(specialPropertie);
+    	else weapon.setSpecialPropertie2(specialPropertie);
     	
     	return weapon;
     }
@@ -266,8 +281,8 @@ public class WeaponBuilder{
     		}
     	}
     	
-    	if(specialPropertie.getName() == "Acérée") {
-    		if(weapon.getTypeDamage() != TypeDamage.P || weapon.getTypeDamage() != TypeDamage.T) return false;
+    	if(specialPropertie.getName() == "Acérée") {//L'arme doit être perforante ou/et tranchante.
+    		if(weapon.getTypeDamage() == TypeDamage.C || weapon.getTypeDamage() == TypeDamage.NOTHING) return false;
     	}
     	
     	//Les autres cas ne peuvent apparaitre.

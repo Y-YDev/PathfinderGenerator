@@ -65,8 +65,12 @@ public class Debug {
 			if(debugMode) display += "\nTYPE : "+ weapon.getType();
 			if(debugMode) display += "\nTYPE DAMAGE : "+ weapon.getTypeDamage();
 			
-			if(weapon.getSpecialPropertie().getName() != "_") {
-				display += "\nSPECIAL PROPERTIE : "+ weapon.getSpecialPropertie().getName();
+			if(weapon.getSpecialPropertie1().getName() != "_") {
+				display += "\nSPECIAL PROPERTIE 1 : "+ weapon.getSpecialPropertie1().getName();
+				
+				if(weapon.getSpecialPropertie2().getName() != "_")
+					display += "\nSPECIAL PROPERTIE 2 : "+ weapon.getSpecialPropertie2().getName();
+				
 				display += "\nPARTICULAR PROPERTIE : "+ weapon.getParticularPropertie();
 			}
 			

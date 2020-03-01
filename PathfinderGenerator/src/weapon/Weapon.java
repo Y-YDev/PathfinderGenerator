@@ -12,7 +12,8 @@ public class Weapon {
     private Type type;//Le type de l'arme.
     private TypeDamage typeDamage;//Le type de dégat de l'arme.
     private TypeMaterial typeMaterial;//Le type du matériel de l'arme.
-    private WeaponSpecialPropertie specialPropertie;//Propriété speciale de l'arme.
+    private WeaponSpecialPropertie specialPropertie1;//Propriété speciale 1 de l'arme.
+    private WeaponSpecialPropertie specialPropertie2;//Propriété speciale 2 de l'arme.
     private String particularPropertie;//Propriété particulière de l'arme.
     
     /* CONSTRUCTOR */
@@ -23,7 +24,8 @@ public class Weapon {
         this.type = type;
         this.typeDamage = typeDamage;
         this.typeMaterial = typeMaterial;
-        this.specialPropertie = new WeaponSpecialPropertie("_");
+        this.specialPropertie1 = new WeaponSpecialPropertie("_");
+        this.setSpecialPropertie2(new WeaponSpecialPropertie("_"));
         this.particularPropertie = "_";
     }
     
@@ -34,7 +36,8 @@ public class Weapon {
     	this.type = Type.NOTHING;
     	this.typeDamage = TypeDamage.NOTHING;
     	this.typeMaterial = null;
-    	this.specialPropertie = new WeaponSpecialPropertie("_");
+    	this.specialPropertie1 = new WeaponSpecialPropertie("_");
+    	this.setSpecialPropertie2(new WeaponSpecialPropertie("_"));
     	this.particularPropertie = "_";
     }
     
@@ -83,12 +86,12 @@ public class Weapon {
 		this.typeDamage = typeDamage;
 	}
 
-	public WeaponSpecialPropertie getSpecialPropertie() {
-		return specialPropertie;
+	public WeaponSpecialPropertie getSpecialPropertie1() {
+		return specialPropertie1;
 	}
 
-	public void setSpecialPropertie(WeaponSpecialPropertie specialPropertie) {
-		this.specialPropertie = specialPropertie;
+	public void setSpecialPropertie1(WeaponSpecialPropertie specialPropertie1) {
+		this.specialPropertie1 = specialPropertie1;
 	}
 
 	public String getParticularPropertie() {
@@ -97,5 +100,13 @@ public class Weapon {
 
 	public void setParticularPropertie(String particularPropertie) {
 		this.particularPropertie = particularPropertie;
+	}
+
+	public WeaponSpecialPropertie getSpecialPropertie2() {
+		return specialPropertie2;
+	}
+
+	public void setSpecialPropertie2(WeaponSpecialPropertie specialPropertie2) {
+		this.specialPropertie2 = specialPropertie2;
 	}
 }

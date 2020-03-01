@@ -29,7 +29,7 @@ public class Main {
 		Debug.debug("");
 		//Arme d'altération +1 et propriété spéciale 1.
 		Weapon weapon6 = weaponBuilder.magicWeapon("+1");
-		weapon6 = weaponBuilder.weaponSpecialPropertie(weapon6, 1);
+		weapon6 = weaponBuilder.weaponSpecialPropertie(weapon6,1,1);
 		Debug.debug("");
 		//Arme spécifique de rareté 2.
 		Weapon weapon7 = weaponBuilder.specificWeapon(2);
