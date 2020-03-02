@@ -1,3 +1,10 @@
+		
+		/* 
+		 * Ce fichier est à copier-coller dans main.java 
+		 * Il donne des exemples de création d'arme afin de comprendre  
+		 * le fonctionnement des méthodes de WeaponBuilder.java
+		 */
+		
 		//Arme de rareté 1.
 		Weapon weapon1 = weaponBuilder.createWeapon(1);
 		//Arme de rareté 2.
