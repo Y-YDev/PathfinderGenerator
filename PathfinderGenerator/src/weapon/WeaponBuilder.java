@@ -1,7 +1,7 @@
 package weapon;
 import java.util.Random;
 
-import utility.Constant;
+import constant.WeaponConstant;
 import utility.Data;
 import utility.Debug;
 import utility.Tuple;
@@ -33,17 +33,17 @@ public class WeaponBuilder{
         Data<Tuple<Integer,Integer>> data = new Data<Tuple<Integer,Integer>>();
         
         switch(rarity) {
-        case 1 : data.addAll(Constant.rarity1()); //On charge le tableau de drop de rareté 1.
+        case 1 : data.addAll(WeaponConstant.rarity1()); //On charge le tableau de drop de rareté 1.
         	break;
-        case 2 : data.addAll(Constant.rarity2());//On charge le tableau de drop de rareté 2.
+        case 2 : data.addAll(WeaponConstant.rarity2());//On charge le tableau de drop de rareté 2.
         	break;
-        case 3 : data.addAll(Constant.rarity3());//On charge le tableau de drop de rareté 3.
+        case 3 : data.addAll(WeaponConstant.rarity3());//On charge le tableau de drop de rareté 3.
         	break;
-        case 4 : data.addAll(Constant.rarity4());//On charge le tableau de drop de rareté 4.
+        case 4 : data.addAll(WeaponConstant.rarity4());//On charge le tableau de drop de rareté 4.
         	break;
-        case 5 : data.addAll(Constant.rarity5());//On charge le tableau de drop de rareté 5.
+        case 5 : data.addAll(WeaponConstant.rarity5());//On charge le tableau de drop de rareté 5.
         	break;
-        case 6 : data.addAll(Constant.rarity6());//On charge le tableau de drop de rareté 6.
+        case 6 : data.addAll(WeaponConstant.rarity6());//On charge le tableau de drop de rareté 6.
         	break;
         default : Debug.error("erreur case createWeapon"); 
         }
@@ -70,7 +70,8 @@ public class WeaponBuilder{
         		weapon = weaponSpecialPropertie(weapon,tuple.getY()/10,2);
         	}
         }
-        
+        //Pour le debug de plusieures armes.
+        Debug.debug("");
         return weapon;
     }
     
@@ -85,17 +86,17 @@ public class WeaponBuilder{
         Data<Weapon> select = new Data<Weapon>();
         
         switch(rarity){
-            case 1: select.addAll(Constant.specificWeapon1());//Arme spécifique de rareté 1.
+            case 1: select.addAll(WeaponConstant.specificWeapon1());//Arme spécifique de rareté 1.
             	break;
-            case 2: select.addAll(Constant.specificWeapon2());//Arme spécifique de rareté 2.
+            case 2: select.addAll(WeaponConstant.specificWeapon2());//Arme spécifique de rareté 2.
             	break;
-            case 3: select.addAll(Constant.specificWeapon3());//Arme spécifique de rareté 3.
+            case 3: select.addAll(WeaponConstant.specificWeapon3());//Arme spécifique de rareté 3.
             	break;
-            case 4: select.addAll(Constant.specificWeapon4());//Arme spécifique de rareté 4.
+            case 4: select.addAll(WeaponConstant.specificWeapon4());//Arme spécifique de rareté 4.
             	break;
-            case 5: select.addAll(Constant.specificWeapon5());//Arme spécifique de rareté 5.
+            case 5: select.addAll(WeaponConstant.specificWeapon5());//Arme spécifique de rareté 5.
         		break;
-            case 6: select.addAll(Constant.specificWeapon6());//Arme spécifique de rareté 6.
+            case 6: select.addAll(WeaponConstant.specificWeapon6());//Arme spécifique de rareté 6.
         		break;
             default : Debug.error("erreur case specificWeapon");
         }
@@ -117,7 +118,7 @@ public class WeaponBuilder{
     	Debug.debug("Create magic weapon with alteration "+alteration+"...");
     	
         Data<Weapon> data = new Data<Weapon>();
-        data.addAll(Constant.weaponList());
+        data.addAll(WeaponConstant.weaponList());
         
         //Tirage
         int randomValue = r.nextInt(100-19)+1;
@@ -152,7 +153,7 @@ public class WeaponBuilder{
     public Weapon weaponMun(RangeWeapon weapon){
         
         Data<Weapon> data = new Data<Weapon>();
-        data.addAll(Constant.weaponMunition());
+        data.addAll(WeaponConstant.weaponMunition());
         
         //Tirage
         int randomValue = r.nextInt(100)+1;
@@ -191,10 +192,10 @@ public class WeaponBuilder{
         Data<Material> data = new Data<Material>();
         
         if(weapon.getTypeMaterial() == TypeMaterial.WOOD){
-            data.addAll(Constant.woodMaterial());//On charge le matériel bois.
+            data.addAll(WeaponConstant.woodMaterial());//On charge le matériel bois.
         }
         else if(weapon.getTypeMaterial() == TypeMaterial.STEEL){
-            data.addAll(Constant.steelMaterial());//On charge le matériel métal.
+            data.addAll(WeaponConstant.steelMaterial());//On charge le matériel métal.
         }
         else{//Cas d'arme indéterminer.
         	weapon.setMaterial(Material.CHOOSE);
@@ -226,7 +227,7 @@ public class WeaponBuilder{
     		weapon = weaponParticularPropertie(weapon);
     	}
     	
-    	Debug.debug("Create special propertie "+magicAlteration+"...");
+    	Debug.debug("Create special propertie "+specialPropertieNumber+" with rank "+magicAlteration+"...");
     	
     	//Cas indéterminable
     	if(weapon.getName() == "autre arme de corps à corps légère" 
@@ -246,47 +247,47 @@ public class WeaponBuilder{
     	//Chargement de data.
     	if(weapon.getType() == Type.CAC_1M || weapon.getType() == Type.CAC_LIGHT || weapon.getType() == Type.CAC_2M) {
     		switch(magicAlteration) {
-    		case 1: data.addAll(Constant.meleeSpecialPropertie1());
+    		case 1: data.addAll(WeaponConstant.meleeSpecialPropertie1());
     			break;
-    		case 2: data.addAll(Constant.meleeSpecialPropertie2());
+    		case 2: data.addAll(WeaponConstant.meleeSpecialPropertie2());
     			break;
-    		case 3: data.addAll(Constant.meleeSpecialPropertie3());
+    		case 3: data.addAll(WeaponConstant.meleeSpecialPropertie3());
 				break;
-    		case 4: data.addAll(Constant.meleeSpecialPropertie4_5());
+    		case 4: data.addAll(WeaponConstant.meleeSpecialPropertie4_5());
 				break;
-    		case 5: data.addAll(Constant.meleeSpecialPropertie4_5());
+    		case 5: data.addAll(WeaponConstant.meleeSpecialPropertie4_5());
 				break;
     		default: Debug.error("Error case special melee");
     		}
     	}
     	if(weapon.getType() == Type.DIST) {
     		switch(magicAlteration) {
-    		case 1: data.addAll(Constant.rangeSpecialPropertie1());
+    		case 1: data.addAll(WeaponConstant.rangeSpecialPropertie1());
     			break;
-    		case 2: data.addAll(Constant.rangeSpecialPropertie2());
+    		case 2: data.addAll(WeaponConstant.rangeSpecialPropertie2());
     			break;
-    		case 3: data.addAll(Constant.rangeSpecialPropertie3_4());
+    		case 3: data.addAll(WeaponConstant.rangeSpecialPropertie3_4());
 				break;
-    		case 4: data.addAll(Constant.rangeSpecialPropertie3_4());
+    		case 4: data.addAll(WeaponConstant.rangeSpecialPropertie3_4());
 				break;
 			//Possibilité de ne rien faire.
-    		case 5: data.addAll(Constant.rangeSpecialPropertie3_4());
+    		case 5: data.addAll(WeaponConstant.rangeSpecialPropertie3_4());
 				break;
     		default: Debug.error("Error case special range");
     		}
     	}
     	if(weapon.getType() == Type.MUN) {
     		switch(magicAlteration) {
-    		case 1: data.addAll(Constant.munitionSpecialPropertie1());
+    		case 1: data.addAll(WeaponConstant.munitionSpecialPropertie1());
     			break;
-    		case 2: data.addAll(Constant.munitionSpecialPropertie2());
+    		case 2: data.addAll(WeaponConstant.munitionSpecialPropertie2());
     			break;
-    		case 3: data.addAll(Constant.munitionSpecialPropertie3());
+    		case 3: data.addAll(WeaponConstant.munitionSpecialPropertie3());
     			break;
     		//Possibilité de ne rien faire.
-    		case 4: data.addAll(Constant.munitionSpecialPropertie3());
+    		case 4: data.addAll(WeaponConstant.munitionSpecialPropertie3());
     			break;
-    		case 5: data.addAll(Constant.munitionSpecialPropertie3());
+    		case 5: data.addAll(WeaponConstant.munitionSpecialPropertie3());
     			break;
     		default: Debug.error("Error case special munition");
     		}
@@ -373,7 +374,7 @@ public class WeaponBuilder{
     		int randomValue2 = r.nextInt(100)+1;
     		Debug.debug("n_tueuse = "+randomValue2);
     		
-    		data2.addAll(Constant.tueuseType());
+    		data2.addAll(WeaponConstant.tueuseType());
     		String tueuseType = data2.selectObject(randomValue2);
     		
     		specialPropertie.setName(specialPropertie.getName()+" ("+tueuseType+")");
@@ -383,7 +384,16 @@ public class WeaponBuilder{
     	if(specialPropertie.getName() == "Chanceux") return false;
     	if(specialPropertie.getName() == "Chanceux supérieur") return false;
     	if(specialPropertie.getName() == "Fiable") return false;
+    	if(specialPropertie.getName() == "Charge étanche") return false;
     	if(specialPropertie.getName() == "Fiable supérieure") return false;
+    	
+    	
+    	//Cas avec deux propriétés incompatible
+    	if(weapon.getSpecialPropertie1().getName() != "_") {//Si on a déjà une capacité.
+    		if(specialPropertie.getName() == "Repositionnante" && weapon.getSpecialPropertie1().getName() == "Inamovible") return false;
+    		if(specialPropertie.getName() == "Inamovible" && weapon.getSpecialPropertie1().getName() == "Repositionnante") return false;
+    	}
+    	
     	
     	return true;
     }

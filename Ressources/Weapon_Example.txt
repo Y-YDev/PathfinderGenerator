@@ -1,0 +1,167 @@
+		//Arme de rareté 1.
+		Weapon weapon1 = weaponBuilder.createWeapon(1);
+		//Arme de rareté 2.
+		Weapon weapon2 = weaponBuilder.createWeapon(2);
+		//Arme de rareté 3.
+		Weapon weapon3 = weaponBuilder.createWeapon(3);
+		//Arme de rareté 4.
+		Weapon weapon4 = weaponBuilder.createWeapon(4);
+		//Arme de rareté 5.
+		Weapon weapon5 = weaponBuilder.createWeapon(5);
+		//Arme de rareté 6.
+		Weapon weapon6 = weaponBuilder.createWeapon(6);
+		
+
+		//Arme d'altération +1.
+		Weapon weapon7 = weaponBuilder.magicWeapon("+1");
+		Debug.debug("");
+		//Arme d'altération +2.
+		Weapon weapon8 = weaponBuilder.magicWeapon("+2");
+		Debug.debug("");
+		//Arme d'altération +3.
+		Weapon weapon9 = weaponBuilder.magicWeapon("+3");
+		Debug.debug("");
+		//Arme d'altération +4.
+		Weapon weapon10 = weaponBuilder.magicWeapon("+4");
+		Debug.debug("");
+		//Arme d'altération +5.
+		Weapon weapon11 = weaponBuilder.magicWeapon("+5");
+		Debug.debug("");
+	
+		//Arme de maitre.
+		Weapon weapon12 = weaponBuilder.magicWeapon("de maitre");
+		Debug.debug("");
+		
+		//Arme spécifique de rareté 1.
+		Weapon weapon13 = weaponBuilder.specificWeapon(1);
+		Debug.debug("");
+		//Arme spécifique de rareté 2.
+		Weapon weapon14 = weaponBuilder.specificWeapon(2);
+		Debug.debug("");
+		//Arme spécifique de rareté 3.
+		Weapon weapon15 = weaponBuilder.specificWeapon(3);
+		Debug.debug("");
+		//Arme spécifique de rareté 4.
+		Weapon weapon16 = weaponBuilder.specificWeapon(4);
+		Debug.debug("");
+		//Arme spécifique de rareté 5.
+		Weapon weapon17 = weaponBuilder.specificWeapon(5);
+		Debug.debug("");
+		//Arme spécifique de rareté 6.
+		Weapon weapon18 = weaponBuilder.specificWeapon(6);
+		Debug.debug("");
+
+		
+		//Arme de propriété spéciale rang 1.
+		Weapon test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon19 = weaponBuilder.weaponSpecialPropertie(test,1,1);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 2.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon20 = weaponBuilder.weaponSpecialPropertie(test,2,1);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 3.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon21 = weaponBuilder.weaponSpecialPropertie(test,3,1);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 4.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon22 = weaponBuilder.weaponSpecialPropertie(test,4,1);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 5.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon23 = weaponBuilder.weaponSpecialPropertie(test,5,1);
+		Debug.debug("");
+		
+
+		//Arme de propriété spéciale rang 1 en deuxieme propriété.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon24 = weaponBuilder.weaponSpecialPropertie(test,1,1);
+		weapon24 = weaponBuilder.weaponSpecialPropertie(test,1,2);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 2 en deuxieme propriété.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon25 = weaponBuilder.weaponSpecialPropertie(test,2,1);
+		weapon25 = weaponBuilder.weaponSpecialPropertie(test,2,2);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 3 en deuxieme propriété.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon26 = weaponBuilder.weaponSpecialPropertie(test,3,1);
+		weapon26 = weaponBuilder.weaponSpecialPropertie(test,3,2);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 4 en deuxieme propriété.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon27 = weaponBuilder.weaponSpecialPropertie(test,4,1);
+		weapon27 = weaponBuilder.weaponSpecialPropertie(test,4,2);
+		Debug.debug("");
+		//Arme de propriété spéciale rang 5 en deuxieme propriété.
+		test = weaponBuilder.magicWeapon("An alteration");
+		Weapon weapon28 = weaponBuilder.weaponSpecialPropertie(test,5,1);
+		weapon28 = weaponBuilder.weaponSpecialPropertie(test,5,2);
+		Debug.debug("");
+		
+		
+		
+		Debug.display("--- Arme de rareté 1 ---");
+		Debug.printWeapon(weapon1);
+		Debug.display("--- Arme de rareté 2 ---");
+		Debug.printWeapon(weapon2);
+		Debug.display("--- Arme de rareté 3 ---");
+		Debug.printWeapon(weapon3);
+		Debug.display("--- Arme de rareté 4 ---");
+		Debug.printWeapon(weapon4);
+		Debug.display("--- Arme de rareté 5 ---");
+		Debug.printWeapon(weapon5);
+		Debug.display("--- Arme de rareté 6 ---");
+		Debug.printWeapon(weapon6);
+
+		Debug.display("--- Arme d'altération +1 ---");
+		Debug.printWeapon(weapon7);
+		Debug.display("--- Arme d'altération +2 ---");
+		Debug.printWeapon(weapon8);
+		Debug.display("--- Arme d'altération +3 ---");
+		Debug.printWeapon(weapon9);
+		Debug.display("--- Arme d'altération +4 ---");
+		Debug.printWeapon(weapon10);
+		Debug.display("--- Arme d'altération +5 ---");
+		Debug.printWeapon(weapon11);
+
+		Debug.display("--- Arme d'altération de maître ---");
+		Debug.printWeapon(weapon12);
+
+		Debug.display("--- Arme spécifique de rareté 1 ---");
+		Debug.printWeapon(weapon13);
+		Debug.display("--- Arme spécifique de rareté 2 ---");
+		Debug.printWeapon(weapon14);
+		Debug.display("--- Arme spécifique de rareté 3 ---");
+		Debug.printWeapon(weapon15);
+		Debug.display("--- Arme spécifique de rareté 4 ---");
+		Debug.printWeapon(weapon16);
+		Debug.display("--- Arme spécifique de rareté 5 ---");
+		Debug.printWeapon(weapon17);
+		Debug.display("--- Arme spécifique de rareté 6 ---");
+		Debug.printWeapon(weapon18);
+
+
+		Debug.display("--- Arme de propriété spéciale rang 1 ---");
+		Debug.printWeapon(weapon19);
+		Debug.display("--- Arme de propriété spéciale rang 2 ---");
+		Debug.printWeapon(weapon20);
+		Debug.display("--- Arme de propriété spéciale rang 3 ---");
+		Debug.printWeapon(weapon21);
+		Debug.display("--- Arme de propriété spéciale rang 4 ---");
+		Debug.printWeapon(weapon22);
+		Debug.display("--- Arme de propriété spéciale rang 5 ---");
+		Debug.printWeapon(weapon23);
+		
+		Debug.display("--- Arme de propriété spéciale rang 1 en deuxieme propriété ---");
+		Debug.printWeapon(weapon24);
+		Debug.display("--- Arme de propriété spéciale rang 2 en deuxieme propriété ---");
+		Debug.printWeapon(weapon25);
+		Debug.display("--- Arme de propriété spéciale rang 3 en deuxieme propriété ---");
+		Debug.printWeapon(weapon26);
+		Debug.display("--- Arme de propriété spéciale rang 4 en deuxieme propriété ---");
+		Debug.printWeapon(weapon27);
+		Debug.display("--- Arme de propriété spéciale rang 5 en deuxieme propriété ---");
+		Debug.printWeapon(weapon28);
+

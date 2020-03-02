@@ -1,4 +1,6 @@
-package utility;
+package constant;
+import utility.Data;
+import utility.Tuple;
 import weapon.Material;
 import weapon.MeleeWeapon;
 import weapon.Munition;
@@ -21,7 +23,7 @@ import weapon.WeaponSpecialPropertie;
  * @author Mentra20
  *
  */
-public class Constant {
+public class WeaponConstant {
 
 	// Tableau de drop pour arme de rareté 1.
 	public static Data<Tuple<Integer,Integer>> rarity1(){
