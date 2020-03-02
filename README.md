@@ -5,4 +5,6 @@
 
 ![PathfinderGenerator](Ressources/PathfinderGenerator.png)
 
+#### Pour voir les différentes fonctions de création d'arme : [Weapon Example](Ressources/Weapon_Example.txt).
+
 Documentation du programme. (à venir)
