@@ -1,4 +1,5 @@
 package utility;
+import gemAndJewel.Gem;
 import weapon.Munition;
 import weapon.RangeWeapon;
 import weapon.Type;
@@ -47,7 +48,7 @@ public class Debug {
 		if(displayMode) {
 			String display = "";
 			
-			display += "\nARME : "+ weapon.getName();
+			display += "\nWEAPON : "+ weapon.getName();
 			display += "\nALTERATION : "+ weapon.getAlteration();
 			display += "\nMATERIAL : "+ weapon.getMaterial();
 			
@@ -74,6 +75,21 @@ public class Debug {
 				display += "\nPARTICULAR PROPERTIE : "+ weapon.getParticularPropertie();
 			}
 			
+			
+			display += "\n";
+			
+			System.out.println(display);
+		}
+	}
+	
+	
+	public static void printGem(Gem gem) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nGEM : "+ gem.getName();
+			display += "\nCUT : "+ gem.getCut();
+			display += "\nPRICE : "+ gem.getPrice()+" po";
 			
 			display += "\n";
 			

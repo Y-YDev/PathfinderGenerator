@@ -46,6 +46,7 @@ public class WeaponBuilder{
         case 6 : data.addAll(WeaponConstant.rarity6());//On charge le tableau de drop de rareté 6.
         	break;
         default : Debug.error("erreur case createWeapon"); 
+        	break;
         }
         
         //Tirage
@@ -99,6 +100,7 @@ public class WeaponBuilder{
             case 6: select.addAll(WeaponConstant.specificWeapon6());//Arme spécifique de rareté 6.
         		break;
             default : Debug.error("erreur case specificWeapon");
+            	break;
         }
         
         //Tirage
@@ -258,6 +260,7 @@ public class WeaponBuilder{
     		case 5: data.addAll(WeaponConstant.meleeSpecialPropertie4_5());
 				break;
     		default: Debug.error("Error case special melee");
+    			break;
     		}
     	}
     	if(weapon.getType() == Type.DIST) {
@@ -274,6 +277,7 @@ public class WeaponBuilder{
     		case 5: data.addAll(WeaponConstant.rangeSpecialPropertie3_4());
 				break;
     		default: Debug.error("Error case special range");
+    			break;
     		}
     	}
     	if(weapon.getType() == Type.MUN) {
@@ -290,6 +294,7 @@ public class WeaponBuilder{
     		case 5: data.addAll(WeaponConstant.munitionSpecialPropertie3());
     			break;
     		default: Debug.error("Error case special munition");
+    			break;
     		}
     	}
     	
