@@ -1,6 +1,7 @@
 package constant;
 
 import gemAndJewel.Gem;
+import gemAndJewel.TypeSize;
 import utility.Data;
 import utility.Tuple;
 
@@ -25,4 +26,21 @@ public class GemAndJewelConstant {
 		
 		return res;
 	}
+	
+	
+	public static Data<TypeSize> jewelSize(){
+		Data<TypeSize> res = new Data<TypeSize>();
+		res.add(new Tuple<TypeSize, Integer>(TypeSize.MIN, 1));
+		res.add(new Tuple<TypeSize, Integer>(TypeSize.P, 24));
+		res.add(new Tuple<TypeSize, Integer>(TypeSize.M, 60));
+		res.add(new Tuple<TypeSize, Integer>(TypeSize.G, 8));
+		res.add(new Tuple<TypeSize, Integer>(TypeSize.TG, 4));
+		res.add(new Tuple<TypeSize, Integer>(TypeSize.GIG, 2));
+		res.add(new Tuple<TypeSize, Integer>(TypeSize.COL, 1));
+		
+		return res;
+	}
 }
+
+
+

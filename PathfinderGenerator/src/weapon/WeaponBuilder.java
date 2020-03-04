@@ -107,6 +107,7 @@ public class WeaponBuilder{
         int randomValue = r.nextInt(100)+1;
         Debug.debug("n_spe = "+randomValue);
         
+        Debug.debug("");
         return select.selectObject(randomValue);
     }    
     

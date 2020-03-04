@@ -19,6 +19,12 @@ public class GemAndJewelBuilder {
     /* METHODS */
     
     public Gem makeGem(int grade, boolean cut) {
+    	if(cut) {
+    		Debug.debug("Create cut gem with grade "+grade);
+    	}else {
+    		Debug.debug("Create raw gem with grade "+grade);
+		}
+    	
     	Data<Gem> data = new Data<Gem>();
     	
     	//Chargement des données

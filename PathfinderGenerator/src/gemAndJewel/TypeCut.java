@@ -1,7 +1,7 @@
 package gemAndJewel;
 
 public enum TypeCut {
-	RAW("brute"),CUT("taillée");
+	RAW("brute"),CUT("taillée"),NOTHING("_");
 	
 	private final String cut;
 	
