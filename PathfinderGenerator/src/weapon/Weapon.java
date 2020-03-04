@@ -29,6 +29,7 @@ public class Weapon {
         this.particularPropertie = "_";
     }
     
+    //Constructeur pour les armes spécifiques
     public Weapon(String name) {
     	this.name = name;
     	this.alteration = "_";

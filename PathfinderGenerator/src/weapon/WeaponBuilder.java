@@ -32,6 +32,7 @@ public class WeaponBuilder{
     	//Membre y du tuple : propriété spéciale.
         Data<Tuple<Integer,Integer>> data = new Data<Tuple<Integer,Integer>>();
         
+      //Chargement des données
         switch(rarity) {
         case 1 : data.addAll(WeaponConstant.rarity1()); //On charge le tableau de drop de rareté 1.
         	break;
@@ -86,6 +87,7 @@ public class WeaponBuilder{
     	
         Data<Weapon> select = new Data<Weapon>();
         
+      //Chargement des données
         switch(rarity){
             case 1: select.addAll(WeaponConstant.specificWeapon1());//Arme spécifique de rareté 1.
             	break;
@@ -121,6 +123,7 @@ public class WeaponBuilder{
     	Debug.debug("Create magic weapon with alteration "+alteration+"...");
     	
         Data<Weapon> data = new Data<Weapon>();
+        //Chargement des données
         data.addAll(WeaponConstant.weaponList());
         
         //Tirage
@@ -134,7 +137,7 @@ public class WeaponBuilder{
             Debug.debug("n_wp = "+randomValue);
         }
         
-        
+        //On recupère l'arme
         Weapon currentWeapon = data.selectObject(randomValue);
         currentWeapon.setAlteration(alteration);
         
@@ -143,6 +146,7 @@ public class WeaponBuilder{
             currentWeapon = weaponMun((RangeWeapon) currentWeapon);
         }
         
+        //On applique les matériaux
         currentWeapon = weaponMaterial(currentWeapon);
         
         return currentWeapon;
@@ -156,6 +160,7 @@ public class WeaponBuilder{
     public Weapon weaponMun(RangeWeapon weapon){
         
         Data<Weapon> data = new Data<Weapon>();
+        //Chargement des données
         data.addAll(WeaponConstant.weaponMunition());
         
         //Tirage
@@ -194,6 +199,7 @@ public class WeaponBuilder{
     	
         Data<Material> data = new Data<Material>();
         
+        //Chargement des données.
         if(weapon.getTypeMaterial() == TypeMaterial.WOOD){
             data.addAll(WeaponConstant.woodMaterial());//On charge le matériel bois.
         }
@@ -239,6 +245,7 @@ public class WeaponBuilder{
     			|| weapon.getName() == "autre arme à distance"
     			|| weapon.getName() == "autre munition") {
     		
+    		//On doit le déterminer manuellement.
     		if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(new WeaponSpecialPropertie("à determiner"));
     		else weapon.setSpecialPropertie2(new WeaponSpecialPropertie("à determiner"));
     		
@@ -248,6 +255,7 @@ public class WeaponBuilder{
     	Data<WeaponSpecialPropertie> data = new Data<WeaponSpecialPropertie>();
     	
     	//Chargement de data.
+    	//Une arme au CAC.
     	if(weapon.getType() == Type.CAC_1M || weapon.getType() == Type.CAC_LIGHT || weapon.getType() == Type.CAC_2M) {
     		switch(magicAlteration) {
     		case 1: data.addAll(WeaponConstant.meleeSpecialPropertie1());
@@ -299,6 +307,7 @@ public class WeaponBuilder{
     		}
     	}
     	
+    	//Tirage
     	int randomValue = r.nextInt(100)+1;
     	WeaponSpecialPropertie specialPropertie = data.selectObject(randomValue);
     	Debug.debug("n_spe_prop = "+randomValue);
@@ -310,6 +319,7 @@ public class WeaponBuilder{
     		Debug.debug("n_spe_prop = "+randomValue);
     	}
     	
+    	//On donne la propriété au bon emplacement.
     	if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(specialPropertie);
     	else weapon.setSpecialPropertie2(specialPropertie);
     	
@@ -400,7 +410,7 @@ public class WeaponBuilder{
     		if(specialPropertie.getName() == "Inamovible" && weapon.getSpecialPropertie1().getName() == "Repositionnante") return false;
     	}
     	
-    	
+    	//Aucune restriction a été détecté.
     	return true;
     }
     
@@ -412,6 +422,7 @@ public class WeaponBuilder{
     public Weapon weaponParticularPropertie(Weapon weapon) {
     	Debug.debug("Create particular propertie...");
     	
+    	//Tirage.
     	int randomValue = r.nextInt(100)+1;
     	Debug.debug("n_part_prop = "+randomValue);
     	

@@ -2,28 +2,35 @@ package gemAndJewel;
 
 import utility.Tuple;
 
+/**
+ * Jewel représente un bijoux.
+ * @author Mentra20
+ *
+ */
 public class Jewel {
-	private Material material;
-	private TypeSize size;
-	private TypeJewel type;
-	private TypeJewelWork work;
-	private Tuple<Gem, Integer> GemN;
-	private Tuple<Gem, Integer> GemN_1;
-	private Tuple<Gem, Integer> GemN_2;
-	private double price;
+	private Material material;//Materiel du bijoux.
+	private TypeSize size;//Taile du bijoux.
+	private TypeJewel type;//Type de bijoux.
+	private TypeJewelWork work;//Travail du bijoux.
+	// N représente le grade du bijoux (non retenu ici).
+	private Gem GemN;//Gemme de grade N
+	private Tuple<Gem, Integer> GemN_1;//Gemme de grade N-1
+	private Tuple<Gem, Integer> GemN_2;//Gemme de grade N-2
+	private double price;//Prix du bijoux.
 	
-	
+	/* CONSTRUCTOR */
 	public Jewel() {
 		this.setMaterial(Material.NOTHING);
 		this.setSize(TypeSize.NOTHING);
 		this.setType(TypeJewel.NOTHING);
-		this.setWork(TypeJewelWork.NOTHING);
-		this.setGemN(null);
-		this.setGemN_1(null);
-		this.setGemN_2(null);
+		this.setWork(TypeJewelWork.SIMPLE);
+		this.GemN = null;
+		this.GemN_1 = null;
+		this.GemN_2 = null;
 		this.setPrice(0);
 	}
 
+	/* GETTERS AND SETTER S*/
 
 	public Material getMaterial() {
 		return material;
@@ -65,12 +72,12 @@ public class Jewel {
 	}
 
 
-	public Tuple<Gem, Integer> getGemN() {
+	public Gem getGemN() {
 		return GemN;
 	}
 
 
-	public void setGemN(Tuple<Gem, Integer> gemN) {
+	public void setGemN(Gem gemN) {
 		GemN = gemN;
 	}
 

@@ -1,5 +1,10 @@
 package gemAndJewel;
 
+/**
+ * TypeCut représente le type de gemme (brut ou taillée).
+ * @author Mentra20
+ *
+ */
 public enum TypeCut {
 	RAW("brute"),CUT("taillée"),NOTHING("_");
 	

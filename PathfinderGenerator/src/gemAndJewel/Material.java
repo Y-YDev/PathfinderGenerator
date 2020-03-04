@@ -1,5 +1,10 @@
 package gemAndJewel;
 
+/**
+ * Material représente le type de matériel du bijoux.
+ * @author Mentra20
+ *
+ */
 public enum Material {
 	BRONZE("Bronze",0.5),EBENITE("Ebénite",1),IVOIRE("Ivoire",1.5),FER_FROID("Fer froid",2),
 	ACIER_VIVANT("Acier vivant",2.5),ACIER_ARDENT("Acier ardent",3),VIRIDIUM("Viridium",4),
@@ -8,7 +13,7 @@ public enum Material {
 	OR_BLANC("Or blanc",12),PLATINE("Platine",13),NOTHING("_",-1);
 	
 	private final String name;
-	private final double multiplier;
+	private final double multiplier;//Le facteur au prix du bijoux.
 	
 	private Material(String name,double multiplier) {
 		this.name = name;
@@ -22,10 +27,7 @@ public enum Material {
 	public double getMultiplier() {
 		return multiplier;
 	}
-	
-	public String toString() {
-		return name;
-	}
+
 }
 
 

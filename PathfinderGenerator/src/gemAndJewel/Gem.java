@@ -1,16 +1,23 @@
 package gemAndJewel;
 
+/**
+ * Gem représente une gemme.
+ * @author Mentra20
+ *
+ */
 public class Gem {
-	private String name;
-	private TypeCut cut;
-	private double price;
+	private String name;//Nom de la gemme.
+	private TypeCut cut;//Type de la gemme.
+	private double price;//Prix de la gemme.
 	
+	/* CONSTRUCTOR */
 	public Gem(String name) {
 		this.name = name;
 		this.price = 0;
-		this.cut = TypeCut.RAW;
+		this.cut = TypeCut.NOTHING;
 	}
-
+	
+	/* GETTERS AND SETTERS */
 	public String getName() {
 		return name;
 	}

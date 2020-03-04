@@ -1,5 +1,10 @@
 package gemAndJewel;
 
+/**
+ * TypeJewel représente le type de bijoux dont il s'agit.
+ * @author Mentra20
+ *
+ */
 public enum TypeJewel {
 	BAGUE("Bague",0),EPINGLE_A_CHAPEAU("Epingle à chapeau",0),MEDAILLE("Médaille",0),
 	BOUCLES_D_OREILLES("Boucles d'oreilles",0),PIERCING("Piercing",0),
@@ -12,6 +17,7 @@ public enum TypeJewel {
 	POMME_DE_SENTEUR("Pomme de senteur",2),TIARE("Tiare",2.5),NOTHING("_",0);
 	
 	private final String name;
+	//Modificateur du type de bijoux au prix du bijoux.
 	private final double modificator;
 	
 	private TypeJewel(String name,double modificator) {
@@ -27,8 +33,5 @@ public enum TypeJewel {
 		return name;
 	}
 	
-	public String toString() {
-		return name;
-	}
 }
 

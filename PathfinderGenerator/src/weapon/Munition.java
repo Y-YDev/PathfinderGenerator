@@ -14,7 +14,7 @@ public class Munition extends Weapon{
         this.quantity = quantity;
     }
     
-    public Munition(String name) {
+    public Munition(String name) {//Constructeur pour munition d'arme à distance.
     	super(name,null,null,Type.MUN,TypeDamage.NOTHING,TypeMaterial.STEEL);
     	this.quantity = "_";
     }
