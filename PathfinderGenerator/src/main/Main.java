@@ -3,6 +3,7 @@ import gemAndJewel.Gem;
 import gemAndJewel.GemAndJewelBuilder;
 import gemAndJewel.Jewel;
 import utility.Debug;
+import utility.Tuple;
 import weapon.Weapon;
 import weapon.WeaponBuilder;
 
@@ -16,14 +17,12 @@ public class Main {
 		GemAndJewelBuilder gemAndJewelBuilder = new GemAndJewelBuilder();
 		
 		Weapon weapon = weaponBuilder.createWeapon(6);
-		Gem gem = gemAndJewelBuilder.createGem(1, true);
-		Jewel jewel = gemAndJewelBuilder.createJewel(1);
+		Tuple<Gem, Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(1);
 		
 		Debug.printWeapon(weapon);
-		Debug.printGem(gem);
-		Debug.printJewel(jewel);
-
+		Debug.printGemOrJewel(tuple);
 		
+		Debug.display("");
 		Debug.debug("SUCCEED");
 	}
 	

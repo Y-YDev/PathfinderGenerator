@@ -83,8 +83,6 @@ public class Debug {
 				display += "\nPARTICULAR PROPERTIE : "+ weapon.getParticularPropertie();
 			}
 			
-			display += "\n";
-			
 			System.out.println(display);
 		}
 	}
@@ -101,8 +99,6 @@ public class Debug {
 			display += "\nCUT : "+ gem.getCut();
 			display += "\nPRICE : "+ gem.getPrice()+" po";
 			
-			display += "\n";
-			
 			System.out.println(display);
 		}
 	}
@@ -115,7 +111,7 @@ public class Debug {
 		if(displayMode) {
 			String display = "";
 			
-			display += "\nNAME : "+jewel.getType().getName();
+			display += "\nJEWEL : "+jewel.getType().getName();
 			display += "\nMATERIAL : "+jewel.getMaterial().getName();
 			display += "\nWORK : "+jewel.getWork().getName();
 			display += "\nSIZE : "+jewel.getSize().getName();
@@ -147,10 +143,21 @@ public class Debug {
 				display += "\n\tPRICE : "+gem.getPrice()+" po";
 			}
 			
-			display += "\n";
-			
 			System.out.println(display);
 			
+		}
+	}
+	
+	/**
+	 * Affiche une gemme ou un bijoux
+	 * @param tuple : le tuple qui contient la gemme ou le bijoux.
+	 */
+	public static void printGemOrJewel(Tuple<Gem,Jewel> tuple) {
+		if(tuple.getX() != null) {
+			printGem(tuple.getX());
+		}
+		if(tuple.getY() != null) {
+			printJewel(tuple.getY());
 		}
 	}
 	

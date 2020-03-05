@@ -7,8 +7,26 @@ import gemAndJewel.TypeSize;
 import utility.Data;
 import utility.Tuple;
 
+/**
+ * GemAndJewelConstant contient toutes les constantes utiles 
+ * pour la création de gemmes et de bijoux.
+ * @author Mentra20
+ *
+ */
 public class GemAndJewelConstant {
 	
+	// Tableau de drop de creation des gemmes ou bijoux de grade 1.
+	public static Data<Integer> grade1(){
+		Data<Integer> res = new Data<Integer>();
+		res.add(new Tuple<Integer, Integer>(1, 20));
+		res.add(new Tuple<Integer, Integer>(2, 40));
+		res.add(new Tuple<Integer, Integer>(3, 40));
+		
+		return res;
+	}
+	
+	
+	// Tableau de drop des gemmes de grade 1.
 	public static Data<Gem> gemGrade1(){
 		Data<Gem> res = new Data<Gem>();
 		res.add(new Tuple<Gem, Integer>(new Gem("agate"), 8));
@@ -29,7 +47,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
-	
+	// Tableau de tirage des tailles de bijoux.
 	public static Data<TypeSize> jewelSize(){
 		Data<TypeSize> res = new Data<TypeSize>();
 		res.add(new Tuple<TypeSize, Integer>(TypeSize.MIN, 1));
@@ -43,6 +61,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
+	// Tableau de tirage des types de bijoux de grade 1.
 	public static Data<TypeJewel> jewelType1(){
 		Data<TypeJewel> res = new Data<TypeJewel>();
 		res.add(new Tuple<TypeJewel, Integer>(TypeJewel.BAGUE, 22));
@@ -66,6 +85,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
+	// Tableau de tirage des matériaux de bijoux de grade 1.
 	public static Data<Material> jewelMaterial1(){
 		Data<Material> res = new Data<Material>();
 		res.add(new Tuple<Material, Integer>(Material.BRONZE, 25));

@@ -25,6 +25,49 @@ public class GemAndJewelBuilder {
     /* METHODS */
     
     /**
+     * createGemOrJewel créer une gemme ou un bijoux selon le drop.
+     * @param grade : grade du bijoux ou de la gemme
+     * @return un tuple contenant un bijoux et une gemme (un des deux est null).
+     */
+    public Tuple<Gem, Jewel> createGemOrJewel(int grade){
+    	Debug.debug("Choosing gem or jewel...");
+    	
+    	Data<Integer> data = new Data<Integer>();
+    	
+    	//Chargement des données.
+    	switch (grade) {
+		case 1: data.addAll(GemAndJewelConstant.grade1());
+			break;
+		default: Debug.error("Error switch createGemOrJewel");
+			break;
+		}
+    	
+    	//Tirage
+        int randomValue = r.nextInt(100)+1;
+        Debug.debug("n_choice = "+randomValue);
+    	int choice = data.selectObject(randomValue);
+    	
+    	//On retourne un tuple à moitié vide.
+    	if(choice == 1) {//Gemme brute
+    		Gem res = createGem(grade, false);
+    		return new Tuple<Gem, Jewel>(res, null);
+    	}
+    	if(choice == 2) {//Gemme taillée
+    		Gem res = createGem(grade, true);
+    		return new Tuple<Gem, Jewel>(res, null);
+    	}
+    	if(choice == 3) {//Bijoux
+    		Jewel res = createJewel(grade);
+    		return new Tuple<Gem, Jewel>(null,res);
+    	}
+    	else {
+    		Debug.debug("Error on choice drop");
+    		return null;
+    	}
+    }
+    
+    
+    /**
      * CreateGem créer une gemme.
      * @param grade : grade de la gemme.
      * @param cut : true si elle est taillée, brut sinon.
