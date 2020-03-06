@@ -6,5 +6,6 @@
 ![PathfinderGenerator](Ressources/PathfinderGenerator.png)
 
 #### Pour voir les différentes fonctions de création d'arme : [Weapon Example](Ressources/Weapon_Example.txt).
+#### Pour voir les différentes fonctions de création de gemmes et bijoux : [Gem and Jewel Example](Ressources/GemAndJewel_Example.txt).
 
 Documentation du programme. (à venir)
