@@ -10,6 +10,12 @@ import utility.Tuple;
 /**
  * GemAndJewelConstant contient toutes les constantes utiles 
  * pour la création de gemmes et de bijoux.
+ * Grade 1 : faible inférieur
+ * Grade 2 : faible supérieur
+ * Grade 3 : intermédiaire inférieur
+ * Grade 4 : intermédiaire supérieur
+ * Grade 5 : puissant inférieur
+ * Grade 6 : puissant supérieur
  * @author Mentra20
  *
  */
