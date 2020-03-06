@@ -38,6 +38,16 @@ public class GemAndJewelBuilder {
     	switch (grade) {
 		case 1: data.addAll(GemAndJewelConstant.grade1());
 			break;
+		case 2: data.addAll(GemAndJewelConstant.grade2());
+			break;
+		case 3: data.addAll(GemAndJewelConstant.grade3());
+			break;
+		case 4: data.addAll(GemAndJewelConstant.grade4());
+			break;
+		case 5: data.addAll(GemAndJewelConstant.grade5());
+			break;
+		case 6: data.addAll(GemAndJewelConstant.grade6());
+			break;
 		default: Debug.error("Error switch createGemOrJewel");
 			break;
 		}
@@ -86,6 +96,16 @@ public class GemAndJewelBuilder {
     	switch(grade) {
 		case 1: data.addAll(GemAndJewelConstant.gemGrade1());
 			break;
+		case 2: data.addAll(GemAndJewelConstant.gemGrade2());
+			break;
+		case 3: data.addAll(GemAndJewelConstant.gemGrade3());
+			break;
+		case 4: data.addAll(GemAndJewelConstant.gemGrade4());
+			break;
+		case 5: data.addAll(GemAndJewelConstant.gemGrade5());
+			break;
+		case 6: data.addAll(GemAndJewelConstant.gemGrade6());
+			break;
 		default: Debug.error("Error on makeGem switch : data");
 			break;
 		}
@@ -98,6 +118,16 @@ public class GemAndJewelBuilder {
         //Ajout du prix constant en fonction du grade.
         switch (grade) {
 		case 1: gem.setPrice(5);
+			break;
+		case 2: gem.setPrice(25);
+			break;
+		case 3: gem.setPrice(50);
+			break;
+		case 4: gem.setPrice(250);
+			break;
+		case 5: gem.setPrice(500);
+			break;
+		case 6: gem.setPrice(2500);
 			break;
 		default: Debug.error("Error on makeGem switch : price");
 			break;
@@ -116,6 +146,16 @@ public class GemAndJewelBuilder {
         	switch (grade) {
     		case 1: gem.setPrice(gem.getPrice() + cutVal * 1);
     			break;
+    		case 2: gem.setPrice(gem.getPrice() + cutVal * 5);
+				break;
+    		case 3: gem.setPrice(gem.getPrice() + cutVal * 10);
+				break;
+    		case 4: gem.setPrice(gem.getPrice() + cutVal * 50);
+				break;
+    		case 5: gem.setPrice(gem.getPrice() + cutVal * 100);
+				break;
+    		case 6: gem.setPrice(gem.getPrice() + cutVal * 500);
+				break;
     		default: Debug.error("Error on makeGem switch : cut");
     			break;
     		}
@@ -141,6 +181,16 @@ public class GemAndJewelBuilder {
     	//Ajout du prix constant en fonction du grade
     	switch (grade) {
 		case 1: jewel.setPrice(0.5);
+			break;
+		case 2: jewel.setPrice(2.5);
+			break;
+		case 3: jewel.setPrice(5);
+			break;
+		case 4: jewel.setPrice(25);
+			break;
+		case 5: jewel.setPrice(50);
+			break;
+		case 6: jewel.setPrice(250);
 			break;
 		default: Debug.error("Error on createJewel : price");
 			break;
@@ -189,6 +239,16 @@ public class GemAndJewelBuilder {
     	switch(grade) {
 		case 1: data.addAll(GemAndJewelConstant.jewelType1());
 			break;
+		case 2: data.addAll(GemAndJewelConstant.jewelType2());
+			break;
+		case 3: data.addAll(GemAndJewelConstant.jewelType3());
+			break;
+		case 4: data.addAll(GemAndJewelConstant.jewelType4());
+			break;
+		case 5: data.addAll(GemAndJewelConstant.jewelType5());
+			break;
+		case 6: data.addAll(GemAndJewelConstant.jewelType6());
+			break;
 		default: Debug.error("Error on jewelType switch : data");
 			break;
 		}
@@ -233,6 +293,16 @@ public class GemAndJewelBuilder {
     	//Chargement des données
     	switch(grade) {
 		case 1: data.addAll(GemAndJewelConstant.jewelMaterial1());
+			break;
+		case 2: data.addAll(GemAndJewelConstant.jewelMaterial2());
+			break;
+		case 3: data.addAll(GemAndJewelConstant.jewelMaterial3());
+			break;
+		case 4: data.addAll(GemAndJewelConstant.jewelMaterial4());
+			break;
+		case 5: data.addAll(GemAndJewelConstant.jewelMaterial5());
+			break;
+		case 6: data.addAll(GemAndJewelConstant.jewelMaterial6());
 			break;
 		default: Debug.error("Error on jewelMaterial switch : data");
 			break;

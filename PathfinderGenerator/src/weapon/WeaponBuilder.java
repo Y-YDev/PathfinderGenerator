@@ -406,8 +406,12 @@ public class WeaponBuilder{
     	
     	//Cas avec deux propriétés incompatible
     	if(weapon.getSpecialPropertie1().getName() != "_") {//Si on a déjà une capacité.
+    		//On doit check dans les deux sens.
     		if(specialPropertie.getName() == "Repositionnante" && weapon.getSpecialPropertie1().getName() == "Inamovible") return false;
     		if(specialPropertie.getName() == "Inamovible" && weapon.getSpecialPropertie1().getName() == "Repositionnante") return false;
+    		
+    		//On ne peut avoir deux fois la même capacité sur l'arme.
+    		if(specialPropertie.getName() == weapon.getSpecialPropertie1().getName()) return false;
     	}
     	
     	//Aucune restriction a été détecté.

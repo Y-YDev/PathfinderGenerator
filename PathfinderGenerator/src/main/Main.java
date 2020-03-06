@@ -15,9 +15,9 @@ public class Main {
 		
 		WeaponBuilder weaponBuilder = new WeaponBuilder();
 		GemAndJewelBuilder gemAndJewelBuilder = new GemAndJewelBuilder();
-		
+
 		Weapon weapon = weaponBuilder.createWeapon(6);
-		Tuple<Gem, Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(1);
+		Tuple<Gem,Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(6);
 		
 		Debug.printWeapon(weapon);
 		Debug.printGemOrJewel(tuple);

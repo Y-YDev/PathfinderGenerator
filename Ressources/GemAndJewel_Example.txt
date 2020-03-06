@@ -1,0 +1,112 @@
+		
+		/* 
+		 * Ce fichier est à copier-coller dans main.java 
+		 * Il donne des exemples de création de gemmes et bijoux afin de comprendre  
+		 * le fonctionnement des méthodes de GemAndJewelBuilder.java
+		 */
+
+		// Gemme ou bijoux de grade 1.
+		Tuple<Gem, Jewel> tuple1 = gemAndJewelBuilder.createGemOrJewel(1);
+		// Gemme ou bijoux de grade 2.
+		Tuple<Gem, Jewel> tuple2 = gemAndJewelBuilder.createGemOrJewel(2);
+		// Gemme ou bijoux de grade 3.
+		Tuple<Gem, Jewel> tuple3 = gemAndJewelBuilder.createGemOrJewel(3);
+		// Gemme ou bijoux de grade 4.
+		Tuple<Gem, Jewel> tuple4 = gemAndJewelBuilder.createGemOrJewel(4);
+		// Gemme ou bijoux de grade 5.
+		Tuple<Gem, Jewel> tuple5 = gemAndJewelBuilder.createGemOrJewel(5);
+		// Gemme ou bijoux de grade 6.
+		Tuple<Gem, Jewel> tuple6 = gemAndJewelBuilder.createGemOrJewel(6);
+		
+		// Gemme de grade 1 brute.
+		Gem gem1 = gemAndJewelBuilder.createGem(1, false);
+		// Gemme de grade 2 brute.
+		Gem gem2 = gemAndJewelBuilder.createGem(2, false);
+		// Gemme de grade 3 brute.
+		Gem gem3 = gemAndJewelBuilder.createGem(3, false);
+		// Gemme de grade 4 brute.
+		Gem gem4 = gemAndJewelBuilder.createGem(4, false);
+		// Gemme de grade 5 brute.
+		Gem gem5 = gemAndJewelBuilder.createGem(5, false);
+		// Gemme de grade 6 brute.
+		Gem gem6 = gemAndJewelBuilder.createGem(6, false);
+		
+		// Gemme de grade 1 taillée.
+		Gem gem7 = gemAndJewelBuilder.createGem(1, true);
+		// Gemme de grade 2 taillée.
+		Gem gem8 = gemAndJewelBuilder.createGem(2, true);
+		// Gemme de grade 3 taillée.
+		Gem gem9 = gemAndJewelBuilder.createGem(3, true);
+		// Gemme de grade 4 taillée.
+		Gem gem10 = gemAndJewelBuilder.createGem(4, true);
+		// Gemme de grade 5 taillée.
+		Gem gem11 = gemAndJewelBuilder.createGem(5, true);
+		// Gemme de grade 6 taillée.
+		Gem gem12 = gemAndJewelBuilder.createGem(6, true);
+		
+		// Bijoux de grade 1.
+		Jewel jewel1 = gemAndJewelBuilder.createJewel(1);
+		// Bijoux de grade 2.
+		Jewel jewel2 = gemAndJewelBuilder.createJewel(2);
+		// Bijoux de grade 3.
+		Jewel jewel3 = gemAndJewelBuilder.createJewel(3);
+		// Bijoux de grade 4.
+		Jewel jewel4 = gemAndJewelBuilder.createJewel(4);
+		// Bijoux de grade 5.
+		Jewel jewel5 = gemAndJewelBuilder.createJewel(5);
+		// Bijoux de grade 6.
+		Jewel jewel6 = gemAndJewelBuilder.createJewel(6);
+		
+		
+		
+		Debug.display("--- Gemme ou bijoux de grade 1 ---");
+		Debug.printGemOrJewel(tuple1);
+		Debug.display("--- Gemme ou bijoux de grade 2 ---");
+		Debug.printGemOrJewel(tuple2);
+		Debug.display("--- Gemme ou bijoux de grade 3 ---");
+		Debug.printGemOrJewel(tuple3);
+		Debug.display("--- Gemme ou bijoux de grade 4 ---");
+		Debug.printGemOrJewel(tuple4);
+		Debug.display("--- Gemme ou bijoux de grade 5 ---");
+		Debug.printGemOrJewel(tuple5);
+		Debug.display("--- Gemme ou bijoux de grade 6 ---");
+		Debug.printGemOrJewel(tuple6);
+		
+		Debug.display("--- Gemme de grade 1 brute ---");
+		Debug.printGem(gem1);
+		Debug.display("--- Gemme de grade 2 brute ---");
+		Debug.printGem(gem2);
+		Debug.display("--- Gemme de grade 3 brute ---");
+		Debug.printGem(gem3);
+		Debug.display("--- Gemme de grade 4 brute ---");
+		Debug.printGem(gem4);
+		Debug.display("--- Gemme de grade 5 brute ---");
+		Debug.printGem(gem5);
+		Debug.display("--- Gemme de grade 6 brute ---");
+		Debug.printGem(gem6);
+		
+		Debug.display("--- Gemme de grade 1 taillée ---");
+		Debug.printGem(gem7);
+		Debug.display("--- Gemme de grade 2 taillée ---");
+		Debug.printGem(gem8);
+		Debug.display("--- Gemme de grade 3 taillée ---");
+		Debug.printGem(gem9);
+		Debug.display("--- Gemme de grade 4 taillée ---");
+		Debug.printGem(gem10);
+		Debug.display("--- Gemme de grade 5 taillée ---");
+		Debug.printGem(gem11);
+		Debug.display("--- Gemme de grade 6 taillée ---");
+		Debug.printGem(gem12);
+		
+		Debug.display("--- Bijoux de grade 1 ---");
+		Debug.printJewel(jewel1);
+		Debug.display("--- Bijoux de grade 2 ---");
+		Debug.printJewel(jewel2);
+		Debug.display("--- Bijoux de grade 3 ---");
+		Debug.printJewel(jewel3);
+		Debug.display("--- Bijoux de grade 4 ---");
+		Debug.printJewel(jewel4);
+		Debug.display("--- Bijoux de grade 5 ---");
+		Debug.printJewel(jewel5);
+		Debug.display("--- Bijoux de grade 6 ---");
+		Debug.printJewel(jewel6);

@@ -83,6 +83,7 @@ public class Debug {
 				display += "\nPARTICULAR PROPERTIE : "+ weapon.getParticularPropertie();
 			}
 			
+			display += "\n";
 			System.out.println(display);
 		}
 	}
@@ -99,6 +100,7 @@ public class Debug {
 			display += "\nCUT : "+ gem.getCut();
 			display += "\nPRICE : "+ gem.getPrice()+" po";
 			
+			display += "\n";
 			System.out.println(display);
 		}
 	}
@@ -143,6 +145,7 @@ public class Debug {
 				display += "\n\tPRICE : "+gem.getPrice()+" po";
 			}
 			
+			display += "\n";
 			System.out.println(display);
 			
 		}
