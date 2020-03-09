@@ -22,7 +22,7 @@ public class WeaponBuilder{
 
     /**
      * Crée une arme selon la rareté donnée.
-     * @param rarity
+     * @param rarity : la rareté.
      * @return l'arme créée.
      */
     public Weapon createWeapon(int rarity){

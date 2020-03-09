@@ -71,7 +71,7 @@ public class GemAndJewelBuilder {
     		return new Tuple<Gem, Jewel>(null,res);
     	}
     	else {
-    		Debug.debug("Error on choice drop");
+    		Debug.error("Error on choice drop");
     		return null;
     	}
     }
