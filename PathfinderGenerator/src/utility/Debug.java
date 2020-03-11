@@ -1,6 +1,7 @@
 package utility;
 import gemAndJewel.Gem;
 import gemAndJewel.Jewel;
+import potion.Potion;
 import weapon.Munition;
 import weapon.RangeWeapon;
 import weapon.Type;
@@ -161,6 +162,30 @@ public class Debug {
 		}
 		if(tuple.getY() != null) {
 			printJewel(tuple.getY());
+		}
+	}
+	
+	/**
+	 * printPotion affiche une potion.
+	 * @param potion : la potion à affichée.
+	 */
+	public static void printPotion(Potion potion) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nPOTION : "+potion.getName();
+			display += "\nSPELL LEVEL : "+potion.getNds();
+			display += "\nCASTER LEVEL : "+potion.getNls();
+			display += "\nPRICE : "+potion.getPrice()+" po";
+			
+			if(debugMode) {
+				display += "\nTYPE : ";
+				if(potion.isUncommon()) display += "uncommon";
+				else display += "common";
+			}
+			
+			display += "\n";
+			System.out.println(display);
 		}
 	}
 	

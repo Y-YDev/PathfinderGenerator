@@ -5,6 +5,9 @@
 		 * le fonctionnement des méthodes de GemAndJewelBuilder.java
 		 */
 
+		//Le builder
+		GemAndJewelBuilder gemAndJewelBuilder = new GemAndJewelBuilder();
+
 		// Gemme ou bijoux de grade 1.
 		Tuple<Gem, Jewel> tuple1 = gemAndJewelBuilder.createGemOrJewel(1);
 		// Gemme ou bijoux de grade 2.

@@ -12,7 +12,7 @@ import weapon.Weapon;
 import weapon.WeaponSpecialPropertie;
 
 /**
- * Constant contient les constantes pour les tirages du générateur.
+ * Constant contient les constantes des armes pour les tirages du générateur.
  * Basé sur le tableau : Generateur_de_tresor.ods (en lien sur Github).
  * Rareté 1 : faible inférieur
  * Rareté 2 : faible supérieur

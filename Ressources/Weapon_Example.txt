@@ -5,6 +5,9 @@
 		 * le fonctionnement des méthodes de WeaponBuilder.java
 		 */
 		
+		//Le builder
+		WeaponBuilder weaponBuilder = new WeaponBuilder();
+
 		//Arme de rareté 1.
 		Weapon weapon1 = weaponBuilder.createWeapon(1);
 		//Arme de rareté 2.

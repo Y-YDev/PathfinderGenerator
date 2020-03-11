@@ -1,0 +1,63 @@
+/* 
+		 * Ce fichier est à copier-coller dans main.java 
+		 * Il donne des exemples de création de potions afin de comprendre  
+		 * le fonctionnement des méthodes de PotionBuilder.java
+		 */
+
+		//Le builder
+		PotionBuilder potionBuilder = new PotionBuilder();
+
+		//potion commune de nds 1.
+		Potion potion1 = potionBuilder.createCommonPotion(1);
+		//potion commune de nds 2.
+		Potion potion2 = potionBuilder.createCommonPotion(2);
+		//potion commune de nds 3.
+		Potion potion3 = potionBuilder.createCommonPotion(3);
+
+		//potion hors du commun de nds 1.
+		Potion potion4 = potionBuilder.createUncommonPotion(1);
+		//potion hors du commun de nds 2.
+		Potion potion5 = potionBuilder.createUncommonPotion(2);
+		//potion hors du commun de nds 3.
+		Potion potion6 = potionBuilder.createUncommonPotion(3);
+
+		//potion de rareté 1.
+		Potion potion7 = potionBuilder.createPotion(1);
+		//potion de rareté 1.
+		Potion potion8 = potionBuilder.createPotion(2);
+		//potion de rareté 1.
+		Potion potion9 = potionBuilder.createPotion(3);
+		//potion de rareté 1.
+		Potion potion10 = potionBuilder.createPotion(4);
+		//potion de rareté 1.
+		Potion potion11 = potionBuilder.createPotion(5);
+		//potion de rareté 1.
+		Potion potion12 = potionBuilder.createPotion(6);
+
+
+		Debug.display("--- Potion commune de nds 1");
+		Debug.printPotion(potion1);
+		Debug.display("--- Potion commune de nds 2");
+		Debug.printPotion(potion2);
+		Debug.display("--- Potion commune de nds 3");
+		Debug.printPotion(potion3);
+
+		Debug.display("--- Potion hors du commun de nds 1");
+		Debug.printPotion(potion4);
+		Debug.display("--- Potion hors du commun de nds 2");
+		Debug.printPotion(potion5);
+		Debug.display("--- Potion hors du commun de nds 3");
+		Debug.printPotion(potion6);
+
+		Debug.display("--- Potion de rareté 1");
+		Debug.printPotion(potion7);
+		Debug.display("--- Potion de rareté 2");
+		Debug.printPotion(potion8);
+		Debug.display("--- Potion de rareté 3");
+		Debug.printPotion(potion9);
+		Debug.display("--- Potion de rareté 4");
+		Debug.printPotion(potion10);
+		Debug.display("--- Potion de rareté 5");
+		Debug.printPotion(potion11);
+		Debug.display("--- Potion de rareté 6");
+		Debug.printPotion(potion12);

@@ -10,6 +10,7 @@ import utility.Tuple;
 /**
  * GemAndJewelConstant contient toutes les constantes utiles 
  * pour la création de gemmes et de bijoux.
+ * Basé sur le tableau : Generateur_de_tresor.ods (en lien sur Github).
  * Grade 1 : faible inférieur
  * Grade 2 : faible supérieur
  * Grade 3 : intermédiaire inférieur
