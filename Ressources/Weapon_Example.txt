@@ -23,25 +23,29 @@
 		
 
 		//Arme d'altération +1.
-		Weapon weapon7 = weaponBuilder.magicWeapon("+1");
+		Weapon weapon7 = weaponBuilder.magicWeapon(1);
 		Debug.debug("");
 		//Arme d'altération +2.
-		Weapon weapon8 = weaponBuilder.magicWeapon("+2");
+		Weapon weapon8 = weaponBuilder.magicWeapon(2);
 		Debug.debug("");
 		//Arme d'altération +3.
-		Weapon weapon9 = weaponBuilder.magicWeapon("+3");
+		Weapon weapon9 = weaponBuilder.magicWeapon(3);
 		Debug.debug("");
 		//Arme d'altération +4.
-		Weapon weapon10 = weaponBuilder.magicWeapon("+4");
+		Weapon weapon10 = weaponBuilder.magicWeapon(4);
 		Debug.debug("");
 		//Arme d'altération +5.
-		Weapon weapon11 = weaponBuilder.magicWeapon("+5");
+		Weapon weapon11 = weaponBuilder.magicWeapon(5);
 		Debug.debug("");
 	
 		//Arme de maitre.
-		Weapon weapon12 = weaponBuilder.magicWeapon("de maitre");
+		Weapon weapon12 = weaponBuilder.magicWeapon(-2);
 		Debug.debug("");
 		
+		//Arme classique.
+		Weapon weapon12_2 = weaponBuilder.magicWeapon(0);
+		Debug.debug("");
+
 		//Arme spécifique de rareté 1.
 		Weapon weapon13 = weaponBuilder.specificWeapon(1);
 		Debug.debug("");
@@ -138,6 +142,9 @@
 
 		Debug.display("--- Arme d'altération de maître ---");
 		Debug.printWeapon(weapon12);
+
+		Debug.display("--- Arme classique ---");
+		Debug.printWeapon(weapon12_2);
 
 		Debug.display("--- Arme spécifique de rareté 1 ---");
 		Debug.printWeapon(weapon13);

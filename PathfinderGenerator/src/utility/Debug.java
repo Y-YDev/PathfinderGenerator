@@ -56,14 +56,25 @@ public class Debug {
 			String display = "";
 			
 			display += "\nWEAPON : "+ weapon.getName();
-			display += "\nALTERATION : "+ weapon.getAlteration();
+			if(weapon.isMasterWork()) display += " de maître";
+			
+			display += "\nALTERATION : ";
+			if(weapon.getAlteration() == -2) display += "+1 jet d'attaque";//Arme de maitre.
+			else if(weapon.getAlteration() == -1) display += "_";//Arme spécifique.
+			else display += "+"+weapon.getAlteration();
+			
 			display += "\nMATERIAL : "+ weapon.getMaterial();
 			
 			if(weapon.getType() == Type.DIST) {
+				
 				display += "\nMUNITION : "+ ((RangeWeapon) weapon).getMunition().getQuantity();
-				if(((RangeWeapon) weapon).getMunition().getQuantity() != "_") {
+				//Si l'arme à des munitions.
+				if(((RangeWeapon) weapon).getMunition().getStringQuantity() != "0") {
 					//On ajoute le nom de la munition.
 					display += " ("+((RangeWeapon) weapon).getMunition().getName()+")";
+					//On ajout des infos sur les munitions;
+					display += "\n\tMUNITION PRICE : "+ ((RangeWeapon) weapon).getMunition().getPrice()+" po";
+					display += "\n\tMUNITION WEIGTH : "+((RangeWeapon) weapon).getMunition().getWeight()+" kg";
 				}
 			}
 			if(weapon.getType() == Type.MUN) {
@@ -71,18 +82,46 @@ public class Debug {
 			}
 			
 			//Info de debug.
-			if(debugMode) display += "\nTYPE : "+ weapon.getType();
-			if(debugMode) display += "\nTYPE DAMAGE : "+ weapon.getTypeDamage();
+			if(debugMode) {
+				display += "\nTYPE : "+ weapon.getType();
+				display += "\nTYPE DAMAGE : "+ weapon.getTypeDamage();
+			}
+			
 			
 			//Si l'arme a des propriétés spéciales.
 			if(weapon.getSpecialPropertie1().getName() != "_") {
 				display += "\nSPECIAL PROPERTIE 1 : "+ weapon.getSpecialPropertie1().getName();
 				
-				if(weapon.getSpecialPropertie2().getName() != "_")
+				if(debugMode) {//Affichae pour debug
+					if(weapon.getSpecialPropertie1().getMagicAlterationOrPrice() > 10) {
+						//On a directement le prix de l'alteration magique.
+						display += "\n\tMAGIC ALTERATION PRICE : "+ weapon.getSpecialPropertie1().getMagicAlterationOrPrice()+" po";
+					}
+					else {//C'est un rang d'alteration magique
+						display += "\n\tMAGIC ALTERATION PROPERTIE 1 : "+ weapon.getSpecialPropertie1().getMagicAlterationOrPrice();
+					}
+				}
+				
+				//Si l'arme a une deuxieme propriété spéciale.
+				if(weapon.getSpecialPropertie2().getName() != "_") {
 					display += "\nSPECIAL PROPERTIE 2 : "+ weapon.getSpecialPropertie2().getName();
+					
+					if(debugMode) {//Affichae pour debug
+						if(weapon.getSpecialPropertie2().getMagicAlterationOrPrice() > 10) {
+							//On a directement le prix de l'alteration magique.
+							display += "\n\tMAGIC ALTERATION PRICE : "+ weapon.getSpecialPropertie2().getMagicAlterationOrPrice()+" po";
+						}
+						else {//C'est un rang d'alteration magique
+							display += "\n\tMAGIC ALTERATION PROPERTIE 2 : "+ weapon.getSpecialPropertie2().getMagicAlterationOrPrice();
+						}
+					}
+				}
 				
 				display += "\nPARTICULAR PROPERTIE : "+ weapon.getParticularPropertie();
 			}
+			
+			display += "\nWEIGHT : "+ weapon.getWeight()+" kg";
+			display += "\nPRICE : "+ weapon.getPrice()+" po";
 			
 			display += "\n";
 			System.out.println(display);

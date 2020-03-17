@@ -7,8 +7,8 @@ package weapon;
  */
 public class MeleeWeapon extends Weapon{
     
-    public MeleeWeapon(String name, String alteration, Material material,Type type, TypeDamage typeDamage, TypeMaterial typeMaterial){
-        super(name,alteration,material,type,typeDamage,typeMaterial);
+    public MeleeWeapon(String name,Type type, TypeDamage typeDamage, TypeMaterial typeMaterial,double price,double weight){
+        super(name,type,typeDamage,typeMaterial,price,weight);
     }
     
 }

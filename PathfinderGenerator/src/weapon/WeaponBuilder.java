@@ -55,11 +55,12 @@ public class WeaponBuilder{
         Debug.debug("n_choice = "+randomValue);
         Tuple<Integer,Integer> tuple = data.selectObject(randomValue);
         
-        if (tuple.getX()== 0) return specificWeapon(rarity);//L'arme est une arme spécifique.
-        String alteration;
-        if (tuple.getX() == -1) alteration = "maitre";//L'arme est une arme de maitre.
-        else alteration = "+"+tuple.getX();//L'arme est une arme magique.
+        int alteration;
         
+        if (tuple.getX() == -1) return specificWeapon(rarity);//L'arme est une arme spécifique.
+        else alteration = tuple.getX();//L'arme est une arme magique.
+        //L'alteration vaut 0 si rien et -2 si de maitre.
+       
         Weapon weapon = magicWeapon(alteration);
         
         //On doit ajouter une propriété spéciale
@@ -72,6 +73,10 @@ public class WeaponBuilder{
         		weapon = weaponSpecialPropertie(weapon,tuple.getY()/10,2);
         	}
         }
+        
+        //Ajout du prix des propriétés spéciales à l'arme.
+        weapon = weaponSpecialPrice(weapon);
+        
         //Pour le debug de plusieures armes.
         Debug.debug("");
         return weapon;
@@ -115,11 +120,11 @@ public class WeaponBuilder{
     
     
     /**
-     * Créer une arme magique.
+     * Créer une arme magique. (aussi arme normale +0 et arme de maitre...)
      * @param alteration : l'altération de l'arme.
      * @return l'arme créée.
      */
-    public Weapon magicWeapon(String alteration){
+    public Weapon magicWeapon(int alteration){
     	Debug.debug("Create magic weapon with alteration "+alteration+"...");
     	
         Data<Weapon> data = new Data<Weapon>();
@@ -141,13 +146,26 @@ public class WeaponBuilder{
         Weapon currentWeapon = data.selectObject(randomValue);
         currentWeapon.setAlteration(alteration);
         
+        //L'arme est une munition.
+        if(currentWeapon.getType() == Type.MUN) {
+        	//On lui change le nombre de munition.
+        	currentWeapon = weaponMunitionQuantity((Munition) currentWeapon);
+        }
+        
         if(currentWeapon.getType() == Type.DIST){
         	//On doit tirer le drop de munition.
-            currentWeapon = weaponMun((RangeWeapon) currentWeapon);
+            currentWeapon = weaponMunition((RangeWeapon) currentWeapon);
         }
+        
+        //Debug prix de base et le poid
+        Debug.debug("Based price : "+currentWeapon.getPrice());
+        Debug.debug("Based weight : "+currentWeapon.getWeight());
         
         //On applique les matériaux
         currentWeapon = weaponMaterial(currentWeapon);
+        
+        //Rend éventuellement l'arme en arme de maitre.
+        currentWeapon = isWeaponMaster(currentWeapon);
         
         return currentWeapon;
     }
@@ -157,7 +175,7 @@ public class WeaponBuilder{
      * @param weapon : l'arme à modifiée.
      * @return l'arme modifiée/Créée.
      */
-    public Weapon weaponMun(RangeWeapon weapon){
+    public Weapon weaponMunition(RangeWeapon weapon){
         
         Data<Weapon> data = new Data<Weapon>();
         //Chargement des données
@@ -168,25 +186,41 @@ public class WeaponBuilder{
         Debug.debug("n_mun = "+randomValue);
             
         Weapon select = data.selectObject(randomValue);
-            
+        
+        //L'arme disparait (munition seule)
         if(select.getType() == Type.MUN){
         	 Debug.debug("Change weapon type to munition...");
             //L'arme est devenue une munition.
             select.setName(weapon.getMunition().getName());
-        }
-        else{
-        	 Debug.debug("Create munitions for the weapon...");
-        	//On ratache les munitions à l'arme.
-            select.setName(weapon.getName());
+            select.setWeight(weapon.getMunition().getWeight());
+            //On calcule tout ce qui dépend de la quantité de munitions.
+            ((Munition) select).computeAmmoQuantity();
+            ((Munition) select).computeAmmoPrice();
+            ((Munition) select).computeAmmoWeight();
+            select.setAlteration(weapon.getAlteration());
             select.setTypeDamage(weapon.getTypeDamage());
-            select.setMaterial(weapon.getMaterial());
-            select.setTypeMaterial(weapon.getTypeMaterial());
-            ((RangeWeapon) select).getMunition().setName(weapon.getMunition().getName());
+           
+            return select;
         }
-        select.setAlteration(weapon.getAlteration());
         
-        return select;
+        //L'arme est accompagnée de munitions.
+        else{
+        	Debug.debug("Create munitions for the weapon...");
+        	
+        	//La munition drop.
+            Munition selectMunition = ((RangeWeapon) select).getMunition();
+            selectMunition.setName(weapon.getMunition().getName());
+            selectMunition.setWeight(weapon.getMunition().getWeight());
+            //On calcule ce qui depend de la quantité
+            selectMunition.computeAmmoQuantity();
+            selectMunition.computeAmmoPrice();
+            selectMunition.computeAmmoWeight();
             
+            //On ratache les munitions à l'arme.
+            weapon.setMunition(selectMunition);
+           
+            return weapon;
+        }
     }
     
     /**
@@ -213,11 +247,33 @@ public class WeaponBuilder{
         
         //Tirage
         int randomValue = r.nextInt(100)+1;
-        Debug.debug("n_mat = "+randomValue);
         
+        Debug.debug("n_mat = "+randomValue);
         Material select = data.selectObject(randomValue);
         
+        while(!restrictionMaterial(select,weapon)) {
+        	
+        	//On force a obtenir un matériaux car premier jet réussis.
+        	randomValue = r.nextInt(100)+1;
+        	//La valeur interdite depend du tableau selectionné (bois ou metal).
+        	if(weapon.getTypeMaterial() == TypeMaterial.STEEL) {
+        		while(randomValue >= 7 && randomValue <= 56) {//Correspond à pas de matériel
+        			randomValue = r.nextInt(100)+1;
+        		}
+        	}else {
+        		while(randomValue >= 6 && randomValue <= 55) {//Correspond à pas de matériel
+        			randomValue = r.nextInt(100)+1;
+        		}
+        	}
+        	
+        	Debug.debug("n_mat = "+randomValue);
+        	select = data.selectObject(randomValue);
+        }
+        
         weapon.setMaterial(select);
+        
+        //Les modifications du prix et du poid du au matériel.
+        weapon = materialModification(weapon);
         
         return weapon;
     }
@@ -246,8 +302,8 @@ public class WeaponBuilder{
     			|| weapon.getName() == "autre munition") {
     		
     		//On doit le déterminer manuellement.
-    		if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(new WeaponSpecialPropertie("à determiner"));
-    		else weapon.setSpecialPropertie2(new WeaponSpecialPropertie("à determiner"));
+    		if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(new WeaponSpecialPropertie("à determiner",magicAlteration));
+    		else weapon.setSpecialPropertie2(new WeaponSpecialPropertie("à determiner",magicAlteration));
     		
     		return weapon;
     	}
@@ -313,7 +369,7 @@ public class WeaponBuilder{
     	Debug.debug("n_spe_prop = "+randomValue);
     	
     	//Propriété compatible avec l'arme
-    	while(!restriction(weapon,specialPropertie)) {
+    	while(!restrictionProperties(weapon,specialPropertie)) {
     		randomValue = r.nextInt(100)+1;
     		specialPropertie = data.selectObject(randomValue);
     		Debug.debug("n_spe_prop = "+randomValue);
@@ -332,7 +388,7 @@ public class WeaponBuilder{
      * @param specialPropertie : la propriété spéciale.
      * @return l'arme modifiée.
      */
-    public boolean restriction(Weapon weapon,WeaponSpecialPropertie specialPropertie) {
+    public boolean restrictionProperties(Weapon weapon,WeaponSpecialPropertie specialPropertie) {
     	
     	if(specialPropertie.getName() == "Mortelle") {
     		if(weapon.getName() != "bolas" && weapon.getName() != "fouet" && weapon.getName() != "matraque") {
@@ -341,7 +397,7 @@ public class WeaponBuilder{
     	}
     	
     	if(specialPropertie.getName() == "Acérée") {//L'arme doit être perforante ou/et tranchante.
-    		if(weapon.getTypeDamage() == TypeDamage.C || weapon.getTypeDamage() == TypeDamage.NOTHING) return false;
+    		if(weapon.getTypeDamage() == TypeDamage.C) return false;
     	}
     	
     	//Les autres cas ne peuvent apparaitre.
@@ -439,7 +495,511 @@ public class WeaponBuilder{
     	
 		return weapon;
     }
+    
+    /**
+     * restrictionMateriel renvoie vrai ou faux selon que l'arme repond aux critères du matériel.
+     * @param material : le matériel
+     * @param weapon : l'arme qui doit repondre aux critères.
+     * @return true ou false.
+     */
+    public boolean restrictionMaterial(Material material,Weapon weapon) {
+    	
+    	if(material == Material.PIERRE) {//L'arme est en pierre
+    		//L'arme est une fleche ou une lance -> choix accepté.
+    		if(weapon.getName() == "flèche" || weapon.getName() == "lance") return true;
+    		//L'arme n'est pas contendante -> refusé.
+    		if(weapon.getTypeDamage() != TypeDamage.C_P && weapon.getTypeDamage() != TypeDamage.C) return false;
+    		//L'arme est une arme a deux mains -> refusé.
+    		if(weapon.getType() == Type.CAC_2M) return false;
+    	}
+    	
+    	if(material == Material.OR) {//L'arme est en or.
+    		//L'arme est contendante seulement.
+    		if(weapon.getTypeDamage() == TypeDamage.C) return false;
+    		//L'arme est une arme a deux mains 
+    		if(weapon.getType() == Type.CAC_2M) return false;
+    	}
+    	
+    	if(material == Material.OS) {//Arme en os.
+    		String name = weapon.getName();
+    		if(name == "flèche" || name == "lance" || name == "pique" || name == "hallebarde" 
+    				|| name == "coutille" || name == "trident") return true;
+    		
+    		//L'arme doit etre contendante uniquement si elle est a deux mains.
+    		if(weapon.getType() == Type.CAC_2M 
+    				&& (weapon.getTypeDamage() != TypeDamage.C && weapon.getTypeDamage() != TypeDamage.C_P)) return false;
+    	}
+    	
+    	if(material == Material.OBSIDIENNE) {//Arme en obsidienne.
+    		//L'arme est une fleche ou une lance -> choix accepté.
+    		if(weapon.getName() == "flèche" || weapon.getName() == "lance") return true;
+    		//L'arme est contendante seulement.
+    		if(weapon.getTypeDamage() == TypeDamage.C) return false;
+    		//L'arme est une arme a deux mains 
+    		if(weapon.getType() == Type.CAC_2M) return false;
+    	}
+    	
+    	if(material == Material.BRONZE) {
+    		String name = weapon.getName();
+    		if(name == "flèche" || name == "lance" || name == "hache d’armes" 
+    				|| name == "hache d’armes de nain" || name == "grande hache"
+    				|| name == "hachette") return true;
+    		//L'arme est une arme a deux mains 
+    		if(weapon.getType() == Type.CAC_2M) return false;
+    	}
+    	
+    	if(material == Material.VIRIDIUM) {
+    		//Viridium seulement sur armes legere ou munitions.
+    		if(weapon.getType() != Type.CAC_LIGHT && weapon.getType() != Type.MUN) return false;
+    	}
+    	
+    	if(material == Material.CRISTAL_DE_SANG) {
+    		//L'arme doit etre tranchante ou perforante.
+    		if(weapon.getTypeDamage() == TypeDamage.C) return false;
+    	}
+    	
+    	//Toute les restrictions sont passées.
+    	return true;
+    }
+    
+    /**
+     * isWeaponMaster modifie l'arme si elle doit etre une arme de maitre.
+     * Modifie également son prix en ajoutant le prix de maitre.
+     * @param weapon : l'arme a évaluée.
+     * @return l'arme eventuellement modifiée.
+     */
+    public Weapon isWeaponMaster(Weapon weapon) {
+    	boolean change = false;
+  
+    	//Une arme magique est forcement une arme de maitre.
+        //Si l'arme ne possede pas d'alteration on ne fait rien.
+        if(weapon.getAlteration() > 0 || weapon.getAlteration() == -2) change = true;
+    	
+        //Au niveau du materiel de l'arme.
+    	switch (weapon.getMaterial()) {
+		case ACIER_ARDENT: change = true;
+			break;
+		case ACIER_GLACE : change = true;
+			break;
+		case ADAMENTIUM : change = true;
+			break;	
+		case BOIS_VERT : change = true;
+			break;
+		case EBENITE : change = true;
+			break;
+		case MITHRAL : change = true;
+			break;	
+		//Aucun des matériaux transforme l'arme en arme de maitre.
+		default: break;
+		}
+    	
+    	if(change) {
+    		Debug.debug("Change weapon to master weapon...");
+    		double masterPrice = 0;
+    		
+    		if(weapon.getType() == Type.MUN) {//L'arme est une munition donc 6 po x nb munition.
+    			masterPrice =  6 * ((Munition) weapon).getQuantity();
+    		}	
+    		else {
+    			masterPrice = 300;
+    		}
+    		Debug.debug("Master price : "+masterPrice);
+    		weapon.setPrice(weapon.getPrice() + masterPrice);
+    	}
+    	
+    	weapon.setMasterWork(change);
+    	return weapon;
+    }
+    
+    /**
+     * weaponMunitionQuantity créer le nombre de munition pour l'arme.
+     * @param weapon : l'arme à modifiée
+     * @return l'arme modifiée.
+     */
+    public Weapon weaponMunitionQuantity(Munition weapon) {
+    	Debug.debug("Change number of munition...");
+    	
+    	
+    	 Data<String> data = new Data<String>();
+         //Chargement des données
+         data.addAll(WeaponConstant.weaponMunitionQuantity());
+         
+         //Tirage
+         int randomValue = r.nextInt(100)+1;
+         Debug.debug("n_mun = "+randomValue);
+             
+         String select = data.selectObject(randomValue);
+         weapon.setStringQuantity(select);
+         //On transforme en vrai quantitée.
+         weapon.computeAmmoQuantity();
+         //On calcule le prix
+         weapon.computeAmmoPrice();
+         //On calcule le poid
+         weapon.computeAmmoWeight();
+         
+         return weapon;
+    }
+    
+    /**
+     * materialModification modifie le prix et poid de l'arme en fonction du materiel.
+     * @param weapon : l'arme a modifiée.
+     * @return l'arme modifiée en fonction du matériel.
+     */
+    public Weapon materialModification(Weapon weapon) {
+    	Debug.debug("Maybe do change in weapon due to material....");
+    	boolean change = false;//True si un changement a eu lieu.
+    	double newPrice;//Le nouveau prix.
+    	double newWeight;//Le nouveau poid.
+    	
+    	switch (weapon.getMaterial()) {
+    	
+		case PIERRE:
+			change = true;
+    		newPrice = weapon.getPrice() * 0.25;
+    		newWeight = weapon.getWeight() * 0.75;
+    		
+    		weapon.setPrice(newPrice);
+    		weapon.setWeight(newWeight);
+			break;
+		
+		case OR:
+			change = true;
+			//On détermine au hasard si l'arme est en or pur.
+			boolean pureGold = r.nextBoolean();//Si true, l'arme est en or pur..
+			
+			if(pureGold) {//Si l'arme est en or pur.
+				weapon.setMaterial(Material.OR_PUR);
+				newPrice = weapon.getPrice() * 10;
+				newWeight = weapon.getWeight() * 1.5;
+			}
+			else {//L'arme est en or (plaqué).
+				newPrice = weapon.getPrice() * 3;
+				newWeight = weapon.getWeight();
+			}
+			
+			weapon.setPrice(newPrice);
+    		weapon.setWeight(newWeight);
+			break;
+		
+		case OS :
+			change = true;
+			newPrice = weapon.getPrice() * 0.5;
+			
+			weapon.setPrice(newPrice);
+			break;
+		
+		case OBSIDIENNE :
+			change = true;
+			newPrice = weapon.getPrice() * 0.5;
+			newWeight = weapon.getWeight() * 0.75;
+			
+			weapon.setPrice(newPrice);
+			weapon.setWeight(newWeight);
+			break;
+			
+		case VIRIDIUM:
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				newPrice = weapon.getPrice() + 20 * ((Munition)weapon).getQuantity();
+			}
+			//L'arme est forcement une arme legere on ne reverifie pas.
+			else {
+				newPrice = weapon.getPrice() + 200;
+			}
+			weapon.setPrice(newPrice);
+			break;
+			
+		case RACINE_DE_WYR :
+			change = true;
+			//Contenance de la racine de wyr tiré au hasard.
+			int stock = r.nextInt(3)+1;
+			
+			switch (stock) {
+			case 1:
+				weapon.setMaterial(Material.RACINE_DE_WYR1);
+				newPrice = weapon.getPrice() + 1000;
+				break;
+			case 2:
+				weapon.setMaterial(Material.RACINE_DE_WYR2);
+				newPrice = weapon.getPrice() + 2000;
+				break;
+			case 3:
+				weapon.setMaterial(Material.RACINE_DE_WYR3);
+				newPrice = weapon.getPrice() + 4000;
+				break;
+			default:
+				Debug.error("Error in switch racine de wyr");
+				//Nécéssité d'initialiser newprice.
+				newPrice = -100;//Impossible d'atteindre ce cas.
+				break;
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+		
+		case ACIER_VIVANT : 
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				newPrice = weapon.getPrice() + 10 * ((Munition)weapon).getQuantity();
+			}
+			else {
+				newPrice = weapon.getPrice() + 500;
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+			
+		case FER_FROID : 
+			change = true;
+			newPrice = weapon.getPrice() * 2;
+			
+			//Si l'arme a une altération magique
+			if(weapon.getAlteration() > 0) {
+				newPrice += 2000; //On ajout en plus du prix * 2
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+		
+		case ARGENT_ALCHIMIQUE : 
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				newPrice = weapon.getPrice() + 2 * ((Munition)weapon).getQuantity();
+			}
+			else if(weapon.getType() == Type.CAC_LIGHT) {
+				newPrice = weapon.getPrice() + 20;
+			}
+			else if(weapon.getType() == Type.CAC_1M) {
+				newPrice = weapon.getPrice() + 90;
+			}else if(weapon.getType() == Type.CAC_2M) {
+				newPrice = weapon.getPrice() + 180;
+			}
+			else {//L'arme est une arme a distance (ou bug) : on n'ajoute rien au prix.
+				newPrice = weapon.getPrice();
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+		
+		case CRISTAL_DE_SANG :
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				newPrice = weapon.getPrice() + 30 * ((Munition)weapon).getQuantity();
+			}
+			else {
+				newPrice = weapon.getPrice() + 1500;
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+		
+		case MITHRAL : 
+			change = true;
+			//1000 po par kg
+			newPrice = weapon.getPrice() + weapon.getWeight() * 1000;
+			newWeight = weapon.getWeight() * 0.5;
+			
+			weapon.setPrice(newPrice);
+			weapon.setWeight(newWeight);
+			break;
+		
+		case ACIER_ARDENT :
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				newPrice = weapon.getPrice() + 15 * ((Munition)weapon).getQuantity();
+			}
+			else {
+				newPrice = weapon.getPrice() + 600;
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+			
+		case ACIER_GLACE :
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				newPrice = weapon.getPrice() + 15 * ((Munition)weapon).getQuantity();
+			}
+			else {
+				newPrice = weapon.getPrice() + 600;
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+		
+		case BRONZE_ELYSEEN : 
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				newPrice = weapon.getPrice() + 20 * ((Munition)weapon).getQuantity();
+			}
+			else {
+				newPrice = weapon.getPrice() + 1000;
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+			
+		case ADAMENTIUM : 
+			change = true;
+			
+			if(weapon.getType() == Type.MUN) {
+				//54 et pas 60 car il est dit que dans le tableau des prix la part 
+				//du prix de maitre est déjà compris dans le prix total. (60-6)
+				newPrice = weapon.getPrice() + 54 * ((Munition)weapon).getQuantity();
+			}
+			else {//3000 - 300 (prix de maitre)
+				newPrice = weapon.getPrice() + 2700;
+			}
+			
+			weapon.setPrice(newPrice);
+			break;
+		
+		case BOIS_FLEXIBLE :
+			change = true;
+			newPrice = weapon.getPrice() + 500;
+			weapon.setPrice(newPrice);
+			break;
+		
+		case EBENITE :
+			change = true;
+			//Le nombre entier de tranches de 0.5kg dans le poid de l'arme.
+			int factor = (int) (weapon.getWeight() / 0.5);
+			
+			newPrice = weapon.getPrice() + factor * 10;
+			newWeight = weapon.getWeight() * 0.5;
+			
+			weapon.setPrice(newPrice);
+			weapon.setWeight(newWeight);
+			break;
+			
+		case BOIS_VERT :
+			change = true;
+			//Le nombre entier de tranches de 0.5kg dans le poid de l'arme.
+			factor = (int) (weapon.getWeight() / 0.5);
+			
+			newPrice = weapon.getPrice() + factor * 50;
+			weapon.setPrice(newPrice);
+			break;
+			
+		default:
+			Debug.debug("No change due to material...");
+			break;
+		}
+    	
+    	//Un changement a eu lieu.
+    	if(change) {
+    		Debug.debug("Change done due to material...");
+    		Debug.debug("new price : "+weapon.getPrice());
+    		Debug.debug("new weight : "+weapon.getWeight());
+    	}
+    	
+    	return weapon;
+    }
+    
+    /**
+     * weaponSpecialPrice ajout le prix des deux propriété spéciales à l'arme.
+     * @param weapon : l'arme où il faut ajouter le prix.
+     * @return l'arme modifiée.
+     */
+    public Weapon weaponSpecialPrice(Weapon weapon) {
+    	Debug.debug("Compute special properties price...");
+    	
+    	int totalAlteration = 0;
+    	double specialPrice = 0;//Prix à ajouter à la fin
+    	
+    	//Les propriétés spéciales 1 et 2 de l'arme.
+    	WeaponSpecialPropertie wsp1 = weapon.getSpecialPropertie1();
+    	WeaponSpecialPropertie wsp2 = weapon.getSpecialPropertie2();
+    	
+    	//Si la propriété spéciale 1 n'est pas vide.
+    	if(wsp1.getName() != "_") {
+    		//Il s'agit du prix et non de l'alteration magique.
+    		if(wsp1.getMagicAlterationOrPrice() > 10) {
+    			//On ajoute directement au prix total.
+    			specialPrice += wsp1.getMagicAlterationOrPrice();
+    		}
+    		else {//C'est une altération magique.
+    			totalAlteration += wsp1.getMagicAlterationOrPrice();
+    		}
+    	}
+    	
+    	//Si la propriété spéciale 2 n'est pas vide.
+    	if(wsp2.getName() != "_") {
+    		//Il s'agit du prix et non de l'alteration magique.
+    		if(wsp2.getMagicAlterationOrPrice() > 10) {
+    			//On ajoute directement au prix total.
+    			specialPrice += wsp2.getMagicAlterationOrPrice();
+    		}
+    		else {//C'est une altération magique.
+    			totalAlteration += wsp2.getMagicAlterationOrPrice();
+    		}
+    	}
+    	
+    	//Si l'alteration n'est pas -1 ni -2.
+    	if(weapon.getAlteration() >= 0) {
+    		totalAlteration += weapon.getAlteration();
+    	}
+    	Debug.debug("total Alteration : "+totalAlteration);
+    	
+    	
+    	double alterationPrice;
+    	//Switch sur l'alteration totale pour trouver le prix.
+    	switch (totalAlteration) {
+		case 1:
+			alterationPrice = 2000;
+			break;
+		case 2:
+			alterationPrice = 8000;
+			break;
+		case 3:
+			alterationPrice = 18000;
+			break;
+		case 4:
+			alterationPrice = 32000;
+			break;
+		case 5:
+			alterationPrice = 50000;
+			break;
+		case 6:
+			alterationPrice = 72000;
+			break;
+		case 7:
+			alterationPrice = 98000;
+			break;
+		case 8:
+			alterationPrice = 128000;
+			break;
+		case 9:
+			alterationPrice = 162000;
+			break;
+		case 10:
+			alterationPrice = 200000;
+			break;
+		default://Il n'y a pas d'alteration.
+			Debug.debug("No alteration for the weapon...");
+			alterationPrice = 0;
+			break;
+		}
+    	
+    	if(weapon.getType() == Type.MUN) {
+    		//Dans le cas de munition ce prix concerne 50 unités.
+    		//On transforme le prix en prix unitaire puis on le multiplie par le nombre de munitions.
+    		alterationPrice = (alterationPrice/50) * ((Munition) weapon).getQuantity();
+    	}
+    	specialPrice += alterationPrice;
+    	Debug.debug("Special price : "+specialPrice);
+    	
+    	//On ajoute le prix à l'arme.
+    	weapon.setPrice(weapon.getPrice() + specialPrice);
+    	
+    	return weapon;
+    }
+    
 }
-
-
-

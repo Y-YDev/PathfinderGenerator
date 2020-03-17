@@ -76,6 +76,7 @@ Random r; //Le random pour les tirages.
     		potion =createUncommonPotion(nds);
     	}
     	
+    	Debug.debug("");
     	return potion;
     }
     
