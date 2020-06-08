@@ -1,4 +1,5 @@
 package utility;
+import armor.ArmorShield;
 import gemAndJewel.Gem;
 import gemAndJewel.Jewel;
 import potion.Potion;
@@ -222,6 +223,67 @@ public class Debug {
 				if(potion.isUncommon()) display += "uncommon";
 				else display += "common";
 			}
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * affiche une armure ou un bouclier
+	 * @param armor :  le bouclier/armure a afficher
+	 */
+	public static void printArmorShield(ArmorShield armor) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nWEAPON : "+ armor.getName();
+			if(armor.isMasterWork()) display += " de maître";
+			
+			display += "\nALTERATION : ";
+			if(armor.getAlteration() == -2) display += "-1 pénalité d'armure";//Armure de maitre.
+			else if(armor.getAlteration() == -1) display += "_";//Armure spécifique.
+			else display += "+"+armor.getAlteration();
+			
+			display += "\nMATERIAL : "+ armor.getMaterial();
+			
+			//Info de debug.
+			if(debugMode) {
+				display += "\nTYPE : "+ armor.getType();
+			}
+			
+			//Si l'arme a des propriétés spéciales.
+			if(armor.getSpecialPropertie1().getName() != "_") {
+				display += "\nSPECIAL PROPERTIE 1 : "+ armor.getSpecialPropertie1().getName();
+				
+				if(debugMode) {//Affichae pour debug
+					if(armor.getSpecialPropertie1().getMagicAlterationOrPrice() > 10) {
+						//On a directement le prix de l'alteration magique.
+						display += "\n\tMAGIC ALTERATION PRICE : "+ armor.getSpecialPropertie1().getMagicAlterationOrPrice()+" po";
+					}
+					else {//C'est un rang d'alteration magique
+						display += "\n\tMAGIC ALTERATION PROPERTIE 1 : "+ armor.getSpecialPropertie1().getMagicAlterationOrPrice();
+					}
+				}
+				
+				//Si l'arme a une deuxieme propriété spéciale.
+				if(armor.getSpecialPropertie2().getName() != "_") {
+					display += "\nSPECIAL PROPERTIE 2 : "+ armor.getSpecialPropertie2().getName();
+					
+					if(debugMode) {//Affichae pour debug
+						if(armor.getSpecialPropertie2().getMagicAlterationOrPrice() > 10) {
+							//On a directement le prix de l'alteration magique.
+							display += "\n\tMAGIC ALTERATION PRICE : "+ armor.getSpecialPropertie2().getMagicAlterationOrPrice()+" po";
+						}
+						else {//C'est un rang d'alteration magique
+							display += "\n\tMAGIC ALTERATION PROPERTIE 2 : "+ armor.getSpecialPropertie2().getMagicAlterationOrPrice();
+						}
+					}
+				}
+			}
+			
+			display += "\nWEIGHT : "+ armor.getWeight()+" kg";
+			display += "\nPRICE : "+ armor.getPrice()+" po";
 			
 			display += "\n";
 			System.out.println(display);

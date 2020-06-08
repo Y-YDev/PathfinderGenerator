@@ -81,17 +81,20 @@ public class Munition extends Weapon{
     	double price;
     	
 		switch (this.getName()) {
-		case "flèche": 
+		case "Flèche": 
 			price = 0.1 * quantity;
 			break;
-		case "carreau":
+		case "Carreau":
 			price =  0.1 * quantity;
 			break;
-		case "bolas" :
+		case "Bolas" :
 			price = 5 * quantity;
 			break;
-		case "fléchette" :
+		case "Fléchette" :
 			price = 0.5 * quantity;
+			break;
+		case "Bille" :
+			price = 0.01 * quantity;
 			break;
 		default://Arme a déterminer ou autre.
 			price = 0;

@@ -120,7 +120,7 @@ public class WeaponBuilder{
     
     
     /**
-     * Créer une arme magique. (aussi arme normale +0 et arme de maitre...)
+     * Créer une arme magique. (aussi arme normale +0 et arme de maitre -2...)
      * @param alteration : l'altération de l'arme.
      * @return l'arme créée.
      */
@@ -132,15 +132,7 @@ public class WeaponBuilder{
         data.addAll(WeaponConstant.weaponList());
         
         //Tirage
-        int randomValue = r.nextInt(100-19)+1;
-        
-        if(randomValue > 65){
-        	//Entre 66 et 84 : aucune valeur dans le tableau (erreur?).
-            Debug.debug("n_wp = "+(randomValue+19));
-        }
-        else{
-            Debug.debug("n_wp = "+randomValue);
-        }
+        int randomValue = r.nextInt(100)+1;
         
         //On recupère l'arme
         Weapon currentWeapon = data.selectObject(randomValue);
@@ -286,6 +278,10 @@ public class WeaponBuilder{
      * @return L'arme modifiée.
      */
     public Weapon weaponSpecialPropertie(Weapon weapon,int magicAlteration, int specialPropertieNumber) {
+    	//L'arme n'est normalement pas une arme de maitre 
+    	if(weapon.getAlteration() == -2) {
+    		Debug.error("Master weapon only can't have special propertie....");
+    	}
     	
     	//Une arme magique peut aussi avoir une propriété particulière.
     	if(specialPropertieNumber == 1) {//Si c'est la premiere fois qu'on créer la propriété spéciale.
@@ -295,11 +291,11 @@ public class WeaponBuilder{
     	Debug.debug("Create special propertie "+specialPropertieNumber+" with rank "+magicAlteration+"...");
     	
     	//Cas indéterminable
-    	if(weapon.getName() == "autre arme de corps à corps légère" 
-    			|| weapon.getName() == "autre arme de corps à corps à une main" 
-    			|| weapon.getName() == "autre arme de corps à corps à deux mains" 
-    			|| weapon.getName() == "autre arme à distance"
-    			|| weapon.getName() == "autre munition") {
+    	if(weapon.getName() == "Autre arme de corps à corps légère" 
+    			|| weapon.getName() == "Autre arme de corps à corps à une main" 
+    			|| weapon.getName() == "Autre arme de corps à corps à deux mains" 
+    			|| weapon.getName() == "Autre arme à distance"
+    			|| weapon.getName() == "Autre munition") {
     		
     		//On doit le déterminer manuellement.
     		if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(new WeaponSpecialPropertie("à determiner",magicAlteration));
@@ -391,7 +387,7 @@ public class WeaponBuilder{
     public boolean restrictionProperties(Weapon weapon,WeaponSpecialPropertie specialPropertie) {
     	
     	if(specialPropertie.getName() == "Mortelle") {
-    		if(weapon.getName() != "bolas" && weapon.getName() != "fouet" && weapon.getName() != "matraque") {
+    		if(weapon.getName() != "Bolas" && weapon.getName() != "Fouet" && weapon.getName() != "Matraque") {
     			return false;
     		}
     	}
@@ -400,10 +396,11 @@ public class WeaponBuilder{
     		if(weapon.getTypeDamage() == TypeDamage.C) return false;
     	}
     	
-    	//Les autres cas ne peuvent apparaitre.
+    	//Les armes de jets.
     	if(specialPropertie.getName() == "Boomerang") {
-    		if(weapon.getName() != "dague" && weapon.getName() != "gourdin" && weapon.getName() != "lance" 
-    				&& weapon.getName() != "marteau léger" && weapon.getName() != "trident" && weapon.getName() != "bolas") {
+    		if(weapon.getName() != "Dague" && weapon.getName() != "Gourdin" && weapon.getName() != "Lance" 
+    				&& weapon.getName() != "Marteau léger" && weapon.getName() != "Trident" && weapon.getName() != "Bolas"
+    				&& weapon.getName() != "Epieu" && weapon.getName() != "Shuriken") {
     			return false;
     		}
     	}
@@ -411,7 +408,8 @@ public class WeaponBuilder{
     	//Les autres armes de jet qui peuvent apparaitre sont des armes au CAC.
     	if(specialPropertie.getName() == "Inamovible") {
     		Type type = weapon.getType();
-    		if(type != Type.CAC_1M && type != Type.CAC_2M && type != Type.CAC_LIGHT && weapon.getName() != "bolas") 
+    		if(type != Type.CAC_1M && type != Type.CAC_2M && type != Type.CAC_LIGHT 
+    				&& weapon.getName() != "Bolas" && weapon.getName() != "Shuriken") 
     			return false;
     	}
     	
@@ -425,19 +423,19 @@ public class WeaponBuilder{
     	
     	if(specialPropertie.getName() == "Munitions inépuisables") {
     		String name = weapon.getName();
-    		if(name != "arc long composite" && name != "arc court composite" && name != "arbalète lourde"
-    				&& name != "arbalète légère" && name != "arc long") return false;
+    		if(name != "Arc long composite" && name != "Arc court composite" && name != "Arbalète lourde"
+    				&& name != "Arbalète légère" && name != "Arc long" && name != "Arc court") return false;
     	}
     	
     	//Les autres cas ne peuvent pas apparaitre.
     	if(specialPropertie.getName() == "Deuxième chance") {
     		String name = weapon.getName();
-    		if(name != "arc long composite" && name != "arc court composite" && name != "arc long") return false;
+    		if(name != "Arc long composite" && name != "Arc court composite" && name != "Arc long" && name != "Arc court") return false;
     	}
     	
     	//Les autres cas ne peuvent pas apparaitre.
     	if(specialPropertie.getName() == "Duel") {
-    		if(weapon.getType() != Type.CAC_LIGHT && weapon.getName() != "rapière" && weapon.getName() != "fouet") return false;
+    		if(weapon.getType() != Type.CAC_LIGHT && weapon.getName() != "Rapière" && weapon.getName() != "Fouet") return false;
     	}
     	
     	if(specialPropertie.getName() == "Tueuse") {
@@ -506,7 +504,7 @@ public class WeaponBuilder{
     	
     	if(material == Material.PIERRE) {//L'arme est en pierre
     		//L'arme est une fleche ou une lance -> choix accepté.
-    		if(weapon.getName() == "flèche" || weapon.getName() == "lance") return true;
+    		if(weapon.getName() == "Flèche" || weapon.getName() == "Lance") return true;
     		//L'arme n'est pas contendante -> refusé.
     		if(weapon.getTypeDamage() != TypeDamage.C_P && weapon.getTypeDamage() != TypeDamage.C) return false;
     		//L'arme est une arme a deux mains -> refusé.
@@ -522,8 +520,8 @@ public class WeaponBuilder{
     	
     	if(material == Material.OS) {//Arme en os.
     		String name = weapon.getName();
-    		if(name == "flèche" || name == "lance" || name == "pique" || name == "hallebarde" 
-    				|| name == "coutille" || name == "trident") return true;
+    		if(name == "Flèche" || name == "Lance" || name == "Pique" || name == "Hallebarde" 
+    				|| name == "Coutille" || name == "Trident") return true;
     		
     		//L'arme doit etre contendante uniquement si elle est a deux mains.
     		if(weapon.getType() == Type.CAC_2M 
@@ -532,7 +530,7 @@ public class WeaponBuilder{
     	
     	if(material == Material.OBSIDIENNE) {//Arme en obsidienne.
     		//L'arme est une fleche ou une lance -> choix accepté.
-    		if(weapon.getName() == "flèche" || weapon.getName() == "lance") return true;
+    		if(weapon.getName() == "Flèche" || weapon.getName() == "Lance") return true;
     		//L'arme est contendante seulement.
     		if(weapon.getTypeDamage() == TypeDamage.C) return false;
     		//L'arme est une arme a deux mains 
@@ -541,9 +539,9 @@ public class WeaponBuilder{
     	
     	if(material == Material.BRONZE) {
     		String name = weapon.getName();
-    		if(name == "flèche" || name == "lance" || name == "hache d’armes" 
-    				|| name == "hache d’armes de nain" || name == "grande hache"
-    				|| name == "hachette") return true;
+    		if(name == "Flèche" || name == "Lance" || name == "Hache d’armes" 
+    				|| name == "Hache d’armes naine" || name == "Grande hache"
+    				|| name == "Hachette") return true;
     		//L'arme est une arme a deux mains 
     		if(weapon.getType() == Type.CAC_2M) return false;
     	}
@@ -674,7 +672,7 @@ public class WeaponBuilder{
 			}
 			else {//L'arme est en or (plaqué).
 				newPrice = weapon.getPrice() * 3;
-				newWeight = weapon.getWeight();
+				newWeight = weapon.getWeight();//Sinon erreur car newWeight pas init
 			}
 			
 			weapon.setPrice(newPrice);
@@ -800,7 +798,7 @@ public class WeaponBuilder{
 		case MITHRAL : 
 			change = true;
 			//1000 po par kg
-			newPrice = weapon.getPrice() + weapon.getWeight() * 1000;
+			newPrice = weapon.getPrice() + weapon.getWeight() * 1000;//dur de gérer le cout de maitre
 			newWeight = weapon.getWeight() * 0.5;
 			
 			weapon.setPrice(newPrice);
@@ -811,10 +809,10 @@ public class WeaponBuilder{
 			change = true;
 			
 			if(weapon.getType() == Type.MUN) {
-				newPrice = weapon.getPrice() + 15 * ((Munition)weapon).getQuantity();
+				newPrice = weapon.getPrice() + 9 * ((Munition)weapon).getQuantity();//15-6
 			}
 			else {
-				newPrice = weapon.getPrice() + 600;
+				newPrice = weapon.getPrice() + 300;//600-300
 			}
 			
 			weapon.setPrice(newPrice);
@@ -824,10 +822,10 @@ public class WeaponBuilder{
 			change = true;
 			
 			if(weapon.getType() == Type.MUN) {
-				newPrice = weapon.getPrice() + 15 * ((Munition)weapon).getQuantity();
+				newPrice = weapon.getPrice() + 9 * ((Munition)weapon).getQuantity();//15-6
 			}
 			else {
-				newPrice = weapon.getPrice() + 600;
+				newPrice = weapon.getPrice() + 300;//600-300
 			}
 			
 			weapon.setPrice(newPrice);
@@ -909,6 +907,11 @@ public class WeaponBuilder{
      * @return l'arme modifiée.
      */
     public Weapon weaponSpecialPrice(Weapon weapon) {
+    	//L'arme n'est normalement pas seulement une arme de maitre 
+    	if(weapon.getAlteration() == -2) {
+    		Debug.error("Master weapon only can't have special propertie....");
+    	}
+    	
     	Debug.debug("Compute special properties price...");
     	
     	int totalAlteration = 0;
