@@ -6,6 +6,8 @@ import gemAndJewel.GemAndJewelBuilder;
 import gemAndJewel.Jewel;
 import potion.Potion;
 import potion.PotionBuilder;
+import ring.Ring;
+import ring.RingBuilder;
 import utility.Debug;
 import utility.Tuple;
 import weapon.Weapon;
@@ -21,16 +23,19 @@ public class Main {
 		GemAndJewelBuilder gemAndJewelBuilder = new GemAndJewelBuilder();
 		PotionBuilder potionBuilder = new PotionBuilder();
 		ArmorBuilder armorBuilder = new ArmorBuilder();
+		RingBuilder ringBuilder = new RingBuilder();
 
 		Weapon weapon = weaponBuilder.createWeapon(6);
 		Tuple<Gem,Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(6);
 		Potion potion = potionBuilder.createPotion(6);
 		ArmorShield armor = armorBuilder.createArmor(6);
+		Ring ring = ringBuilder.createRing(6);
 		
 		Debug.printWeapon(weapon);
 		Debug.printGemOrJewel(tuple);
 		Debug.printPotion(potion);
 		Debug.printArmorShield(armor);
+		Debug.printRing(ring);
 		
 		Debug.display("");
 		Debug.debug("SUCCEED");

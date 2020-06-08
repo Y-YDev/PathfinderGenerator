@@ -3,6 +3,7 @@ import armor.ArmorShield;
 import gemAndJewel.Gem;
 import gemAndJewel.Jewel;
 import potion.Potion;
+import ring.Ring;
 import weapon.Munition;
 import weapon.RangeWeapon;
 import weapon.Type;
@@ -284,6 +285,22 @@ public class Debug {
 			
 			display += "\nWEIGHT : "+ armor.getWeight()+" kg";
 			display += "\nPRICE : "+ armor.getPrice()+" po";
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * Affiche un anneau magique
+	 * @param ring : l'anneau
+	 */
+	public static void printRing(Ring ring) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nNAME : "+ ring.getName();
+			display += "\nPRICE : "+ ring.getPrice()+" po";
 			
 			display += "\n";
 			System.out.println(display);

@@ -13,7 +13,7 @@ import utility.Debug;
  */
 public class PotionBuilder {
 
-Random r; //Le random pour les tirages.
+	Random r; //Le random pour les tirages.
 	
 	/* CONSTRUCTOR */
     public PotionBuilder(){
