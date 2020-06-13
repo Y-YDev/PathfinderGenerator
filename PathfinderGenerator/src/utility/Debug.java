@@ -4,6 +4,9 @@ import gemAndJewel.Gem;
 import gemAndJewel.Jewel;
 import potion.Potion;
 import ring.Ring;
+import scepter.Scepter;
+import staff.Staff;
+import wand.Wand;
 import weapon.Munition;
 import weapon.RangeWeapon;
 import weapon.Type;
@@ -299,8 +302,68 @@ public class Debug {
 		if(displayMode) {
 			String display = "";
 			
-			display += "\nNAME : "+ ring.getName();
+			display += "\nRING : "+ ring.getName();
 			display += "\nPRICE : "+ ring.getPrice()+" po";
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * Affiche une baguette magique
+	 * @param wand
+	 */
+	public static void printWand(Wand wand) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nWAND : "+ wand.getName();
+			display += "\nSPELL LEVEL : "+wand.getNds();
+			display += "\nCASTER LEVEL : "+wand.getNls();
+			display += "\nPRICE : "+ wand.getPrice()+" po";
+			
+			if(debugMode) {
+				display += "\nTYPE : ";
+				if(wand.isUncommon()) display += "uncommon";
+				else display += "common";
+			}
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * Affiche un baton magique
+	 * @param wand
+	 */
+	public static void printStaff(Staff staff) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nSTAFF : "+ staff.getName();
+			display += "\nPRICE : "+ staff.getPrice()+" po";
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * Affiche une baguette magique
+	 * @param wand
+	 */
+	public static void printScepter(Scepter scptr) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nWAND : "+ scptr.getName();
+			display += "\nPRICE : "+ scptr.getPrice()+" po";
+			
+			if(scptr.getType() != scepter.Type.NONE) {
+				display += "\nTYPE : "+scptr.getType();
+			}
 			
 			display += "\n";
 			System.out.println(display);

@@ -19,7 +19,7 @@ public class RingBuilder {
     }
     
     /**
-     * createPotion permet de créer un anneau selon la rareté
+     * createRing permet de créer un anneau selon la rareté
      * @param rarity : la rareté de l'anneau.
      * @return l'anneau créé
      */

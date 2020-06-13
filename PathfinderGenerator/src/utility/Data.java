@@ -26,4 +26,21 @@ public class Data<E> extends ArrayList<Tuple<E,Integer>> {
         
         return this.get(index).getX();
 	}
+	
+	/**
+	 * Affiche les informations de l'arraylist (pour des verifications)
+	 * @return
+	 */
+	public void information() {
+		int nbItem = 0;
+		int probabilityLength = 0;
+		
+		nbItem = this.size();
+		
+		for(int i = 0; i < nbItem; i++) {
+			probabilityLength += this.get(i).getY();
+		}
+		
+		System.out.println("nbItem = "+nbItem+"; probabilityLength = "+probabilityLength);
+	}
 }
