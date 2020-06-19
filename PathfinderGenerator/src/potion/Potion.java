@@ -80,6 +80,10 @@ public class Potion {
 	 * @return le prix de la potion.
 	 */
 	private double computePrice(int nds) {
+		//deux cas particulier
+		if(this.name.equals("piège à feu")) return 775;
+		if(this.name.equals("antidétection")) return 800;
+		
 		switch (nds) {
 		case 0: return 25;
 		case 1: return 50;

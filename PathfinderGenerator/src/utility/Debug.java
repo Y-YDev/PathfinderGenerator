@@ -2,6 +2,7 @@ package utility;
 import armor.ArmorShield;
 import gemAndJewel.Gem;
 import gemAndJewel.Jewel;
+import parchment.Parchment;
 import potion.Potion;
 import ring.Ring;
 import scepter.Scepter;
@@ -312,7 +313,7 @@ public class Debug {
 	
 	/**
 	 * Affiche une baguette magique
-	 * @param wand
+	 * @param wand : la baguette magique
 	 */
 	public static void printWand(Wand wand) {
 		if(displayMode) {
@@ -325,8 +326,8 @@ public class Debug {
 			
 			if(debugMode) {
 				display += "\nTYPE : ";
-				if(wand.isUncommon()) display += "uncommon";
-				else display += "common";
+				if(wand.isUncommon()) display += "hors du commun";
+				else display += "commun";
 			}
 			
 			display += "\n";
@@ -336,7 +337,7 @@ public class Debug {
 	
 	/**
 	 * Affiche un baton magique
-	 * @param wand
+	 * @param staff le baton magique
 	 */
 	public static void printStaff(Staff staff) {
 		if(displayMode) {
@@ -351,8 +352,8 @@ public class Debug {
 	}
 	
 	/**
-	 * Affiche une baguette magique
-	 * @param wand
+	 * Affiche un sceptre magique
+	 * @param scptr le sceptre magique
 	 */
 	public static void printScepter(Scepter scptr) {
 		if(displayMode) {
@@ -363,6 +364,35 @@ public class Debug {
 			
 			if(scptr.getType() != scepter.Type.NONE) {
 				display += "\nTYPE : "+scptr.getType();
+			}
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * Affiche un parchemin 
+	 * @param le parchemin
+	 */
+	public static void printParchment(Parchment parchment) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nPARCHMENT : "+ parchment.getName();
+			display += "\nSPELL LEVEL : "+parchment.getNds();
+			display += "\nCASTER LEVEL : "+parchment.getNls();
+			
+			display += "\nCASTER TYPE : ";
+			if(parchment.isDivine()) display += "divin";
+			else display += "profane";	
+					
+			display += "\nPRICE : "+ parchment.getPrice()+" po";
+			
+			if(debugMode) {
+				display += "\nTYPE : ";
+				if(parchment.isUncommon()) display += "hors du commun";
+				else display += "commun";
 			}
 			
 			display += "\n";

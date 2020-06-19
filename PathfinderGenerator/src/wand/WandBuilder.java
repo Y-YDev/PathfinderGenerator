@@ -109,7 +109,7 @@ public class WandBuilder {
 		Debug.debug("n_common = "+ randomValue);
 		Wand wand = data.selectObject(randomValue);
 		
-		//ce n'est pas un baguette hors du commun
+		//ce n'est pas une baguette hors du commun
 		wand.setUncommon(false);
 		
 		return wand;
@@ -145,7 +145,7 @@ public class WandBuilder {
 		Debug.debug("n_uncommon = "+ randomValue);
 		Wand wand = data.selectObject(randomValue);
 		
-		//ce n'est pas un baguette hors du commun
+		//c'est une baguette hors du commun
 		wand.setUncommon(true);
 		
 		return wand;

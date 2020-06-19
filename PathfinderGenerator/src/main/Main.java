@@ -1,10 +1,11 @@
 package main;
 import armor.ArmorBuilder;
 import armor.ArmorShield;
-import constant.ScepterConstant;
 import gemAndJewel.Gem;
 import gemAndJewel.GemAndJewelBuilder;
 import gemAndJewel.Jewel;
+import parchment.Parchment;
+import parchment.ParchmentBuilder;
 import potion.Potion;
 import potion.PotionBuilder;
 import ring.Ring;
@@ -34,6 +35,7 @@ public class Main {
 		WandBuilder wandBuilder = new WandBuilder();
 		StaffBuilder staffBuilder = new StaffBuilder();
 		ScepterBuilder scepterBuilder = new ScepterBuilder();
+		ParchmentBuilder parchmentBuilder = new ParchmentBuilder();
 
 		Weapon weapon = weaponBuilder.createWeapon(6);
 		Tuple<Gem,Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(6);
@@ -43,6 +45,7 @@ public class Main {
 		Wand wand = wandBuilder.createWand(6);
 		Staff staff = staffBuilder.createStaff(6);
 		Scepter scepter = scepterBuilder.createStaff(6);
+		Parchment parchment = parchmentBuilder.createParchment(6);
 		
 		Debug.printWeapon(weapon);
 		Debug.printGemOrJewel(tuple);
@@ -52,6 +55,7 @@ public class Main {
 		Debug.printWand(wand);
 		Debug.printStaff(staff);
 		Debug.printScepter(scepter);
+		Debug.printParchment(parchment);
 		
 		Debug.display("");
 		Debug.debug("SUCCEED");

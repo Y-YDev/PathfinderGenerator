@@ -1,21 +1,22 @@
-package wand;
+package parchment;
 
 import utility.Debug;
 
 /**
- * Potion représente une baguette magique.
+ * Représente un parchemin magique.
  * @author Mentra20
  *
  */
-public class Wand {
+public class Parchment {
 	
 	private int nls;//Niveau de lançeur de sort.
 	private int nds;//Niveau du sort.
-	private String name;//Nom de la baguette.
-	private double price;//Prix de la baguette.
-	private boolean uncommon;//True si la baguette est hors du commun.
+	private String name;//Nom du parchemin.
+	private double price;//Prix du parchemin
+	private boolean uncommon;//True si le parchemin est hors du commun.
+	private boolean divine;//True si le parchemin est divin , faux si il est profane
 	
-	public Wand(String name, double price) {
+	public Parchment(String name, double price) {
 		this.setNds(-1);
 		this.setName(name);
 		this.setNls(-1);
@@ -64,12 +65,20 @@ public class Wand {
 		this.uncommon = uncommon;
 	}
 	
+	public boolean isDivine() {
+		return divine;
+	}
+
+	public void setDivine(boolean divine) {
+		this.divine = divine;
+	}
+	
 	/* Methods */
 	
 	/**
 	 * computeNls calcule le niveau de lançeur de sort selon le niveau du sort.
 	 * @param nds : niveau du sort.
-	 * @return le niveau de lançeur de sort de la baguette.
+	 * @return le niveau de lançeur de sort du parchemin.
 	 */
 	public void computeNls() {
 		switch (this.nds) {
@@ -82,6 +91,16 @@ public class Wand {
 		case 3: setNls(5);
 			break;
 		case 4: setNls(7);
+			break;
+		case 5: setNls(9);
+			break;
+		case 6: setNls(11);
+			break;
+		case 7: setNls(13);
+			break;
+		case 8: setNls(15);
+			break;
+		case 9: setNls(17);
 			break;
 		default: 
 			Debug.error("Error compute nls");
