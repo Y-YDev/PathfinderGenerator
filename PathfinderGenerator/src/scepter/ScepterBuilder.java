@@ -7,7 +7,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * StaffBuilder permet de créer des sceptres magiques.
+ * ScepterBuilder permet de créer des sceptres magiques.
  * @author Mentra20
  *
  */

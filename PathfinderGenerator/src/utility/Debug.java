@@ -1,5 +1,6 @@
 package utility;
 import armor.ArmorShield;
+import artItem.ArtItem;
 import gemAndJewel.Gem;
 import gemAndJewel.Jewel;
 import parchment.Parchment;
@@ -400,4 +401,20 @@ public class Debug {
 		}
 	}
 	
+	/**
+	 * Affiche un objet d'art
+	 * @param artItem : l'objet d'art
+	 */
+	public static void printArtItem(ArtItem artItem) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nART ITEM : "+ artItem.getName();
+			display += "\nPRICE : "+ artItem.getPrice()+" po";
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+		
 }

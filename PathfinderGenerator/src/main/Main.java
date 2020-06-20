@@ -1,6 +1,8 @@
 package main;
 import armor.ArmorBuilder;
 import armor.ArmorShield;
+import artItem.ArtItem;
+import artItem.ArtItemBuilder;
 import gemAndJewel.Gem;
 import gemAndJewel.GemAndJewelBuilder;
 import gemAndJewel.Jewel;
@@ -36,6 +38,7 @@ public class Main {
 		StaffBuilder staffBuilder = new StaffBuilder();
 		ScepterBuilder scepterBuilder = new ScepterBuilder();
 		ParchmentBuilder parchmentBuilder = new ParchmentBuilder();
+		ArtItemBuilder artItemBuilder = new ArtItemBuilder();
 
 		Weapon weapon = weaponBuilder.createWeapon(6);
 		Tuple<Gem,Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(6);
@@ -46,6 +49,7 @@ public class Main {
 		Staff staff = staffBuilder.createStaff(6);
 		Scepter scepter = scepterBuilder.createStaff(6);
 		Parchment parchment = parchmentBuilder.createParchment(6);
+		ArtItem artItem = artItemBuilder.createArtItem(6);
 		
 		Debug.printWeapon(weapon);
 		Debug.printGemOrJewel(tuple);
@@ -56,10 +60,10 @@ public class Main {
 		Debug.printStaff(staff);
 		Debug.printScepter(scepter);
 		Debug.printParchment(parchment);
+		Debug.printArtItem(artItem);
 		
 		Debug.display("");
 		Debug.debug("SUCCEED");
-		
 	}
 	
 }
