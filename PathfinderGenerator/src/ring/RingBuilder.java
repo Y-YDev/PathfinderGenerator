@@ -2,6 +2,7 @@ package ring;
 
 import java.util.Random;
 import constant.RingConstant;
+import smartItem.SmartItemBuilder;
 import utility.Data;
 import utility.Debug;
 
@@ -12,10 +13,12 @@ import utility.Debug;
  */
 public class RingBuilder {
 	Random r; //Le random pour les tirages.
+	SmartItemBuilder smartItemBuilder;//Pour creer un objet intelligent
 	
 	/* CONSTRUCTOR */
     public RingBuilder(){
         this.r = new Random();
+        this.smartItemBuilder = new SmartItemBuilder();
     }
     
     /**
@@ -50,6 +53,13 @@ public class RingBuilder {
     	int randomValue = r.nextInt(100)+1;
     	Debug.debug("n_choice = "+randomValue);
     	Ring ring = data.selectObject(randomValue);
+    	
+    	int randomValue2 = r.nextInt(100)+1;
+    	if(randomValue2 == 1) {
+    		ring.setSmartItem(smartItemBuilder.createSmartItem(ring.getPrice()));
+    		ring.setPrice(ring.getPrice() + ring.getSmartItem().getPrice());
+    	}
+    	else if(randomValue2 <= 31) ring.setParticularPropertie(true);
     	
     	Debug.debug("");
     	return ring;

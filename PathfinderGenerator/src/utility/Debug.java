@@ -7,6 +7,9 @@ import parchment.Parchment;
 import potion.Potion;
 import ring.Ring;
 import scepter.Scepter;
+import smartItem.SmartItem;
+import smartItem.SmartItemCommunication;
+import smartItem.SmartItemSkill;
 import staff.Staff;
 import wand.Wand;
 import weapon.Munition;
@@ -307,6 +310,12 @@ public class Debug {
 			display += "\nRING : "+ ring.getName();
 			display += "\nPRICE : "+ ring.getPrice()+" po";
 			
+			if(ring.isParticularPropertie()) display += "\nPARTICULAR PROPERTIE : indice";
+		
+			if(ring.getSmartItem() != null) {
+				display += smartItemToString(ring.getSmartItem());
+			}
+			
 			display += "\n";
 			System.out.println(display);
 		}
@@ -324,6 +333,8 @@ public class Debug {
 			display += "\nSPELL LEVEL : "+wand.getNds();
 			display += "\nCASTER LEVEL : "+wand.getNls();
 			display += "\nPRICE : "+ wand.getPrice()+" po";
+			
+			if(wand.isParticularPropertie()) display += "\nPARTICULAR PROPERTIE : indice";
 			
 			if(debugMode) {
 				display += "\nTYPE : ";
@@ -347,6 +358,8 @@ public class Debug {
 			display += "\nSTAFF : "+ staff.getName();
 			display += "\nPRICE : "+ staff.getPrice()+" po";
 			
+			if(staff.isParticularPropertie()) display += "\nPARTICULAR PROPERTIE : indice";
+			
 			display += "\n";
 			System.out.println(display);
 		}
@@ -360,11 +373,17 @@ public class Debug {
 		if(displayMode) {
 			String display = "";
 			
-			display += "\nWAND : "+ scptr.getName();
+			display += "\nSCEPTER : "+ scptr.getName();
 			display += "\nPRICE : "+ scptr.getPrice()+" po";
 			
 			if(scptr.getType() != scepter.Type.NONE) {
 				display += "\nTYPE : "+scptr.getType();
+			}
+
+			if(scptr.isParticularPropertie()) display += "\nPARTICULAR PROPERTIE : indice";
+			
+			if(scptr.getSmartItem() != null) {
+				display += smartItemToString(scptr.getSmartItem());
 			}
 			
 			display += "\n";
@@ -414,6 +433,64 @@ public class Debug {
 			
 			display += "\n";
 			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * Affiche un objet intelligent.
+	 * @param smartItem : l'objet intelligent
+	 */
+	public static String smartItemToString(SmartItem smartItem) {
+		String display = "";
+			
+		display += "\nSMART ITEM : ";
+		display += "\n\tALIGNMENT : "+smartItem.getAlignement();
+			
+		display += "\n\tINT : "+smartItem.getInt().getStat();
+		display += " | SAG : "+smartItem.getSag().getStat();
+		display += " | CHAR : "+smartItem.getChar().getStat();
+			
+		display += "\n\tEGO : "+smartItem.getEgo();
+		display += "\n\tNUMBER OF LANGAGE : "+smartItem.getLangage();
+			
+		display += "\n\tCOMMUNICATION SKILLS : ";
+		for(SmartItemCommunication c : smartItem.getCommunication()) {
+			display += "\n\t\t"+c.getCommunication();
+		}
+			
+		display += "\n\tSKILLS : ";
+		for(SmartItemSkill s : smartItem.getSkill()) {
+			display += "\n\t\t"+s.getSkill();
+		}
+			
+		if(smartItem.getPlan() != null) {
+			display += "\n\tPLAN : "+smartItem.getPlan().getPlan();
+		}
+		if(smartItem.getPower() != null) {
+			display += "\n\tDEDICATE POWER : "+smartItem.getPower().getPower();
+		}
+			
+		display += "\n\tTRAIT : ";
+		for(String s : smartItem.getTraits()) {
+			display += "\n\t\t"+s;
+		}
+			
+		if(debugMode) {
+			display += "\n\tBEFORE BONUS PRICE : "+smartItem.getBasePrice();
+			display += "\n\tSMART BONUS PRICE : "+smartItem.getPrice();
+		}
+			
+		display += "\n";
+		return display;
+	}
+	
+	/**
+	 * Affiche un objet intelligent.
+	 * @param smartItem : l'objet intelligent
+	 */
+	public static void printSmartItem(SmartItem smartItem) {
+		if(displayMode) {
+			System.out.println(smartItemToString(smartItem));
 		}
 	}
 		

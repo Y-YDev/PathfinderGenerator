@@ -8,10 +8,12 @@ package staff;
 public class Staff {
 	private String name;//Nom du bâtons
 	private double price;//Prix du bâtons
+	private boolean particularPropertie;//True si la baguette a un indice sur sa capacité.
 	
 	public Staff(String name,double price) {
 		this.setName(name);
 		this.setPrice(price);
+		this.setParticularPropertie(false);
 	}
 
 	public double getPrice() {
@@ -29,4 +31,13 @@ public class Staff {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public boolean isParticularPropertie() {
+		return particularPropertie;
+	}
+
+	public void setParticularPropertie(boolean particularPropertie) {
+		this.particularPropertie = particularPropertie;
+	}
+
 }

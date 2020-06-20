@@ -3,6 +3,7 @@ package scepter;
 import java.util.Random;
 
 import constant.ScepterConstant;
+import smartItem.SmartItemBuilder;
 import utility.Data;
 import utility.Debug;
 
@@ -13,10 +14,12 @@ import utility.Debug;
  */
 public class ScepterBuilder {
 	Random r; //Le random pour les tirages.
+	SmartItemBuilder smartItemBuilder;//Pour les objets intelligents
 	
 	/* CONSTRUCTOR */
     public ScepterBuilder(){
         this.r = new Random();
+        this.smartItemBuilder = new SmartItemBuilder();
     }
     
     /**
@@ -25,7 +28,7 @@ public class ScepterBuilder {
      * @return le sceptres créé
      */
     public Scepter createStaff(int rarity) {
-    	Debug.debug("Creation magic scepter of rarity "+rarity+"...");
+    	Debug.debug("Creation of magic scepter of rarity "+rarity+"...");
     	
     	Data<Scepter> data = new Data<Scepter>();
     	
@@ -47,6 +50,14 @@ public class ScepterBuilder {
     	int randomValue = r.nextInt(100)+1;
     	Debug.debug("n_choice = "+randomValue);
     	Scepter scepter = data.selectObject(randomValue);
+    	
+    	int randomValue2 = r.nextInt(100)+1;
+    	if(randomValue2 == 1) {
+    		scepter.setSmartItem(smartItemBuilder.createSmartItem(scepter.getPrice()));
+    		//On ajoute le nouveau prix
+    		scepter.setPrice(scepter.getPrice() + scepter.getSmartItem().getPrice());
+    	}
+    	else if(randomValue2 <= 31) scepter.setParticularPropertie(true);
     	
     	Debug.debug("");
     	return scepter;

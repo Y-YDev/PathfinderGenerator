@@ -1,5 +1,7 @@
 package scepter;
 
+import smartItem.SmartItem;
+
 /**
  * Représente un sceptre magique
  * @author Mentra20
@@ -11,11 +13,15 @@ public class Scepter {
 	private String name;//Nom du sceptre
 	private double price;//Prix du sceptre
 	private Type type;//Mineur, normal ou superieur
+	private boolean particularPropertie;//True si le sceptre a un indice.
+	private SmartItem smartItem;//Pour un objet intelligent.
 	
 	public Scepter(String name,Type type,double price) {
 		this.setName(name);
 		this.setType(type);
 		this.setPrice(price);
+		this.setParticularPropertie(false);
+		this.setSmartItem(null);
 	}
 
 	//CONSTRUCTEUR POUR SCEPTRE METAMAGIQUE
@@ -48,5 +54,21 @@ public class Scepter {
 
 	public void setType(Type type) {
 		this.type = type;
+	}
+
+	public boolean isParticularPropertie() {
+		return particularPropertie;
+	}
+
+	public void setParticularPropertie(boolean particularPropertie) {
+		this.particularPropertie = particularPropertie;
+	}
+
+	public SmartItem getSmartItem() {
+		return smartItem;
+	}
+
+	public void setSmartItem(SmartItem smartItem) {
+		this.smartItem = smartItem;
 	}
 }

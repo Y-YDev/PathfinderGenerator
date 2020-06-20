@@ -45,9 +45,16 @@ public class StaffBuilder {
     	//Tirage du niveau du sort.
     	int randomValue = r.nextInt(100)+1;
     	Debug.debug("n_choice = "+randomValue);
-    	Staff scepter = data.selectObject(randomValue);
+    	Staff staff = data.selectObject(randomValue);
+    	
+    	//On determine si la baguette a un indice
+    	int randomValue2 = r.nextInt(100)+1;
+    	Debug.debug("n_spe = "+randomValue2);
+    	
+    	if(randomValue2 <= 30) staff.setParticularPropertie(true);
+    	else staff.setParticularPropertie(false); 
     	
     	Debug.debug("");
-    	return scepter;
+    	return staff;
     }
 }

@@ -75,6 +75,12 @@ public class WandBuilder {
     	//On calcule le NLS
     	wand.computeNls();
     	
+    	//On determine si la baguette a un indice
+    	int randomValue3 = r.nextInt(100)+1;
+    	Debug.debug("n_spe = "+randomValue3);
+    	if(randomValue3 <= 30) wand.setParticularPropertie(true);
+    	else wand.setParticularPropertie(false); 
+    	
     	Debug.debug("");
     	return wand;
     }

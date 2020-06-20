@@ -14,6 +14,7 @@ public class Wand {
 	private String name;//Nom de la baguette.
 	private double price;//Prix de la baguette.
 	private boolean uncommon;//True si la baguette est hors du commun.
+	private boolean particularPropertie;//True si la baguette a un indice sur sa capacité.
 	
 	public Wand(String name, double price) {
 		this.setNds(-1);
@@ -21,6 +22,7 @@ public class Wand {
 		this.setNls(-1);
 		this.setPrice(price);
 		this.setUncommon(false);
+		this.setParticularPropertie(false);
 	}
 
 	/* Getters and Setters */
@@ -88,6 +90,14 @@ public class Wand {
 			setNls(-1);
 			break;
 		}
+	}
+
+	public boolean isParticularPropertie() {
+		return particularPropertie;
+	}
+
+	public void setParticularPropertie(boolean particularPropertie) {
+		this.particularPropertie = particularPropertie;
 	}
 
 }

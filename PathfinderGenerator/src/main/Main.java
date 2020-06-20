@@ -14,6 +14,8 @@ import ring.Ring;
 import ring.RingBuilder;
 import scepter.Scepter;
 import scepter.ScepterBuilder;
+import smartItem.SmartItem;
+import smartItem.SmartItemBuilder;
 import staff.Staff;
 import staff.StaffBuilder;
 import utility.Debug;
@@ -39,6 +41,7 @@ public class Main {
 		ScepterBuilder scepterBuilder = new ScepterBuilder();
 		ParchmentBuilder parchmentBuilder = new ParchmentBuilder();
 		ArtItemBuilder artItemBuilder = new ArtItemBuilder();
+		SmartItemBuilder smartItemBuilder = new SmartItemBuilder();
 
 		Weapon weapon = weaponBuilder.createWeapon(6);
 		Tuple<Gem,Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(6);
@@ -50,6 +53,7 @@ public class Main {
 		Scepter scepter = scepterBuilder.createStaff(6);
 		Parchment parchment = parchmentBuilder.createParchment(6);
 		ArtItem artItem = artItemBuilder.createArtItem(6);
+		SmartItem smartItem = smartItemBuilder.createSmartItem(0);
 		
 		Debug.printWeapon(weapon);
 		Debug.printGemOrJewel(tuple);
@@ -61,6 +65,7 @@ public class Main {
 		Debug.printScepter(scepter);
 		Debug.printParchment(parchment);
 		Debug.printArtItem(artItem);
+		Debug.printSmartItem(smartItem);
 		
 		Debug.display("");
 		Debug.debug("SUCCEED");
