@@ -16,6 +16,7 @@ import weapon.Munition;
 import weapon.RangeWeapon;
 import weapon.Type;
 import weapon.Weapon;
+import wonderfulObject.WonderfulObject;
 
 /**
  * La classe Debug s'occupe de l'affichage de toute sorte.
@@ -493,5 +494,27 @@ public class Debug {
 			System.out.println(smartItemToString(smartItem));
 		}
 	}
-		
+	
+	/**
+	 * Affiche un objet merveilleux.
+	 * @param smartItem : l'objet merveilleux
+	 */
+	public static void printWonderfulObject(WonderfulObject wonderfulObject) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nWONDERFUL OBJECT : "+ wonderfulObject.getName();		
+			display += "\nPRICE : "+ wonderfulObject.getPrice()+" po";
+			display += "\nLOCATION : "+wonderfulObject.getType();
+
+			if(wonderfulObject.isParticularPropertie()) display += "\nPARTICULAR PROPERTIE : indice";
+			
+			if(wonderfulObject.getSmartItem() != null) {
+				display += smartItemToString(wonderfulObject.getSmartItem());
+			}
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
 }

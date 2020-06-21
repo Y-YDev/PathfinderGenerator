@@ -47,6 +47,7 @@ public class SmartItemBuilder {
 		//Ajout des traits
 		smartItem = createTrait(smartItem);
 		
+		Debug.debug("");
 		return smartItem;
 	}
 	

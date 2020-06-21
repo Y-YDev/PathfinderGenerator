@@ -55,9 +55,9 @@ public class SmartItemConstant {
 	public static Data<SmartItemCommunication> communicationCapacity(){
 		Data<SmartItemCommunication> res = new Data<SmartItemCommunication>();
 		
-		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Parole", 500, 0), 18));
+		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Parole", 500, 0), 20));
 		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Télépathie", 1000, 1), 12));
-		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Sens (18m)", 500, 0), 15));
+		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Sens (18m)", 500, 0), 13));
 		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Sens (36m)", 1000, 0), 12));
 		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Vision dans le noir", 500, 0), 14));
 		res.add(new Tuple<SmartItemCommunication, Integer>(new SmartItemCommunication("Vision aveugle", 5000, 1), 8));

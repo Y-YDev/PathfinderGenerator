@@ -24,6 +24,8 @@ import wand.Wand;
 import wand.WandBuilder;
 import weapon.Weapon;
 import weapon.WeaponBuilder;
+import wonderfulObject.WonderfulObject;
+import wonderfulObject.WonderfulObjectBuilder;
 
 public class Main {
 	
@@ -42,6 +44,7 @@ public class Main {
 		ParchmentBuilder parchmentBuilder = new ParchmentBuilder();
 		ArtItemBuilder artItemBuilder = new ArtItemBuilder();
 		SmartItemBuilder smartItemBuilder = new SmartItemBuilder();
+		WonderfulObjectBuilder wonderfulObjectBuilder = new WonderfulObjectBuilder();
 
 		Weapon weapon = weaponBuilder.createWeapon(6);
 		Tuple<Gem,Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(6);
@@ -54,6 +57,7 @@ public class Main {
 		Parchment parchment = parchmentBuilder.createParchment(6);
 		ArtItem artItem = artItemBuilder.createArtItem(6);
 		SmartItem smartItem = smartItemBuilder.createSmartItem(0);
+		WonderfulObject wonderfulObject = wonderfulObjectBuilder.createWonderfulObject(6);
 		
 		Debug.printWeapon(weapon);
 		Debug.printGemOrJewel(tuple);
@@ -66,6 +70,7 @@ public class Main {
 		Debug.printParchment(parchment);
 		Debug.printArtItem(artItem);
 		Debug.printSmartItem(smartItem);
+		Debug.printWonderfulObject(wonderfulObject);
 		
 		Debug.display("");
 		Debug.debug("SUCCEED");
