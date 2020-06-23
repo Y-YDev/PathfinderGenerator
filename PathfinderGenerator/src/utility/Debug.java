@@ -1,6 +1,9 @@
 package utility;
+import java.util.ArrayList;
+
 import generator.Level;
 import generator.Treasure;
+import item.Item;
 import item.armor.ArmorShield;
 import item.artItem.ArtItem;
 import item.coin.Coin;
@@ -561,7 +564,61 @@ public class Debug {
 	 */
 	public static void printCoin(Coin coin) {
 		if(displayMode) {
-			System.out.println(coin.toString());
+			System.out.println("\n"+coin.toString());
+		}
+	}
+	
+	/**
+	 * Affiche le contenu d'un trésor dropper
+	 * @param reward
+	 */
+	public static void printReward(ArrayList<Item> reward) {
+		if(displayMode) {
+			for(Item item : reward) {
+				switch (item.getTypeItem()) {
+				case WEAPON:
+					printWeapon((Weapon) item);
+					break;
+				case ARMOR:
+					printArmorShield((ArmorShield) item);
+					break;
+				case COIN:
+					printCoin((Coin) item);
+					break;
+				case ART:
+					printArtItem((ArtItem) item);
+					break;
+				case GEM:
+					printGem((Gem) item);
+					break;
+				case JEWEL:
+					printJewel((Jewel) item);
+					break;
+				case PARCHMENT:
+					printParchment((Parchment) item);
+					break;
+				case POTION :
+					printPotion((Potion) item);
+					break;
+				case RING:
+					printRing((Ring) item);
+					break;
+				case SCEPTER:
+					printScepter((Scepter) item);
+					break;
+				case STAFF:
+					printStaff((Staff) item);
+					break;
+				case WAND:
+					printWand((Wand) item);
+					break;
+				case WONDERFUL:
+					printWonderfulObject((WonderfulObject) item);
+					break;
+				default:
+					break;
+				}
+			}
 		}
 	}
 }

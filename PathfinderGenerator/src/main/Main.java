@@ -81,13 +81,16 @@ public class Main {
 		Debug.printSmartItem(smartItem);
 		Debug.printWonderfulObject(wonderfulObject);
 		
+		System.out.println("----------------------------------------------------------------------------");
 		
 		//GENERATION DE TRESOR
 		TreasureBuilder treasureBuilder = new TreasureBuilder();
-		Treasure treasure = new Treasure(Type.B, ProbabilityType.MINOR);
+		Treasure treasure = new Treasure(Type.B);
+		treasure.affectProbability(ProbabilityType.MAJOR);
+		
 		Debug.printTreasure(treasure);
 		
-		Debug.printCoin(treasureBuilder.convertCoin("4d8x100-G"));
+		Debug.printReward(treasureBuilder.getReward(treasure.getLevelList().get(9)));
 		
 		Debug.display("");
 		Debug.debug("SUCCEED");

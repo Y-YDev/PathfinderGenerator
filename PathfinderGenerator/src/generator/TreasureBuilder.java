@@ -1,5 +1,6 @@
 package generator;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import item.Item;
@@ -23,9 +24,11 @@ import utility.Tuple;
 
 public class TreasureBuilder {
 	private Random r;
+	private ArrayList<Treasure> treasureList;//List des trésor
 	
 	public TreasureBuilder() {
 		r = new Random();
+		treasureList = new ArrayList<Treasure>();
 	}
 	
 	/**
@@ -166,5 +169,22 @@ public class TreasureBuilder {
 		
 		Debug.error("No Such Type of Item exist");
 		return null;
+	}
+	
+	public ArrayList<Item> getReward(Level level){
+		ArrayList<Item> reward = new ArrayList<Item>();
+		
+		for(String code : level.getReward()) {
+			reward.add(convertToItem(code));
+		}
+		return reward;
+	}
+
+	public ArrayList<Treasure> getTreasureList() {
+		return treasureList;
+	}
+
+	public void setTreasureList(ArrayList<Treasure> treasureList) {
+		this.treasureList = treasureList;
 	}
 }

@@ -15,12 +15,10 @@ public class Treasure {
 	private ArrayList<Level> levelList;//Liste des paliers du trésor.
 	private ProbabilityType probabilityType;//repartition de probabilité de drop.
 	
-	public Treasure(Type type, ProbabilityType probabilityType) {
+	public Treasure(Type type) {
 		this.setType(type);
-		this.setProbabilityType(probabilityType);
 		this.setLevelList(createLevel());
-		
-		affectProbability();
+		affectProbability(ProbabilityType.MEDIUM);
 	}
 
 	/**
@@ -43,8 +41,10 @@ public class Treasure {
 	 */
 	public ArrayList<Level> createLevel(){
 		switch (this.type) {
-		case B:
+		case A:
 			return TreasureConstant.TypeA();
+		case B:
+			return TreasureConstant.TypeB();
 		default:
 			Debug.error("Error switch createLevel");
 			return null;
@@ -54,7 +54,9 @@ public class Treasure {
 	/**
 	 * Affecte les probabilité au palier selon le mode de répartition de probabilité choisi.
 	 */
-	public void affectProbability() {
+	public void affectProbability(ProbabilityType probabilityType) {
+		//On change la répartition de proba.
+		setProbabilityType(probabilityType);
 		//Probabilité décroissante
 		if(this.probabilityType == ProbabilityType.MINOR) {
 			double proba = 1;//On commence a une proba de 1.
