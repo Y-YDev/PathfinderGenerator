@@ -1,9 +1,9 @@
 package constant;
 
+import item.wonderfulObject.Type;
+import item.wonderfulObject.WonderfulObject;
 import utility.Data;
 import utility.Tuple;
-import wonderfulObject.Type;
-import wonderfulObject.WonderfulObject;
 
 /**
  * Les tableaux de tirages pour les objets merveilleux

@@ -1,9 +1,9 @@
 package constant;
 
-import gemAndJewel.Gem;
-import gemAndJewel.Material;
-import gemAndJewel.TypeJewel;
-import gemAndJewel.TypeSize;
+import item.gemAndJewel.Gem;
+import item.gemAndJewel.Material;
+import item.gemAndJewel.TypeJewel;
+import item.gemAndJewel.TypeSize;
 import utility.Data;
 import utility.Tuple;
 

@@ -1,22 +1,25 @@
 package utility;
-import armor.ArmorShield;
-import artItem.ArtItem;
-import gemAndJewel.Gem;
-import gemAndJewel.Jewel;
-import parchment.Parchment;
-import potion.Potion;
-import ring.Ring;
-import scepter.Scepter;
-import smartItem.SmartItem;
-import smartItem.SmartItemCommunication;
-import smartItem.SmartItemSkill;
-import staff.Staff;
-import wand.Wand;
-import weapon.Munition;
-import weapon.RangeWeapon;
-import weapon.Type;
-import weapon.Weapon;
-import wonderfulObject.WonderfulObject;
+import generator.Level;
+import generator.Treasure;
+import item.armor.ArmorShield;
+import item.artItem.ArtItem;
+import item.coin.Coin;
+import item.gemAndJewel.Gem;
+import item.gemAndJewel.Jewel;
+import item.parchment.Parchment;
+import item.potion.Potion;
+import item.ring.Ring;
+import item.scepter.Scepter;
+import item.smartItem.SmartItem;
+import item.smartItem.SmartItemCommunication;
+import item.smartItem.SmartItemSkill;
+import item.staff.Staff;
+import item.wand.Wand;
+import item.weapon.Munition;
+import item.weapon.RangeWeapon;
+import item.weapon.Type;
+import item.weapon.Weapon;
+import item.wonderfulObject.WonderfulObject;
 
 /**
  * La classe Debug s'occupe de l'affichage de toute sorte.
@@ -377,7 +380,7 @@ public class Debug {
 			display += "\nSCEPTER : "+ scptr.getName();
 			display += "\nPRICE : "+ scptr.getPrice()+" po";
 			
-			if(scptr.getType() != scepter.Type.NONE) {
+			if(scptr.getType() != item.scepter.Type.NONE) {
 				display += "\nTYPE : "+scptr.getType();
 			}
 
@@ -515,6 +518,50 @@ public class Debug {
 			
 			display += "\n";
 			System.out.println(display);
+		}
+	}
+	
+	/**
+	 * Affiche un tresor.
+	 * @param treasure : le tresor
+	 */
+	public static void printTreasure(Treasure treasure) {
+		if(displayMode) {
+			String display = "";
+			
+			display += "\nTREASURE : "+ treasure.getType();
+			display += "\nPROBABILITY TYPE : " + treasure.getProbabilityType();
+			
+			if(debugMode) {
+				display += "\nTOTAL PROBABILITY : " + treasure.computeProbability();
+				
+				display += "\nLEVEL PROBABILITY : ";
+				for(Level level : treasure.getLevelList()) {
+					display += Debug.levelToString(level);
+				}
+			}
+			
+			display += "\n";
+			System.out.println(display);
+		}
+	}
+	
+	public static String levelToString(Level level) {
+		String display = "";
+		
+		display += "\n\tPRICE : "+ level.getPrice();
+		display += "\n\tPROBABILITY : "+level.getProbability();
+		
+		return display+"\n";
+	}
+	
+	/**
+	 * Affiche une quantité de pièce
+	 * @param coin : les pièces
+	 */
+	public static void printCoin(Coin coin) {
+		if(displayMode) {
+			System.out.println(coin.toString());
 		}
 	}
 }

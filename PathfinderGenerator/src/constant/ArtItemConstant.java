@@ -12,7 +12,7 @@ package constant;
  *
  */
 
-import artItem.ArtItem;
+import item.artItem.ArtItem;
 import utility.Data;
 import utility.Tuple;
 

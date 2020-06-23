@@ -1,15 +1,15 @@
 package constant;
+import item.weapon.Material;
+import item.weapon.MeleeWeapon;
+import item.weapon.Munition;
+import item.weapon.RangeWeapon;
+import item.weapon.Type;
+import item.weapon.TypeDamage;
+import item.weapon.TypeMaterial;
+import item.weapon.Weapon;
+import item.weapon.WeaponSpecialPropertie;
 import utility.Data;
 import utility.Tuple;
-import weapon.Material;
-import weapon.MeleeWeapon;
-import weapon.Munition;
-import weapon.RangeWeapon;
-import weapon.Type;
-import weapon.TypeDamage;
-import weapon.TypeMaterial;
-import weapon.Weapon;
-import weapon.WeaponSpecialPropertie;
 
 /**
  * Constant contient les constantes des armes pour les tirages du générateur.

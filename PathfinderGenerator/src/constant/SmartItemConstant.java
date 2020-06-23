@@ -1,10 +1,10 @@
 package constant;
 
-import smartItem.SmartItemCommunication;
-import smartItem.SmartItemDedicatePower;
-import smartItem.SmartItemPlan;
-import smartItem.SmartItemSkill;
-import smartItem.SmartItemStat;
+import item.smartItem.SmartItemCommunication;
+import item.smartItem.SmartItemDedicatePower;
+import item.smartItem.SmartItemPlan;
+import item.smartItem.SmartItemSkill;
+import item.smartItem.SmartItemStat;
 import utility.Data;
 import utility.Tuple;
 

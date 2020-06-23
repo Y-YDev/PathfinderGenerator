@@ -1,7 +1,7 @@
 package constant;
 
-import scepter.Scepter;
-import scepter.Type;
+import item.scepter.Scepter;
+import item.scepter.Type;
 import utility.Data;
 import utility.Tuple;
 

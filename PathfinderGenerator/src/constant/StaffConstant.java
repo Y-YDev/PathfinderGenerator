@@ -1,6 +1,6 @@
 package constant;
 
-import staff.Staff;
+import item.staff.Staff;
 import utility.Data;
 import utility.Tuple;
 

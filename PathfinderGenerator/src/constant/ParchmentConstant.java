@@ -1,6 +1,6 @@
 package constant;
 
-import parchment.Parchment;
+import item.parchment.Parchment;
 import utility.Data;
 import utility.Tuple;
 

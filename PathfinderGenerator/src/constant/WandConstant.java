@@ -1,8 +1,8 @@
 package constant;
 
+import item.wand.Wand;
 import utility.Data;
 import utility.Tuple;
-import wand.Wand;
 
 /**
  * WandConstant contient toutes les constantes pour crééer une baguette.

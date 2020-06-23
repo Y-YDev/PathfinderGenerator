@@ -1,31 +1,35 @@
 package main;
-import armor.ArmorBuilder;
-import armor.ArmorShield;
-import artItem.ArtItem;
-import artItem.ArtItemBuilder;
-import gemAndJewel.Gem;
-import gemAndJewel.GemAndJewelBuilder;
-import gemAndJewel.Jewel;
-import parchment.Parchment;
-import parchment.ParchmentBuilder;
-import potion.Potion;
-import potion.PotionBuilder;
-import ring.Ring;
-import ring.RingBuilder;
-import scepter.Scepter;
-import scepter.ScepterBuilder;
-import smartItem.SmartItem;
-import smartItem.SmartItemBuilder;
-import staff.Staff;
-import staff.StaffBuilder;
+import generator.ProbabilityType;
+import generator.Treasure;
+import generator.TreasureBuilder;
+import generator.Type;
+import item.armor.ArmorBuilder;
+import item.armor.ArmorShield;
+import item.artItem.ArtItem;
+import item.artItem.ArtItemBuilder;
+import item.gemAndJewel.Gem;
+import item.gemAndJewel.GemAndJewelBuilder;
+import item.gemAndJewel.Jewel;
+import item.parchment.Parchment;
+import item.parchment.ParchmentBuilder;
+import item.potion.Potion;
+import item.potion.PotionBuilder;
+import item.ring.Ring;
+import item.ring.RingBuilder;
+import item.scepter.Scepter;
+import item.scepter.ScepterBuilder;
+import item.smartItem.SmartItem;
+import item.smartItem.SmartItemBuilder;
+import item.staff.Staff;
+import item.staff.StaffBuilder;
+import item.wand.Wand;
+import item.wand.WandBuilder;
+import item.weapon.Weapon;
+import item.weapon.WeaponBuilder;
+import item.wonderfulObject.WonderfulObject;
+import item.wonderfulObject.WonderfulObjectBuilder;
 import utility.Debug;
 import utility.Tuple;
-import wand.Wand;
-import wand.WandBuilder;
-import weapon.Weapon;
-import weapon.WeaponBuilder;
-import wonderfulObject.WonderfulObject;
-import wonderfulObject.WonderfulObjectBuilder;
 
 public class Main {
 	
@@ -33,6 +37,7 @@ public class Main {
 		//Paramètrage de l'affichage
 		Debug.setMode(true, true);
 		
+		//GENERATION D'ITEM
 		WeaponBuilder weaponBuilder = new WeaponBuilder();
 		GemAndJewelBuilder gemAndJewelBuilder = new GemAndJewelBuilder();
 		PotionBuilder potionBuilder = new PotionBuilder();
@@ -47,22 +52,26 @@ public class Main {
 		WonderfulObjectBuilder wonderfulObjectBuilder = new WonderfulObjectBuilder();
 
 		Weapon weapon = weaponBuilder.createWeapon(6);
+		Weapon weapon2 = weaponBuilder.createMasterWeapon();//Arme de maitre
 		Tuple<Gem,Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(6);
 		Potion potion = potionBuilder.createPotion(6);
 		ArmorShield armor = armorBuilder.createArmor(6);
+		ArmorShield armor2 = armorBuilder.createMasterArmor();//Armure de maitre.
 		Ring ring = ringBuilder.createRing(6);
 		Wand wand = wandBuilder.createWand(6);
 		Staff staff = staffBuilder.createStaff(6);
-		Scepter scepter = scepterBuilder.createStaff(6);
+		Scepter scepter = scepterBuilder.createScepter(6);
 		Parchment parchment = parchmentBuilder.createParchment(6);
 		ArtItem artItem = artItemBuilder.createArtItem(6);
 		SmartItem smartItem = smartItemBuilder.createSmartItem(0);
 		WonderfulObject wonderfulObject = wonderfulObjectBuilder.createWonderfulObject(6);
 		
 		Debug.printWeapon(weapon);
+		Debug.printWeapon(weapon2);
 		Debug.printGemOrJewel(tuple);
 		Debug.printPotion(potion);
 		Debug.printArmorShield(armor);
+		Debug.printArmorShield(armor2);
 		Debug.printRing(ring);
 		Debug.printWand(wand);
 		Debug.printStaff(staff);
@@ -71,6 +80,14 @@ public class Main {
 		Debug.printArtItem(artItem);
 		Debug.printSmartItem(smartItem);
 		Debug.printWonderfulObject(wonderfulObject);
+		
+		
+		//GENERATION DE TRESOR
+		TreasureBuilder treasureBuilder = new TreasureBuilder();
+		Treasure treasure = new Treasure(Type.B, ProbabilityType.MINOR);
+		Debug.printTreasure(treasure);
+		
+		Debug.printCoin(treasureBuilder.convertCoin("4d8x100-G"));
 		
 		Debug.display("");
 		Debug.debug("SUCCEED");

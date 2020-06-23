@@ -1,6 +1,6 @@
 package constant;
 
-import ring.Ring;
+import item.ring.Ring;
 import utility.Data;
 import utility.Tuple;
 

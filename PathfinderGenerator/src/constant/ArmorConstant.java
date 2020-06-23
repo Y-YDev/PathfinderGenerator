@@ -1,12 +1,12 @@
 package constant;
 
-import armor.ArmorShield;
-import armor.ArmorSpecialPropertie;
-import armor.Type;
-import armor.TypeMaterial;
+import item.armor.ArmorShield;
+import item.armor.ArmorSpecialPropertie;
+import item.armor.Material;
+import item.armor.Type;
+import item.armor.TypeMaterial;
 import utility.Data;
 import utility.Tuple;
-import armor.Material;
 
 
 /**
