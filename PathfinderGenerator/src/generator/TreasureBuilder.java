@@ -95,6 +95,11 @@ public class TreasureBuilder {
 		return new Coin(typeCoin, res);
 	}
 	
+	/**
+	 * Convertit un code en un item généré (selon le code)
+	 * @param code : le code de génération
+	 * @return l'item généré
+	 */
 	public Item convertToItem(String code) {
 		//Tout code autre que les pièces fait 4 caractères.
 		if(code.length() > 4) {
@@ -170,7 +175,12 @@ public class TreasureBuilder {
 		Debug.error("No Such Type of Item exist");
 		return null;
 	}
-	
+
+	/**
+	 * Permet de renvoyer la récompense du palier
+	 * @param level : le palier concerné
+	 * @return les récompense du palier sous forme de liste d'item.
+	 */
 	public ArrayList<Item> getReward(Level level){
 		ArrayList<Item> reward = new ArrayList<Item>();
 		

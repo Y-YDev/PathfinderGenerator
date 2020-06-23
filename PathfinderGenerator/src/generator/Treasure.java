@@ -1,6 +1,7 @@
 package generator;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import constant.TreasureConstant;
 import utility.Debug;
@@ -11,22 +12,31 @@ import utility.Debug;
  *
  */
 public class Treasure {
+	private Random r;
 	private Type type;//Lettre du type du trésor
 	private ArrayList<Level> levelList;//Liste des paliers du trésor.
 	private ProbabilityType probabilityType;//repartition de probabilité de drop.
 	
 	public Treasure(Type type) {
+		r = new Random();
 		this.setType(type);
 		this.setLevelList(createLevel());
 		affectProbability(ProbabilityType.MEDIUM);
+	}
+	
+	public Treasure(Type type, ProbabilityType probabilityType) {
+		r = new Random();
+		this.setType(type);
+		this.setLevelList(createLevel());
+		affectProbability(probabilityType);
 	}
 
 	/**
 	 * Retourne la somme des probabilité de chaque paliers.
 	 * @return la probabilité totale du tresor
 	 */
-	public double computeProbability() {
-		double sum = 0;
+	public int computeProbability() {
+		int sum = 0;
 		
 		for(Level l : levelList) {
 			sum += l.getProbability();
@@ -59,7 +69,7 @@ public class Treasure {
 		setProbabilityType(probabilityType);
 		//Probabilité décroissante
 		if(this.probabilityType == ProbabilityType.MINOR) {
-			double proba = 1;//On commence a une proba de 1.
+			int proba = 1;//On commence a une proba de 1.
 			//On recupere le prix du dernier
 			double actualPrice = levelList.get(levelList.size()-1).getPrice();
 			
@@ -79,7 +89,7 @@ public class Treasure {
 		}
 		//Probabilité croissante
 		else if (this.probabilityType == ProbabilityType.MAJOR){
-			double proba = 1;//On commence a une proba de 1.
+			int proba = 1;//On commence a une proba de 1.
 			//On recupere le prix du dernier
 			double actualPrice = levelList.get(0).getPrice();
 			
@@ -91,8 +101,27 @@ public class Treasure {
 				levelList.get(i).setProbability(proba);
 			}
 		}
+		else {
+			Debug.error("No probability was given before");
+		}
 	}
 
+	/**
+	 * Renvoie un palier au hasard (selon la répartition de probabilité)
+	 * @return Le palier séléctionné
+	 */
+	public Level getRandomLevel() {
+		int random = r.nextInt(computeProbability())+1;
+		int index = 0;
+		int currentProb = levelList.get(index).getProbability();
+		
+		while(random > currentProb) {
+			index++;
+			currentProb += levelList.get(index).getProbability();
+		}
+		return levelList.get(index);
+	}
+	
 	
 	public Type getType() {
 		return type;

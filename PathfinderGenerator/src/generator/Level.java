@@ -2,7 +2,7 @@ package generator;
 
 public class Level {
 	private double price;//Prix du palier.
-	private double probability;//Probabilité du palier.
+	private int probability;//Probabilité du palier.
 	private String[] reward;//Les récompenses
 	
 	public Level(double price,String[] reward) {
@@ -10,7 +10,7 @@ public class Level {
 		this.setProbability(-999);
 		this.setReward(reward);
 	}
-
+	
 	public double getPrice() {
 		return price;
 	}
@@ -19,11 +19,11 @@ public class Level {
 		this.price = price;
 	}
 
-	public double getProbability() {
+	public int getProbability() {
 		return probability;
 	}
 
-	public void setProbability(double probability) {
+	public void setProbability(int probability) {
 		this.probability = probability;
 	}
 
