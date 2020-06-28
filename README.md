@@ -5,6 +5,6 @@ Il est basé sur le [Générateur de trésors](https://www.pathfinder-fr.org/Wik
 Il se base également sur ce [tableau](https://github.com/WolvesWithSword/PathfinderGenerator/blob/master/Ressources/Generateur_de_tresor.ods) pour les distributions de matériaux, les générations de gemmes et d'objet d'art.  
 Certaine probabilités manquantes ont été faites manuellement et arbitrairement.
 
-![PathfinderGenerator](Ressources/PathfinderGenerator.png)
+![PathfinderGenerator](Ressources/pathfinder_generator.png)
 
 Documentation du programme. (à venir)
