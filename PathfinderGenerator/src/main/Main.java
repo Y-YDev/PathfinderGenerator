@@ -1,8 +1,10 @@
 package main;
+
+import generator.MonsterType;
 import generator.ProbabilityType;
 import generator.Treasure;
 import generator.TreasureBuilder;
-import generator.Type;
+import generator.TreasureType;
 import item.armor.ArmorBuilder;
 import item.armor.ArmorShield;
 import item.artItem.ArtItem;
@@ -85,13 +87,13 @@ public class Main {
 		
 		//GENERATION DE TRESOR
 		TreasureBuilder treasureBuilder = new TreasureBuilder();
-		Treasure treasure = new Treasure(Type.B);
-		treasure.affectProbability(ProbabilityType.MAJOR);
-		
+		Treasure treasure = new Treasure(TreasureType.B);
+		treasure.affectProbability(ProbabilityType.FIBONACCI);
 		Debug.printTreasure(treasure);
+
+		Debug.printReward(treasureBuilder.createRandomRewardWithMonster(MonsterType.Humanoid, false, ProbabilityType.MAJOR, 1000));
 		
-		Debug.printReward(treasureBuilder.getReward(treasure.getLevelList().get(9)));
-		
+			
 		Debug.display("");
 		Debug.debug("SUCCEED");
 	}

@@ -13,22 +13,14 @@ import utility.Debug;
  */
 public class Treasure {
 	private Random r;
-	private Type type;//Lettre du type du trésor
+	private TreasureType type;//Lettre du type du trésor
 	private ArrayList<Level> levelList;//Liste des paliers du trésor.
 	private ProbabilityType probabilityType;//repartition de probabilité de drop.
 	
-	public Treasure(Type type) {
+	public Treasure(TreasureType type) {
 		r = new Random();
 		this.setType(type);
-		this.setLevelList(createLevel());
-		affectProbability(ProbabilityType.MEDIUM);
-	}
-	
-	public Treasure(Type type, ProbabilityType probabilityType) {
-		r = new Random();
-		this.setType(type);
-		this.setLevelList(createLevel());
-		affectProbability(probabilityType);
+		this.createLevel(ProbabilityType.MEDIUM);
 	}
 
 	/**
@@ -41,7 +33,6 @@ public class Treasure {
 		for(Level l : levelList) {
 			sum += l.getProbability();
 		}
-		
 		return sum;
 	}
 	
@@ -49,16 +40,46 @@ public class Treasure {
 	 * Creer les paliers d'un tresor selon le type.
 	 * @return la liste des paliers.
 	 */
-	public ArrayList<Level> createLevel(){
+	public void createLevel(ProbabilityType probabilityType){
+		ArrayList<Level> levels = new ArrayList<Level>();
+		
 		switch (this.type) {
 		case A:
-			return TreasureConstant.TypeA();
+			levels = TreasureConstant.TypeA();
+			break;
 		case B:
-			return TreasureConstant.TypeB();
+			levels = TreasureConstant.TypeB();
+			break;
+		case C:
+			levels = TreasureConstant.TypeC();
+			break;
+		case D:
+			levels = TreasureConstant.TypeD();
+			break;
+		case E:
+			levels = TreasureConstant.TypeE();
+			break;
+		case F:
+			levels = TreasureConstant.TypeF();
+			break;
+		case G:
+			levels = TreasureConstant.TypeG();
+			break;
+		case H:
+			levels = TreasureConstant.TypeH();
+			break;
+		case I:
+			levels = TreasureConstant.TypeI();
+			break;
 		default:
 			Debug.error("Error switch createLevel");
-			return null;
+			levels = null;
+			break;
 		}
+		
+		this.setLevelList(levels);
+		//On affecte les probabilités.
+		affectProbability(probabilityType);
 	}
 	
 	/**
@@ -90,7 +111,7 @@ public class Treasure {
 		//Probabilité croissante
 		else if (this.probabilityType == ProbabilityType.MAJOR){
 			int proba = 1;//On commence a une proba de 1.
-			//On recupere le prix du dernier
+			//On recupere le prix du premier
 			double actualPrice = levelList.get(0).getPrice();
 			
 			for(int i = 0; i < levelList.size();i++) {
@@ -99,6 +120,27 @@ public class Treasure {
 					actualPrice = levelList.get(i).getPrice();
 				}
 				levelList.get(i).setProbability(proba);
+			}
+		}
+		//Probabilité avec suite de fibonacci
+		else if (this.probabilityType == ProbabilityType.FIBONACCI) {
+			int n1 = 0;
+			int n2 = 1;
+			int temp;
+			
+			//On recupere le prix du premier
+			double actualPrice = levelList.get(0).getPrice();
+			
+			for(int i = 0; i < levelList.size();i++) {
+				if(levelList.get(i).getPrice() > actualPrice) {
+					
+					temp = n2;
+					n2 = n2 + n1;
+					n1 = temp;
+					
+					actualPrice = levelList.get(i).getPrice();
+				}
+				levelList.get(i).setProbability(n2);
 			}
 		}
 		else {
@@ -119,15 +161,50 @@ public class Treasure {
 			index++;
 			currentProb += levelList.get(index).getProbability();
 		}
-		return levelList.get(index);
+		Level res = levelList.get(index);
+		Debug.debug("Result of draw is "+random+" : get level of price "+res.getPrice());
+		return res;
 	}
 	
+	/**
+	 * Renvoie true ou false selon que le trésor peut etre choisir pour un prix donné
+	 * @param price : le prix
+	 * @return true ou false.
+	 */
+	public boolean canBeChooseLevel(double price) {
+		if(levelList.get(0).getPrice() > price) {
+			//Si le prix le plus bas ne peux pas être choisi on ne peux rien avoir dans ce trésor
+			return false;
+		}
+		return true;
+	}
 	
-	public Type getType() {
+	/**
+	 * Permet de retirer les paliers trop cher pour le prix donné
+	 * @param price : le prix
+	 * @return la liste sans les paliers trop chers
+	 */
+	public void removeTooExpensiveLevel(double price) {
+		Debug.debug("Removing too expensive level of type "+this.type+" for price "+price);
+		
+		ArrayList<Level> newLevel = new ArrayList<Level>();
+		
+		for(int i =0 ;i < levelList.size(); i++) {
+			if(levelList.get(i).getPrice() <= price) {//Si on peut le selectionner avec notre argent
+				Debug.debug("keep level of price : "+levelList.get(i).getPrice());
+				newLevel.add(levelList.get(i));//On l'ajoute à la future levelList
+			}
+		}
+		this.setLevelList(newLevel);
+	}
+	
+	/* GETTER AND SETTERS */
+	
+	public TreasureType getType() {
 		return type;
 	}
 
-	public void setType(Type type) {
+	public void setType(TreasureType type) {
 		this.type = type;
 	}
 

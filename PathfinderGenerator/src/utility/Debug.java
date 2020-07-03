@@ -253,7 +253,7 @@ public class Debug {
 		if(displayMode) {
 			String display = "";
 			
-			display += "\nWEAPON : "+ armor.getName();
+			display += "\nARMOR : "+ armor.getName();
 			if(armor.isMasterWork()) display += " de maître";
 			
 			display += "\nALTERATION : ";

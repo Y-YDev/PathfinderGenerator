@@ -5,7 +5,8 @@ package generator;
  */
 public enum ProbabilityType {
 	
-	MINOR("Pleins de petits objets peu cher"),MEDIUM("Objets aléatoire"),MAJOR("Quelques objets cher");
+	MINOR("Pleins de petits objets peu cher"),MEDIUM("Objets aléatoire"),MAJOR("Des objets plutôt chers"),
+	FIBONACCI("Peu d'objets mais très chers");
 	
     private final String type;
     
