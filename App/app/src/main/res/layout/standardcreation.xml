@@ -5,6 +5,7 @@
     android:gravity="center"
     >
 
+
     <TextView
         android:id="@+id/typeinfo"
         android:layout_width="match_parent"
