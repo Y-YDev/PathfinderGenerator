@@ -63,6 +63,7 @@ public class Main {
 		Wand wand = wandBuilder.createWand(6);
 		Staff staff = staffBuilder.createStaff(6);
 		Scepter scepter = scepterBuilder.createScepter(6);
+		
 		Parchment parchment = parchmentBuilder.createParchment(6);
 		ArtItem artItem = artItemBuilder.createArtItem(6);
 		SmartItem smartItem = smartItemBuilder.createSmartItem(0);
@@ -91,7 +92,7 @@ public class Main {
 		treasure.affectProbability(ProbabilityType.FIBONACCI);
 		Debug.printTreasure(treasure);
 
-		Debug.printReward(treasureBuilder.createRandomRewardWithMonster(MonsterType.Humanoid, false, ProbabilityType.MAJOR, 1000));
+		Debug.printReward(treasureBuilder.createRandomRewardWithMonster(MonsterType.Undead, false, ProbabilityType.MAJOR, 1560));
 		
 			
 		Debug.display("");

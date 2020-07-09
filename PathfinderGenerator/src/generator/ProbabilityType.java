@@ -1,12 +1,14 @@
 package generator;
 
+import java.util.ArrayList;
+
 /**
- * représente les differents types de probabilités
+ * reprÃ©sente les differents types de probabilitÃ©s
  */
 public enum ProbabilityType {
 	
-	MINOR("Pleins de petits objets peu cher"),MEDIUM("Objets aléatoire"),MAJOR("Des objets plutôt chers"),
-	FIBONACCI("Peu d'objets mais très chers");
+	MINOR("Pleins de petits objets peu cher"),MEDIUM("Objets alÃ©atoires"),MAJOR("Des objets plutÃ´t chers"),
+	FIBONACCI("Peu d'objets mais trÃ¨s chers");
 	
     private final String type;
     
@@ -16,5 +18,15 @@ public enum ProbabilityType {
     
     public String toString(){
         return type;
+    }
+
+    public static ArrayList<String> toArray(){
+        ArrayList<String> res = new ArrayList<String>();
+
+        for(ProbabilityType p : ProbabilityType.values()){
+            res.add(p.toString());
+        }
+
+        return res;
     }
 }
