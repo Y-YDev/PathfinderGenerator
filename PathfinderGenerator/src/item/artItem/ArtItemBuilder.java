@@ -7,7 +7,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * ArtItemBuilder permet de créer des objets d'arts.
+ * ArtItemBuilder permet de crÃ©er des objets d'arts.
  * @author Mentra20
  *
  */
@@ -20,16 +20,16 @@ public class ArtItemBuilder {
     }
     
     /**
-     * createArtItem permet de créer un objet d'art selon la rareté
-     * @param rarity : la rareté de l'objet d'art.
-     * @return l'objet d'art créé
+     * createArtItem permet de crÃ©er un objet d'art selon la raretÃ©
+     * @param rarity : la raretÃ© de l'objet d'art.
+     * @return l'objet d'art crÃ©Ã©
      */
     public ArtItem createArtItem(int rarity) {
     	Debug.debug("Creation Art item of rarity "+rarity+"...");
     	
     	Data<ArtItem> data = new Data<ArtItem>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(ArtItemConstant.rarity1());
 			break;

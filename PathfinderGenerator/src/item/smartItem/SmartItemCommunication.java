@@ -8,8 +8,8 @@ package item.smartItem;
 public class SmartItemCommunication {
 
 	private String communication;//Le nom de la communication
-	private double price;//prix ajouté 
-	private int ego;//Ego à ajouté
+	private double price;//prix ajoutÃ© 
+	private int ego;//Ego Ã  ajoutÃ©
 	
 	public SmartItemCommunication(String communication,double price,int ego) {
 		this.setCommunication(communication);

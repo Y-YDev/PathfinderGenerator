@@ -4,19 +4,19 @@ import item.Item;
 import item.TypeItem;
 
 /**
- * Weapon représente l'arme générée.
+ * Weapon reprÃ©sente l'arme gÃ©nÃ©rÃ©e.
  * @author Mentra20
  *
  */
 public class Weapon extends Item{
-    private int alteration;//L'altération de l'arme.
-    private Material material;//Le matériel de l'arme.
+    private int alteration;//L'altÃ©ration de l'arme.
+    private Material material;//Le matÃ©riel de l'arme.
     private Type type;//Le type de l'arme.
-    private TypeDamage typeDamage;//Le type de dégat de l'arme.
-    private TypeMaterial typeMaterial;//Le type du matériel de l'arme.
-    private WeaponSpecialPropertie specialPropertie1;//Propriété speciale 1 de l'arme.
-    private WeaponSpecialPropertie specialPropertie2;//Propriété speciale 2 de l'arme.
-    private String particularPropertie;//Propriété particulière de l'arme.
+    private TypeDamage typeDamage;//Le type de dÃ©gat de l'arme.
+    private TypeMaterial typeMaterial;//Le type du matÃ©riel de l'arme.
+    private WeaponSpecialPropertie specialPropertie1;//PropriÃ©tÃ© speciale 1 de l'arme.
+    private WeaponSpecialPropertie specialPropertie2;//PropriÃ©tÃ© speciale 2 de l'arme.
+    private String particularPropertie;//PropriÃ©tÃ© particuliÃ¨re de l'arme.
     private boolean masterWork = false;//True si l'arme est une arme de maitre.
     private double weight;//Poid de l'arme.
     
@@ -34,7 +34,7 @@ public class Weapon extends Item{
         this.setWeight(weight);
     }
     
-    //Constructeur pour les armes spécifiques
+    //Constructeur pour les armes spÃ©cifiques
     public Weapon(String name,double price) {
     	super(name, price, TypeItem.WEAPON);
     	this.alteration = -1;

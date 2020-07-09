@@ -5,16 +5,16 @@ import item.TypeItem;
 import utility.Debug;
 
 /**
- * Potion représente une baguette magique.
+ * Potion reprÃ©sente une baguette magique.
  * @author Mentra20
  *
  */
 public class Wand extends Item{
 	
-	private int nls;//Niveau de lançeur de sort.
+	private int nls;//Niveau de lanÃ§eur de sort.
 	private int nds;//Niveau du sort.
 	private boolean uncommon;//True si la baguette est hors du commun.
-	private boolean particularPropertie;//True si la baguette a un indice sur sa capacité.
+	private boolean particularPropertie;//True si la baguette a un indice sur sa capacitÃ©.
 	
 	public Wand(String name, double price) {
 		super(name, price, TypeItem.WAND);
@@ -52,9 +52,9 @@ public class Wand extends Item{
 	/* Methods */
 	
 	/**
-	 * computeNls calcule le niveau de lançeur de sort selon le niveau du sort.
+	 * computeNls calcule le niveau de lanÃ§eur de sort selon le niveau du sort.
 	 * @param nds : niveau du sort.
-	 * @return le niveau de lançeur de sort de la baguette.
+	 * @return le niveau de lanÃ§eur de sort de la baguette.
 	 */
 	public void computeNls() {
 		switch (this.nds) {

@@ -11,7 +11,7 @@ import utility.Tuple;
 
 
 /**
- * WeaponBuilder sert ‡ la crÈation d'armure et bouclier.
+ * WeaponBuilder sert √† la cr√©ation d'armure et bouclier.
  * @author Mentra20
  *
  */
@@ -25,30 +25,30 @@ public class ArmorBuilder {
     }
 
     /**
-     * creer une armure ou bouclier de raretÈ choisie
-     * @param rarity : la raretÈ de l'armure ou bouclier
-     * @return l'armure ou bouclier crÈÈ
+     * creer une armure ou bouclier de raret√© choisie
+     * @param rarity : la raret√© de l'armure ou bouclier
+     * @return l'armure ou bouclier cr√©√©
      */
     public ArmorShield createArmor(int rarity) {
     	Debug.debug("Create armor or shield with rarity "+rarity+"...");
     	
     	//Membre x du tuple : genre d'armure.
-    	//Membre y du tuple : propriÈtÈ spÈciale.
+    	//Membre y du tuple : propri√©t√© sp√©ciale.
         Data<Tuple<Integer,Integer>> data = new Data<Tuple<Integer,Integer>>();
         
-      //Chargement des donnÈes
+      //Chargement des donn√©es
         switch(rarity) {
-        case 1 : data.addAll(ArmorConstant.rarity1()); //On charge le tableau de drop de raretÈ 1.
+        case 1 : data.addAll(ArmorConstant.rarity1()); //On charge le tableau de drop de raret√© 1.
         	break;
-        case 2 : data.addAll(ArmorConstant.rarity2()); //On charge le tableau de drop de raretÈ 2.
+        case 2 : data.addAll(ArmorConstant.rarity2()); //On charge le tableau de drop de raret√© 2.
     		break;
-        case 3 : data.addAll(ArmorConstant.rarity3()); //On charge le tableau de drop de raretÈ 3.
+        case 3 : data.addAll(ArmorConstant.rarity3()); //On charge le tableau de drop de raret√© 3.
 			break;
-        case 4 : data.addAll(ArmorConstant.rarity4()); //On charge le tableau de drop de raretÈ 4.
+        case 4 : data.addAll(ArmorConstant.rarity4()); //On charge le tableau de drop de raret√© 4.
 			break;
-        case 5 : data.addAll(ArmorConstant.rarity5()); //On charge le tableau de drop de raretÈ 5.
+        case 5 : data.addAll(ArmorConstant.rarity5()); //On charge le tableau de drop de raret√© 5.
 			break;
-        case 6 : data.addAll(ArmorConstant.rarity6()); //On charge le tableau de drop de raretÈ 6.
+        case 6 : data.addAll(ArmorConstant.rarity6()); //On charge le tableau de drop de raret√© 6.
 			break;
         default : Debug.error("erreur case createArmor"); 
         	break;
@@ -61,23 +61,23 @@ public class ArmorBuilder {
         
         int alteration;
         
-        if (tuple.getX() == -1) return specificArmor(rarity);//L'armure est une armure spÈcifique.
+        if (tuple.getX() == -1) return specificArmor(rarity);//L'armure est une armure sp√©cifique.
         else alteration = tuple.getX();//L'armure est une armure magique.
         //L'alteration vaut 0 si rien et -2 si de maitre.
        
         ArmorShield armor = magicArmor(alteration);
         
-        //On doit ajouter une propriÈtÈ spÈciale
+        //On doit ajouter une propri√©t√© sp√©ciale
         if(tuple.getY() > 0) {
-        	//Le chiffre de l'unitÈ indique l'altÈration de la premiere propriÈtÈ.
+        	//Le chiffre de l'unit√© indique l'alt√©ration de la premiere propri√©t√©.
         	armor = armorSpecialPropertie(armor,tuple.getY()%10,1);
         	
-        	if(tuple.getY() > 10) {//L'arme ‡ une deuxiËme propriÈtÈ spÈciale.
-        		//Le chiffre de la dizaine indique l'altÈration de la deuxiËme propriÈtÈ.
+        	if(tuple.getY() > 10) {//L'arme √† une deuxi√®me propri√©t√© sp√©ciale.
+        		//Le chiffre de la dizaine indique l'alt√©ration de la deuxi√®me propri√©t√©.
         		armor = armorSpecialPropertie(armor,tuple.getY()/10,2);
         	}
         }
-        //Ajout du prix des propriÈtÈs spÈciales ‡ l'armure/bouclier.
+        //Ajout du prix des propri√©t√©s sp√©ciales √† l'armure/bouclier.
         armor = armorSpecialPrice(armor);
         
         //Pour le debug de plusieures armures.
@@ -136,7 +136,7 @@ public class ArmorBuilder {
     }
     
     /**
-     * crÈer une armure ou bouclier magique
+     * cr√©er une armure ou bouclier magique
      * @param alteration : l'alteration de l'armure/bouclier
      * @return l'armure/bouclier modifiee
      */
@@ -145,13 +145,13 @@ public class ArmorBuilder {
     	
     	Data<ArmorShield> data = new Data<ArmorShield>();
     	
-    	//Chargement des donnÈes
+    	//Chargement des donn√©es
         data.addAll(ArmorConstant.armorShieldList());
         
         //Tirage
         int randomValue = r.nextInt(100)+1;
         Debug.debug("n_armor = "+randomValue);
-        //On recupËre l'armure
+        //On recup√®re l'armure
         ArmorShield currentArmor = data.selectObject(randomValue);
         currentArmor.setAlteration(alteration);
         
@@ -159,10 +159,10 @@ public class ArmorBuilder {
         Debug.debug("Based price : "+currentArmor.getPrice());
         Debug.debug("Based weight : "+currentArmor.getWeight());
         
-        //On applique les matÈriaux
+        //On applique les mat√©riaux
         currentArmor = armorMaterial(currentArmor);
         
-        //Rend Èventuellement l'armure en armure de maitre.
+        //Rend √©ventuellement l'armure en armure de maitre.
         currentArmor = isArmorMaster(currentArmor);
         
         return currentArmor;
@@ -178,14 +178,14 @@ public class ArmorBuilder {
     	
     	Data<Material> data = new Data<Material>();
         
-        //Chargement des donnÈes.
+        //Chargement des donn√©es.
         if(armor.getTypeMaterial() == TypeMaterial.WOOD || armor.getTypeMaterial() == TypeMaterial.LEATHER){
-            data.addAll(ArmorConstant.leatherWoodMaterial());//On charge le matÈriel bois ou cuir.
+            data.addAll(ArmorConstant.leatherWoodMaterial());//On charge le mat√©riel bois ou cuir.
         }
         else if(armor.getTypeMaterial() == TypeMaterial.STEEL){
-            data.addAll(ArmorConstant.steelMaterial());//On charge le matÈriel mÈtal.
+            data.addAll(ArmorConstant.steelMaterial());//On charge le mat√©riel m√©tal.
         }
-        else{//Cas d'armure indÈterminer.
+        else{//Cas d'armure ind√©terminer.
         	armor.setMaterial(Material.CHOOSE);
             return armor;
         }
@@ -198,15 +198,15 @@ public class ArmorBuilder {
         
         while(!restrictionMaterial(select,armor)) {//Tant qu'il y a une restriction
         	
-        	//On force a obtenir un matÈriaux car premier jet rÈussis.
+        	//On force a obtenir un mat√©riaux car premier jet r√©ussis.
         	randomValue = r.nextInt(100)+1;
-        	//La valeur interdite depend du tableau selectionnÈ (bois/cuir ou metal).
+        	//La valeur interdite depend du tableau selectionn√© (bois/cuir ou metal).
         	if(armor.getTypeMaterial() == TypeMaterial.STEEL) {
-        		while(randomValue >= 5 && randomValue <= 53) {//Correspond ‡ pas de matÈriel
+        		while(randomValue >= 5 && randomValue <= 53) {//Correspond √† pas de mat√©riel
         			randomValue = r.nextInt(100)+1;
         		}
         	}else {
-        		while(randomValue >= 6 && randomValue <= 67) {//Correspond ‡ pas de matÈriel
+        		while(randomValue >= 6 && randomValue <= 67) {//Correspond √† pas de mat√©riel
         			randomValue = r.nextInt(100)+1;
         		}
         	}
@@ -216,48 +216,48 @@ public class ArmorBuilder {
         }
         armor.setMaterial(select);
         
-        //Les modifications du prix et du poid du au matÈriel.
+        //Les modifications du prix et du poid du au mat√©riel.
         armor = materialModification(armor);
         
     	return armor;
     }
     
     /**
-     * CrÈer une armure/bouclier spÈcifique.
-     * @param rarity : la raretÈ de l'armure/bouclier.
-     * @return l'armure/bouclier crÈÈe.
+     * Cr√©er une armure/bouclier sp√©cifique.
+     * @param rarity : la raret√© de l'armure/bouclier.
+     * @return l'armure/bouclier cr√©√©e.
      */
     public ArmorShield specificArmor(int rarity){
     	Debug.debug("Create specific armor or shield with rarity "+rarity+"...");
     	
         Data<ArmorShield> select = new Data<ArmorShield>();
         
-        //Chargement des donnÈes
+        //Chargement des donn√©es
         boolean AS = r.nextBoolean();//Determine si c'est un bouclier ou une armure
         switch(rarity){
             case 1: 
-            	if(AS) select.addAll(ArmorConstant.specificArmor1());//Armure spÈcifique de raretÈ 1.
-            	else select.addAll(ArmorConstant.specificShield1());//Bouclier spÈcifique de raretÈ 1.
+            	if(AS) select.addAll(ArmorConstant.specificArmor1());//Armure sp√©cifique de raret√© 1.
+            	else select.addAll(ArmorConstant.specificShield1());//Bouclier sp√©cifique de raret√© 1.
             	break;
             case 2: 
-            	if(AS) select.addAll(ArmorConstant.specificArmor2());//Armure spÈcifique de raretÈ 2.
-            	else select.addAll(ArmorConstant.specificShield2());//Bouclier spÈcifique de raretÈ 2.
+            	if(AS) select.addAll(ArmorConstant.specificArmor2());//Armure sp√©cifique de raret√© 2.
+            	else select.addAll(ArmorConstant.specificShield2());//Bouclier sp√©cifique de raret√© 2.
             	break;
             case 3: 
-            	if(AS) select.addAll(ArmorConstant.specificArmor3());//Armure spÈcifique de raretÈ 3.
-            	else select.addAll(ArmorConstant.specificShield3());//Bouclier spÈcifique de raretÈ 3.
+            	if(AS) select.addAll(ArmorConstant.specificArmor3());//Armure sp√©cifique de raret√© 3.
+            	else select.addAll(ArmorConstant.specificShield3());//Bouclier sp√©cifique de raret√© 3.
             	break;
             case 4: 
-            	if(AS) select.addAll(ArmorConstant.specificArmor4());//Armure spÈcifique de raretÈ 4.
-            	else select.addAll(ArmorConstant.specificShield4());//Bouclier spÈcifique de raretÈ 4.
+            	if(AS) select.addAll(ArmorConstant.specificArmor4());//Armure sp√©cifique de raret√© 4.
+            	else select.addAll(ArmorConstant.specificShield4());//Bouclier sp√©cifique de raret√© 4.
             	break;
             case 5: 
-            	if(AS) select.addAll(ArmorConstant.specificArmor5());//Armure spÈcifique de raretÈ 5.
-            	else select.addAll(ArmorConstant.specificShield5());//Bouclier spÈcifique de raretÈ 5.
+            	if(AS) select.addAll(ArmorConstant.specificArmor5());//Armure sp√©cifique de raret√© 5.
+            	else select.addAll(ArmorConstant.specificShield5());//Bouclier sp√©cifique de raret√© 5.
             	break;
             case 6: 
-            	if(AS) select.addAll(ArmorConstant.specificArmor6());//Armure spÈcifique de raretÈ 6.
-            	else select.addAll(ArmorConstant.specificShield6());//Bouclier spÈcifique de raretÈ 6.
+            	if(AS) select.addAll(ArmorConstant.specificArmor6());//Armure sp√©cifique de raret√© 6.
+            	else select.addAll(ArmorConstant.specificShield6());//Bouclier sp√©cifique de raret√© 6.
             	break;
             default : Debug.error("erreur case specificArmor");
             	break;
@@ -278,12 +278,12 @@ public class ArmorBuilder {
      * @return true ou false
      */
     public boolean restrictionMaterial(Material select,ArmorShield armor) {
-    	// pas besoin de gerer qu'une armure soit en mÈtal pour avoir le matÈriel mÈtallique
-    	// gÈrÈ par le tableau de matÈriaux et le type du matÈriel
+    	// pas besoin de gerer qu'une armure soit en m√©tal pour avoir le mat√©riel m√©tallique
+    	// g√©r√© par le tableau de mat√©riaux et le type du mat√©riel
     	
     	if(select == Material.OS) {
-    		if(armor.getName() != "Armure de cuir cloutÈe" && armor.getName() != "Rondache en bois"
-    				&& armor.getName() != "Cuirasse" && armor.getName() != "Armure d'Ècaille"  
+    		if(armor.getName() != "Armure de cuir clout√©e" && armor.getName() != "Rondache en bois"
+    				&& armor.getName() != "Cuirasse" && armor.getName() != "Armure d'√©caille"  
     				&& armor.getName() != "Ecu en bois" && armor.getName() != "Pavois") {
     			return false;
     		}
@@ -304,7 +304,7 @@ public class ArmorBuilder {
     	}
     	
     	if(select == Material.CRIN_DE_GRIFFON) {
-    		if(armor.getName() != "VÍtement rembourrÈ") return false;
+    		if(armor.getName() != "V√™tement rembourr√©") return false;
     	}
     	
     	if(select == Material.PEAU_D_ANGUILLE) {
@@ -354,7 +354,7 @@ public class ArmorBuilder {
 			break;	
 		case TISSUS_DE_SOMBREFEUILLE : change = true;
 			break;	
-		//Aucun des matÈriaux transforme l'arme en arme de maitre.
+		//Aucun des mat√©riaux transforme l'arme en arme de maitre.
 		default: break;
 		}
     	
@@ -370,11 +370,11 @@ public class ArmorBuilder {
     }
     
     /**
-     * Ajoute une propriÈtÈ spÈciale ‡ l'armure/bouclier
+     * Ajoute une propri√©t√© sp√©ciale √† l'armure/bouclier
      * @param armor : l'armure ou bouclier
      * @param magicAlteration : l'alteration magique
-     * @param specialPropertieNumber : la premiËre ou deuxiËme propriÈtÈs 
-     * @return l'armure/bouclier modifiÈ.
+     * @param specialPropertieNumber : la premi√®re ou deuxi√®me propri√©t√©s 
+     * @return l'armure/bouclier modifi√©.
      */
     public ArmorShield armorSpecialPropertie(ArmorShield armor, int magicAlteration, int specialPropertieNumber) {
     	//L'arme n'est normalement pas une armure/bouclier de maitre 
@@ -384,15 +384,15 @@ public class ArmorBuilder {
 
     	Debug.debug("Create special propertie "+specialPropertieNumber+" with rank "+magicAlteration+"...");
     	
-    	//Cas indÈterminable
-    	if(armor.getName() == "Autre armure lÈgËre" 
-    			|| armor.getName() == "Autre armure intermÈdaire" 
+    	//Cas ind√©terminable
+    	if(armor.getName() == "Autre armure l√©g√®re" 
+    			|| armor.getName() == "Autre armure interm√©daire" 
     			|| armor.getName() == "Autre armure lourde" 
     			|| armor.getName() == "Autre bouclier") {
     		
-    		//On doit le dÈterminer manuellement.
-    		if(specialPropertieNumber == 1) armor.setSpecialPropertie1(new ArmorSpecialPropertie("‡ determiner",magicAlteration));
-    		else armor.setSpecialPropertie2(new ArmorSpecialPropertie("‡ determiner",magicAlteration));
+    		//On doit le d√©terminer manuellement.
+    		if(specialPropertieNumber == 1) armor.setSpecialPropertie1(new ArmorSpecialPropertie("√† determiner",magicAlteration));
+    		else armor.setSpecialPropertie2(new ArmorSpecialPropertie("√† determiner",magicAlteration));
     		
     		return armor;
     	}
@@ -439,14 +439,14 @@ public class ArmorBuilder {
     	ArmorSpecialPropertie specialPropertie = data.selectObject(randomValue);
     	Debug.debug("n_spe_prop = "+randomValue);
     	
-    	//PropriÈtÈ compatible avec l'armure/bouclier
+    	//Propri√©t√© compatible avec l'armure/bouclier
     	while(!restrictionProperties(armor,specialPropertie)) {
     		randomValue = r.nextInt(100)+1;
     		specialPropertie = data.selectObject(randomValue);
     		Debug.debug("n_spe_prop = "+randomValue);
     	}
     	
-    	//On donne la propriÈtÈ au bon emplacement.
+    	//On donne la propri√©t√© au bon emplacement.
     	if(specialPropertieNumber == 1) armor.setSpecialPropertie1(specialPropertie);
     	else armor.setSpecialPropertie2(specialPropertie);
     	
@@ -454,15 +454,15 @@ public class ArmorBuilder {
     }
     
     /**
-     * retourne true ou false selon les restriction de la propriÈtÈ spÈciale et l'armure/bouclier
+     * retourne true ou false selon les restriction de la propri√©t√© sp√©ciale et l'armure/bouclier
      * @param armor : l'armure ou bouclier
-     * @param specialPropertie : la propriÈtÈ spÈciale.
+     * @param specialPropertie : la propri√©t√© sp√©ciale.
      * @return true ou false
      */
     public boolean restrictionProperties(ArmorShield armor, ArmorSpecialPropertie specialPropertie) {
-    	//Ne jamais oublier d'inclure NOTHING (d'o˘ les conditions parfois illogiques)
+    	//Ne jamais oublier d'inclure NOTHING (d'o√π les conditions parfois illogiques)
     	
-    	if(specialPropertie.getName() == "…quilibrÈe") {
+    	if(specialPropertie.getName() == "√âquilibr√©e") {
     		if(armor.getType() == Type.HEAVY) return false;
     	}
     	
@@ -495,37 +495,37 @@ public class ArmorBuilder {
     				&& armor.getName() != "Rondache en acier" && armor.getName() != "Rondache en bois") return false;
     	}
     	
-    	if(specialPropertie.getName() == "BÈlier") {
+    	if(specialPropertie.getName() == "B√©lier") {
     		if(armor.getName() =="Pavois" || armor.getName() =="Targe") return false;
     	}
     	
-    	if(specialPropertie.getName() == "AnimÈe") {
+    	if(specialPropertie.getName() == "Anim√©e") {
     		if(armor.getName() == "Pavois") return false;
     	}
 
-    	//Cas avec deux propriÈtÈs incompatible
-    	if(armor.getSpecialPropertie1().getName() != "_") {//Si on a dÈj‡ une capacitÈ.
-    		//On ne peut avoir deux fois la mÍme capacitÈ sur l'arme.
+    	//Cas avec deux propri√©t√©s incompatible
+    	if(armor.getSpecialPropertie1().getName() != "_") {//Si on a d√©j√† une capacit√©.
+    		//On ne peut avoir deux fois la m√™me capacit√© sur l'arme.
     		if(specialPropertie.getName() == armor.getSpecialPropertie1().getName()) return false;
     		
-    		if(specialPropertie.getName() == "AdhÈsive" && 
+    		if(specialPropertie.getName() == "Adh√©sive" && 
     				(armor.getSpecialPropertie1().getName() == "Graisseuse" || 
-    				armor.getSpecialPropertie1().getName() == "Graisseuse supÈrieure")) {
+    				armor.getSpecialPropertie1().getName() == "Graisseuse sup√©rieure")) {
     			return false;
     		}
     		if((specialPropertie.getName() == "Graisseuse" || 
-    				specialPropertie.getName() == "Graisseuse supÈrieure") && armor.getSpecialPropertie1().getName() == "AdhÈsive") {
+    				specialPropertie.getName() == "Graisseuse sup√©rieure") && armor.getSpecialPropertie1().getName() == "Adh√©sive") {
     			return false;
     		}
     		
     		if(specialPropertie.getName() == "Martyr" && 
-    				(armor.getSpecialPropertie1().getName() == "DÈfense (lÈgËre)" || 
-    				armor.getSpecialPropertie1().getName() == "DÈfense (intermÈdiaire)" || 
-    				armor.getSpecialPropertie1().getName() == "DÈfense (lourde)")) {
+    				(armor.getSpecialPropertie1().getName() == "D√©fense (l√©g√®re)" || 
+    				armor.getSpecialPropertie1().getName() == "D√©fense (interm√©diaire)" || 
+    				armor.getSpecialPropertie1().getName() == "D√©fense (lourde)")) {
     			return false;
     		}
-    		if((specialPropertie.getName() == "DÈfense (lÈgËre)" || 
-    				specialPropertie.getName() == "DÈfense (intermÈdiaire)" || specialPropertie.getName() == "DÈfense (lourde)") 
+    		if((specialPropertie.getName() == "D√©fense (l√©g√®re)" || 
+    				specialPropertie.getName() == "D√©fense (interm√©diaire)" || specialPropertie.getName() == "D√©fense (lourde)") 
     				&& armor.getSpecialPropertie1().getName() == "Martyr") {
     			return false;
     		}
@@ -539,9 +539,9 @@ public class ArmorBuilder {
     }
     
     /**
-     * change le prix et poid de l'arme si le matÈriaux le change
-     * @param armor : l'armure ou bouclier a modifiÈ
-     * @return : l'armure ou bouclier modifiÈ
+     * change le prix et poid de l'arme si le mat√©riaux le change
+     * @param armor : l'armure ou bouclier a modifi√©
+     * @return : l'armure ou bouclier modifi√©
      */
     public ArmorShield materialModification(ArmorShield armor) {
     	Debug.debug("Maybe do change in weapon due to material....");
@@ -560,7 +560,7 @@ public class ArmorBuilder {
 			
 		case OR :
 			change = true;
-			//On dÈtermine au hasard si l'arme est en or pur.
+			//On d√©termine au hasard si l'arme est en or pur.
 			boolean pureGold = r.nextBoolean();//Si true, l'arme est en or pur..
 			boolean decorate = r.nextBoolean();//Si true, l'arme a des plaques d'or en plus
 			
@@ -575,7 +575,7 @@ public class ArmorBuilder {
 			}
 			
 			if(decorate) {
-				//Un armure ou bouclier plaquÈ
+				//Un armure ou bouclier plaqu√©
 				newPrice = armor.getPrice() *3;
 				if(pureGold) {
 					armor.setMaterial(Material.OR_PUR_DECO);
@@ -601,7 +601,7 @@ public class ArmorBuilder {
 			armor.setPrice(newPrice);
 			break;
 		
-		case ACIER_ARDENT ://Prix de maitre dÈduit
+		case ACIER_ARDENT ://Prix de maitre d√©duit
 			change = true;
 			
 			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 2850;
@@ -612,7 +612,7 @@ public class ArmorBuilder {
 			armor.setPrice(newPrice);
 			break;
 			
-		case ACIER_GLACE ://Prix de maitre dÈduit
+		case ACIER_GLACE ://Prix de maitre d√©duit
 			change = true;
 			
 			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 2850;
@@ -638,7 +638,7 @@ public class ArmorBuilder {
 			armor.setWeight(newWeight);
 			break;
 			
-		case BRONZE_ELYSEEN ://Prix de maitre dÈduit
+		case BRONZE_ELYSEEN ://Prix de maitre d√©duit
 			change = true;
 			
 			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 3000;
@@ -683,7 +683,7 @@ public class ArmorBuilder {
 			armor.setPrice(armor.getPrice() + 200);
 			break;	
 			
-		case PEAU_D_ANGUILLE ://Prix de maitre dÈduit
+		case PEAU_D_ANGUILLE ://Prix de maitre d√©duit
 			change = true;
 			
 			if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1650;
@@ -693,7 +693,7 @@ public class ArmorBuilder {
 			armor.setPrice(newPrice);
 			break;
 			
-		case PEAU_D_ANGE ://Prix de maitre dÈduit
+		case PEAU_D_ANGE ://Prix de maitre d√©duit
 			change = true;
 			
 			if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1850;
@@ -703,7 +703,7 @@ public class ArmorBuilder {
 			armor.setPrice(newPrice);
 			break;
 			
-		case TISSUS_DE_SOMBREFEUILLE ://Prix de maitre dÈduit
+		case TISSUS_DE_SOMBREFEUILLE ://Prix de maitre d√©duit
 			change = true;
 			
 			newWeight = armor.getWeight() *0.5;
@@ -731,9 +731,9 @@ public class ArmorBuilder {
     }
     
     /**
-     * ajoute le prix des deux propriÈtÈ spÈciales ‡ l'armure ou bouclier.
-     * @param weapon : l'armure ou bouclier o˘ il faut ajouter le prix.
-     * @return l'armure ou bouclier modifiÈ.
+     * ajoute le prix des deux propri√©t√© sp√©ciales √† l'armure ou bouclier.
+     * @param weapon : l'armure ou bouclier o√π il faut ajouter le prix.
+     * @return l'armure ou bouclier modifi√©.
      */
     public ArmorShield armorSpecialPrice(ArmorShield armor) {
     	//L'arme n'est normalement pas seulement une arme de maitre 
@@ -744,37 +744,37 @@ public class ArmorBuilder {
     	Debug.debug("Compute special properties price...");
     	
     	int totalAlteration = 0;
-    	double specialPrice = 0;//Prix ‡ ajouter ‡ la fin
+    	double specialPrice = 0;//Prix √† ajouter √† la fin
     	
-    	//Les propriÈtÈs spÈciales 1 et 2 de l'arme.
+    	//Les propri√©t√©s sp√©ciales 1 et 2 de l'arme.
     	ArmorSpecialPropertie wsp1 = armor.getSpecialPropertie1();
     	ArmorSpecialPropertie wsp2 = armor.getSpecialPropertie2();
     	
-    	//Si la propriÈtÈ spÈciale 1 n'est pas vide.
+    	//Si la propri√©t√© sp√©ciale 1 n'est pas vide.
     	if(wsp1.getName() != "_") {
     		//Il s'agit du prix et non de l'alteration magique.
     		if(wsp1.getMagicAlterationOrPrice() > 10) {
     			//On ajoute directement au prix total.
     			specialPrice += wsp1.getMagicAlterationOrPrice();
     		}
-    		else {//C'est une altÈration magique.
+    		else {//C'est une alt√©ration magique.
     			totalAlteration += wsp1.getMagicAlterationOrPrice();
     		}
     	}
     	
-    	//Si la propriÈtÈ spÈciale 2 n'est pas vide.
+    	//Si la propri√©t√© sp√©ciale 2 n'est pas vide.
     	if(wsp2.getName() != "_") {
     		//Il s'agit du prix et non de l'alteration magique.
     		if(wsp2.getMagicAlterationOrPrice() > 10) {
     			//On ajoute directement au prix total.
     			specialPrice += wsp2.getMagicAlterationOrPrice();
     		}
-    		else {//C'est une altÈration magique.
+    		else {//C'est une alt√©ration magique.
     			totalAlteration += wsp2.getMagicAlterationOrPrice();
     		}
     	}
     	
-    	//Si l'alteration n'est pas -2. (n'est pas censer arrivÈ)
+    	//Si l'alteration n'est pas -2. (n'est pas censer arriv√©)
     	if(armor.getAlteration() >= 0) {
     		totalAlteration += armor.getAlteration();
     	}
@@ -823,7 +823,7 @@ public class ArmorBuilder {
     	specialPrice += alterationPrice;
     	Debug.debug("Special price : "+specialPrice);
     	
-    	//On ajoute le prix ‡ l'arme.
+    	//On ajoute le prix √† l'arme.
     	armor.setPrice(armor.getPrice() + specialPrice);
     	
     	return armor;

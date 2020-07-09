@@ -7,15 +7,15 @@ import constant.TreasureConstant;
 import utility.Debug;
 
 /**
- * Représente un trésor.
+ * ReprÃ©sente un trÃ©sor.
  * @author Mentra20
  *
  */
 public class Treasure {
 	private Random r;
-	private TreasureType type;//Lettre du type du trésor
-	private ArrayList<Level> levelList;//Liste des paliers du trésor.
-	private ProbabilityType probabilityType;//repartition de probabilité de drop.
+	private TreasureType type;//Lettre du type du trÃ©sor
+	private ArrayList<Level> levelList;//Liste des paliers du trÃ©sor.
+	private ProbabilityType probabilityType;//repartition de probabilitÃ© de drop.
 	
 	public Treasure(TreasureType type) {
 		r = new Random();
@@ -24,8 +24,8 @@ public class Treasure {
 	}
 
 	/**
-	 * Retourne la somme des probabilité de chaque paliers.
-	 * @return la probabilité totale du tresor
+	 * Retourne la somme des probabilitÃ© de chaque paliers.
+	 * @return la probabilitÃ© totale du tresor
 	 */
 	public int computeProbability() {
 		int sum = 0;
@@ -78,17 +78,17 @@ public class Treasure {
 		}
 		
 		this.setLevelList(levels);
-		//On affecte les probabilités.
+		//On affecte les probabilitÃ©s.
 		affectProbability(probabilityType);
 	}
 	
 	/**
-	 * Affecte les probabilité au palier selon le mode de répartition de probabilité choisi.
+	 * Affecte les probabilitÃ© au palier selon le mode de rÃ©partition de probabilitÃ© choisi.
 	 */
 	public void affectProbability(ProbabilityType probabilityType) {
-		//On change la répartition de proba.
+		//On change la rÃ©partition de proba.
 		setProbabilityType(probabilityType);
-		//Probabilité décroissante
+		//ProbabilitÃ© dÃ©croissante
 		if(this.probabilityType == ProbabilityType.MINOR) {
 			int proba = 1;//On commence a une proba de 1.
 			//On recupere le prix du dernier
@@ -102,13 +102,13 @@ public class Treasure {
 				levelList.get(i).setProbability(proba);
 			}
 		}
-		//Probabilité equiprobable
+		//ProbabilitÃ© equiprobable
 		else if(this.probabilityType == ProbabilityType.MEDIUM) {
 			for(Level level : this.levelList) {
 				level.setProbability(1);
 			}
 		}
-		//Probabilité croissante
+		//ProbabilitÃ© croissante
 		else if (this.probabilityType == ProbabilityType.MAJOR){
 			int proba = 1;//On commence a une proba de 1.
 			//On recupere le prix du premier
@@ -122,7 +122,7 @@ public class Treasure {
 				levelList.get(i).setProbability(proba);
 			}
 		}
-		//Probabilité avec suite de fibonacci
+		//ProbabilitÃ© avec suite de fibonacci
 		else if (this.probabilityType == ProbabilityType.FIBONACCI) {
 			int n1 = 0;
 			int n2 = 1;
@@ -149,8 +149,8 @@ public class Treasure {
 	}
 
 	/**
-	 * Renvoie un palier au hasard (selon la répartition de probabilité)
-	 * @return Le palier séléctionné
+	 * Renvoie un palier au hasard (selon la rÃ©partition de probabilitÃ©)
+	 * @return Le palier sÃ©lÃ©ctionnÃ©
 	 */
 	public Level getRandomLevel() {
 		int random = r.nextInt(computeProbability())+1;
@@ -167,20 +167,20 @@ public class Treasure {
 	}
 	
 	/**
-	 * Renvoie true ou false selon que le trésor peut etre choisir pour un prix donné
+	 * Renvoie true ou false selon que le trÃ©sor peut etre choisir pour un prix donnÃ©
 	 * @param price : le prix
 	 * @return true ou false.
 	 */
 	public boolean canBeChooseLevel(double price) {
 		if(levelList.get(0).getPrice() > price) {
-			//Si le prix le plus bas ne peux pas être choisi on ne peux rien avoir dans ce trésor
+			//Si le prix le plus bas ne peux pas Ãªtre choisi on ne peux rien avoir dans ce trÃ©sor
 			return false;
 		}
 		return true;
 	}
 	
 	/**
-	 * Permet de retirer les paliers trop cher pour le prix donné
+	 * Permet de retirer les paliers trop cher pour le prix donnÃ©
 	 * @param price : le prix
 	 * @return la liste sans les paliers trop chers
 	 */
@@ -192,7 +192,7 @@ public class Treasure {
 		for(int i =0 ;i < levelList.size(); i++) {
 			if(levelList.get(i).getPrice() <= price) {//Si on peut le selectionner avec notre argent
 				Debug.debug("keep level of price : "+levelList.get(i).getPrice());
-				newLevel.add(levelList.get(i));//On l'ajoute à la future levelList
+				newLevel.add(levelList.get(i));//On l'ajoute Ã  la future levelList
 			}
 		}
 		this.setLevelList(newLevel);

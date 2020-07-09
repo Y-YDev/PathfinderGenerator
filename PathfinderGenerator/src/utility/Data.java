@@ -2,17 +2,17 @@ package utility;
 import java.util.ArrayList;
 
 /**
- * Cette classe représente une liste de données avec leur probabilité dans la DB.
- * Elle possède des méthodes pour effectuer des traitements de données.
+ * Cette classe reprÃ©sente une liste de donnÃ©es avec leur probabilitÃ© dans la DB.
+ * Elle possÃ¨de des mÃ©thodes pour effectuer des traitements de donnÃ©es.
  * @author Mentra20
- * @param <E> : Le type stockée dans la données
+ * @param <E> : Le type stockÃ©e dans la donnÃ©es
  */
 public class Data<E> extends ArrayList<Tuple<E,Integer>> {
 	private static final long serialVersionUID = 6299565376922637204L;
 	
 	/**
 	 * selectObject donne l'objet d'un drop correspondant au tirage.
-	 * @param number : le tirage obtenu aux dés.
+	 * @param number : le tirage obtenu aux dÃ©s.
 	 * @return
 	 */
 	public E selectObject(int number){

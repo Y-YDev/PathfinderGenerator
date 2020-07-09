@@ -6,7 +6,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * StaffBuilder permet de créer des bâtons magiques.
+ * StaffBuilder permet de crÃ©er des bÃ¢tons magiques.
  * @author Mentra20
  *
  */
@@ -19,16 +19,16 @@ public class StaffBuilder {
     }
     
     /**
-     * createStaff permet de créer un bâtons selon la rareté
-     * @param rarity : la rareté du bâtons.
-     * @return le bâtons créé
+     * createStaff permet de crÃ©er un bÃ¢tons selon la raretÃ©
+     * @param rarity : la raretÃ© du bÃ¢tons.
+     * @return le bÃ¢tons crÃ©Ã©
      */
     public Staff createStaff(int rarity) {
     	Debug.debug("Creation magic staff of rarity "+rarity+"...");
     	
     	Data<Staff> data = new Data<Staff>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
 		case 3: data.addAll(StaffConstant.rarity3());
 			break;

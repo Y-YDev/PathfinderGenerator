@@ -8,7 +8,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * ScepterBuilder permet de créer des sceptres magiques.
+ * ScepterBuilder permet de crÃ©er des sceptres magiques.
  * @author Mentra20
  *
  */
@@ -23,16 +23,16 @@ public class ScepterBuilder {
     }
     
     /**
-     * createStaff permet de créer un sceptres selon la rareté
-     * @param rarity : la rareté du sceptres.
-     * @return le sceptres créé
+     * createStaff permet de crÃ©er un sceptres selon la raretÃ©
+     * @param rarity : la raretÃ© du sceptres.
+     * @return le sceptres crÃ©Ã©
      */
     public Scepter createScepter(int rarity) {
     	Debug.debug("Creation of magic scepter of rarity "+rarity+"...");
     	
     	Data<Scepter> data = new Data<Scepter>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
 		case 3: data.addAll(ScepterConstant.rarity3());
 			break;
@@ -64,16 +64,16 @@ public class ScepterBuilder {
     }
     
     /**
-     * creer un sceptre métamagique du niveau de sort souhaité
-     * @param spellLevel : le niveau du sort de métamagie
-     * @return le sceptre métamagique
+     * creer un sceptre mÃ©tamagique du niveau de sort souhaitÃ©
+     * @param spellLevel : le niveau du sort de mÃ©tamagie
+     * @return le sceptre mÃ©tamagique
      */
     public String createMetamagicScepter(int spellLevel) {
     	Debug.debug("Creation metamagic scepter of spell level "+spellLevel+"...");
     	
     	Data<String> data = new Data<String>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (spellLevel) {
 		case 1: data.addAll(ScepterConstant.spellLevel1());
 			break;

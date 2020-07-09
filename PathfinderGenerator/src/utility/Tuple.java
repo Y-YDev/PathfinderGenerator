@@ -1,6 +1,6 @@
 package utility;
 /**
- * Sert pour représenté un élément dans la base de données.
+ * Sert pour reprÃ©sentÃ© un Ã©lÃ©ment dans la base de donnÃ©es.
  * @author Mentra20
  *
  * @param <E> Element X

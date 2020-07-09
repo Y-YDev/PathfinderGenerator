@@ -31,12 +31,12 @@ public class TreasureBuilder {
 	}
 
 	/**
-	 * Créer une récompense en fonction d'un type de monstre (avec des trésors additionnels)
+	 * CrÃ©er une rÃ©compense en fonction d'un type de monstre (avec des trÃ©sors additionnels)
 	 * @param monsterType : le type du monstre
-	 * @param bonusType : true si le monstre à des trésors additionnels
-	 * @param probabilityTypes : la probabilité à affecter aux trésors
-	 * @param money : l'argent pour le trésor.
-	 * @return le trésor créer
+	 * @param bonusType : true si le monstre Ã  des trÃ©sors additionnels
+	 * @param probabilityTypes : la probabilitÃ© Ã  affecter aux trÃ©sors
+	 * @param money : l'argent pour le trÃ©sor.
+	 * @return le trÃ©sor crÃ©er
 	 */
 	public ArrayList<Item> createRandomRewardWithMonster(MonsterType monsterType,Boolean bonusType,ProbabilityType probabilityTypes, double money){
 		ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityList = new ArrayList<Tuple<TreasureType,ProbabilityType>>();
@@ -174,48 +174,48 @@ public class TreasureBuilder {
 			break;
 		}
 		
-		//On ajoute la probabilités aux trésors.
+		//On ajoute la probabilitÃ©s aux trÃ©sors.
 		for(Treasure treasure : treasureList) {
 			probabilityList.add(new Tuple<TreasureType, ProbabilityType>(treasure.getType(), probabilityTypes));
 		}
 		
-		//On créer et renvoie le trésor.
+		//On crÃ©er et renvoie le trÃ©sor.
 		return createRandomReward(treasureList, probabilityList, money);
 	}
 	
 	/**
-	 * Permet de créer des récompense selon un trésor et un montant d'argent.
-	 * @param treasure : le trésor
-	 * @param money : le montant donné
+	 * Permet de crÃ©er des rÃ©compense selon un trÃ©sor et un montant d'argent.
+	 * @param treasure : le trÃ©sor
+	 * @param money : le montant donnÃ©
 	 * @return la liste d'objet obtenu avec l'argent.
 	 */
 	public ArrayList<Item> createRandomReward(Treasure treasure, double money){
 		ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
-		treasureList.add(treasure);//La liste n'aura qu'un élément
+		treasureList.add(treasure);//La liste n'aura qu'un Ã©lÃ©ment
 		return createRandomReward(treasureList, money);
 	}
 	
 	/**
-	 * Permet de créer des récompense selon un trésor et un montant d'argent.
-	 * @param treasure : le trésor
-	 * @param money : le montant donné
+	 * Permet de crÃ©er des rÃ©compense selon un trÃ©sor et un montant d'argent.
+	 * @param treasure : le trÃ©sor
+	 * @param money : le montant donnÃ©
 	 * @return la liste d'objet obtenu avec l'argent.
 	 */
 	public ArrayList<Item> createRandomReward(Treasure treasure, ProbabilityType probabilityTypes, double money){
 		
 		ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
-		treasureList.add(treasure);//La liste n'aura qu'un élément
+		treasureList.add(treasure);//La liste n'aura qu'un Ã©lÃ©ment
 		
 		ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityList = new ArrayList<Tuple<TreasureType, ProbabilityType>>();
-		probabilityList.add(new Tuple<TreasureType, ProbabilityType>(treasure.getType(), probabilityTypes));//La liste n'aura qu'un élément
+		probabilityList.add(new Tuple<TreasureType, ProbabilityType>(treasure.getType(), probabilityTypes));//La liste n'aura qu'un Ã©lÃ©ment
 		
 		return createRandomReward(treasureList,probabilityList, money);
 	}
 	
 	/**
-	 * Permet de créer des récompense selon une liste de trésor et un montant d'argent.
-	 * @param treasures : la liste de trésor
-	 * @param money : le montant donné
+	 * Permet de crÃ©er des rÃ©compense selon une liste de trÃ©sor et un montant d'argent.
+	 * @param treasures : la liste de trÃ©sor
+	 * @param money : le montant donnÃ©
 	 * @return la liste d'objet obtenu avec l'argent.
 	 */
 	public ArrayList<Item> createRandomReward(ArrayList<Treasure> treasures, double money){
@@ -224,36 +224,36 @@ public class TreasureBuilder {
 	
 	
 	/**
-	 * Permet de créer des récompense selon une liste de trésor, de probabilité et un montant d'argent.
-	 * @param treasures : la liste de trésor
-	 * @param probabilityTypes : la liste des types de probabilités
-	 * @param money : le montant donné
+	 * Permet de crÃ©er des rÃ©compense selon une liste de trÃ©sor, de probabilitÃ© et un montant d'argent.
+	 * @param treasures : la liste de trÃ©sor
+	 * @param probabilityTypes : la liste des types de probabilitÃ©s
+	 * @param money : le montant donnÃ©
 	 * @return la liste d'objet obtenu avec l'argent.
 	 */
 	public ArrayList<Item> createRandomReward(ArrayList<Treasure> treasures, ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityTypes, double money){
 		Debug.debug("------------------ create reward for money : "+money);
 		
-		//On initialise les trésors.
+		//On initialise les trÃ©sors.
 		initTreasureList(treasures, probabilityTypes);
 		
 		ArrayList<Item> reward = new ArrayList<Item>();
 		int index;
-		double startMoney = money;//L'argent de départ
+		double startMoney = money;//L'argent de dÃ©part
 		
 		//Tant qu'on a de l'argent ou qu'on peut acheter (on s'arrete quans on atteind 2% du prix de base)
 		while(treasures.size() > 0 && money > (startMoney * 0.02)) {
 			index = r.nextInt(treasures.size());
-			Treasure treasure = treasures.get(index);//On tire un trésor au hasard
+			Treasure treasure = treasures.get(index);//On tire un trÃ©sor au hasard
 			
-			if(treasure.canBeChooseLevel(money)) {//Si le moins cher du tresor est inferieur à l'argent courant.
+			if(treasure.canBeChooseLevel(money)) {//Si le moins cher du tresor est inferieur Ã  l'argent courant.
 				//On retire les paliers trop cher
 				treasure.removeTooExpensiveLevel(money);
 				Debug.debug("");
 				Level level = treasure.getRandomLevel();
 				Debug.debug("");
-				//On obtient les récompense
+				//On obtient les rÃ©compense
 				reward.addAll(getReward(level));
-				money -= level.getPrice();//On retire le prix du palier à l'argent courant.
+				money -= level.getPrice();//On retire le prix du palier Ã  l'argent courant.
 				
 				Debug.debug("------------------------- money is now "+money);
 				Debug.debug("");
@@ -264,7 +264,7 @@ public class TreasureBuilder {
 				treasures.remove(treasure);
 			}
 		}
-		//On regroupe les pièces du même type pour plus de lisibilité.
+		//On regroupe les piÃ¨ces du mÃªme type pour plus de lisibilitÃ©.
 		reward = gatherCoin(reward);
 		
 		return reward;
@@ -272,9 +272,9 @@ public class TreasureBuilder {
 	
 	
 	/**
-	 * Convertit et calcule le gain du drop de pièces .
-	 * @param dice : les dés sous forme de chaines de caractères.
-	 * @return le resultat des dés sous forme de Coin.
+	 * Convertit et calcule le gain du drop de piÃ¨ces .
+	 * @param dice : les dÃ©s sous forme de chaines de caractÃ¨res.
+	 * @return le resultat des dÃ©s sous forme de Coin.
 	 */
 	public Coin convertCoin(String dice) {
 		Debug.debug("Convert coin of dice : "+ dice);
@@ -339,19 +339,19 @@ public class TreasureBuilder {
 	}
 	
 	/**
-	 * Convertit un code en un item généré (selon le code)
-	 * @param code : le code de génération
-	 * @return l'item généré
+	 * Convertit un code en un item gÃ©nÃ©rÃ© (selon le code)
+	 * @param code : le code de gÃ©nÃ©ration
+	 * @return l'item gÃ©nÃ©rÃ©
 	 */
 	public Item convertToItem(String code) {
-		//Tout code autre que les pièces fait 4 caractères.
+		//Tout code autre que les piÃ¨ces fait 4 caractÃ¨res.
 		if(code.length() > 4) {
 			return convertCoin(code);
 		}
-		//On recupere la rareté.
+		//On recupere la raretÃ©.
 		int rarity = Character.getNumericValue(code.charAt(3)); 
 			
-		if(code.subSequence(0, 3).equals("GEM")) {//On doit créer un gemme
+		if(code.subSequence(0, 3).equals("GEM")) {//On doit crÃ©er un gemme
 			GemAndJewelBuilder gemAndJewelBuilder = new GemAndJewelBuilder();
 			Tuple<Gem, Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(rarity);
 				
@@ -420,9 +420,9 @@ public class TreasureBuilder {
 	}
 
 	/**
-	 * Permet de renvoyer la récompense du palier
-	 * @param level : le palier concerné
-	 * @return les récompense du palier sous forme de liste d'item.
+	 * Permet de renvoyer la rÃ©compense du palier
+	 * @param level : le palier concernÃ©
+	 * @return les rÃ©compense du palier sous forme de liste d'item.
 	 */
 	public ArrayList<Item> getReward(Level level){
 		ArrayList<Item> reward = new ArrayList<Item>();
@@ -434,9 +434,9 @@ public class TreasureBuilder {
 	}
 
 	/**
-	 * Permet de rassembler les types de pièces en un seul éléments
+	 * Permet de rassembler les types de piÃ¨ces en un seul Ã©lÃ©ments
 	 * @param reward : la liste d'item
-	 * @return la liste d'item avec les pièces regroupées
+	 * @return la liste d'item avec les piÃ¨ces regroupÃ©es
 	 */
 	public ArrayList<Item> gatherCoin(ArrayList<Item> reward){
 		ArrayList<Item> res = new ArrayList<Item>();
@@ -446,9 +446,9 @@ public class TreasureBuilder {
 		double pc = 0;
 		
 		for(Item item : reward) {
-			//Si l'item est une pièce
+			//Si l'item est une piÃ¨ce
 			if(item.getTypeItem() == TypeItem.COIN) {
-				//Selon le type de pièce on ajoute.
+				//Selon le type de piÃ¨ce on ajoute.
 				switch (((Coin) item).getTypeCoin()) {
 				case PLATINIUM:
 					pp += item.getPrice();
@@ -488,13 +488,13 @@ public class TreasureBuilder {
 	}
 	
 	/**
-	 * Permet d'initialiser une liste de trésors selon une liste de probabilités potentiellement nulle.
-	 * @param treasures : la liste de trésors
-	 * @param probabilityTypes : la liste de probabilités
+	 * Permet d'initialiser une liste de trÃ©sors selon une liste de probabilitÃ©s potentiellement nulle.
+	 * @param treasures : la liste de trÃ©sors
+	 * @param probabilityTypes : la liste de probabilitÃ©s
 	 */
 	public void initTreasureList(ArrayList<Treasure> treasures, ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityTypes) {
 		
-		//On initialise de base à médium
+		//On initialise de base Ã  mÃ©dium
 		for(Treasure treasure : treasures) {
 			treasure.createLevel(ProbabilityType.MEDIUM);
 		}
@@ -502,16 +502,16 @@ public class TreasureBuilder {
 		if(probabilityTypes != null) {
 			Debug.debug("Affect wanted probability for treasure");
 			
-			//On set toutes les probabilités aux trésors.
+			//On set toutes les probabilitÃ©s aux trÃ©sors.
 			for(Tuple<TreasureType, ProbabilityType> tuple : probabilityTypes) {
 				for(Treasure treasure : treasures) {
-					if(treasure.getType() == tuple.getX()) {//Si la probabilité ici est précisé
-						treasure.createLevel(tuple.getY());//Permet de réinitiliser aussi les trésors
+					if(treasure.getType() == tuple.getX()) {//Si la probabilitÃ© ici est prÃ©cisÃ©
+						treasure.createLevel(tuple.getY());//Permet de rÃ©initiliser aussi les trÃ©sors
 					}
 				}
 			}
 		}
-		else {//La liste de proba n'est pas donnée.
+		else {//La liste de proba n'est pas donnÃ©e.
 			Debug.debug("Give standard probability for treasure");
 		}
 		Debug.debug("");

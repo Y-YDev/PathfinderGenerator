@@ -1,7 +1,7 @@
 package item.coin;
 
 /**
- * Type représente le type de piece.
+ * Type reprÃ©sente le type de piece.
  * @author Mentra20
  *
  */

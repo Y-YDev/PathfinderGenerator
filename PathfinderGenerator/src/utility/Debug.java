@@ -30,7 +30,7 @@ import item.wonderfulObject.WonderfulObject;
  *
  */
 public class Debug {
-	// true = activé / false = désactivé.
+	// true = activÃ© / false = dÃ©sactivÃ©.
 	private static boolean debugMode = true; //Mode de debug
 	private static boolean displayMode = true; //Mode d'affichage.
 	
@@ -65,7 +65,7 @@ public class Debug {
 	}
 	
 	/**
-	 * Affiche les caractéristiques d'une arme.
+	 * Affiche les caractÃ©ristiques d'une arme.
 	 * @param weapon : l'arme.
 	 */
 	public static void printWeapon(Weapon weapon) {
@@ -73,11 +73,11 @@ public class Debug {
 			String display = "";
 			
 			display += "\nWEAPON : "+ weapon.getName();
-			if(weapon.isMasterWork()) display += " de maître";
+			if(weapon.isMasterWork()) display += " de maÃ®tre";
 			
 			display += "\nALTERATION : ";
 			if(weapon.getAlteration() == -2) display += "+1 jet d'attaque";//Arme de maitre.
-			else if(weapon.getAlteration() == -1) display += "_";//Arme spécifique.
+			else if(weapon.getAlteration() == -1) display += "_";//Arme spÃ©cifique.
 			else display += "+"+weapon.getAlteration();
 			
 			display += "\nMATERIAL : "+ weapon.getMaterial();
@@ -85,7 +85,7 @@ public class Debug {
 			if(weapon.getType() == Type.DIST) {
 				
 				display += "\nMUNITION : "+ ((RangeWeapon) weapon).getMunition().getQuantity();
-				//Si l'arme à des munitions.
+				//Si l'arme Ã  des munitions.
 				if(((RangeWeapon) weapon).getMunition().getStringQuantity() != "0") {
 					//On ajoute le nom de la munition.
 					display += " ("+((RangeWeapon) weapon).getMunition().getName()+")";
@@ -105,7 +105,7 @@ public class Debug {
 			}
 			
 			
-			//Si l'arme a des propriétés spéciales.
+			//Si l'arme a des propriÃ©tÃ©s spÃ©ciales.
 			if(weapon.getSpecialPropertie1().getName() != "_") {
 				display += "\nSPECIAL PROPERTIE 1 : "+ weapon.getSpecialPropertie1().getName();
 				
@@ -119,7 +119,7 @@ public class Debug {
 					}
 				}
 				
-				//Si l'arme a une deuxieme propriété spéciale.
+				//Si l'arme a une deuxieme propriÃ©tÃ© spÃ©ciale.
 				if(weapon.getSpecialPropertie2().getName() != "_") {
 					display += "\nSPECIAL PROPERTIE 2 : "+ weapon.getSpecialPropertie2().getName();
 					
@@ -147,7 +147,7 @@ public class Debug {
 	
 	/**
 	 * printGem affiche la gemme.
-	 * @param gem : la gemme à afficher.
+	 * @param gem : la gemme Ã  afficher.
 	 */
 	public static void printGem(Gem gem) {
 		if(displayMode) {
@@ -164,7 +164,7 @@ public class Debug {
 	
 	/**
 	 * printJewel affiche le bijoux.
-	 * @param jewel : le bijoux à afficher.
+	 * @param jewel : le bijoux Ã  afficher.
 	 */
 	public static void printJewel(Jewel jewel) {
 		if(displayMode) {
@@ -223,7 +223,7 @@ public class Debug {
 	
 	/**
 	 * printPotion affiche une potion.
-	 * @param potion : la potion à affichée.
+	 * @param potion : la potion Ã  affichÃ©e.
 	 */
 	public static void printPotion(Potion potion) {
 		if(displayMode) {
@@ -254,11 +254,11 @@ public class Debug {
 			String display = "";
 			
 			display += "\nARMOR : "+ armor.getName();
-			if(armor.isMasterWork()) display += " de maître";
+			if(armor.isMasterWork()) display += " de maÃ®tre";
 			
 			display += "\nALTERATION : ";
-			if(armor.getAlteration() == -2) display += "-1 pénalité d'armure";//Armure de maitre.
-			else if(armor.getAlteration() == -1) display += "_";//Armure spécifique.
+			if(armor.getAlteration() == -2) display += "-1 pÃ©nalitÃ© d'armure";//Armure de maitre.
+			else if(armor.getAlteration() == -1) display += "_";//Armure spÃ©cifique.
 			else display += "+"+armor.getAlteration();
 			
 			display += "\nMATERIAL : "+ armor.getMaterial();
@@ -268,7 +268,7 @@ public class Debug {
 				display += "\nTYPE : "+ armor.getType();
 			}
 			
-			//Si l'arme a des propriétés spéciales.
+			//Si l'arme a des propriÃ©tÃ©s spÃ©ciales.
 			if(armor.getSpecialPropertie1().getName() != "_") {
 				display += "\nSPECIAL PROPERTIE 1 : "+ armor.getSpecialPropertie1().getName();
 				
@@ -282,7 +282,7 @@ public class Debug {
 					}
 				}
 				
-				//Si l'arme a une deuxieme propriété spéciale.
+				//Si l'arme a une deuxieme propriÃ©tÃ© spÃ©ciale.
 				if(armor.getSpecialPropertie2().getName() != "_") {
 					display += "\nSPECIAL PROPERTIE 2 : "+ armor.getSpecialPropertie2().getName();
 					
@@ -559,8 +559,8 @@ public class Debug {
 	}
 	
 	/**
-	 * Affiche une quantité de pièce
-	 * @param coin : les pièces
+	 * Affiche une quantitÃ© de piÃ¨ce
+	 * @param coin : les piÃ¨ces
 	 */
 	public static void printCoin(Coin coin) {
 		if(displayMode) {
@@ -569,7 +569,7 @@ public class Debug {
 	}
 	
 	/**
-	 * Affiche le contenu d'un trésor dropper
+	 * Affiche le contenu d'un trÃ©sor dropper
 	 * @param reward
 	 */
 	public static void printReward(ArrayList<Item> reward) {

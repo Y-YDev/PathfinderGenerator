@@ -8,7 +8,7 @@ import utility.Debug;
 import utility.Tuple;
 
 /**
- * GemAndJewelBuilder permet de créer des bijoux et des gemmes.
+ * GemAndJewelBuilder permet de crÃ©er des bijoux et des gemmes.
  * @author Mentra20
  *
  */
@@ -25,7 +25,7 @@ public class GemAndJewelBuilder {
     /* METHODS */
     
     /**
-     * createGemOrJewel créer une gemme ou un bijoux selon le drop.
+     * createGemOrJewel crÃ©er une gemme ou un bijoux selon le drop.
      * @param grade : grade du bijoux ou de la gemme
      * @return un tuple contenant un bijoux et une gemme (un des deux est null).
      */
@@ -34,7 +34,7 @@ public class GemAndJewelBuilder {
     	
     	Data<Integer> data = new Data<Integer>();
     	
-    	//Chargement des données.
+    	//Chargement des donnÃ©es.
     	switch (grade) {
 		case 1: data.addAll(GemAndJewelConstant.grade1());
 			break;
@@ -57,12 +57,12 @@ public class GemAndJewelBuilder {
         Debug.debug("n_choice = "+randomValue);
     	int choice = data.selectObject(randomValue);
     	
-    	//On retourne un tuple à moitié vide.
+    	//On retourne un tuple Ã  moitiÃ© vide.
     	if(choice == 1) {//Gemme brute
     		Gem res = createGem(grade, false);
     		return new Tuple<Gem, Jewel>(res, null);
     	}
-    	if(choice == 2) {//Gemme taillée
+    	if(choice == 2) {//Gemme taillÃ©e
     		Gem res = createGem(grade, true);
     		return new Tuple<Gem, Jewel>(res, null);
     	}
@@ -78,10 +78,10 @@ public class GemAndJewelBuilder {
     
     
     /**
-     * CreateGem créer une gemme.
+     * CreateGem crÃ©er une gemme.
      * @param grade : grade de la gemme.
-     * @param cut : true si elle est taillée, brut sinon.
-     * @return La gemme créée.
+     * @param cut : true si elle est taillÃ©e, brut sinon.
+     * @return La gemme crÃ©Ã©e.
      */
     public Gem createGem(int grade, boolean cut) {
     	if(cut) {
@@ -92,7 +92,7 @@ public class GemAndJewelBuilder {
     	
     	Data<Gem> data = new Data<Gem>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(grade) {
 		case 1: data.addAll(GemAndJewelConstant.gemGrade1());
 			break;
@@ -134,7 +134,7 @@ public class GemAndJewelBuilder {
 		}
        
         if(cut) {
-        	//La gemme est taillée.
+        	//La gemme est taillÃ©e.
         	gem.setCut(TypeCut.CUT);
         	
         	// 2d4 x prix du grade
@@ -142,7 +142,7 @@ public class GemAndJewelBuilder {
         	cutVal += r.nextInt(4)+1;
         	Debug.debug("n_cut = "+cutVal);
         	
-        	//ajout au prix (valeur multipliée constante).
+        	//ajout au prix (valeur multipliÃ©e constante).
         	switch (grade) {
     		case 1: gem.setPrice(gem.getPrice() + cutVal * 1);
     			break;
@@ -170,9 +170,9 @@ public class GemAndJewelBuilder {
     }
     
     /**
-     * createJewel créer un bijoux
+     * createJewel crÃ©er un bijoux
      * @param grade : le grade du bijoux.
-     * @return Le bijoux créé.
+     * @return Le bijoux crÃ©Ã©.
      */
     public Jewel createJewel(int grade) {
     	Debug.debug("Create jewel of grade "+grade+"...");
@@ -225,7 +225,7 @@ public class GemAndJewelBuilder {
     }
     
     /**
-     * Créer un type de bijoux
+     * CrÃ©er un type de bijoux
      * @param grade : le grade du bijoux
      * @return Le type du bijoux.
      */
@@ -234,7 +234,7 @@ public class GemAndJewelBuilder {
     	
     	Data<TypeJewel> data = new Data<TypeJewel>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(grade) {
 		case 1: data.addAll(GemAndJewelConstant.jewelType1());
 			break;
@@ -261,7 +261,7 @@ public class GemAndJewelBuilder {
     }
     
     /**
-     * Créer la taille du bijoux.
+     * CrÃ©er la taille du bijoux.
      * @return la taille du bijoux.
      */
     public TypeSize jeweSize() {
@@ -269,7 +269,7 @@ public class GemAndJewelBuilder {
     	
     	Data<TypeSize> data = new Data<TypeSize>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
 		data.addAll(GemAndJewelConstant.jewelSize());
     	
     	//Tirage
@@ -280,16 +280,16 @@ public class GemAndJewelBuilder {
     }
     
     /**
-     * Créer le matériel du bijoux.
+     * CrÃ©er le matÃ©riel du bijoux.
      * @param grade : le grade du bijoux.
-     * @return le matériel du bijoux.
+     * @return le matÃ©riel du bijoux.
      */
     public Material jewelMaterial(int grade) {
     	Debug.debug("Create jewel material...");
     	
     	Data<Material> data = new Data<Material>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(grade) {
 		case 1: data.addAll(GemAndJewelConstant.jewelMaterial1());
 			break;
@@ -315,10 +315,10 @@ public class GemAndJewelBuilder {
     }
     
     /**
-     * Créer un travail ou des gemmes sur le bijoux.
-     * @param jewel : le bijoux à modifier.
+     * CrÃ©er un travail ou des gemmes sur le bijoux.
+     * @param jewel : le bijoux Ã  modifier.
      * @param grade : le grade du bijoux.
-     * @return le bijoux modifié.
+     * @return le bijoux modifiÃ©.
      */
     public Jewel jewelWork(Jewel jewel,int grade) {
     	Debug.debug("Create work on jewel...");
@@ -344,7 +344,7 @@ public class GemAndJewelBuilder {
         		jewel.setWork(TypeJewelWork.ENGRAVING);
         	}
         	else if(randomValue <= 40) {
-        		//Tirage du dé 8.
+        		//Tirage du dÃ© 8.
         		int d8 = r.nextInt(8)+1;
         		Debug.debug("d8 = "+d8);
         		
@@ -356,7 +356,7 @@ public class GemAndJewelBuilder {
         		jewel.setGemN_2(new Tuple<Gem, Integer>(gemN_2, d8));
         	}
         	else if(randomValue <= 60) {
-        		//Tirage du dé 4.
+        		//Tirage du dÃ© 4.
         		int d4 = r.nextInt(4)+1;
         		Debug.debug("d4 = "+d4);
         		
@@ -373,7 +373,7 @@ public class GemAndJewelBuilder {
         		jewel.setGemN(gemN);
         	}
         	else if(randomValue <= 100) {
-        		//On gagne 2 tirages supplémentaires.
+        		//On gagne 2 tirages supplÃ©mentaires.
         		Debug.debug("re-throw");
         		rethrow += 2;
         	}

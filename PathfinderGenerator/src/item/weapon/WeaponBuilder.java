@@ -7,7 +7,7 @@ import utility.Debug;
 import utility.Tuple;
 
 /**
- * WeaponBuilder sert ‡ la crÈation d'arme.
+ * WeaponBuilder sert √† la cr√©ation d'arme.
  * @author Mentra20
  *
  */
@@ -21,30 +21,30 @@ public class WeaponBuilder{
     }
 
     /**
-     * CrÈe une arme selon la raretÈ donnÈe.
-     * @param rarity : la raretÈ.
-     * @return l'arme crÈÈe.
+     * Cr√©e une arme selon la raret√© donn√©e.
+     * @param rarity : la raret√©.
+     * @return l'arme cr√©√©e.
      */
     public Weapon createWeapon(int rarity){
     	Debug.debug("Create weapon with rarity "+rarity+"...");
     	
     	//Membre x du tuple : genre d'arme.
-    	//Membre y du tuple : propriÈtÈ spÈciale.
+    	//Membre y du tuple : propri√©t√© sp√©ciale.
         Data<Tuple<Integer,Integer>> data = new Data<Tuple<Integer,Integer>>();
         
-      //Chargement des donnÈes
+      //Chargement des donn√©es
         switch(rarity) {
-        case 1 : data.addAll(WeaponConstant.rarity1()); //On charge le tableau de drop de raretÈ 1.
+        case 1 : data.addAll(WeaponConstant.rarity1()); //On charge le tableau de drop de raret√© 1.
         	break;
-        case 2 : data.addAll(WeaponConstant.rarity2());//On charge le tableau de drop de raretÈ 2.
+        case 2 : data.addAll(WeaponConstant.rarity2());//On charge le tableau de drop de raret√© 2.
         	break;
-        case 3 : data.addAll(WeaponConstant.rarity3());//On charge le tableau de drop de raretÈ 3.
+        case 3 : data.addAll(WeaponConstant.rarity3());//On charge le tableau de drop de raret√© 3.
         	break;
-        case 4 : data.addAll(WeaponConstant.rarity4());//On charge le tableau de drop de raretÈ 4.
+        case 4 : data.addAll(WeaponConstant.rarity4());//On charge le tableau de drop de raret√© 4.
         	break;
-        case 5 : data.addAll(WeaponConstant.rarity5());//On charge le tableau de drop de raretÈ 5.
+        case 5 : data.addAll(WeaponConstant.rarity5());//On charge le tableau de drop de raret√© 5.
         	break;
-        case 6 : data.addAll(WeaponConstant.rarity6());//On charge le tableau de drop de raretÈ 6.
+        case 6 : data.addAll(WeaponConstant.rarity6());//On charge le tableau de drop de raret√© 6.
         	break;
         default : Debug.error("erreur case createWeapon"); 
         	break;
@@ -57,24 +57,24 @@ public class WeaponBuilder{
         
         int alteration;
         
-        if (tuple.getX() == -1) return specificWeapon(rarity);//L'arme est une arme spÈcifique.
+        if (tuple.getX() == -1) return specificWeapon(rarity);//L'arme est une arme sp√©cifique.
         else alteration = tuple.getX();//L'arme est une arme magique.
         //L'alteration vaut 0 si rien et -2 si de maitre.
        
         Weapon weapon = magicWeapon(alteration);
         
-        //On doit ajouter une propriÈtÈ spÈciale
+        //On doit ajouter une propri√©t√© sp√©ciale
         if(tuple.getY() > 0) {
-        	//Le chiffre de l'unitÈ indique l'altÈration de la premiere propriÈtÈ.
+        	//Le chiffre de l'unit√© indique l'alt√©ration de la premiere propri√©t√©.
         	weapon = weaponSpecialPropertie(weapon,tuple.getY()%10,1);
         	
-        	if(tuple.getY() > 10) {//L'arme ‡ une deuxiËme propriÈtÈ spÈciale.
-        		//Le chiffre de la dizaine indique l'altÈration de la deuxiËme propriÈtÈ.
+        	if(tuple.getY() > 10) {//L'arme √† une deuxi√®me propri√©t√© sp√©ciale.
+        		//Le chiffre de la dizaine indique l'alt√©ration de la deuxi√®me propri√©t√©.
         		weapon = weaponSpecialPropertie(weapon,tuple.getY()/10,2);
         	}
         }
         
-        //Ajout du prix des propriÈtÈs spÈciales ‡ l'arme.
+        //Ajout du prix des propri√©t√©s sp√©ciales √† l'arme.
         weapon = weaponSpecialPrice(weapon);
         
         //Pour le debug de plusieures armes.
@@ -83,7 +83,7 @@ public class WeaponBuilder{
     }
     
     /**
-     * CrÈer une arme de maitre
+     * Cr√©er une arme de maitre
      * @return l'arme de maitre.
      */
     public Weapon createMasterWeapon() {
@@ -94,28 +94,28 @@ public class WeaponBuilder{
     }
     
     /**
-     * CrÈer une arme spÈcifique.
-     * @param rarity : la raretÈ de l'arme.
-     * @return l'arme crÈÈe.
+     * Cr√©er une arme sp√©cifique.
+     * @param rarity : la raret√© de l'arme.
+     * @return l'arme cr√©√©e.
      */
     public Weapon specificWeapon(int rarity){
     	Debug.debug("Create specific weapon with rarity "+rarity+"...");
     	
         Data<Weapon> select = new Data<Weapon>();
         
-      //Chargement des donnÈes
+      //Chargement des donn√©es
         switch(rarity){
-            case 1: select.addAll(WeaponConstant.specificWeapon1());//Arme spÈcifique de raretÈ 1.
+            case 1: select.addAll(WeaponConstant.specificWeapon1());//Arme sp√©cifique de raret√© 1.
             	break;
-            case 2: select.addAll(WeaponConstant.specificWeapon2());//Arme spÈcifique de raretÈ 2.
+            case 2: select.addAll(WeaponConstant.specificWeapon2());//Arme sp√©cifique de raret√© 2.
             	break;
-            case 3: select.addAll(WeaponConstant.specificWeapon3());//Arme spÈcifique de raretÈ 3.
+            case 3: select.addAll(WeaponConstant.specificWeapon3());//Arme sp√©cifique de raret√© 3.
             	break;
-            case 4: select.addAll(WeaponConstant.specificWeapon4());//Arme spÈcifique de raretÈ 4.
+            case 4: select.addAll(WeaponConstant.specificWeapon4());//Arme sp√©cifique de raret√© 4.
             	break;
-            case 5: select.addAll(WeaponConstant.specificWeapon5());//Arme spÈcifique de raretÈ 5.
+            case 5: select.addAll(WeaponConstant.specificWeapon5());//Arme sp√©cifique de raret√© 5.
         		break;
-            case 6: select.addAll(WeaponConstant.specificWeapon6());//Arme spÈcifique de raretÈ 6.
+            case 6: select.addAll(WeaponConstant.specificWeapon6());//Arme sp√©cifique de raret√© 6.
         		break;
             default : Debug.error("erreur case specificWeapon");
             	break;
@@ -131,21 +131,21 @@ public class WeaponBuilder{
     
     
     /**
-     * CrÈer une arme magique. (aussi arme normale +0 et arme de maitre -2...)
-     * @param alteration : l'altÈration de l'arme.
-     * @return l'arme crÈÈe.
+     * Cr√©er une arme magique. (aussi arme normale +0 et arme de maitre -2...)
+     * @param alteration : l'alt√©ration de l'arme.
+     * @return l'arme cr√©√©e.
      */
     public Weapon magicWeapon(int alteration){
     	Debug.debug("Create magic weapon with alteration "+alteration+"...");
     	
         Data<Weapon> data = new Data<Weapon>();
-        //Chargement des donnÈes
+        //Chargement des donn√©es
         data.addAll(WeaponConstant.weaponList());
         
         //Tirage
         int randomValue = r.nextInt(100)+1;
         
-        //On recupËre l'arme
+        //On recup√®re l'arme
         Weapon currentWeapon = data.selectObject(randomValue);
         currentWeapon.setAlteration(alteration);
         
@@ -164,24 +164,24 @@ public class WeaponBuilder{
         Debug.debug("Based price : "+currentWeapon.getPrice());
         Debug.debug("Based weight : "+currentWeapon.getWeight());
         
-        //On applique les matÈriaux
+        //On applique les mat√©riaux
         currentWeapon = weaponMaterial(currentWeapon);
         
-        //Rend Èventuellement l'arme en arme de maitre.
+        //Rend √©ventuellement l'arme en arme de maitre.
         currentWeapon = isWeaponMaster(currentWeapon);
         
         return currentWeapon;
     }
     
     /**
-     * CrÈer une munition et le rattache ‡ l'arme.
-     * @param weapon : l'arme ‡ modifiÈe.
-     * @return l'arme modifiÈe/CrÈÈe.
+     * Cr√©er une munition et le rattache √† l'arme.
+     * @param weapon : l'arme √† modifi√©e.
+     * @return l'arme modifi√©e/Cr√©√©e.
      */
     public Weapon weaponMunition(RangeWeapon weapon){
         
         Data<Weapon> data = new Data<Weapon>();
-        //Chargement des donnÈes
+        //Chargement des donn√©es
         data.addAll(WeaponConstant.weaponMunition());
         
         //Tirage
@@ -196,7 +196,7 @@ public class WeaponBuilder{
             //L'arme est devenue une munition.
             select.setName(weapon.getMunition().getName());
             select.setWeight(weapon.getMunition().getWeight());
-            //On calcule tout ce qui dÈpend de la quantitÈ de munitions.
+            //On calcule tout ce qui d√©pend de la quantit√© de munitions.
             ((Munition) select).computeAmmoQuantity();
             ((Munition) select).computeAmmoPrice();
             ((Munition) select).computeAmmoWeight();
@@ -206,7 +206,7 @@ public class WeaponBuilder{
             return select;
         }
         
-        //L'arme est accompagnÈe de munitions.
+        //L'arme est accompagn√©e de munitions.
         else{
         	Debug.debug("Create munitions for the weapon...");
         	
@@ -214,12 +214,12 @@ public class WeaponBuilder{
             Munition selectMunition = ((RangeWeapon) select).getMunition();
             selectMunition.setName(weapon.getMunition().getName());
             selectMunition.setWeight(weapon.getMunition().getWeight());
-            //On calcule ce qui depend de la quantitÈ
+            //On calcule ce qui depend de la quantit√©
             selectMunition.computeAmmoQuantity();
             selectMunition.computeAmmoPrice();
             selectMunition.computeAmmoWeight();
             
-            //On ratache les munitions ‡ l'arme.
+            //On ratache les munitions √† l'arme.
             weapon.setMunition(selectMunition);
            
             return weapon;
@@ -227,23 +227,23 @@ public class WeaponBuilder{
     }
     
     /**
-     * CrÈer le matÈriel de l'arme.
-     * @param weapon : l'arme ‡ modifiÈe.
-     * @return l'arme modifiÈe.
+     * Cr√©er le mat√©riel de l'arme.
+     * @param weapon : l'arme √† modifi√©e.
+     * @return l'arme modifi√©e.
      */
     public Weapon weaponMaterial(Weapon weapon){
     	Debug.debug("Create weapon material...");
     	
         Data<Material> data = new Data<Material>();
         
-        //Chargement des donnÈes.
+        //Chargement des donn√©es.
         if(weapon.getTypeMaterial() == TypeMaterial.WOOD){
-            data.addAll(WeaponConstant.woodMaterial());//On charge le matÈriel bois.
+            data.addAll(WeaponConstant.woodMaterial());//On charge le mat√©riel bois.
         }
         else if(weapon.getTypeMaterial() == TypeMaterial.STEEL){
-            data.addAll(WeaponConstant.steelMaterial());//On charge le matÈriel mÈtal.
+            data.addAll(WeaponConstant.steelMaterial());//On charge le mat√©riel m√©tal.
         }
-        else{//Cas d'arme indÈterminer.
+        else{//Cas d'arme ind√©terminer.
         	weapon.setMaterial(Material.CHOOSE);
             return weapon;
         }
@@ -256,15 +256,15 @@ public class WeaponBuilder{
         
         while(!restrictionMaterial(select,weapon)) {
         	
-        	//On force a obtenir un matÈriaux car premier jet rÈussis.
+        	//On force a obtenir un mat√©riaux car premier jet r√©ussis.
         	randomValue = r.nextInt(100)+1;
-        	//La valeur interdite depend du tableau selectionnÈ (bois ou metal).
+        	//La valeur interdite depend du tableau selectionn√© (bois ou metal).
         	if(weapon.getTypeMaterial() == TypeMaterial.STEEL) {
-        		while(randomValue >= 7 && randomValue <= 56) {//Correspond ‡ pas de matÈriel
+        		while(randomValue >= 7 && randomValue <= 56) {//Correspond √† pas de mat√©riel
         			randomValue = r.nextInt(100)+1;
         		}
         	}else {
-        		while(randomValue >= 6 && randomValue <= 55) {//Correspond ‡ pas de matÈriel
+        		while(randomValue >= 6 && randomValue <= 55) {//Correspond √† pas de mat√©riel
         			randomValue = r.nextInt(100)+1;
         		}
         	}
@@ -275,18 +275,18 @@ public class WeaponBuilder{
         
         weapon.setMaterial(select);
         
-        //Les modifications du prix et du poid du au matÈriel.
+        //Les modifications du prix et du poid du au mat√©riel.
         weapon = materialModification(weapon);
         
         return weapon;
     }
     
     /**
-     * Donne une propriÈtÈ spÈciale ‡ l'arme.
-     * @param weapon : l'arme ‡ modifiÈe.
-     * @param magicAlteration : le niveau d'altÈration de l'arme.
-     * @param specialPropertieNumber : le numÈro de la propriÈtÈ spÈciale ‡ modifiÈe.
-     * @return L'arme modifiÈe.
+     * Donne une propri√©t√© sp√©ciale √† l'arme.
+     * @param weapon : l'arme √† modifi√©e.
+     * @param magicAlteration : le niveau d'alt√©ration de l'arme.
+     * @param specialPropertieNumber : le num√©ro de la propri√©t√© sp√©ciale √† modifi√©e.
+     * @return L'arme modifi√©e.
      */
     public Weapon weaponSpecialPropertie(Weapon weapon,int magicAlteration, int specialPropertieNumber) {
     	//L'arme n'est normalement pas une arme de maitre 
@@ -294,23 +294,23 @@ public class WeaponBuilder{
     		Debug.error("Master weapon only can't have special propertie....");
     	}
     	
-    	//Une arme magique peut aussi avoir une propriÈtÈ particuliËre.
-    	if(specialPropertieNumber == 1) {//Si c'est la premiere fois qu'on crÈer la propriÈtÈ spÈciale.
+    	//Une arme magique peut aussi avoir une propri√©t√© particuli√®re.
+    	if(specialPropertieNumber == 1) {//Si c'est la premiere fois qu'on cr√©er la propri√©t√© sp√©ciale.
     		weapon = weaponParticularPropertie(weapon);
     	}
     	
     	Debug.debug("Create special propertie "+specialPropertieNumber+" with rank "+magicAlteration+"...");
     	
-    	//Cas indÈterminable
-    	if(weapon.getName() == "Autre arme de corps ‡ corps lÈgËre" 
-    			|| weapon.getName() == "Autre arme de corps ‡ corps ‡ une main" 
-    			|| weapon.getName() == "Autre arme de corps ‡ corps ‡ deux mains" 
-    			|| weapon.getName() == "Autre arme ‡ distance"
+    	//Cas ind√©terminable
+    	if(weapon.getName() == "Autre arme de corps √† corps l√©g√®re" 
+    			|| weapon.getName() == "Autre arme de corps √† corps √† une main" 
+    			|| weapon.getName() == "Autre arme de corps √† corps √† deux mains" 
+    			|| weapon.getName() == "Autre arme √† distance"
     			|| weapon.getName() == "Autre munition") {
     		
-    		//On doit le dÈterminer manuellement.
-    		if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(new WeaponSpecialPropertie("‡ determiner",magicAlteration));
-    		else weapon.setSpecialPropertie2(new WeaponSpecialPropertie("‡ determiner",magicAlteration));
+    		//On doit le d√©terminer manuellement.
+    		if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(new WeaponSpecialPropertie("√† determiner",magicAlteration));
+    		else weapon.setSpecialPropertie2(new WeaponSpecialPropertie("√† determiner",magicAlteration));
     		
     		return weapon;
     	}
@@ -345,7 +345,7 @@ public class WeaponBuilder{
 				break;
     		case 4: data.addAll(WeaponConstant.rangeSpecialPropertie3_4());
 				break;
-			//PossibilitÈ de ne rien faire.
+			//Possibilit√© de ne rien faire.
     		case 5: data.addAll(WeaponConstant.rangeSpecialPropertie3_4());
 				break;
     		default: Debug.error("Error case special range");
@@ -360,7 +360,7 @@ public class WeaponBuilder{
     			break;
     		case 3: data.addAll(WeaponConstant.munitionSpecialPropertie3());
     			break;
-    		//PossibilitÈ de ne rien faire.
+    		//Possibilit√© de ne rien faire.
     		case 4: data.addAll(WeaponConstant.munitionSpecialPropertie3());
     			break;
     		case 5: data.addAll(WeaponConstant.munitionSpecialPropertie3());
@@ -375,14 +375,14 @@ public class WeaponBuilder{
     	WeaponSpecialPropertie specialPropertie = data.selectObject(randomValue);
     	Debug.debug("n_spe_prop = "+randomValue);
     	
-    	//PropriÈtÈ compatible avec l'arme
+    	//Propri√©t√© compatible avec l'arme
     	while(!restrictionProperties(weapon,specialPropertie)) {
     		randomValue = r.nextInt(100)+1;
     		specialPropertie = data.selectObject(randomValue);
     		Debug.debug("n_spe_prop = "+randomValue);
     	}
     	
-    	//On donne la propriÈtÈ au bon emplacement.
+    	//On donne la propri√©t√© au bon emplacement.
     	if(specialPropertieNumber == 1) weapon.setSpecialPropertie1(specialPropertie);
     	else weapon.setSpecialPropertie2(specialPropertie);
     	
@@ -390,10 +390,10 @@ public class WeaponBuilder{
     }
     
     /**
-     * Renvoie true si l'arme rÈpond au restriction, false sinon.
-     * @param weapon : l'arme ‡ testÈe.
-     * @param specialPropertie : la propriÈtÈ spÈciale.
-     * @return l'arme modifiÈe.
+     * Renvoie true si l'arme r√©pond au restriction, false sinon.
+     * @param weapon : l'arme √† test√©e.
+     * @param specialPropertie : la propri√©t√© sp√©ciale.
+     * @return l'arme modifi√©e.
      */
     public boolean restrictionProperties(Weapon weapon,WeaponSpecialPropertie specialPropertie) {
     	
@@ -403,14 +403,14 @@ public class WeaponBuilder{
     		}
     	}
     	
-    	if(specialPropertie.getName() == "AcÈrÈe") {//L'arme doit Ítre perforante ou/et tranchante.
+    	if(specialPropertie.getName() == "Ac√©r√©e") {//L'arme doit √™tre perforante ou/et tranchante.
     		if(weapon.getTypeDamage() == TypeDamage.C) return false;
     	}
     	
     	//Les armes de jets.
     	if(specialPropertie.getName() == "Boomerang") {
     		if(weapon.getName() != "Dague" && weapon.getName() != "Gourdin" && weapon.getName() != "Lance" 
-    				&& weapon.getName() != "Marteau lÈger" && weapon.getName() != "Trident" && weapon.getName() != "Bolas"
+    				&& weapon.getName() != "Marteau l√©ger" && weapon.getName() != "Trident" && weapon.getName() != "Bolas"
     				&& weapon.getName() != "Epieu" && weapon.getName() != "Shuriken") {
     			return false;
     		}
@@ -432,21 +432,21 @@ public class WeaponBuilder{
     		if(weapon.getType() == Type.CAC_LIGHT) return false;
     	}
     	
-    	if(specialPropertie.getName() == "Munitions inÈpuisables") {
+    	if(specialPropertie.getName() == "Munitions in√©puisables") {
     		String name = weapon.getName();
-    		if(name != "Arc long composite" && name != "Arc court composite" && name != "ArbalËte lourde"
-    				&& name != "ArbalËte lÈgËre" && name != "Arc long" && name != "Arc court") return false;
+    		if(name != "Arc long composite" && name != "Arc court composite" && name != "Arbal√®te lourde"
+    				&& name != "Arbal√®te l√©g√®re" && name != "Arc long" && name != "Arc court") return false;
     	}
     	
     	//Les autres cas ne peuvent pas apparaitre.
-    	if(specialPropertie.getName() == "DeuxiËme chance") {
+    	if(specialPropertie.getName() == "Deuxi√®me chance") {
     		String name = weapon.getName();
     		if(name != "Arc long composite" && name != "Arc court composite" && name != "Arc long" && name != "Arc court") return false;
     	}
     	
     	//Les autres cas ne peuvent pas apparaitre.
     	if(specialPropertie.getName() == "Duel") {
-    		if(weapon.getType() != Type.CAC_LIGHT && weapon.getName() != "RapiËre" && weapon.getName() != "Fouet") return false;
+    		if(weapon.getType() != Type.CAC_LIGHT && weapon.getName() != "Rapi√®re" && weapon.getName() != "Fouet") return false;
     	}
     	
     	if(specialPropertie.getName() == "Tueuse") {
@@ -461,32 +461,32 @@ public class WeaponBuilder{
     		specialPropertie.setName(specialPropertie.getName()+" ("+tueuseType+")");
     	}
     	
-    	//S'applique qu'aux armes ‡ feu (que l'on ne peut avoir qu'avec "autre arme a distance" dÈj‡ gÈrer prÈcÈdemment).
+    	//S'applique qu'aux armes √† feu (que l'on ne peut avoir qu'avec "autre arme a distance" d√©j√† g√©rer pr√©c√©demment).
     	if(specialPropertie.getName() == "Chanceux") return false;
-    	if(specialPropertie.getName() == "Chanceux supÈrieur") return false;
+    	if(specialPropertie.getName() == "Chanceux sup√©rieur") return false;
     	if(specialPropertie.getName() == "Fiable") return false;
-    	if(specialPropertie.getName() == "Charge Ètanche") return false;
-    	if(specialPropertie.getName() == "Fiable supÈrieure") return false;
+    	if(specialPropertie.getName() == "Charge √©tanche") return false;
+    	if(specialPropertie.getName() == "Fiable sup√©rieure") return false;
     	
     	
-    	//Cas avec deux propriÈtÈs incompatible
-    	if(weapon.getSpecialPropertie1().getName() != "_") {//Si on a dÈj‡ une capacitÈ.
+    	//Cas avec deux propri√©t√©s incompatible
+    	if(weapon.getSpecialPropertie1().getName() != "_") {//Si on a d√©j√† une capacit√©.
     		//On doit check dans les deux sens.
     		if(specialPropertie.getName() == "Repositionnante" && weapon.getSpecialPropertie1().getName() == "Inamovible") return false;
     		if(specialPropertie.getName() == "Inamovible" && weapon.getSpecialPropertie1().getName() == "Repositionnante") return false;
     		
-    		//On ne peut avoir deux fois la mÍme capacitÈ sur l'arme.
+    		//On ne peut avoir deux fois la m√™me capacit√© sur l'arme.
     		if(specialPropertie.getName() == weapon.getSpecialPropertie1().getName()) return false;
     	}
     	
-    	//Aucune restriction a ÈtÈ dÈtectÈ.
+    	//Aucune restriction a √©t√© d√©tect√©.
     	return true;
     }
     
     /**
-     * Donne une propriÈtÈ particuliËre ‡ l'arme.
-     * @param weapon : l'arme ‡ modifiÈe
-     * @return l'arme modifiÈe.
+     * Donne une propri√©t√© particuli√®re √† l'arme.
+     * @param weapon : l'arme √† modifi√©e
+     * @return l'arme modifi√©e.
      */
     public Weapon weaponParticularPropertie(Weapon weapon) {
     	Debug.debug("Create particular propertie...");
@@ -496,29 +496,29 @@ public class WeaponBuilder{
     	Debug.debug("n_part_prop = "+randomValue);
     	
     	if(randomValue <= 30) {
-    		weapon.setParticularPropertie("LumiËre");//L'arme Èmet de la lumiËre.
+    		weapon.setParticularPropertie("Lumi√®re");//L'arme √©met de la lumi√®re.
     	}
     	else if(randomValue <= 45) {
-    		weapon.setParticularPropertie("Indice");//Indice sur la propriÈtÈ spÈciale
+    		weapon.setParticularPropertie("Indice");//Indice sur la propri√©t√© sp√©ciale
     	}
     	
 		return weapon;
     }
     
     /**
-     * restrictionMateriel renvoie vrai ou faux selon que l'arme repond aux critËres du matÈriel.
-     * @param material : le matÈriel
-     * @param weapon : l'arme qui doit repondre aux critËres.
+     * restrictionMateriel renvoie vrai ou faux selon que l'arme repond aux crit√®res du mat√©riel.
+     * @param material : le mat√©riel
+     * @param weapon : l'arme qui doit repondre aux crit√®res.
      * @return true ou false.
      */
     public boolean restrictionMaterial(Material material,Weapon weapon) {
     	
     	if(material == Material.PIERRE) {//L'arme est en pierre
-    		//L'arme est une fleche ou une lance -> choix acceptÈ.
-    		if(weapon.getName() == "FlËche" || weapon.getName() == "Lance") return true;
-    		//L'arme n'est pas contendante -> refusÈ.
+    		//L'arme est une fleche ou une lance -> choix accept√©.
+    		if(weapon.getName() == "Fl√®che" || weapon.getName() == "Lance") return true;
+    		//L'arme n'est pas contendante -> refus√©.
     		if(weapon.getTypeDamage() != TypeDamage.C_P && weapon.getTypeDamage() != TypeDamage.C) return false;
-    		//L'arme est une arme a deux mains -> refusÈ.
+    		//L'arme est une arme a deux mains -> refus√©.
     		if(weapon.getType() == Type.CAC_2M) return false;
     	}
     	
@@ -531,7 +531,7 @@ public class WeaponBuilder{
     	
     	if(material == Material.OS) {//Arme en os.
     		String name = weapon.getName();
-    		if(name == "FlËche" || name == "Lance" || name == "Pique" || name == "Hallebarde" 
+    		if(name == "Fl√®che" || name == "Lance" || name == "Pique" || name == "Hallebarde" 
     				|| name == "Coutille" || name == "Trident") return true;
     		
     		//L'arme doit etre contendante uniquement si elle est a deux mains.
@@ -540,8 +540,8 @@ public class WeaponBuilder{
     	}
     	
     	if(material == Material.OBSIDIENNE) {//Arme en obsidienne.
-    		//L'arme est une fleche ou une lance -> choix acceptÈ.
-    		if(weapon.getName() == "FlËche" || weapon.getName() == "Lance") return true;
+    		//L'arme est une fleche ou une lance -> choix accept√©.
+    		if(weapon.getName() == "Fl√®che" || weapon.getName() == "Lance") return true;
     		//L'arme est contendante seulement.
     		if(weapon.getTypeDamage() == TypeDamage.C) return false;
     		//L'arme est une arme a deux mains 
@@ -550,8 +550,8 @@ public class WeaponBuilder{
     	
     	if(material == Material.BRONZE) {
     		String name = weapon.getName();
-    		if(name == "FlËche" || name == "Lance" || name == "Hache díarmes" 
-    				|| name == "Hache díarmes naine" || name == "Grande hache"
+    		if(name == "Fl√®che" || name == "Lance" || name == "Hache d‚Äôarmes" 
+    				|| name == "Hache d‚Äôarmes naine" || name == "Grande hache"
     				|| name == "Hachette") return true;
     		//L'arme est une arme a deux mains 
     		if(weapon.getType() == Type.CAC_2M) return false;
@@ -567,15 +567,15 @@ public class WeaponBuilder{
     		if(weapon.getTypeDamage() == TypeDamage.C) return false;
     	}
     	
-    	//Toute les restrictions sont passÈes.
+    	//Toute les restrictions sont pass√©es.
     	return true;
     }
     
     /**
      * isWeaponMaster modifie l'arme si elle doit etre une arme de maitre.
-     * Modifie Ègalement son prix en ajoutant le prix de maitre.
-     * @param weapon : l'arme a ÈvaluÈe.
-     * @return l'arme eventuellement modifiÈe.
+     * Modifie √©galement son prix en ajoutant le prix de maitre.
+     * @param weapon : l'arme a √©valu√©e.
+     * @return l'arme eventuellement modifi√©e.
      */
     public Weapon isWeaponMaster(Weapon weapon) {
     	boolean change = false;
@@ -598,7 +598,7 @@ public class WeaponBuilder{
 			break;
 		case MITHRAL : change = true;
 			break;	
-		//Aucun des matÈriaux transforme l'arme en arme de maitre.
+		//Aucun des mat√©riaux transforme l'arme en arme de maitre.
 		default: break;
 		}
     	
@@ -621,16 +621,16 @@ public class WeaponBuilder{
     }
     
     /**
-     * weaponMunitionQuantity crÈer le nombre de munition pour l'arme.
-     * @param weapon : l'arme ‡ modifiÈe
-     * @return l'arme modifiÈe.
+     * weaponMunitionQuantity cr√©er le nombre de munition pour l'arme.
+     * @param weapon : l'arme √† modifi√©e
+     * @return l'arme modifi√©e.
      */
     public Weapon weaponMunitionQuantity(Munition weapon) {
     	Debug.debug("Change number of munition...");
     	
     	
     	 Data<String> data = new Data<String>();
-         //Chargement des donnÈes
+         //Chargement des donn√©es
          data.addAll(WeaponConstant.weaponMunitionQuantity());
          
          //Tirage
@@ -639,7 +639,7 @@ public class WeaponBuilder{
              
          String select = data.selectObject(randomValue);
          weapon.setStringQuantity(select);
-         //On transforme en vrai quantitÈe.
+         //On transforme en vrai quantit√©e.
          weapon.computeAmmoQuantity();
          //On calcule le prix
          weapon.computeAmmoPrice();
@@ -651,8 +651,8 @@ public class WeaponBuilder{
     
     /**
      * materialModification modifie le prix et poid de l'arme en fonction du materiel.
-     * @param weapon : l'arme a modifiÈe.
-     * @return l'arme modifiÈe en fonction du matÈriel.
+     * @param weapon : l'arme a modifi√©e.
+     * @return l'arme modifi√©e en fonction du mat√©riel.
      */
     public Weapon materialModification(Weapon weapon) {
     	Debug.debug("Maybe do change in weapon due to material....");
@@ -673,7 +673,7 @@ public class WeaponBuilder{
 		
 		case OR:
 			change = true;
-			//On dÈtermine au hasard si l'arme est en or pur.
+			//On d√©termine au hasard si l'arme est en or pur.
 			boolean pureGold = r.nextBoolean();//Si true, l'arme est en or pur..
 			
 			if(pureGold) {//Si l'arme est en or pur.
@@ -681,7 +681,7 @@ public class WeaponBuilder{
 				newPrice = weapon.getPrice() * 10;
 				newWeight = weapon.getWeight() * 1.5;
 			}
-			else {//L'arme est en or (plaquÈ).
+			else {//L'arme est en or (plaqu√©).
 				newPrice = weapon.getPrice() * 3;
 				newWeight = weapon.getWeight();//Sinon erreur car newWeight pas init
 			}
@@ -721,7 +721,7 @@ public class WeaponBuilder{
 			
 		case RACINE_DE_WYR :
 			change = true;
-			//Contenance de la racine de wyr tirÈ au hasard.
+			//Contenance de la racine de wyr tir√© au hasard.
 			int stock = r.nextInt(3)+1;
 			
 			switch (stock) {
@@ -739,7 +739,7 @@ public class WeaponBuilder{
 				break;
 			default:
 				Debug.error("Error in switch racine de wyr");
-				//NÈcÈssitÈ d'initialiser newprice.
+				//N√©c√©ssit√© d'initialiser newprice.
 				newPrice = -100;//Impossible d'atteindre ce cas.
 				break;
 			}
@@ -764,7 +764,7 @@ public class WeaponBuilder{
 			change = true;
 			newPrice = weapon.getPrice() * 2;
 			
-			//Si l'arme a une altÈration magique
+			//Si l'arme a une alt√©ration magique
 			if(weapon.getAlteration() > 0) {
 				newPrice += 2000; //On ajout en plus du prix * 2
 			}
@@ -809,7 +809,7 @@ public class WeaponBuilder{
 		case MITHRAL : 
 			change = true;
 			//1000 po par kg
-			newPrice = weapon.getPrice() + weapon.getWeight() * 1000;//dur de gÈrer le cout de maitre
+			newPrice = weapon.getPrice() + weapon.getWeight() * 1000;//dur de g√©rer le cout de maitre
 			newWeight = weapon.getWeight() * 0.5;
 			
 			weapon.setPrice(newPrice);
@@ -860,7 +860,7 @@ public class WeaponBuilder{
 			
 			if(weapon.getType() == Type.MUN) {
 				//54 et pas 60 car il est dit que dans le tableau des prix la part 
-				//du prix de maitre est dÈj‡ compris dans le prix total. (60-6)
+				//du prix de maitre est d√©j√† compris dans le prix total. (60-6)
 				newPrice = weapon.getPrice() + 54 * ((Munition)weapon).getQuantity();
 			}
 			else {//3000 - 300 (prix de maitre)
@@ -913,9 +913,9 @@ public class WeaponBuilder{
     }
     
     /**
-     * weaponSpecialPrice ajout le prix des deux propriÈtÈ spÈciales ‡ l'arme.
-     * @param weapon : l'arme o˘ il faut ajouter le prix.
-     * @return l'arme modifiÈe.
+     * weaponSpecialPrice ajout le prix des deux propri√©t√© sp√©ciales √† l'arme.
+     * @param weapon : l'arme o√π il faut ajouter le prix.
+     * @return l'arme modifi√©e.
      */
     public Weapon weaponSpecialPrice(Weapon weapon) {
     	//L'arme n'est normalement pas seulement une arme de maitre 
@@ -926,32 +926,32 @@ public class WeaponBuilder{
     	Debug.debug("Compute special properties price...");
     	
     	int totalAlteration = 0;
-    	double specialPrice = 0;//Prix ‡ ajouter ‡ la fin
+    	double specialPrice = 0;//Prix √† ajouter √† la fin
     	
-    	//Les propriÈtÈs spÈciales 1 et 2 de l'arme.
+    	//Les propri√©t√©s sp√©ciales 1 et 2 de l'arme.
     	WeaponSpecialPropertie wsp1 = weapon.getSpecialPropertie1();
     	WeaponSpecialPropertie wsp2 = weapon.getSpecialPropertie2();
     	
-    	//Si la propriÈtÈ spÈciale 1 n'est pas vide.
+    	//Si la propri√©t√© sp√©ciale 1 n'est pas vide.
     	if(wsp1.getName() != "_") {
     		//Il s'agit du prix et non de l'alteration magique.
     		if(wsp1.getMagicAlterationOrPrice() > 10) {
     			//On ajoute directement au prix total.
     			specialPrice += wsp1.getMagicAlterationOrPrice();
     		}
-    		else {//C'est une altÈration magique.
+    		else {//C'est une alt√©ration magique.
     			totalAlteration += wsp1.getMagicAlterationOrPrice();
     		}
     	}
     	
-    	//Si la propriÈtÈ spÈciale 2 n'est pas vide.
+    	//Si la propri√©t√© sp√©ciale 2 n'est pas vide.
     	if(wsp2.getName() != "_") {
     		//Il s'agit du prix et non de l'alteration magique.
     		if(wsp2.getMagicAlterationOrPrice() > 10) {
     			//On ajoute directement au prix total.
     			specialPrice += wsp2.getMagicAlterationOrPrice();
     		}
-    		else {//C'est une altÈration magique.
+    		else {//C'est une alt√©ration magique.
     			totalAlteration += wsp2.getMagicAlterationOrPrice();
     		}
     	}
@@ -1003,14 +1003,14 @@ public class WeaponBuilder{
 		}
     	
     	if(weapon.getType() == Type.MUN) {
-    		//Dans le cas de munition ce prix concerne 50 unitÈs.
+    		//Dans le cas de munition ce prix concerne 50 unit√©s.
     		//On transforme le prix en prix unitaire puis on le multiplie par le nombre de munitions.
     		alterationPrice = (alterationPrice/50) * ((Munition) weapon).getQuantity();
     	}
     	specialPrice += alterationPrice;
     	Debug.debug("Special price : "+specialPrice);
     	
-    	//On ajoute le prix ‡ l'arme.
+    	//On ajoute le prix √† l'arme.
     	weapon.setPrice(weapon.getPrice() + specialPrice);
     	
     	return weapon;

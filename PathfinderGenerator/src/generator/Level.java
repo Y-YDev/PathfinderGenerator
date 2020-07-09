@@ -2,8 +2,8 @@ package generator;
 
 public class Level {
 	private double price;//Prix du palier.
-	private int probability;//Probabilité du palier.
-	private String[] reward;//Les récompenses
+	private int probability;//ProbabilitÃ© du palier.
+	private String[] reward;//Les rÃ©compenses
 	
 	public Level(double price,String[] reward) {
 		this.setPrice(price);

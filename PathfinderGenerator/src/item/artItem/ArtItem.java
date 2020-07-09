@@ -4,7 +4,7 @@ import item.Item;
 import item.TypeItem;
 
 /**
- * Représente un objet d'art.
+ * ReprÃ©sente un objet d'art.
  * @author Mentra20
  *
  */

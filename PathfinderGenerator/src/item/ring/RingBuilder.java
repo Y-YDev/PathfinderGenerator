@@ -7,7 +7,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * RingBuilder permet de créer des anneaux magiques.
+ * RingBuilder permet de crÃ©er des anneaux magiques.
  * @author Mentra20
  *
  */
@@ -22,16 +22,16 @@ public class RingBuilder {
     }
     
     /**
-     * createRing permet de créer un anneau selon la rareté
-     * @param rarity : la rareté de l'anneau.
-     * @return l'anneau créé
+     * createRing permet de crÃ©er un anneau selon la raretÃ©
+     * @param rarity : la raretÃ© de l'anneau.
+     * @return l'anneau crÃ©Ã©
      */
     public Ring createRing(int rarity) {
     	Debug.debug("Creation magic ring of rarity "+rarity+"...");
     	
     	Data<Ring> data = new Data<Ring>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
 		case 1: data.addAll(RingConstant.rarity1());
 			break;

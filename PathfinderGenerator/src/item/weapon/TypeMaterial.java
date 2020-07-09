@@ -1,6 +1,6 @@
 package item.weapon;
 /**
- * TypeMaterial représente le type de matériel majoritaire de l'arme.
+ * TypeMaterial reprÃ©sente le type de matÃ©riel majoritaire de l'arme.
  * @author Mentra20
  *
  */

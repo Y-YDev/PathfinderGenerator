@@ -1,7 +1,7 @@
 package item.weapon;
 
 /**
- * MeleeWeapon represente les armes de mélées.
+ * MeleeWeapon represente les armes de mÃ©lÃ©es.
  * @author Mentra20
  *
  */

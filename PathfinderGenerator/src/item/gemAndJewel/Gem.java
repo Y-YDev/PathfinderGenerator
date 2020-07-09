@@ -4,7 +4,7 @@ import item.Item;
 import item.TypeItem;
 
 /**
- * Gem représente une gemme.
+ * Gem reprÃ©sente une gemme.
  * @author Mentra20
  *
  */

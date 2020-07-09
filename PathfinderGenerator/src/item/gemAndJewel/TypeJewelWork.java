@@ -1,7 +1,7 @@
 package item.gemAndJewel;
 
 /**
- * TypeJewelWork représente le travail sur le bijoux.
+ * TypeJewelWork reprÃ©sente le travail sur le bijoux.
  * @author Mentra20
  *
  */

@@ -1,12 +1,12 @@
 package item.gemAndJewel;
 
 /**
- * TypeCut représente le type de gemme (brut ou taillée).
+ * TypeCut reprÃ©sente le type de gemme (brut ou taillÃ©e).
  * @author Mentra20
  *
  */
 public enum TypeCut {
-	RAW("brute"),CUT("taillée"),NOTHING("_");
+	RAW("brute"),CUT("taillÃ©e"),NOTHING("_");
 	
 	private final String cut;
 	

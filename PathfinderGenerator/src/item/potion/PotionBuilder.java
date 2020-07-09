@@ -7,7 +7,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * PotionBuilder permet de créer des potions ou des huiles.
+ * PotionBuilder permet de crÃ©er des potions ou des huiles.
  * @author Mentra20
  *
  */
@@ -21,8 +21,8 @@ public class PotionBuilder {
     }
     
     /**
-     * createPotion permet de créer une huile/potion selon la rareté
-     * @param rarity : la rareté de la potion.
+     * createPotion permet de crÃ©er une huile/potion selon la raretÃ©
+     * @param rarity : la raretÃ© de la potion.
      * @return La potion
      */
     public Potion createPotion(int rarity) {
@@ -30,7 +30,7 @@ public class PotionBuilder {
     	
     	Data<Integer> dataNds = new Data<Integer>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
 		case 1: dataNds.addAll(PotionConstant.rarity1());
 			break;
@@ -90,7 +90,7 @@ public class PotionBuilder {
     	
     	Data<String> data = new Data<String>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
     	case 0: data.addAll(PotionConstant.commonPotion0());
 			break;
@@ -124,7 +124,7 @@ public class PotionBuilder {
     	
     	Data<String> data = new Data<String>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
 		case 1: data.addAll(PotionConstant.uncommonPotion1());
 			break;

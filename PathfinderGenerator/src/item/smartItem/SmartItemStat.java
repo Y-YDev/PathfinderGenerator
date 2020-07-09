@@ -1,14 +1,14 @@
 package item.smartItem;
 
 /**
- * Représente une statistiques d'un objet
+ * ReprÃ©sente une statistiques d'un objet
  * @author Mentra20
  *
  */
 public class SmartItemStat {
 	private int stat;//valeur de la statistique (int, sag ,char)
-	private double price;//prix ajouté 
-	private int ego;//Ego à ajouté
+	private double price;//prix ajoutÃ© 
+	private int ego;//Ego Ã  ajoutÃ©
 	
 	public SmartItemStat(int stat,double price,int ego) {
 		this.setStat(stat);

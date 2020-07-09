@@ -2,7 +2,7 @@ package item.wonderfulObject;
 
 public enum Type {
 	WAIST("Taille"),BODY("Corps"),TORSO("Torse"),EYES("Yeux"),
-	FEET("Pieds"),HANDS("Mains"),HEAD("Tête"), FOREHEAD("Front"),
+	FEET("Pieds"),HANDS("Mains"),HEAD("TÃªte"), FOREHEAD("Front"),
 	NECK("Cou"),SHOULDERS("Epaules"),WRIST("Poignet et avant-bras"),
 	WITHOUT_LOCATION("Sans emplacement"),NONE("_");
 	

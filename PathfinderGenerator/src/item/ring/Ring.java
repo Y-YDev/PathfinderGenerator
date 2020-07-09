@@ -5,7 +5,7 @@ import item.TypeItem;
 import item.smartItem.SmartItem;
 
 /**
- * Représente un anneaux magique
+ * ReprÃ©sente un anneaux magique
  * @author Mentra20
  *
  */

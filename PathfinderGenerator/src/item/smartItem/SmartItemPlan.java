@@ -7,7 +7,7 @@ package item.smartItem;
  */
 public class SmartItemPlan {
 	private String plan;//Le nom de l'objectif de l'objet
-	private int ego;//Ego à ajouté
+	private int ego;//Ego Ã  ajoutÃ©
 	
 	public SmartItemPlan(String plan,int ego) {
 		this.setPlan(plan);

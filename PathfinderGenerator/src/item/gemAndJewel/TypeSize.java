@@ -1,7 +1,7 @@
 package item.gemAndJewel;
 
 /**
- * TypeSize représente les differentes taille de bijoux.
+ * TypeSize reprÃ©sente les differentes taille de bijoux.
  * @author Mentra20
  *
  */

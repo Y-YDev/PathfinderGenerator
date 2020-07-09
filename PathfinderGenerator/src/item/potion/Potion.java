@@ -5,13 +5,13 @@ import item.TypeItem;
 import utility.Debug;
 
 /**
- * Potion représente une potion.
+ * Potion reprÃ©sente une potion.
  * @author Mentra20
  *
  */
 public class Potion extends Item {
 	
-	private int nls;//Niveau de lançeur de sort.
+	private int nls;//Niveau de lanÃ§eur de sort.
 	private int nds;//Niveau du sort.
 	private boolean uncommon;//True si la potion est hors du commun.
 	
@@ -43,9 +43,9 @@ public class Potion extends Item {
 	/* Methods */
 	
 	/**
-	 * computeNls calcule le niveau de lançeur de sort selon le niveau du sort.
+	 * computeNls calcule le niveau de lanÃ§eur de sort selon le niveau du sort.
 	 * @param nds : niveau du sort.
-	 * @return le niveau de lançeur de sort de la potion.
+	 * @return le niveau de lanÃ§eur de sort de la potion.
 	 */
 	private int computeNls(int nds) {
 		switch (nds) {
@@ -65,8 +65,8 @@ public class Potion extends Item {
 	 */
 	private double computePrice(int nds) {
 		//deux cas particulier
-		if(this.getName().equals("piège à feu")) return 775;
-		if(this.getName().equals("antidétection")) return 800;
+		if(this.getName().equals("piÃ¨ge Ã  feu")) return 775;
+		if(this.getName().equals("antidÃ©tection")) return 800;
 		
 		switch (nds) {
 		case 0: return 25;

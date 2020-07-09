@@ -4,12 +4,12 @@ import item.Item;
 import item.TypeItem;
 
 /**
- * Représente les pièces d'or, de cuivre , d'argent et de platine
+ * ReprÃ©sente les piÃ¨ces d'or, de cuivre , d'argent et de platine
  * @author Mentra20
  *
  */
 public class Coin extends Item {
-	private Type typeCoin;//Type de pièce
+	private Type typeCoin;//Type de piÃ¨ce
 	
 	public Coin(Type typeCoin, double quantity) {
 		super("_", quantity, TypeItem.COIN);

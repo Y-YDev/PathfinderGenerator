@@ -6,7 +6,7 @@ import item.smartItem.SmartItem;
 import item.wonderfulObject.Type;
 
 /**
- * Représente un objet merveilleux
+ * ReprÃ©sente un objet merveilleux
  * @author Mentra20
  *
  */

@@ -1,14 +1,14 @@
 package item.gemAndJewel;
 
 /**
- * Material représente le type de matériel du bijoux.
+ * Material reprÃ©sente le type de matÃ©riel du bijoux.
  * @author Mentra20
  *
  */
 public enum Material {
-	BRONZE("Bronze",0.5),EBENITE("Ebénite",1),IVOIRE("Ivoire",1.5),FER_FROID("Fer froid",2),
+	BRONZE("Bronze",0.5),EBENITE("EbÃ©nite",1),IVOIRE("Ivoire",1.5),FER_FROID("Fer froid",2),
 	ACIER_VIVANT("Acier vivant",2.5),ACIER_ARDENT("Acier ardent",3),VIRIDIUM("Viridium",4),
-	ACIER_GLACE("Acier glacé",5),ARGENT("Argent",6),BRONZE_ELIZEEN("Bronze elizéen",7),
+	ACIER_GLACE("Acier glacÃ©",5),ARGENT("Argent",6),BRONZE_ELIZEEN("Bronze elizÃ©en",7),
 	ELECTRUM("Electrum",8),ADAMENTIUM("Adamentium",9),OR("Or",10),MITHRAL("Mithral",11),
 	OR_BLANC("Or blanc",12),PLATINE("Platine",13),NOTHING("_",-1);
 	

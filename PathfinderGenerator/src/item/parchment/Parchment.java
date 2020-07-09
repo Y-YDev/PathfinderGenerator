@@ -5,13 +5,13 @@ import item.TypeItem;
 import utility.Debug;
 
 /**
- * Représente un parchemin magique.
+ * ReprÃ©sente un parchemin magique.
  * @author Mentra20
  *
  */
 public class Parchment extends Item{
 	
-	private int nls;//Niveau de lançeur de sort.
+	private int nls;//Niveau de lanÃ§eur de sort.
 	private int nds;//Niveau du sort.
 	private boolean uncommon;//True si le parchemin est hors du commun.
 	private boolean divine;//True si le parchemin est divin , faux si il est profane
@@ -59,9 +59,9 @@ public class Parchment extends Item{
 	/* Methods */
 	
 	/**
-	 * computeNls calcule le niveau de lançeur de sort selon le niveau du sort.
+	 * computeNls calcule le niveau de lanÃ§eur de sort selon le niveau du sort.
 	 * @param nds : niveau du sort.
-	 * @return le niveau de lançeur de sort du parchemin.
+	 * @return le niveau de lanÃ§eur de sort du parchemin.
 	 */
 	public void computeNls() {
 		switch (this.nds) {

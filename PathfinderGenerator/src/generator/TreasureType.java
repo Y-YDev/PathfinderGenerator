@@ -1,15 +1,15 @@
 package generator;
 
 /**
- * Type représente le type de tresor.
+ * Type reprÃ©sente le type de tresor.
  * @author Mentra20
  *
  */
 public enum TreasureType{
-    A("Les pièces (A)"),B("Les pièces et les gemmes (B)"),C("Objets d'art (C)"),
-    D("Les pièces et les objets de petite taille (D)"),E("Les armes et les armures (E)"),
-    F("L'équipement des combattants (F)"),G("L'équipement des lanceurs de sorts (G)"),
-    H("Le trésor des antres (H)"),I("Le trésor accumulé (I)");
+    A("Les piÃ¨ces (A)"),B("Les piÃ¨ces et les gemmes (B)"),C("Objets d'art (C)"),
+    D("Les piÃ¨ces et les objets de petite taille (D)"),E("Les armes et les armures (E)"),
+    F("L'Ã©quipement des combattants (F)"),G("L'Ã©quipement des lanceurs de sorts (G)"),
+    H("Le trÃ©sor des antres (H)"),I("Le trÃ©sor accumulÃ© (I)");
     
     private final String type;
     

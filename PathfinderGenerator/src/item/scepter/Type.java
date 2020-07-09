@@ -1,7 +1,7 @@
 package item.scepter;
 
 public enum Type {
-	MINOR("Mineur"),NORMAL("Normal"),SUPERIOR("Supérieur"),NONE("_");
+	MINOR("Mineur"),NORMAL("Normal"),SUPERIOR("SupÃ©rieur"),NONE("_");
 	
     private final String type;
     

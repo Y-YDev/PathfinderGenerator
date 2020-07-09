@@ -1,12 +1,12 @@
 package item.weapon;
 
 /**
- * RangeWeapon représente les armes à distances.
+ * RangeWeapon reprÃ©sente les armes Ã  distances.
  * @author Mentra20
  *
  */
 public class RangeWeapon extends Weapon{
-    private Munition munition;//La munition de l'arme à distance.
+    private Munition munition;//La munition de l'arme Ã  distance.
     
     /* CONSTRUCTOR */
     public RangeWeapon(String name, Munition munition, TypeDamage typeDamage, TypeMaterial typeMaterial, double price,double weight){

@@ -1,7 +1,7 @@
 package item.armor;
 
 /**
- * TypeMaterial représente le type de matériel majoritaire de l'armure ou bouclier.
+ * TypeMaterial reprÃ©sente le type de matÃ©riel majoritaire de l'armure ou bouclier.
  * @author Mentra20
  *
  */

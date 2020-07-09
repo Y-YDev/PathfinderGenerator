@@ -4,17 +4,17 @@ import item.Item;
 import item.TypeItem;
 
 /**
- * Représente une armure ou un bouclier généré
+ * ReprÃ©sente une armure ou un bouclier gÃ©nÃ©rÃ©
  * @author Mentra20
  */
 public class ArmorShield extends Item{
-	private int alteration;//L'altération de l'armure ou bouclier
+	private int alteration;//L'altÃ©ration de l'armure ou bouclier
 	private Material material;//Materiel de l'armure ou bouclier
 	private TypeMaterial typeMaterial;//Type du materiel de l'armure ou bouclier
-	private Type type;//Type de l'armure ou bouclier (lourde, légère...)
+	private Type type;//Type de l'armure ou bouclier (lourde, lÃ©gÃ¨re...)
 	private boolean isMasterWork;//Si l'armure ou le bouclier est de maitre
-	private ArmorSpecialPropertie specialPropertie1;//La premiere propriété spéciale.
-	private ArmorSpecialPropertie specialPropertie2;//La deuxieme propriété spéciale.
+	private ArmorSpecialPropertie specialPropertie1;//La premiere propriÃ©tÃ© spÃ©ciale.
+	private ArmorSpecialPropertie specialPropertie2;//La deuxieme propriÃ©tÃ© spÃ©ciale.
 	private double weight;//Poids de l'armure ou bouclier
 	
 	/* CONSTRUCTOR */
@@ -30,7 +30,7 @@ public class ArmorShield extends Item{
         this.setWeight(weight);
 	}
 	
-	//Constructeur pour armure ou bouclier spécifique
+	//Constructeur pour armure ou bouclier spÃ©cifique
 	public ArmorShield(String name, Type type, double price) {
 		super(name, price, TypeItem.ARMOR);
 		this.setAlteration(-1);

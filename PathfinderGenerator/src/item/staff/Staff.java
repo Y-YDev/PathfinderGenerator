@@ -4,12 +4,12 @@ import item.Item;
 import item.TypeItem;
 
 /**
- * ReprÈsente un b‚tons magique
+ * Repr√©sente un b√¢tons magique
  * @author Mentra20
  *
  */
 public class Staff  extends Item{
-	private boolean particularPropertie;//True si la baguette a un indice sur sa capacitÈ.
+	private boolean particularPropertie;//True si la baguette a un indice sur sa capacit√©.
 	
 	public Staff(String name,double price) {
 		super(name, price, TypeItem.STAFF);

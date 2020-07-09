@@ -34,13 +34,13 @@ public class SmartItemBuilder {
 		smartItem = createStat(smartItem);
 		//Ajout des langues
 		smartItem.setLangage(computeLangage(smartItem));
-		//Ajout des capacité de communication
+		//Ajout des capacitÃ© de communication
 		if((r.nextInt(100)+1) <= 80 ) smartItem = createCommunication(smartItem);//20% de chance de ne rien ajouter.
 		//Ajout des pouvoirs
 		smartItem = createSkill(smartItem);
 		//Ajout des desseins
 		if((r.nextInt(100)+1) <= 80 ) smartItem = createPlan(smartItem);//20% de chance de ne pas avoir de desseins.
-		//Si l'objet n'a pas de desseins il n'a pas de pouvoir dédiés à celui-ci.
+		//Si l'objet n'a pas de desseins il n'a pas de pouvoir dÃ©diÃ©s Ã  celui-ci.
 		if(smartItem.getPlan() != null && r.nextBoolean()) smartItem = createDedicatePower(smartItem);//50% de chance d'avoir un pouvoir de dessein
 		//Bonus d'ego en fonction du prix.
 		smartItem.setEgo(smartItem.getEgo() + computeBasePrice(smartItem));
@@ -52,9 +52,9 @@ public class SmartItemBuilder {
 	}
 	
 	/**
-	 * créer les statistiques d'un objet intelligent.
+	 * crÃ©er les statistiques d'un objet intelligent.
 	 * @param smartItem : l'objet
-	 * @return l'objet modifié
+	 * @return l'objet modifiÃ©
 	 */
 	public SmartItem createStat(SmartItem smartItem) {
 		Debug.debug("create statistics for smart item..");
@@ -146,9 +146,9 @@ public class SmartItemBuilder {
 	}
 	
 	/**
-	 * Créer les capacités de communications de l'objet.
+	 * CrÃ©er les capacitÃ©s de communications de l'objet.
 	 * @param smartItem : l'objet
-	 * @return l'objet modifié
+	 * @return l'objet modifiÃ©
 	 */
 	public SmartItem createCommunication(SmartItem smartItem) {
 		Debug.debug("create communications skills for smart item...");
@@ -164,10 +164,10 @@ public class SmartItemBuilder {
 			Debug.debug("n_comm = "+randomValue);
 			SmartItemCommunication smartItemCommunication = SmartItemConstant.communicationCapacity().selectObject(randomValue);
 			
-			//On vérifie que la capacité n'existe pas déjà
+			//On vÃ©rifie que la capacitÃ© n'existe pas dÃ©jÃ 
 			for(SmartItemCommunication c : smartItem.getCommunication()) {
 				if(c.getCommunication().equals(smartItemCommunication.getCommunication())) {
-					reroll = 9999;//On relance car on à déjà la capacité
+					reroll = 9999;//On relance car on Ã  dÃ©jÃ  la capacitÃ©
 					first = false;
 					Debug.debug("Forcing reroll...");
 				}
@@ -179,7 +179,7 @@ public class SmartItemBuilder {
 				smartItem.getCommunication().add(smartItemCommunication);
 			}
 			
-			//Pour éviter les boucles infinies (si l'objet à tout.)
+			//Pour Ã©viter les boucles infinies (si l'objet Ã  tout.)
 			if(smartItem.getCommunication().size() == 10) return smartItem;
 			
 		} while (reroll >= 85);
@@ -188,9 +188,9 @@ public class SmartItemBuilder {
 	}
 	
 	/**
-	 * Créer les pouvoirs de l'objet.
+	 * CrÃ©er les pouvoirs de l'objet.
 	 * @param smartItem : l'objet
-	 * @return l'objet modifié
+	 * @return l'objet modifiÃ©
 	 */
 	public SmartItem createSkill(SmartItem smartItem) {
 		Debug.debug("create skills for smart item...");
@@ -206,10 +206,10 @@ public class SmartItemBuilder {
 			Debug.debug("n_skill = "+randomValue);
 			SmartItemSkill smartItemSkill = SmartItemConstant.powerList().selectObject(randomValue);
 			
-			//On vérifie que la capacité n'existe pas déjà
+			//On vÃ©rifie que la capacitÃ© n'existe pas dÃ©jÃ 
 			for(SmartItemSkill c : smartItem.getSkill()) {
 				if(c.getSkill().equals(smartItemSkill.getSkill())) {
-					reroll = 9999;//On relance car on à déjà la capacité
+					reroll = 9999;//On relance car on Ã  dÃ©jÃ  la capacitÃ©
 					first = false;
 					Debug.debug("Forcing reroll...");
 				}
@@ -221,7 +221,7 @@ public class SmartItemBuilder {
 				smartItem.getSkill().add(smartItemSkill);
 			}
 			
-			//Pour éviter les boucles infinies (si l'objet à tout.)
+			//Pour Ã©viter les boucles infinies (si l'objet Ã  tout.)
 			if(smartItem.getSkill().size() == 15) return smartItem;
 			
 		} while (reroll >= 80);
@@ -230,9 +230,9 @@ public class SmartItemBuilder {
 	}
 	
 	/**
-	 * Créer les desseins de l'objet.
+	 * CrÃ©er les desseins de l'objet.
 	 * @param smartItem : l'objet
-	 * @return l'objet modifié
+	 * @return l'objet modifiÃ©
 	 */
 	public SmartItem createPlan(SmartItem smartItem) {
 		Debug.debug("create plan for smart item...");
@@ -248,9 +248,9 @@ public class SmartItemBuilder {
 	}
 	
 	/**
-	 * Créer les pouvoir de desseins de l'objet.
+	 * CrÃ©er les pouvoir de desseins de l'objet.
 	 * @param smartItem : l'objet
-	 * @return l'objet modifié
+	 * @return l'objet modifiÃ©
 	 */
 	public SmartItem createDedicatePower(SmartItem smartItem) {
 		Debug.debug("create dedicate power for smart item...");
@@ -267,9 +267,9 @@ public class SmartItemBuilder {
 	}
 	
 	/**
-	 * Créer les traits de l'objet.
+	 * CrÃ©er les traits de l'objet.
 	 * @param smartItem : l'objet
-	 * @return l'objet modifié
+	 * @return l'objet modifiÃ©
 	 */
 	public SmartItem createTrait(SmartItem smartItem) {
 		Debug.debug("create traits for smart item...");
@@ -285,10 +285,10 @@ public class SmartItemBuilder {
 			Debug.debug("n_trait = "+randomValue);
 			String trait = SmartItemConstant.traitList().selectObject(randomValue);
 			
-			//On vérifie que la capacité n'existe pas déjà
+			//On vÃ©rifie que la capacitÃ© n'existe pas dÃ©jÃ 
 			for(String t : smartItem.getTraits()) {
 				if(t.equals(trait)) {
-					reroll = 9999;//On relance car on à déjà la capacité
+					reroll = 9999;//On relance car on Ã  dÃ©jÃ  la capacitÃ©
 					first = false;
 					Debug.debug("Forcing reroll...");
 				}
@@ -298,7 +298,7 @@ public class SmartItemBuilder {
 				smartItem.getTraits().add(trait);
 			}
 			
-			//Pour éviter les boucles infinies (si l'objet à tout...Impossible mais on sais jamais)
+			//Pour Ã©viter les boucles infinies (si l'objet Ã  tout...Impossible mais on sais jamais)
 			if(smartItem.getTraits().size() == 100) return smartItem;
 			
 		} while (reroll >= 80);//20% de chance d'en avoir un autre

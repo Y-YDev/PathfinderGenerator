@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import generator.Level;
 
 /**
- * Contient les constantes de type de trésor.
+ * Contient les constantes de type de trÃ©sor.
  * @author Mentra20
  *
  */
@@ -144,7 +144,7 @@ public class TreasureConstant {
 		res.add(new Level(1500,new String[] {"ARM1"}));
 		res.add(new Level(2500,new String[] {"WEA1"}));
 		res.add(new Level(3000,new String[] {"ARM2"}));
-		res.add(new Level(3000,new String[] {"INT0","LIG0","WEA1"}));//Une virgule perdue suggère que c'est comme le prix 200
+		res.add(new Level(3000,new String[] {"INT0","LIG0","WEA1"}));//Une virgule perdue suggÃ¨re que c'est comme le prix 200
 		res.add(new Level(4000,new String[] {"ARM1","WEA1"}));
 		res.add(new Level(5500,new String[] {"ARM2","WEA1"}));
 		res.add(new Level(6000,new String[] {"WEA2"}));
@@ -153,7 +153,7 @@ public class TreasureConstant {
 		res.add(new Level(9000,new String[] {"ARM2","WEA2"}));
 		res.add(new Level(10000,new String[] {"ARM3","WEA1"}));
 		res.add(new Level(13000,new String[] {"WEA3"}));
-		res.add(new Level(13000,new String[] {"ARM3","WEA2"}));//meme que 10 000 surement erreur donc augemnté ici
+		res.add(new Level(13000,new String[] {"ARM3","WEA2"}));//meme que 10 000 surement erreur donc augemntÃ© ici
 		res.add(new Level(15000,new String[] {"ARM4","WEA1"}));
 		res.add(new Level(20000,new String[] {"ARM3","WEA3"}));
 		res.add(new Level(25000,new String[] {"ARM2","WEA4"}));

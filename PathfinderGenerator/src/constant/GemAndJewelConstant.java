@@ -9,14 +9,14 @@ import utility.Tuple;
 
 /**
  * GemAndJewelConstant contient toutes les constantes utiles 
- * pour la création de gemmes et de bijoux.
- * Basé sur le tableau : Generateur_de_tresor.ods (en lien sur Github).
- * Grade 1 : faible inférieur
- * Grade 2 : faible supérieur
- * Grade 3 : intermédiaire inférieur
- * Grade 4 : intermédiaire supérieur
- * Grade 5 : puissant inférieur
- * Grade 6 : puissant supérieur
+ * pour la crÃ©ation de gemmes et de bijoux.
+ * BasÃ© sur le tableau : Generateur_de_tresor.ods (en lien sur Github).
+ * Grade 1 : faible infÃ©rieur
+ * Grade 2 : faible supÃ©rieur
+ * Grade 3 : intermÃ©diaire infÃ©rieur
+ * Grade 4 : intermÃ©diaire supÃ©rieur
+ * Grade 5 : puissant infÃ©rieur
+ * Grade 6 : puissant supÃ©rieur
  * @author Mentra20
  *
  */
@@ -87,13 +87,13 @@ public class GemAndJewelConstant {
 	public static Data<Gem> gemGrade1(){
 		Data<Gem> res = new Data<Gem>();
 		res.add(new Tuple<Gem, Integer>(new Gem("agate"), 8));
-		res.add(new Tuple<Gem, Integer>(new Gem("albâtre"), 6));
+		res.add(new Tuple<Gem, Integer>(new Gem("albÃ¢tre"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("azurite"), 6));
-		res.add(new Tuple<Gem, Integer>(new Gem("hématite"), 6));
+		res.add(new Tuple<Gem, Integer>(new Gem("hÃ©matite"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("lapis lazuli"), 8));
 		res.add(new Tuple<Gem, Integer>(new Gem("malachite"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("obsidienne"), 8));
-		res.add(new Tuple<Gem, Integer>(new Gem("perle d’eau douce"), 8));
+		res.add(new Tuple<Gem, Integer>(new Gem("perle dâ€™eau douce"), 8));
 		res.add(new Tuple<Gem, Integer>(new Gem("pyrite"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("rhodocrosite"), 8));
 		res.add(new Tuple<Gem, Integer>(new Gem("quartz cristal ou de roche"), 8));
@@ -107,7 +107,7 @@ public class GemAndJewelConstant {
 	// Tableau de drop des gemmes de grade 2.
 	public static Data<Gem> gemGrade2(){
 		Data<Gem> res = new Data<Gem>();
-		res.add(new Tuple<Gem, Integer>(new Gem("héliotrope"), 6));
+		res.add(new Tuple<Gem, Integer>(new Gem("hÃ©liotrope"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("cornaline"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("chrysoprase"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("citrine"), 6));
@@ -115,8 +115,8 @@ public class GemAndJewelConstant {
 		res.add(new Tuple<Gem, Integer>(new Gem("jaspe"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("pierre de lune"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("onyx"), 6));
-		res.add(new Tuple<Gem, Integer>(new Gem("péridot "), 6));
-		res.add(new Tuple<Gem, Integer>(new Gem("quartz, laiteux, rose ou fumé"), 18));
+		res.add(new Tuple<Gem, Integer>(new Gem("pÃ©ridot "), 6));
+		res.add(new Tuple<Gem, Integer>(new Gem("quartz, laiteux, rose ou fumÃ©"), 18));
 		res.add(new Tuple<Gem, Integer>(new Gem("sardoine"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("sardonyx"), 6));
 		res.add(new Tuple<Gem, Integer>(new Gem("spinelle, rouge ou verte"), 7));
@@ -129,14 +129,14 @@ public class GemAndJewelConstant {
 	public static Data<Gem> gemGrade3(){
 		Data<Gem> res = new Data<Gem>();
 		res.add(new Tuple<Gem, Integer>(new Gem("ambre"), 10));
-		res.add(new Tuple<Gem, Integer>(new Gem("améthyste"), 10));
-		res.add(new Tuple<Gem, Integer>(new Gem("chrysobéryl"), 10));
+		res.add(new Tuple<Gem, Integer>(new Gem("amÃ©thyste"), 10));
+		res.add(new Tuple<Gem, Integer>(new Gem("chrysobÃ©ryl"), 10));
 		res.add(new Tuple<Gem, Integer>(new Gem("corail"), 10));
 		res.add(new Tuple<Gem, Integer>(new Gem("grenat"), 10));
 		res.add(new Tuple<Gem, Integer>(new Gem("jade"), 10));
 		res.add(new Tuple<Gem, Integer>(new Gem("jais"), 10));
-		res.add(new Tuple<Gem, Integer>(new Gem("perle d’eau de mer"), 10));
-		res.add(new Tuple<Gem, Integer>(new Gem("spinelle bleue foncée "), 10));
+		res.add(new Tuple<Gem, Integer>(new Gem("perle dâ€™eau de mer"), 10));
+		res.add(new Tuple<Gem, Integer>(new Gem("spinelle bleue foncÃ©e "), 10));
 		res.add(new Tuple<Gem, Integer>(new Gem("tourmaline"), 10));
 		
 		return res;
@@ -157,7 +157,7 @@ public class GemAndJewelConstant {
 	public static Data<Gem> gemGrade5(){
 		Data<Gem> res = new Data<Gem>();
 		res.add(new Tuple<Gem, Integer>(new Gem("petit diamant"), 25));
-		res.add(new Tuple<Gem, Integer>(new Gem("émeraude"), 25));
+		res.add(new Tuple<Gem, Integer>(new Gem("Ã©meraude"), 25));
 		res.add(new Tuple<Gem, Integer>(new Gem("petit rubis"), 25));
 		res.add(new Tuple<Gem, Integer>(new Gem("saphir"), 25));
 		
@@ -168,9 +168,9 @@ public class GemAndJewelConstant {
 	public static Data<Gem> gemGrade6(){
 		Data<Gem> res = new Data<Gem>();
 		res.add(new Tuple<Gem, Integer>(new Gem("gros diamant"), 25));
-		res.add(new Tuple<Gem, Integer>(new Gem("émeraude verte luisante"), 25));
+		res.add(new Tuple<Gem, Integer>(new Gem("Ã©meraude verte luisante"), 25));
 		res.add(new Tuple<Gem, Integer>(new Gem("gros rubis"), 25));
-		res.add(new Tuple<Gem, Integer>(new Gem("saphir étoilé"), 25));
+		res.add(new Tuple<Gem, Integer>(new Gem("saphir Ã©toilÃ©"), 25));
 		
 		return res;
 	}
@@ -357,7 +357,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
-	// Tableau de tirage des matériaux de bijoux de grade 1.
+	// Tableau de tirage des matÃ©riaux de bijoux de grade 1.
 	public static Data<Material> jewelMaterial1(){
 		Data<Material> res = new Data<Material>();
 		res.add(new Tuple<Material, Integer>(Material.BRONZE, 25));
@@ -372,7 +372,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
-	// Tableau de tirage des matériaux de bijoux de grade 2.
+	// Tableau de tirage des matÃ©riaux de bijoux de grade 2.
 	public static Data<Material> jewelMaterial2(){
 		Data<Material> res = new Data<Material>();
 		res.add(new Tuple<Material, Integer>(Material.BRONZE, 18));
@@ -389,7 +389,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
-	// Tableau de tirage des matériaux de bijoux de grade 3.
+	// Tableau de tirage des matÃ©riaux de bijoux de grade 3.
 	public static Data<Material> jewelMaterial3(){
 		Data<Material> res = new Data<Material>();
 		res.add(new Tuple<Material, Integer>(Material.BRONZE, 15));
@@ -409,7 +409,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
-	// Tableau de tirage des matériaux de bijoux de grade 4.
+	// Tableau de tirage des matÃ©riaux de bijoux de grade 4.
 	public static Data<Material> jewelMaterial4(){
 		Data<Material> res = new Data<Material>();
 		res.add(new Tuple<Material, Integer>(Material.BRONZE, 10));
@@ -432,7 +432,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
-	// Tableau de tirage des matériaux de bijoux de grade 5.
+	// Tableau de tirage des matÃ©riaux de bijoux de grade 5.
 	public static Data<Material> jewelMaterial5(){
 		Data<Material> res = new Data<Material>();
 		res.add(new Tuple<Material, Integer>(Material.BRONZE, 8));
@@ -455,7 +455,7 @@ public class GemAndJewelConstant {
 		return res;
 	}
 	
-	// Tableau de tirage des matériaux de bijoux de grade 6.
+	// Tableau de tirage des matÃ©riaux de bijoux de grade 6.
 	public static Data<Material> jewelMaterial6(){
 		Data<Material> res = new Data<Material>();
 		res.add(new Tuple<Material, Integer>(Material.BRONZE, 6));

@@ -1,6 +1,6 @@
 package item.weapon;
 /**
- * TypeMaterial représente le type de dégat de l'arme.
+ * TypeMaterial reprÃ©sente le type de dÃ©gat de l'arme.
  * @author Mentra20
  *
  */

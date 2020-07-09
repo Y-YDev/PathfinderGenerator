@@ -36,7 +36,7 @@ import utility.Tuple;
 public class Main {
 	
 	public static void main (String[] args){
-		//Paramètrage de l'affichage
+		//ParamÃ¨trage de l'affichage
 		Debug.setMode(true, true);
 		
 		//GENERATION D'ITEM

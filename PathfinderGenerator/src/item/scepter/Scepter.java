@@ -5,12 +5,12 @@ import item.TypeItem;
 import item.smartItem.SmartItem;
 
 /**
- * Représente un sceptre magique
+ * ReprÃ©sente un sceptre magique
  * @author Mentra20
  *
  */
 public class Scepter extends Item{
-	private ScepterBuilder sb = new ScepterBuilder();//Pour générer les sceptres métamagique
+	private ScepterBuilder sb = new ScepterBuilder();//Pour gÃ©nÃ©rer les sceptres mÃ©tamagique
 	
 	private Type type;//Mineur, normal ou superieur
 	private boolean particularPropertie;//True si le sceptre a un indice.
@@ -27,7 +27,7 @@ public class Scepter extends Item{
 	public Scepter(int spellLevel,Type type,double price) {
 		super("_", price, TypeItem.SCEPTER);
 		//On creer le sceptre metamagique
-		this.setName("Métamagie, "+sb.createMetamagicScepter(spellLevel));
+		this.setName("MÃ©tamagie, "+sb.createMetamagicScepter(spellLevel));
 		this.setType(type);
 	}
 	

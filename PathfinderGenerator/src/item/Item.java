@@ -1,7 +1,7 @@
 package item;
 
 /**
- * représente un élément du trésor
+ * reprÃ©sente un Ã©lÃ©ment du trÃ©sor
  */
 public class Item {
 	private String name;//Nom de l'item

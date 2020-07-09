@@ -8,8 +8,8 @@ package item.smartItem;
 public class SmartItemSkill {
 
 	private String skill;//Le nom du skill
-	private double price;//prix ajouté 
-	private int ego;//Ego à ajouté
+	private double price;//prix ajoutÃ© 
+	private int ego;//Ego Ã  ajoutÃ©
 	
 	public SmartItemSkill(String skill,double price,int ego) {
 		this.setSkill(skill);

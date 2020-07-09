@@ -4,20 +4,20 @@ import utility.Data;
 import utility.Tuple;
 
 /**
- * PotionConstant contient toutes les constantes pour crééer une potion.
- * Basé sur le tableau : Generateur_de_tresor.ods (en lien sur Github).
- * Rareté 1 : faible inférieur
- * Rareté 2 : faible supérieur
- * Rareté 3 : intermédiaire inférieur
- * Rareté 4 : intermédiaire supérieur
- * Rareté 5 : puissant inférieur
- * Rareté 6 : puissant supérieur
+ * PotionConstant contient toutes les constantes pour crÃ©Ã©er une potion.
+ * BasÃ© sur le tableau : Generateur_de_tresor.ods (en lien sur Github).
+ * RaretÃ© 1 : faible infÃ©rieur
+ * RaretÃ© 2 : faible supÃ©rieur
+ * RaretÃ© 3 : intermÃ©diaire infÃ©rieur
+ * RaretÃ© 4 : intermÃ©diaire supÃ©rieur
+ * RaretÃ© 5 : puissant infÃ©rieur
+ * RaretÃ© 6 : puissant supÃ©rieur
  * @author Mentra20
  *
  */
 public class PotionConstant {
 
-	//Tirage pour les potions de rareté 1.
+	//Tirage pour les potions de raretÃ© 1.
 	public static Data<Integer> rarity1(){
 		Data<Integer> res = new Data<Integer>();
 		res.add(new Tuple<Integer, Integer>(0, 40));
@@ -26,7 +26,7 @@ public class PotionConstant {
 		return res;
 	}
 	
-	//Tirage pour les potions de rareté 2.
+	//Tirage pour les potions de raretÃ© 2.
 	public static Data<Integer> rarity2(){
 		Data<Integer> res = new Data<Integer>();
 		res.add(new Tuple<Integer, Integer>(0, 10));
@@ -36,7 +36,7 @@ public class PotionConstant {
 		return res;
 	}
 	
-	//Tirage pour les potions de rareté 3.
+	//Tirage pour les potions de raretÃ© 3.
 	public static Data<Integer> rarity3(){
 		Data<Integer> res = new Data<Integer>();
 		res.add(new Tuple<Integer, Integer>(1, 25));
@@ -46,7 +46,7 @@ public class PotionConstant {
 		return res;
 	}
 	
-	//Tirage pour les potions de rareté 4.
+	//Tirage pour les potions de raretÃ© 4.
 	public static Data<Integer> rarity4(){
 		Data<Integer> res = new Data<Integer>();
 		res.add(new Tuple<Integer, Integer>(1, 10));
@@ -56,7 +56,7 @@ public class PotionConstant {
 		return res;
 	}
 	
-	//Tirage pour les potions de rareté 5.
+	//Tirage pour les potions de raretÃ© 5.
 	public static Data<Integer> rarity5(){
 		Data<Integer> res = new Data<Integer>();
 		res.add(new Tuple<Integer, Integer>(2, 35));
@@ -65,7 +65,7 @@ public class PotionConstant {
 		return res;
 	}
 	
-	//Tirage pour les potions de rareté 6.
+	//Tirage pour les potions de raretÃ© 6.
 	public static Data<Integer> rarity6(){
 		Data<Integer> res = new Data<Integer>();
 		res.add(new Tuple<Integer, Integer>(2, 10));
@@ -79,9 +79,9 @@ public class PotionConstant {
 		Data<String> res = new Data<String>();
 		res.add(new Tuple<String, Integer>("signature magique", 14));
 		res.add(new Tuple<String, Integer>("assistance divine", 14));
-		res.add(new Tuple<String, Integer>("lumière", 16));
-		res.add(new Tuple<String, Integer>("purification de nourriture et d’eau", 14));
-		res.add(new Tuple<String, Integer>("résistance", 14));
+		res.add(new Tuple<String, Integer>("lumiÃ¨re", 16));
+		res.add(new Tuple<String, Integer>("purification de nourriture et dâ€™eau", 14));
+		res.add(new Tuple<String, Integer>("rÃ©sistance", 14));
 		res.add(new Tuple<String, Integer>("stabilisation", 14));
 		res.add(new Tuple<String, Integer>("stimulant", 14));
 		
@@ -91,9 +91,9 @@ public class PotionConstant {
 	// Potions communes de nds 1.
 	public static Data<String> commonPotion1(){
 		Data<String> res = new Data<String>();
-		res.add(new Tuple<String, Integer>("bénédiction d’arme", 4));
-		res.add(new Tuple<String, Integer>("soins léger", 10));
-		res.add(new Tuple<String, Integer>("endurance aux énergies destructives", 5));
+		res.add(new Tuple<String, Integer>("bÃ©nÃ©diction dâ€™arme", 4));
+		res.add(new Tuple<String, Integer>("soins lÃ©ger", 10));
+		res.add(new Tuple<String, Integer>("endurance aux Ã©nergies destructives", 5));
 		res.add(new Tuple<String, Integer>("agrandissement", 8));
 		res.add(new Tuple<String, Integer>("saut", 6));
 		res.add(new Tuple<String, Integer>("armure de mage", 8));
@@ -105,7 +105,7 @@ public class PotionConstant {
 		res.add(new Tuple<String, Integer>("protection contre le Bien", 4));
 		res.add(new Tuple<String, Integer>("protection contre la Loi", 4));
 		res.add(new Tuple<String, Integer>("rapetissement", 5));
-		res.add(new Tuple<String, Integer>("regain d’assurance", 6));
+		res.add(new Tuple<String, Integer>("regain dâ€™assurance", 6));
 		res.add(new Tuple<String, Integer>("sanctuaire", 5));
 		res.add(new Tuple<String, Integer>("bouclier de la foi", 8));
 		
@@ -116,29 +116,29 @@ public class PotionConstant {
 	public static Data<String> commonPotion2(){
 		Data<String> res = new Data<String>();
 		res.add(new Tuple<String, Integer>("aide", 4));
-		res.add(new Tuple<String, Integer>("arme alignée", 3));
-		res.add(new Tuple<String, Integer>("peau d’écorce", 4));
-		res.add(new Tuple<String, Integer>("endurance de l’ours", 5));
+		res.add(new Tuple<String, Integer>("arme alignÃ©e", 3));
+		res.add(new Tuple<String, Integer>("peau dâ€™Ã©corce", 4));
+		res.add(new Tuple<String, Integer>("endurance de lâ€™ours", 5));
 		res.add(new Tuple<String, Integer>("flou", 4));
 		res.add(new Tuple<String, Integer>("force de taureau", 5));
-		res.add(new Tuple<String, Integer>("grâce féline", 5));
-		res.add(new Tuple<String, Integer>("soins modérés", 7));
+		res.add(new Tuple<String, Integer>("grÃ¢ce fÃ©line", 5));
+		res.add(new Tuple<String, Integer>("soins modÃ©rÃ©s", 7));
 		res.add(new Tuple<String, Integer>("vision dans le noir", 4));
 		res.add(new Tuple<String, Integer>("retardement du poison", 3));
-		res.add(new Tuple<String, Integer>("splendeur de l’aigle", 5));
+		res.add(new Tuple<String, Integer>("splendeur de lâ€™aigle", 5));
 		res.add(new Tuple<String, Integer>("ruse du renard", 5));
-		res.add(new Tuple<String, Integer>("invisibilité", 7));
-		res.add(new Tuple<String, Integer>("lévitation", 5));
+		res.add(new Tuple<String, Integer>("invisibilitÃ©", 7));
+		res.add(new Tuple<String, Integer>("lÃ©vitation", 5));
 		res.add(new Tuple<String, Integer>("sagesse du hibou", 5));
 		res.add(new Tuple<String, Integer>("protection contre les projectiles", 2));
-		res.add(new Tuple<String, Integer>("délivrance de la paralysie", 3));
-		res.add(new Tuple<String, Integer>("résistance aux énergies destructives, acide", 4));
-		res.add(new Tuple<String, Integer>("résistance aux énergies destructives, froid", 4));
-		res.add(new Tuple<String, Integer>("résistance aux énergies destructives, électricité", 4));
-		res.add(new Tuple<String, Integer>("résistance aux énergies destructives, feu", 4));
-		res.add(new Tuple<String, Integer>("résistance aux énergies destructives, son", 2));
-		res.add(new Tuple<String, Integer>("pattes d’araignée", 4));
-		res.add(new Tuple<String, Integer>("alignement indétectable", 2));
+		res.add(new Tuple<String, Integer>("dÃ©livrance de la paralysie", 3));
+		res.add(new Tuple<String, Integer>("rÃ©sistance aux Ã©nergies destructives, acide", 4));
+		res.add(new Tuple<String, Integer>("rÃ©sistance aux Ã©nergies destructives, froid", 4));
+		res.add(new Tuple<String, Integer>("rÃ©sistance aux Ã©nergies destructives, Ã©lectricitÃ©", 4));
+		res.add(new Tuple<String, Integer>("rÃ©sistance aux Ã©nergies destructives, feu", 4));
+		res.add(new Tuple<String, Integer>("rÃ©sistance aux Ã©nergies destructives, son", 2));
+		res.add(new Tuple<String, Integer>("pattes dâ€™araignÃ©e", 4));
+		res.add(new Tuple<String, Integer>("alignement indÃ©tectable", 2));
 		
 		return res;
 	}
@@ -148,28 +148,28 @@ public class PotionConstant {
 		Data<String> res = new Data<String>();
 		res.add(new Tuple<String, Integer>("soins importants", 6));
 		res.add(new Tuple<String, Integer>("dissipation de la magie", 4));
-		res.add(new Tuple<String, Integer>("déplacement", 4));
+		res.add(new Tuple<String, Integer>("dÃ©placement", 4));
 		res.add(new Tuple<String, Integer>("vol", 6));
-		res.add(new Tuple<String, Integer>("état gazeux", 5));
+		res.add(new Tuple<String, Integer>("Ã©tat gazeux", 5));
 		res.add(new Tuple<String, Integer>("espoir", 4));
-		res.add(new Tuple<String, Integer>("rapidité", 6));
-		res.add(new Tuple<String, Integer>("héroïsme", 5));
-		res.add(new Tuple<String, Integer>("affûtage", 4));
-		res.add(new Tuple<String, Integer>("morsure magique suprême", 4));
+		res.add(new Tuple<String, Integer>("rapiditÃ©", 6));
+		res.add(new Tuple<String, Integer>("hÃ©roÃ¯sme", 5));
+		res.add(new Tuple<String, Integer>("affÃ»tage", 4));
+		res.add(new Tuple<String, Integer>("morsure magique suprÃªme", 4));
 		res.add(new Tuple<String, Integer>("panoplie magique", 4));
 		res.add(new Tuple<String, Integer>("neutralisation du poison", 5));
-		res.add(new Tuple<String, Integer>("protection contre les énergies destructives, acide", 3));
-		res.add(new Tuple<String, Integer>("protection contre les énergies destructives, froid", 3));
-		res.add(new Tuple<String, Integer>("protection contre les énergies destructives, électricité", 3));
-		res.add(new Tuple<String, Integer>("protection contre les énergies destructives, feu", 3));
-		res.add(new Tuple<String, Integer>("protection contre les énergies destructives, son", 2));
+		res.add(new Tuple<String, Integer>("protection contre les Ã©nergies destructives, acide", 3));
+		res.add(new Tuple<String, Integer>("protection contre les Ã©nergies destructives, froid", 3));
+		res.add(new Tuple<String, Integer>("protection contre les Ã©nergies destructives, Ã©lectricitÃ©", 3));
+		res.add(new Tuple<String, Integer>("protection contre les Ã©nergies destructives, feu", 3));
+		res.add(new Tuple<String, Integer>("protection contre les Ã©nergies destructives, son", 2));
 		res.add(new Tuple<String, Integer>("rage", 3));
-		res.add(new Tuple<String, Integer>("guérison de la cécité/surdité", 3));
-		res.add(new Tuple<String, Integer>("délivrance des malédictions", 4));
-		res.add(new Tuple<String, Integer>("guérison des maladies", 5));
+		res.add(new Tuple<String, Integer>("guÃ©rison de la cÃ©citÃ©/surditÃ©", 3));
+		res.add(new Tuple<String, Integer>("dÃ©livrance des malÃ©dictions", 4));
+		res.add(new Tuple<String, Integer>("guÃ©rison des maladies", 5));
 		res.add(new Tuple<String, Integer>("don de langues", 5));
 		res.add(new Tuple<String, Integer>("respiration aquatique", 5));
-		res.add(new Tuple<String, Integer>("marche sur l’onde", 4));
+		res.add(new Tuple<String, Integer>("marche sur lâ€™onde", 4));
 		
 		return res;
 	}
@@ -177,20 +177,20 @@ public class PotionConstant {
 	// Potions hors du commun de nds 1.
 	public static Data<String> uncommonPotion1(){
 		Data<String> res = new Data<String>();
-		res.add(new Tuple<String, Integer>("corde animée", 4));
+		res.add(new Tuple<String, Integer>("corde animÃ©e", 4));
 		res.add(new Tuple<String, Integer>("charge de fourmi", 7));
-		res.add(new Tuple<String, Integer>("manteau d’ombre", 5));
+		res.add(new Tuple<String, Integer>("manteau dâ€™ombre", 5));
 		res.add(new Tuple<String, Integer>("effacement", 4));
-		res.add(new Tuple<String, Integer>("démarche aérienne", 6));
-		res.add(new Tuple<String, Integer>("baie nourricière", 4));
+		res.add(new Tuple<String, Integer>("dÃ©marche aÃ©rienne", 6));
+		res.add(new Tuple<String, Integer>("baie nourriciÃ¨re", 4));
 		res.add(new Tuple<String, Integer>("graisse", 4));
-		res.add(new Tuple<String, Integer>("invisibilité pour les animaux", 7));
-		res.add(new Tuple<String, Integer>("invisibilité pour les morts-vivants", 8));
+		res.add(new Tuple<String, Integer>("invisibilitÃ© pour les animaux", 7));
+		res.add(new Tuple<String, Integer>("invisibilitÃ© pour les morts-vivants", 8));
 		res.add(new Tuple<String, Integer>("verrouillage", 4));
 		res.add(new Tuple<String, Integer>("revigorer", 5));
-		res.add(new Tuple<String, Integer>("sens surdéveloppés", 6));
+		res.add(new Tuple<String, Integer>("sens surdÃ©veloppÃ©s", 6));
 		res.add(new Tuple<String, Integer>("pierre magique", 4));
-		res.add(new Tuple<String, Integer>("dissipation de la fièvre", 7));
+		res.add(new Tuple<String, Integer>("dissipation de la fiÃ¨vre", 7));
 		res.add(new Tuple<String, Integer>("sanctification de cadavre", 5));
 		res.add(new Tuple<String, Integer>("gourdin magique", 4));
 		res.add(new Tuple<String, Integer>("caresse de la mer", 8));
@@ -202,23 +202,23 @@ public class PotionConstant {
 	// Potions hors du commun de nds 2.
 	public static Data<String> uncommonPotion2(){
 		Data<String> res = new Data<String>();
-		res.add(new Tuple<String, Integer>("barrière protectrice", 6));
-		res.add(new Tuple<String, Integer>("sens aiguisés", 8));
+		res.add(new Tuple<String, Integer>("barriÃ¨re protectrice", 6));
+		res.add(new Tuple<String, Integer>("sens aiguisÃ©s", 8));
 		res.add(new Tuple<String, Integer>("verrou magique", 5));
 		res.add(new Tuple<String, Integer>("bouclier pare-balles", 5));
-		res.add(new Tuple<String, Integer>("poigne sûre", 6));
-		res.add(new Tuple<String, Integer>("flamme éternelle", 5));
-		res.add(new Tuple<String, Integer>("résistance à la corruption", 5));
-		res.add(new Tuple<String, Integer>("déguiser autrui", 8));
-		res.add(new Tuple<String, Integer>("préservation des morts", 8));
-		res.add(new Tuple<String, Integer>("réparation intégrale", 5));
-		res.add(new Tuple<String, Integer>("dissimulation d’objet", 6));
-		res.add(new Tuple<String, Integer>("rapetissement d’animal", 5));
-		res.add(new Tuple<String, Integer>("corde enchantée", 4));
+		res.add(new Tuple<String, Integer>("poigne sÃ»re", 6));
+		res.add(new Tuple<String, Integer>("flamme Ã©ternelle", 5));
+		res.add(new Tuple<String, Integer>("rÃ©sistance Ã  la corruption", 5));
+		res.add(new Tuple<String, Integer>("dÃ©guiser autrui", 8));
+		res.add(new Tuple<String, Integer>("prÃ©servation des morts", 8));
+		res.add(new Tuple<String, Integer>("rÃ©paration intÃ©grale", 5));
+		res.add(new Tuple<String, Integer>("dissimulation dâ€™objet", 6));
+		res.add(new Tuple<String, Integer>("rapetissement dâ€™animal", 5));
+		res.add(new Tuple<String, Integer>("corde enchantÃ©e", 4));
 		res.add(new Tuple<String, Integer>("vague", 6));
 		res.add(new Tuple<String, Integer>("rapport", 8));
 		res.add(new Tuple<String, Integer>("distorsion du bois", 5));
-		res.add(new Tuple<String, Integer>("façonnage du bois", 5));
+		res.add(new Tuple<String, Integer>("faÃ§onnage du bois", 5));
 		
 		return res;
 	}
@@ -228,13 +228,13 @@ public class PotionConstant {
 		Data<String> res = new Data<String>();
 		res.add(new Tuple<String, Integer>("creusement", 12));
 		res.add(new Tuple<String, Integer>("innombrables yeux", 10));
-		res.add(new Tuple<String, Integer>("lumière du jour", 12));
-		res.add(new Tuple<String, Integer>("réservoir draconique", 15));
-		res.add(new Tuple<String, Integer>("flèches enflammées", 9));
-		res.add(new Tuple<String, Integer>("rapetissement d’objet", 9));
-		res.add(new Tuple<String, Integer>("façonnage de la pierre", 10));
-		res.add(new Tuple<String, Integer>("piège à feu", 10));
-		res.add(new Tuple<String, Integer>("antidétection", 13));
+		res.add(new Tuple<String, Integer>("lumiÃ¨re du jour", 12));
+		res.add(new Tuple<String, Integer>("rÃ©servoir draconique", 15));
+		res.add(new Tuple<String, Integer>("flÃ¨ches enflammÃ©es", 9));
+		res.add(new Tuple<String, Integer>("rapetissement dâ€™objet", 9));
+		res.add(new Tuple<String, Integer>("faÃ§onnage de la pierre", 10));
+		res.add(new Tuple<String, Integer>("piÃ¨ge Ã  feu", 10));
+		res.add(new Tuple<String, Integer>("antidÃ©tection", 13));
 		
 		return res;
 	}

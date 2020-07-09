@@ -1,15 +1,15 @@
 package item.smartItem;
 
 /**
- * Represente un pouvoir dédié d'un objet intelligent
+ * Represente un pouvoir dÃ©diÃ© d'un objet intelligent
  * @author Mentra20
  *
  */
 public class SmartItemDedicatePower {
 
-	private String power;//Le nom du pouvoir dédié
-	private double price;//prix ajouté 
-	private int ego;//Ego à ajouté
+	private String power;//Le nom du pouvoir dÃ©diÃ©
+	private double price;//prix ajoutÃ© 
+	private int ego;//Ego Ã  ajoutÃ©
 	
 	public SmartItemDedicatePower(String power,double price,int ego) {
 		this.setPower(power);

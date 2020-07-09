@@ -7,7 +7,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * WandBuilder permet de créer des parchemins magiques.
+ * WandBuilder permet de crÃ©er des parchemins magiques.
  * @author Mentra20
  *
  */
@@ -21,8 +21,8 @@ public class ParchmentBuilder {
     }
     
     /**
-     * createWand permet de créer un parchemin magique selon la rareté
-     * @param rarity : la rareté du parchemin.
+     * createWand permet de crÃ©er un parchemin magique selon la raretÃ©
+     * @param rarity : la raretÃ© du parchemin.
      * @return Le parchemin
      */
     public Parchment createParchment(int rarity) {
@@ -30,7 +30,7 @@ public class ParchmentBuilder {
     	
     	Data<Integer> dataNds = new Data<Integer>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
 		case 1: dataNds.addAll(ParchmentConstant.rarity1());
 			break;
@@ -95,7 +95,7 @@ public class ParchmentBuilder {
     	
     	Data<Parchment> data = new Data<Parchment>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
     	case 0: data.addAll(ParchmentConstant.commonProfaneParchment0());
 			break;
@@ -143,7 +143,7 @@ public class ParchmentBuilder {
     	
     	Data<Parchment> data = new Data<Parchment>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
     	case 0: data.addAll(ParchmentConstant.uncommonProfaneParchment0());
 			break;
@@ -191,7 +191,7 @@ public class ParchmentBuilder {
     	
     	Data<Parchment> data = new Data<Parchment>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
     	case 0: data.addAll(ParchmentConstant.commonDivineParchment0());
 			break;
@@ -239,7 +239,7 @@ public class ParchmentBuilder {
     	
     	Data<Parchment> data = new Data<Parchment>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
     	case 0: data.addAll(ParchmentConstant.uncommonDivineParchment0());
 			break;

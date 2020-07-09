@@ -3,7 +3,7 @@ package item.smartItem;
 import java.util.ArrayList;
 
 /**
- * represente les propriété d'un objet intelligent.
+ * represente les propriÃ©tÃ© d'un objet intelligent.
  * @author Mentra20
  *
  */
@@ -13,9 +13,9 @@ public class SmartItem {
 	private int ego;//L'ego de l'objet.
 	private double price;//Prix bonus de l'objet
 	private int langage;//Nombre de langue connue par l'objet.
-	private ArrayList<SmartItemCommunication> communication;//Capacité de communication de l'objet
+	private ArrayList<SmartItemCommunication> communication;//CapacitÃ© de communication de l'objet
 	private ArrayList<SmartItemSkill> skill;//Pouvoirs des objets intelligents
-	private SmartItemDedicatePower dedicatePower;//Pouvoir dédié de l'objet.
+	private SmartItemDedicatePower dedicatePower;//Pouvoir dÃ©diÃ© de l'objet.
 	private SmartItemPlan plan;//Objectif d'un objet intelligent.
 	private ArrayList<String> traits;//Traits de l'objet.
 	
@@ -34,7 +34,7 @@ public class SmartItem {
 		this.setSkill(new ArrayList<SmartItemSkill>());
 		this.setTraits(new ArrayList<String>());
 		
-		//Capacité que tout les objets intelligents ont..
+		//CapacitÃ© que tout les objets intelligents ont..
 		this.getCommunication().add(new SmartItemCommunication("Empathie", 0, 0));
 		this.getCommunication().add(new SmartItemCommunication("Sens (9m)", 0, 0));
 	}

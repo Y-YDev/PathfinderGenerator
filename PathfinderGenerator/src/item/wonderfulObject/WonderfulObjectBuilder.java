@@ -8,7 +8,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * Permet de créer un objet merveilleux.
+ * Permet de crÃ©er un objet merveilleux.
  * @author Mentra20
  *
  */
@@ -22,8 +22,8 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * creer un objet merveilleux selon la rareté
-	 * @param rarity : la rareté
+	 * creer un objet merveilleux selon la raretÃ©
+	 * @param rarity : la raretÃ©
 	 * @return l'objet merveilleux
 	 */
 	public WonderfulObject createWonderfulObject(int rarity) {
@@ -91,16 +91,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté à la taille
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© Ã  la taille
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createWaist(int rarity) {
 		Debug.debug("Creation of wonderfull object (waist) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.waist1());
 			break;
@@ -128,16 +128,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté au corps
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© au corps
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createBody(int rarity) {
 		Debug.debug("Creation of wonderfull object (body) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.body1());
 			break;
@@ -165,16 +165,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté au corps
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© au corps
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createTorso(int rarity) {
 		Debug.debug("Creation of wonderfull object (torso) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.torso1());
 			break;
@@ -202,16 +202,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté aux yeux
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© aux yeux
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createEyes(int rarity) {
 		Debug.debug("Creation of wonderfull object (eyes) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.eyes1());
 			break;
@@ -239,16 +239,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté aux pieds
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© aux pieds
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createFeet(int rarity) {
 		Debug.debug("Creation of wonderfull object (feet) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.feet1());
 			break;
@@ -276,16 +276,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté aux mains
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© aux mains
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createHands(int rarity) {
 		Debug.debug("Creation of wonderfull object (hands) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.hands1());
 			break;
@@ -313,16 +313,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté à la tête
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© Ã  la tÃªte
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createHead(int rarity) {
 		Debug.debug("Creation of wonderfull object (head) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.head1());
 			break;
@@ -350,16 +350,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté au front
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© au front
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createForehead(int rarity) {
 		Debug.debug("Creation of wonderfull object (forehead) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.forehead1());
 			break;
@@ -387,16 +387,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté au cou
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté
+	 * crÃ©er un objet merveilleux portÃ© au cou
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ©
 	 */
 	public WonderfulObject createNeck(int rarity) {
 		Debug.debug("Creation of wonderfull object (neck) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.neck1());
 			break;
@@ -424,16 +424,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté aux épaules
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© aux Ã©paules
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createShoulder(int rarity) {
 		Debug.debug("Creation of wonderfull object (shoulder) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.shoulder1());
 			break;
@@ -461,16 +461,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux porté aux poignets
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux portÃ© aux poignets
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createWrist(int rarity) {
 		Debug.debug("Creation of wonderfull object (wrist) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 1: data.addAll(WonderfulObjectConstant.wrist1());
 			break;
@@ -498,16 +498,16 @@ public class WonderfulObjectBuilder {
 	}
 	
 	/**
-	 * créer un objet merveilleux sans emplacement.
-	 * @param rarity : la rareté de l'objet
-	 * @return l'objet porté 
+	 * crÃ©er un objet merveilleux sans emplacement.
+	 * @param rarity : la raretÃ© de l'objet
+	 * @return l'objet portÃ© 
 	 */
 	public WonderfulObject createWithoutLocation(int rarity) {
 		Debug.debug("Creation of wonderfull object (without location) of rarity "+rarity+"...");
 		
 		Data<WonderfulObject> data = new Data<WonderfulObject>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
     	case 0 : data.addAll(WonderfulObjectConstant.withoutLocation0());//ATTENTION RARETE 0.
     		break;
@@ -533,7 +533,7 @@ public class WonderfulObjectBuilder {
     	WonderfulObject wonderfulObject = data.selectObject(randomValue);
     	
     	if(wonderfulObject.getName().equals("RARITY0")) {
-    		return createWithoutLocation(0);//On creer l'objet de rareté 0.
+    		return createWithoutLocation(0);//On creer l'objet de raretÃ© 0.
     	}
     	
     	Debug.debug("");

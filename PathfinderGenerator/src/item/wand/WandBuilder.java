@@ -7,7 +7,7 @@ import utility.Data;
 import utility.Debug;
 
 /**
- * WandBuilder permet de créer des baguettes magiques.
+ * WandBuilder permet de crÃ©er des baguettes magiques.
  * @author Mentra20
  *
  */
@@ -21,8 +21,8 @@ public class WandBuilder {
     }
     
     /**
-     * createWand permet de créer une baguette magique selon la rareté
-     * @param rarity : la rareté de la baguette.
+     * createWand permet de crÃ©er une baguette magique selon la raretÃ©
+     * @param rarity : la raretÃ© de la baguette.
      * @return La baguette
      */
     public Wand createWand(int rarity) {
@@ -30,7 +30,7 @@ public class WandBuilder {
     	
     	Data<Integer> dataNds = new Data<Integer>();
     	
-    	//Chargement des données selon la rareté.
+    	//Chargement des donnÃ©es selon la raretÃ©.
     	switch (rarity) {
 		case 1: dataNds.addAll(WandConstant.rarity1());
 			break;
@@ -95,7 +95,7 @@ public class WandBuilder {
     	
     	Data<Wand> data = new Data<Wand>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
     	case 0: data.addAll(WandConstant.commonWand0());
 			break;
@@ -131,7 +131,7 @@ public class WandBuilder {
     	
     	Data<Wand> data = new Data<Wand>();
     	
-    	//Chargement des données
+    	//Chargement des donnÃ©es
     	switch(nds) {
     	case 0: data.addAll(WandConstant.uncommonWand0());
 			break;

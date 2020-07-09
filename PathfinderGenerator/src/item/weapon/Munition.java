@@ -5,22 +5,22 @@ import java.util.Random;
 import utility.Debug;
 
 /**
- * Munition représente les munitions des armes.
+ * Munition reprÃ©sente les munitions des armes.
  * @author Mentra20
  *
  */
 public class Munition extends Weapon{
-    private int quantity; //Quantité de munitions (après jet de dés).
-    private String stringQuantity;//Quantité de munition (avant jet de dé).
+    private int quantity; //QuantitÃ© de munitions (aprÃ¨s jet de dÃ©s).
+    private String stringQuantity;//QuantitÃ© de munition (avant jet de dÃ©).
     private Random r = new Random();
     
     /* CONSTRUCTOR */
     public Munition(String name,TypeDamage typeDamage , String quantity,double price,double weight){
-        super(name,Type.MUN,typeDamage,TypeMaterial.STEEL,price,weight); //Une munition est forcément en métal.
+        super(name,Type.MUN,typeDamage,TypeMaterial.STEEL,price,weight); //Une munition est forcÃ©ment en mÃ©tal.
         this.stringQuantity = quantity;
     }
     
-    public Munition(String name,double weigth) {//Constructeur pour munition d'arme à distance.
+    public Munition(String name,double weigth) {//Constructeur pour munition d'arme Ã  distance.
     	//weigth correspond au poid d'une seule munition.
     	super(name,Type.MUN,TypeDamage.NOTHING,TypeMaterial.STEEL,0,weigth);
     	this.stringQuantity = "0";
@@ -45,7 +45,7 @@ public class Munition extends Weapon{
 	
 	/* METHODS */
 	/**
-	 * computeAmmoQuantity calcule la quantité de munitions de l'arme.
+	 * computeAmmoQuantity calcule la quantitÃ© de munitions de l'arme.
 	 */
 	public void computeAmmoQuantity() {
 		Debug.debug("Compute amount of ammo : "+this.stringQuantity+"...");
@@ -81,7 +81,7 @@ public class Munition extends Weapon{
     	double price;
     	
 		switch (this.getName()) {
-		case "Flèche": 
+		case "FlÃ¨che": 
 			price = 0.1 * quantity;
 			break;
 		case "Carreau":
@@ -90,13 +90,13 @@ public class Munition extends Weapon{
 		case "Bolas" :
 			price = 5 * quantity;
 			break;
-		case "Fléchette" :
+		case "FlÃ©chette" :
 			price = 0.5 * quantity;
 			break;
 		case "Bille" :
 			price = 0.01 * quantity;
 			break;
-		default://Arme a déterminer ou autre.
+		default://Arme a dÃ©terminer ou autre.
 			price = 0;
 			break;
 		}

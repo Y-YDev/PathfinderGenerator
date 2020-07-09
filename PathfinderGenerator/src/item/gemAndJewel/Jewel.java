@@ -5,7 +5,7 @@ import item.TypeItem;
 import utility.Tuple;
 
 /**
- * Jewel représente un bijoux.
+ * Jewel reprÃ©sente un bijoux.
  * @author Mentra20
  *
  */
@@ -14,7 +14,7 @@ public class Jewel extends Item{
 	private TypeSize size;//Taile du bijoux.
 	private TypeJewel type;//Type de bijoux.
 	private TypeJewelWork work;//Travail du bijoux.
-	// N représente le grade du bijoux (non retenu ici).
+	// N reprÃ©sente le grade du bijoux (non retenu ici).
 	private Gem GemN;//Gemme de grade N
 	private Tuple<Gem, Integer> GemN_1;//Gemme de grade N-1
 	private Tuple<Gem, Integer> GemN_2;//Gemme de grade N-2
