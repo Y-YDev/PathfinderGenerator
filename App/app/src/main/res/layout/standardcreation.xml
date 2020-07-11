@@ -41,13 +41,13 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/po"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:gravity="center"
-            android:hint="po"
+            android:hint="       po"
             android:inputType="number"
             android:textAlignment="center"
             android:textSize="20sp" />
