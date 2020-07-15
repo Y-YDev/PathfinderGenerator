@@ -16,12 +16,13 @@
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rewardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="12" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/reroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

@@ -1,11 +1,13 @@
 package item.smartItem;
 
+import java.io.Serializable;
+
 /**
  * represente un pouvoir de communication d'un objet intelligent
  * @author Mentra20
  *
  */
-public class SmartItemCommunication {
+public class SmartItemCommunication implements Serializable {
 
 	private String communication;//Le nom de la communication
 	private double price;//prix ajouté 
@@ -16,6 +18,7 @@ public class SmartItemCommunication {
 		this.setEgo(ego);
 		this.setPrice(price);
 	}
+
 
 	public String getCommunication() {
 		return communication;

@@ -447,7 +447,7 @@ public class TreasureBuilder {
 		
 		for(Item item : reward) {
 			//Si l'item est une pièce
-			if(item.getTypeItem() == TypeItem.COIN) {
+			if(item.getTypeItem() == TypeItem.COIN) {//TODO ERREUR SUR UN NULL QUELQUE FOIS
 				//Selon le type de pièce on ajoute.
 				switch (((Coin) item).getTypeCoin()) {
 				case PLATINIUM:

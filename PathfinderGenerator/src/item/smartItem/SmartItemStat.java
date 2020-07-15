@@ -1,11 +1,13 @@
 package item.smartItem;
 
+import java.io.Serializable;
+
 /**
  * Représente une statistiques d'un objet
  * @author Mentra20
  *
  */
-public class SmartItemStat {
+public class SmartItemStat implements Serializable {
 	private int stat;//valeur de la statistique (int, sag ,char)
 	private double price;//prix ajouté 
 	private int ego;//Ego à ajouté

@@ -400,7 +400,7 @@ public class Debug {
 	
 	/**
 	 * Affiche un parchemin 
-	 * @param le parchemin
+	 * @param : le parchemin
 	 */
 	public static void printParchment(Parchment parchment) {
 		if(displayMode) {
@@ -503,7 +503,7 @@ public class Debug {
 	
 	/**
 	 * Affiche un objet merveilleux.
-	 * @param smartItem : l'objet merveilleux
+	 * @param : smartItem : l'objet merveilleux
 	 */
 	public static void printWonderfulObject(WonderfulObject wonderfulObject) {
 		if(displayMode) {

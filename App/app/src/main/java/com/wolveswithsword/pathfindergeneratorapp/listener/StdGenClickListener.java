@@ -14,6 +14,8 @@ public class StdGenClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        activity.switchIntent();
+        if(activity.checkField()){
+            activity.switchIntent();
+        }
     }
 }

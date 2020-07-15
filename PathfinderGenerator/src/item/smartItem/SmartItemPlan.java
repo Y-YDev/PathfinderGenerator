@@ -1,11 +1,13 @@
 package item.smartItem;
 
+import java.io.Serializable;
+
 /**
  * represente le but d'un objet intelligent
  * @author Mentra20
  *
  */
-public class SmartItemPlan {
+public class SmartItemPlan implements Serializable {
 	private String plan;//Le nom de l'objectif de l'objet
 	private int ego;//Ego à ajouté
 	

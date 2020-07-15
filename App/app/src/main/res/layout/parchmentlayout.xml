@@ -2,9 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/itemboder">
 
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parchemin"
+        android:textAlignment="textEnd"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        android:textStyle="italic" />
 
     <LinearLayout
         android:layout_width="match_parent"

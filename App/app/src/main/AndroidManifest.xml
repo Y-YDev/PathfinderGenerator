@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".view.RewardActivity"/>
+        <activity android:name=".view.SmartItemActivity"/>
         <activity android:name=".view.StandartGenerationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

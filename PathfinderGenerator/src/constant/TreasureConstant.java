@@ -187,7 +187,7 @@ public class TreasureConstant {
 		res.add(new Level(5000,new String[] {"INT0","WEA1","WON1","POT2"}));
 		res.add(new Level(6000,new String[] {"ARM1","WEA1","WON1"}));
 		res.add(new Level(7500,new String[] {"ARM2","WEA1","RIN1"}));
-		res.add(new Level(10000,new String[] {"ARM2","WEA1","RIN1","WIN1","POT2","POT2","POT2"}));
+		res.add(new Level(10000,new String[] {"ARM2","WEA1","RIN1","WON1","POT2","POT2","POT2"}));
 		res.add(new Level(10000,new String[] {"ARM2","WEA2","POT4","POT4"}));
 		res.add(new Level(12500,new String[] {"ARM2","WEA1","WON2","POT4","POT4"}));
 		res.add(new Level(15000,new String[] {"ARM2","WEA2","RIN2"}));

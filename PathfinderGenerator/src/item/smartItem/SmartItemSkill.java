@@ -1,11 +1,13 @@
 package item.smartItem;
 
+import java.io.Serializable;
+
 /**
  * represente un pouvoir d'un objet intelligent.
  * @author Mentra20
  *
  */
-public class SmartItemSkill {
+public class SmartItemSkill implements Serializable {
 
 	private String skill;//Le nom du skill
 	private double price;//prix ajouté 

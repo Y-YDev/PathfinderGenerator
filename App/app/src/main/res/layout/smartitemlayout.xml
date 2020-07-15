@@ -156,6 +156,7 @@
             android:text="Capacités de communication :"
             android:textAlignment="center"
             android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -172,6 +173,7 @@
             android:text="Capacités magiques :"
             android:textAlignment="center"
             android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -240,6 +242,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Traits : "
+            android:layout_marginBottom="10dp"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -248,6 +251,14 @@
             android:id="@+id/traits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttonExitSmart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Quitter"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>

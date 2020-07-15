@@ -22,6 +22,18 @@
         android:textAlignment="center"
         android:minWidth="20dp" />
 
+    <CheckBox
+        android:id="@+id/checkbox_bonus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="Communauté entière ?"
+        android:textAlignment="center"
+        android:textColor="#696666"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,5 +90,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Créer" />
+
+    <TextView
+        android:id="@+id/errorStdGen"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="Veuillez renseigner une quantité d'argent..."
+        android:textAlignment="center"
+        android:textColor="#CF4242"
+        android:textStyle="bold|italic" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package item.smartItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  * @author Mentra20
  *
  */
-public class SmartItem {
+public class SmartItem implements Serializable {
 	private String alignement;//L'alignement de l'objet intelligent.
 	private double basePrice;//Prix de base de l'objet.
 	private int ego;//L'ego de l'objet.
@@ -38,6 +39,27 @@ public class SmartItem {
 		this.getCommunication().add(new SmartItemCommunication("Empathie", 0, 0));
 		this.getCommunication().add(new SmartItemCommunication("Sens (9m)", 0, 0));
 	}
+
+	public ArrayList<String> communicationToArray(){
+		ArrayList<String> res = new ArrayList<>();
+
+		for(SmartItemCommunication communication : communication){
+			res.add(communication.getCommunication());
+		}
+
+		return res;
+	}
+
+	public ArrayList<String> skillToArray(){
+		ArrayList<String> res = new ArrayList<>();
+
+		for(SmartItemSkill skill : skill){
+			res.add(skill.getSkill());
+		}
+
+		return res;
+	}
+
 
 	public SmartItemStat getInt() {
 		return Int;

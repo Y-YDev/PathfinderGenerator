@@ -1,11 +1,13 @@
 package item.smartItem;
 
+import java.io.Serializable;
+
 /**
  * Represente un pouvoir dédié d'un objet intelligent
  * @author Mentra20
  *
  */
-public class SmartItemDedicatePower {
+public class SmartItemDedicatePower implements Serializable {
 
 	private String power;//Le nom du pouvoir dédié
 	private double price;//prix ajouté 

@@ -94,6 +94,23 @@ public class Main {
 
 		Debug.printReward(treasureBuilder.createRandomRewardWithMonster(MonsterType.Undead, false, ProbabilityType.MAJOR, 1560));
 		
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
+		Debug.printGemOrJewel(gemAndJewelBuilder.createGemOrJewel(6));
 			
 		Debug.display("");
 		Debug.debug("SUCCEED");
