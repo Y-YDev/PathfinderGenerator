@@ -1,30 +1,26 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.item;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import item.gemAndJewel.Jewel;
 
-public class JewelViewHolder extends RecyclerView.ViewHolder{
+public class JewelViewHolder extends ItemViewHolder{
 
     TextView name;
     TextView price;
     TextView work;
     TextView material;
     TextView size;
-    ImageView image;
 
     LinearLayout gemGradeN;
     TextView gemN;
     TextView gemNWork;
-    TextView gemNNumber;
 
     LinearLayout gemGradeN2;
     TextView gemN2;
@@ -44,7 +40,9 @@ public class JewelViewHolder extends RecyclerView.ViewHolder{
         work = itemView.findViewById(R.id.jewel_work);
         material = itemView.findViewById(R.id.jewel_material);
         size = itemView.findViewById(R.id.jewel_size);
+
         image = itemView.findViewById(R.id.jewel_image);
+        delete = itemView.findViewById(R.id.jewel_delete);
 
         gemGradeN = itemView.findViewById(R.id.jewel_gemN_layout);
         gemN = itemView.findViewById(R.id.jewel_gem);

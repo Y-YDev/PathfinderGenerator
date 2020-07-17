@@ -1,17 +1,16 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.item;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+
 import item.wand.Wand;
 
-public class WandViewHolder extends RecyclerView.ViewHolder {
+public class WandViewHolder extends ItemViewHolder {
     TextView name;
     TextView price;
     TextView propPart;
@@ -20,8 +19,6 @@ public class WandViewHolder extends RecyclerView.ViewHolder {
 
     LinearLayout propPartLayout;
 
-    ImageView image;
-
 
     public WandViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -29,7 +26,10 @@ public class WandViewHolder extends RecyclerView.ViewHolder {
         price = itemView.findViewById(R.id.wand_price);
         propPart = itemView.findViewById(R.id.wand_part);
         propPartLayout = itemView.findViewById(R.id.wand_part_layout);
+
         image = itemView.findViewById(R.id.wand_image);
+        delete = itemView.findViewById(R.id.wand_delete);
+
         nds = itemView.findViewById(R.id.wand_nds);
         nls = itemView.findViewById(R.id.wand_nls);
 

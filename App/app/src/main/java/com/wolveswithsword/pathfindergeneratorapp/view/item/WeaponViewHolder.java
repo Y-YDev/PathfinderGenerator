@@ -1,12 +1,10 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.item;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
@@ -16,7 +14,7 @@ import item.weapon.RangeWeapon;
 import item.weapon.Type;
 import item.weapon.Weapon;
 
-public class WeaponViewHolder extends RecyclerView.ViewHolder {
+public class WeaponViewHolder extends ItemViewHolder {
 
     LinearLayout materialLayout;
     LinearLayout alterationLayout;
@@ -40,8 +38,6 @@ public class WeaponViewHolder extends RecyclerView.ViewHolder {
     TextView munWeight;
     TextView munQuantity;
 
-    ImageView image;
-
     public WeaponViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.wea_name);
@@ -58,7 +54,9 @@ public class WeaponViewHolder extends RecyclerView.ViewHolder {
         munPrice = itemView.findViewById(R.id.wea_munprice);
         munWeight = itemView.findViewById(R.id.wea_munweight);
         munQuantity = itemView.findViewById(R.id.wea_quantity);
+
         image = itemView.findViewById(R.id.wea_image);
+        delete = itemView.findViewById(R.id.wea_delete);
 
         materialLayout = itemView.findViewById(R.id.wea_material_layout);
         alterationLayout = itemView.findViewById(R.id.wea_alteration_layout);

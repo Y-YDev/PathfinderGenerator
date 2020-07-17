@@ -3,12 +3,10 @@ package com.wolveswithsword.pathfindergeneratorapp.view.item;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.listener.SmartItemShowButton;
@@ -17,7 +15,7 @@ import com.wolveswithsword.pathfindergeneratorapp.view.RewardActivity;
 import item.scepter.Scepter;
 import item.scepter.Type;
 
-public class ScepterViewHolder extends RecyclerView.ViewHolder {
+public class ScepterViewHolder extends ItemViewHolder {
 
     TextView name;
     TextView price;
@@ -27,8 +25,6 @@ public class ScepterViewHolder extends RecyclerView.ViewHolder {
     LinearLayout propPartLayout;
     LinearLayout smartItemLayout;
     LinearLayout typeLayout;
-
-    ImageView image;
 
     Button smartItem;
 
@@ -40,7 +36,10 @@ public class ScepterViewHolder extends RecyclerView.ViewHolder {
         price = itemView.findViewById(R.id.scepter_price);
         propPart = itemView.findViewById(R.id.scepter_part);
         propPartLayout = itemView.findViewById(R.id.scepter_part_layout);
+
         image = itemView.findViewById(R.id.scepter_image);
+        delete = itemView.findViewById(R.id.scepter_delete);
+
         smartItem = itemView.findViewById(R.id.scepter_smartitem);
         type = itemView.findViewById(R.id.scepter_type);
         typeLayout = itemView.findViewById(R.id.scepter_type_layout);

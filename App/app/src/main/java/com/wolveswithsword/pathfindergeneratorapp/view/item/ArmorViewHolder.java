@@ -1,12 +1,10 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.item;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
@@ -14,7 +12,7 @@ import item.armor.ArmorShield;
 import item.armor.Material;
 import item.armor.Type;
 
-public class ArmorViewHolder extends RecyclerView.ViewHolder{
+public class ArmorViewHolder extends ItemViewHolder{
 
     LinearLayout materialLayout;
     LinearLayout alterationLayout;
@@ -27,8 +25,6 @@ public class ArmorViewHolder extends RecyclerView.ViewHolder{
     TextView propSpe2;
     TextView price;
     TextView weight;
-
-    ImageView image;
 
     public ArmorViewHolder(@NonNull View itemView){
         super(itemView);
@@ -45,6 +41,7 @@ public class ArmorViewHolder extends RecyclerView.ViewHolder{
         propSpeLayout = itemView.findViewById(R.id.arm_propspe_layout);
 
         image = itemView.findViewById(R.id.arm_image);
+        delete = itemView.findViewById(R.id.armor_delete);
     }
 
     public void setArmor(ArmorShield armorShield){

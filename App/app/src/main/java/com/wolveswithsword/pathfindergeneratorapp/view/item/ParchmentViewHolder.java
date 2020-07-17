@@ -1,17 +1,15 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.item;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import item.parchment.Parchment;
 
-public class ParchmentViewHolder extends RecyclerView.ViewHolder{
+public class ParchmentViewHolder extends ItemViewHolder{
 
     TextView name;
     TextView price;
@@ -19,7 +17,6 @@ public class ParchmentViewHolder extends RecyclerView.ViewHolder{
     TextView nls;
     TextView nds;
 
-    ImageView image;
 
     public ParchmentViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -29,7 +26,9 @@ public class ParchmentViewHolder extends RecyclerView.ViewHolder{
         type = itemView.findViewById(R.id.par_type);
         nls = itemView.findViewById(R.id.par_nls);
         nds = itemView.findViewById(R.id.par_nds);
+
         image = itemView.findViewById(R.id.par_image);
+        delete = itemView.findViewById(R.id.parchment_delete);
     }
 
     public void setParchment(Parchment parchment){

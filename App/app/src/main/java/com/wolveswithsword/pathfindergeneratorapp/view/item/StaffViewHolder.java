@@ -2,18 +2,16 @@ package com.wolveswithsword.pathfindergeneratorapp.view.item;
 
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import item.staff.Staff;
 
-public class StaffViewHolder extends RecyclerView.ViewHolder {
+public class StaffViewHolder extends ItemViewHolder {
 
     TextView name;
     TextView price;
@@ -21,15 +19,15 @@ public class StaffViewHolder extends RecyclerView.ViewHolder {
 
     LinearLayout propPartLayout;
 
-    ImageView image;
-
     public StaffViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.staff_name);
         price = itemView.findViewById(R.id.staff_price);
         propPart = itemView.findViewById(R.id.staff_part);
         propPartLayout = itemView.findViewById(R.id.staff_part_layout);
+
         image = itemView.findViewById(R.id.staff_image);
+        delete = itemView.findViewById(R.id.staff_delete);
 
     }
 

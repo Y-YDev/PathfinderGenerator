@@ -12,6 +12,7 @@ import com.wolveswithsword.pathfindergeneratorapp.view.item.ArmorViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.view.item.ArtItemViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.view.item.CoinViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.view.item.GemViewHolder;
+import com.wolveswithsword.pathfindergeneratorapp.view.item.ItemViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.view.item.JewelViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.view.item.ParchmentViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.view.item.PotionViewHolder;
@@ -50,6 +51,7 @@ public class RewardRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHo
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         if (viewType == 1) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coinlayout, parent, false);
             return new CoinViewHolder(view);
@@ -153,6 +155,8 @@ public class RewardRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHo
         else if(holder.getItemViewType() == 13){
             ((WonderfulItemViewHolder) holder).setWonderfulItem((WonderfulObject) rewardList.get(position));
         }
+
+        ((ItemViewHolder) holder).setDeleteButtonListener(this);
     }
 
     @Override
@@ -164,5 +168,11 @@ public class RewardRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHo
         rewardList.clear();
         rewardList.addAll(items);
         notifyDataSetChanged();
+    }
+
+    public void removeItem(int position){
+        rewardList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position,rewardList.size());
     }
 }

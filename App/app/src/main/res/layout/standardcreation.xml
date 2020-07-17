@@ -19,6 +19,8 @@
         android:id="@+id/monstertype"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="15dp"
         android:textAlignment="center"
         android:minWidth="20dp" />
 
@@ -67,6 +69,16 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/errorStdGen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Veuillez renseigner une quantité d'argent..."
+        android:textAlignment="center"
+        android:textColor="#CF4242"
+        android:textStyle="bold|italic" />
+
+    <TextView
         android:id="@+id/probainfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,6 +92,8 @@
         android:id="@+id/proba"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="15dp"
         android:textAlignment="center"
         />
 
@@ -90,15 +104,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Créer" />
-
-    <TextView
-        android:id="@+id/errorStdGen"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        android:text="Veuillez renseigner une quantité d'argent..."
-        android:textAlignment="center"
-        android:textColor="#CF4242"
-        android:textStyle="bold|italic" />
 
 </LinearLayout>

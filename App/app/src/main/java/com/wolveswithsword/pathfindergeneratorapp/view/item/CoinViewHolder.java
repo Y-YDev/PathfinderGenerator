@@ -1,26 +1,24 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.item;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import item.coin.Coin;
 
-public class CoinViewHolder extends RecyclerView.ViewHolder {
+public class CoinViewHolder extends ItemViewHolder {
     private TextView coin_quantity;
     private TextView coin_type;
-    private ImageView image;
 
     public CoinViewHolder(@NonNull View itemView) {
         super(itemView);
         coin_quantity = itemView.findViewById(R.id.coin_quantity);
         coin_type = itemView.findViewById(R.id.coin_type);
         image = itemView.findViewById(R.id.coin_image);
+        delete = itemView.findViewById(R.id.coin_delete);
     }
 
     public void setCoin(Coin coin){
@@ -44,4 +42,5 @@ public class CoinViewHolder extends RecyclerView.ViewHolder {
                 break;
         }
     }
+
 }

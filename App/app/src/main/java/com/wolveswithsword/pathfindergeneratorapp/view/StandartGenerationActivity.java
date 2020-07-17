@@ -66,6 +66,12 @@ public class StandartGenerationActivity extends AppCompatActivity {
     public boolean checkField(){
         if(poInput.getText().toString().equals("")){
             error.setVisibility(View.VISIBLE);
+            error.setText("Veuillez renseigner une quantité d'argent...");
+            return false;
+        }
+        else if(Double.parseDouble(poInput.getText().toString()) > 1000000){
+            error.setVisibility(View.VISIBLE);
+            error.setText("La somme d'argent doit être inférieure à 1 000 000 po...");
             return false;
         }
         else{

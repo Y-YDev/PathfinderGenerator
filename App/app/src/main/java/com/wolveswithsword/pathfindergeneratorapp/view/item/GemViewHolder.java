@@ -5,25 +5,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import item.gemAndJewel.Gem;
 
-public class GemViewHolder extends RecyclerView.ViewHolder {
+public class GemViewHolder extends ItemViewHolder {
 
     TextView name;
     TextView price;
-    ImageView image;
     TextView cut;
+
+    ImageView image;
 
     public GemViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.gem_name);
         price = itemView.findViewById(R.id.gem_price);
         cut = itemView.findViewById(R.id.gem_work);
+
         image = itemView.findViewById(R.id.gem_image);
+        delete = itemView.findViewById(R.id.gem_delete);
     }
 
     public void setGem(Gem gem){

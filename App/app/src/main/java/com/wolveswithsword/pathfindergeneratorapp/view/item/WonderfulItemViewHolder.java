@@ -3,12 +3,10 @@ package com.wolveswithsword.pathfindergeneratorapp.view.item;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.listener.SmartItemShowButton;
@@ -16,7 +14,7 @@ import com.wolveswithsword.pathfindergeneratorapp.view.RewardActivity;
 
 import item.wonderfulObject.WonderfulObject;
 
-public class WonderfulItemViewHolder extends RecyclerView.ViewHolder {
+public class WonderfulItemViewHolder extends ItemViewHolder {
 
     TextView name;
     TextView price;
@@ -25,8 +23,6 @@ public class WonderfulItemViewHolder extends RecyclerView.ViewHolder {
 
     LinearLayout partPropLayout;
     LinearLayout smartItemLayout;
-
-    ImageView image;
 
     Button smartItem;
     Context context;
@@ -42,6 +38,8 @@ public class WonderfulItemViewHolder extends RecyclerView.ViewHolder {
         smartItemLayout = itemView.findViewById(R.id.wond_smartitem_layout);
 
         image = itemView.findViewById(R.id.wond_image);
+        delete = itemView.findViewById(R.id.wond_delete);
+
         smartItem = itemView.findViewById(R.id.wond_smartitem);
 
         context = itemView.getContext();

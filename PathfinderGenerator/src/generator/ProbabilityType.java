@@ -8,8 +8,8 @@ import java.util.Map;
  * représente les differents types de probabilités
  */
 public enum ProbabilityType {
-	
-	MINOR("Pleins de petits objets peu cher"),MEDIUM("Objets aléatoires"),MAJOR("Des objets plutôt chers"),
+
+    MEDIUM("Objets aléatoires"),MINOR("Pleins de petits objets peu cher"),MAJOR("Des objets plutôt chers"),
 	FIBONACCI("Peu d'objets mais très chers");
 	
     private final String type;
