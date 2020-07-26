@@ -1,4 +1,4 @@
-package com.wolveswithsword.pathfindergeneratorapp.view;
+package com.wolveswithsword.pathfindergeneratorapp.view.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.listener.RerollClickListener;
+import com.wolveswithsword.pathfindergeneratorapp.view.RewardRecyclerView;
 
 import java.util.ArrayList;
 
@@ -17,8 +18,6 @@ import generator.MonsterType;
 import generator.ProbabilityType;
 import generator.TreasureBuilder;
 import item.Item;
-import item.ring.Ring;
-import item.ring.RingBuilder;
 import item.smartItem.SmartItem;
 import utility.Debug;
 

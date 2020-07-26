@@ -2,7 +2,7 @@ package com.wolveswithsword.pathfindergeneratorapp.listener;
 
 import android.view.View;
 
-import com.wolveswithsword.pathfindergeneratorapp.view.StandartGenerationActivity;
+import com.wolveswithsword.pathfindergeneratorapp.view.Activity.StandartGenerationActivity;
 
 public class StdGenClickListener implements View.OnClickListener {
 

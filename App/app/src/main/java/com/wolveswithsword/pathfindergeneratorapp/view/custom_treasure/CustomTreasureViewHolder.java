@@ -16,38 +16,38 @@ import java.util.List;
 
 import generator.ProbabilityType;
 
-public class customTreasureViewHolder extends RecyclerView.ViewHolder {
+public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView typeField;
     private TextView nameField;
-    private EditText poInuput;
+    private EditText poInput;
     private Spinner probability;
     private Context context;
+    private TextView error;
 
-    public customTreasureViewHolder(@NonNull View itemView) {
+    public CustomTreasureViewHolder(@NonNull View itemView) {
         super(itemView);
-        poInuput = itemView.findViewById(R.id.po_input);
-        typeField = itemView.findViewById(R.id.type_field);
+        poInput = itemView.findViewById(R.id.po_input);
         nameField = itemView.findViewById(R.id.name_field);
         probability = itemView.findViewById(R.id.probability_input);
         context = itemView.getContext();
-
+        error = itemView.findViewById(R.id.errorCustomGen);
     }
 
     public void setNameField(String nameField) {
         this.nameField.setText(nameField);
     }
 
-    public void setTypeField(String type){
-        this.typeField.setText(type);
-    }
-
     public void setSpinner(List<String> probabilityList){
         this.probability.setAdapter(new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, probabilityList));
     }
 
+    public void setError(String errorMsg){
+        error.setVisibility(View.VISIBLE);
+        error.setText(errorMsg);
+    }
+
     public int getPoInput(){
-        return Integer.valueOf(poInuput.getText().toString());
+        return Integer.valueOf(poInput.getText().toString());
     }
 
     public ProbabilityType getProbabilitySelected(){

@@ -1,4 +1,4 @@
-package com.wolveswithsword.pathfindergeneratorapp.view;
+package com.wolveswithsword.pathfindergeneratorapp.view.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -92,6 +92,7 @@ public class StandartGenerationActivity extends AppCompatActivity {
 
         //on lance l'intent
         Intent intent = new Intent(StandartGenerationActivity.this, RewardActivity.class);
+        //TODO METTRE UN ID POUR DIFFERENCIER D'OU VIENS LE REWARD
         intent.putExtra("po",po);
         intent.putExtra("monsterType",monsterType);
         intent.putExtra("probaType",probabilityType);

@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.RewardActivity"/>
-        <activity android:name=".view.SmartItemActivity"/>
-        <activity android:name=".view.StandartGenerationActivity">
+        <activity android:name=".view.Activity.RewardActivity"/>
+        <activity android:name=".view.Activity.SmartItemActivity"/>
+        <activity android:name=".view.Activity.StandartGenerationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

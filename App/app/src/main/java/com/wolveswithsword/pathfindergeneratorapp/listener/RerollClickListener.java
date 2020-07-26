@@ -2,7 +2,7 @@ package com.wolveswithsword.pathfindergeneratorapp.listener;
 
 import android.view.View;
 
-import com.wolveswithsword.pathfindergeneratorapp.view.RewardActivity;
+import com.wolveswithsword.pathfindergeneratorapp.view.Activity.RewardActivity;
 
 public class RerollClickListener implements View.OnClickListener {
     RewardActivity activity;
