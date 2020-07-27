@@ -80,8 +80,6 @@ public class SmartItemActivity extends AppCompatActivity {
         SAG.setText(Integer.toString(smartItem.getSag().getStat()));
         langage.setText(Integer.toString(smartItem.getLangage()));
 
-        //TODO les recyclerView
-
         if(smartItem.getPlan() != null){
             planLayout.setVisibility(View.VISIBLE);
             plan.setText(smartItem.getPlan().getPlan());

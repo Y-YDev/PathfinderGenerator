@@ -23,6 +23,8 @@ import utility.Debug;
 
 public class RewardActivity extends AppCompatActivity {
 
+    private int callerID;
+
     private MonsterType monsterType;
     private ProbabilityType probabilityType;
     private double po;
@@ -40,17 +42,24 @@ public class RewardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rewardlayout);
 
-        monsterType = (MonsterType) getIntent().getSerializableExtra("monsterType");
-        probabilityType = (ProbabilityType) getIntent().getSerializableExtra("probaType");
-        po = getIntent().getDoubleExtra("po",0);
-        bonusType = getIntent().getBooleanExtra("bonus",false);
+        callerID = getIntent().getIntExtra("callerID",0);
+
+        if(callerID == 1){
+            monsterType = (MonsterType) getIntent().getSerializableExtra("monsterType");
+            probabilityType = (ProbabilityType) getIntent().getSerializableExtra("probaType");
+            po = getIntent().getDoubleExtra("po",0);
+            bonusType = getIntent().getBooleanExtra("bonus",false);
+
+            rewards = treasureBuilder.createRandomRewardWithMonster(monsterType,bonusType,probabilityType,po);
+        }
+        else if(callerID == 2){
+
+        }
 
         rerollButton = findViewById(R.id.reroll);
         rerollButton.setOnClickListener(new RerollClickListener(this));
 
         treasureBuilder = new TreasureBuilder();
-
-        rewards = treasureBuilder.createRandomRewardWithMonster(monsterType,bonusType,probabilityType,po);
     }
 
     @Override
@@ -68,7 +77,10 @@ public class RewardActivity extends AppCompatActivity {
 
     public void reroll(){
 
-        rewards = treasureBuilder.createRandomRewardWithMonster(monsterType,bonusType,probabilityType,po);
+        if(callerID == 1){
+            rewards = treasureBuilder.createRandomRewardWithMonster(monsterType,bonusType,probabilityType,po);
+        }
+
         rewardRecyclerView.updateData(rewards);
 
         Debug.printReward(rewards);

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import generator.ProbabilityType;
 import generator.Treasure;
 import generator.TreasureBuilder;
-import item.Item;
+import utility.Tuple;
 
 public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreasureViewHolder> {
 
@@ -46,11 +46,7 @@ public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreas
         boolean res = true;
 
         for(CustomTreasureViewHolder holder : holderList) {
-            if (holder.getPoInput() == 0) {
-                holder.setError("Veuillez renseigner une quantité d'argent...");
-                res = false;
-            }
-            else if (holder.getPoInput() > 1000000) {
+            if (holder.getPoInput() > 1000000) {
                 holder.setError("La somme d'argent doit être inférieure à 1 000 000 po...");
                 res = false;
             }
@@ -58,18 +54,22 @@ public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreas
         return res;
     }
 
-    public ArrayList<Item> getCustomReward(){
-        ArrayList<Item> rewards = new ArrayList<Item>();
+    public ArrayList<ProbabilityType> getProbabilityTypes(){
+        ArrayList<ProbabilityType> res = new ArrayList<>();
 
-        for(int i = 0; i < holderList.size(); i++) {
-            rewards.addAll(treasureBuilder.createRandomReward(
-                    treasuresList.get(i),
-                    holderList.get(i).getProbabilitySelected(),
-                    holderList.get(i).getPoInput()
-            ));
+        for(CustomTreasureViewHolder holder : holderList){
+            res.add(holder.getProbabilitySelected());
         }
+        return res;
+    }
 
-        return rewards;
+    public ArrayList<Double> getPrices(){
+        ArrayList<Double> res = new ArrayList<Double>();
+
+        for(CustomTreasureViewHolder holder : holderList){
+            res.add(holder.getPoInput());
+        }
+        return res;
     }
 
     @Override

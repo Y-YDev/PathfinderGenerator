@@ -16,8 +16,12 @@ public enum TreasureType{
     private TreasureType(String type){
         this.type = type;
     }
-    
+
     public String toString(){
         return type;
+    }
+
+    public static TreasureType[] getValues(){
+        return TreasureType.values();
     }
 }

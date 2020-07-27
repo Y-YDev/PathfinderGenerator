@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.listener.MonsterSpinnerSelectedListener;
-import com.wolveswithsword.pathfindergeneratorapp.listener.StdGenClickListener;
 
 import generator.MonsterType;
 import generator.ProbabilityType;
@@ -59,7 +58,15 @@ public class StandartGenerationActivity extends AppCompatActivity {
 
         //Mise en place du listener
         createButton = findViewById(R.id.generate);
-        createButton.setOnClickListener(new StdGenClickListener(this));
+
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkField()){
+                    switchIntent();
+                }
+            }
+        });
     }
 
 
@@ -93,6 +100,7 @@ public class StandartGenerationActivity extends AppCompatActivity {
         //on lance l'intent
         Intent intent = new Intent(StandartGenerationActivity.this, RewardActivity.class);
         //TODO METTRE UN ID POUR DIFFERENCIER D'OU VIENS LE REWARD
+        intent.putExtra("callerID",1);
         intent.putExtra("po",po);
         intent.putExtra("monsterType",monsterType);
         intent.putExtra("probaType",probabilityType);

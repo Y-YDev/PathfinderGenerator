@@ -46,8 +46,11 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         error.setText(errorMsg);
     }
 
-    public int getPoInput(){
-        return Integer.valueOf(poInput.getText().toString());
+    public double getPoInput(){
+        if(poInput.getText() == null){
+            return 0;
+        }
+        return Double.valueOf(poInput.getText().toString());
     }
 
     public ProbabilityType getProbabilitySelected(){

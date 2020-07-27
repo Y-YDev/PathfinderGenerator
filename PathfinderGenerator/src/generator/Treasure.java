@@ -24,6 +24,21 @@ public class Treasure {
 	}
 
 	/**
+	 * Retourne tout les trésors
+	 * @return la liste de tout les trésors
+	 */
+	public static ArrayList<Treasure> getAllTreasure(){
+		ArrayList<Treasure> res = new ArrayList<>();
+
+		for(TreasureType treasureType : TreasureType.getValues()){
+			res.add(new Treasure(treasureType));
+		}
+
+		return res;
+	}
+
+
+	/**
 	 * Retourne la somme des probabilité de chaque paliers.
 	 * @return la probabilité totale du tresor
 	 */

@@ -93,6 +93,7 @@ public class TreasureBuilder {
 			break;
 			
 		case Exterior:
+			//TODO AJOUTER DIRECTEMENT LA METHODE ALLTREASURE
 			treasureList.add(new Treasure(TreasureType.A));
 			treasureList.add(new Treasure(TreasureType.B));
 			treasureList.add(new Treasure(TreasureType.C));
@@ -221,7 +222,32 @@ public class TreasureBuilder {
 	public ArrayList<Item> createRandomReward(ArrayList<Treasure> treasures, double money){
 		return createRandomReward(treasures, null, money);
 	}
-	
+
+	/**
+	 * Permet de créer des récompenses via le générateur personalisé de trésor
+	 * @param probabilityTypes : les probabilités de chaque trésor
+	 * @param prices : les prix donné à chaques trésor
+	 * @return
+	 */
+	public ArrayList<Item> createCustomReward(ArrayList<ProbabilityType> probabilityTypes, ArrayList<Double> prices){
+		ArrayList<Item> reward = new ArrayList<Item>();
+		TreasureType[] treasures = TreasureType.getValues();
+
+		//Si les listes n'ont pas la meme taille on retourne une liste vide
+		if(treasures.length != probabilityTypes.size() || treasures.length != prices.size()){
+			Debug.error("Error on createCustomReward : different size");
+			return reward;
+		}
+
+		for(int i = 0; i < treasures.length; i++){
+			reward.addAll(createRandomReward(
+					new Treasure(treasures[i]),
+					probabilityTypes.get(i),
+					prices.get(i)));
+		}
+
+		return reward;
+	}
 	
 	/**
 	 * Permet de créer des récompense selon une liste de trésor, de probabilité et un montant d'argent.
