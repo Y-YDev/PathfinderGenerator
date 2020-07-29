@@ -47,7 +47,7 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
     }
 
     public double getPoInput(){
-        if(poInput.getText() == null){
+        if(poInput.getText() == null || poInput.getText().toString() == null || poInput.getText().toString().isEmpty()){
             return 0;
         }
         return Double.valueOf(poInput.getText().toString());

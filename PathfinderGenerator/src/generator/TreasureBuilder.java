@@ -57,15 +57,18 @@ public class TreasureBuilder {
 				treasureList.add(new Treasure(TreasureType.H));
 			}
 			break;
-			
+
 		case Animal :
+		case Magic_creature:
+		case Plant:
 			treasureList.add(new Treasure(TreasureType.A));
 			treasureList.add(new Treasure(TreasureType.B));
 			treasureList.add(new Treasure(TreasureType.D));
 			treasureList.add(new Treasure(TreasureType.E));
 			break;
-			
-		case Artificial_creature:
+
+
+			case Artificial_creature:
 			treasureList.add(new Treasure(TreasureType.E));
 			treasureList.add(new Treasure(TreasureType.F));
 			
@@ -74,13 +77,6 @@ public class TreasureBuilder {
 				treasureList.add(new Treasure(TreasureType.C));
 				treasureList.add(new Treasure(TreasureType.H));
 			}
-			break;
-			
-		case Magic_creature:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
 			break;
 			
 		case Dragon:
@@ -93,16 +89,7 @@ public class TreasureBuilder {
 			break;
 			
 		case Exterior:
-			//TODO AJOUTER DIRECTEMENT LA METHODE ALLTREASURE
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.C));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
-			treasureList.add(new Treasure(TreasureType.F));
-			treasureList.add(new Treasure(TreasureType.G));
-			treasureList.add(new Treasure(TreasureType.H));
-			treasureList.add(new Treasure(TreasureType.I));
+			treasureList.addAll(Treasure.getAllTreasure());
 
 			break;
 			
@@ -147,30 +134,17 @@ public class TreasureBuilder {
 				treasureList.add(new Treasure(TreasureType.G));
 			}
 			break;
-			
-		case Plant:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
 
-			break;
-			
+
 		case Vase:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
-
-			break;
-			
 		case Vermine:
 			treasureList.add(new Treasure(TreasureType.A));
 			treasureList.add(new Treasure(TreasureType.B));
 			treasureList.add(new Treasure(TreasureType.D));
 
 			break;
-			
-		default:
+
+			default:
 			Debug.error("No such Monster Type.");
 			break;
 		}

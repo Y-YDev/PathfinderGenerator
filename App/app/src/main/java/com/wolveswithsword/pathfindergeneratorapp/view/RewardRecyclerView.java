@@ -44,6 +44,9 @@ public class RewardRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     ArrayList<Item> rewardList;
 
+    public RewardRecyclerView(){
+        rewardList = new ArrayList<>();
+    }
     public RewardRecyclerView( ArrayList<Item> rewardList){
         this.rewardList = rewardList;
     }

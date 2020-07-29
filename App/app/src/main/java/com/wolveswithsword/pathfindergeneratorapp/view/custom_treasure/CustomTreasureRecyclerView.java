@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import generator.ProbabilityType;
 import generator.Treasure;
 import generator.TreasureBuilder;
+import utility.Debug;
 import utility.Tuple;
 
 public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreasureViewHolder> {
@@ -23,6 +24,7 @@ public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreas
     TreasureBuilder treasureBuilder;
 
     public CustomTreasureRecyclerView(ArrayList<Treasure> treasuresList){
+        holderList = new ArrayList<>();
         this.treasuresList = treasuresList;
         this.treasureBuilder = new TreasureBuilder();
     }
@@ -40,6 +42,14 @@ public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreas
         holder.setSpinner(ProbabilityType.toArray());
         holder.setNameField(treasure.getType().toString());
         holderList.add(holder);
+    }
+
+
+    @Override
+    public void onViewRecycled(@NonNull CustomTreasureViewHolder holder) {
+        //TODO enregistrer hors des viewHolder les information ou remplacer par une listView
+        Debug.debug("value : "+holder.getPoInput() +" : "+holder.getLayoutPosition());
+        super.onViewRecycled(holder);
     }
 
     public boolean checkIfCorrectInput(){

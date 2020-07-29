@@ -98,9 +98,8 @@ public class StandartGenerationActivity extends AppCompatActivity {
         bonusType = bonusBox.isChecked();
 
         //on lance l'intent
-        Intent intent = new Intent(StandartGenerationActivity.this, RewardActivity.class);
-        //TODO METTRE UN ID POUR DIFFERENCIER D'OU VIENS LE REWARD
-        intent.putExtra("callerID",1);
+        Intent intent = new Intent(StandartGenerationActivity.this, StandartRewardActivity.class);
+
         intent.putExtra("po",po);
         intent.putExtra("monsterType",monsterType);
         intent.putExtra("probaType",probabilityType);

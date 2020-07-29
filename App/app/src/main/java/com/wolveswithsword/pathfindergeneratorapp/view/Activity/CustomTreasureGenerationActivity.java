@@ -1,10 +1,12 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
@@ -34,10 +36,6 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
 
         createButton = findViewById(R.id.custom_gen_button);
         recyclerView = findViewById(R.id.custom_gen_recycler);
-        adapter = new CustomTreasureRecyclerView(Treasure.getAllTreasure());
-
-
-        recyclerView.setAdapter(adapter);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,12 +45,22 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
                 }
             }
         });
+
+        adapter = new CustomTreasureRecyclerView(Treasure.getAllTreasure());
+
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     public void switchIntent(){
         ArrayList<Double> prices = adapter.getPrices();
         ArrayList<ProbabilityType> probabilityTypes = adapter.getProbabilityTypes();
 
-        //TODO
+        Intent intent = new Intent(CustomTreasureGenerationActivity.this, CustomRewardActivity.class);
+        intent.putExtra("prices",prices);
+        intent.putExtra("probabilityTypes",probabilityTypes);
+        startActivity(intent);
     }
 }
