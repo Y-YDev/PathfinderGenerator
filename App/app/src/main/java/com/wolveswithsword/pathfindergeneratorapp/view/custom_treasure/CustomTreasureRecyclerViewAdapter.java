@@ -17,13 +17,13 @@ import generator.TreasureBuilder;
 import utility.Debug;
 import utility.Tuple;
 
-public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreasureViewHolder> {
+public class CustomTreasureRecyclerViewAdapter extends RecyclerView.Adapter<CustomTreasureViewHolder> {
 
     ArrayList<Treasure> treasuresList;
     ArrayList<CustomTreasureViewHolder> holderList;
     TreasureBuilder treasureBuilder;
 
-    public CustomTreasureRecyclerView(ArrayList<Treasure> treasuresList){
+    public CustomTreasureRecyclerViewAdapter(ArrayList<Treasure> treasuresList){
         holderList = new ArrayList<>();
         this.treasuresList = treasuresList;
         this.treasureBuilder = new TreasureBuilder();
@@ -52,9 +52,13 @@ public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreas
         super.onViewRecycled(holder);
     }
 
+    /**
+     * Regarde si l'input des po est correct.
+     * @return true ou false selon que l'input est valide ou non.
+     */
     public boolean checkIfCorrectInput(){
         boolean res = true;
-
+        //La somme est trop élévée
         for(CustomTreasureViewHolder holder : holderList) {
             if (holder.getPoInput() > 1000000) {
                 holder.setError("La somme d'argent doit être inférieure à 1 000 000 po...");
@@ -64,6 +68,10 @@ public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreas
         return res;
     }
 
+    /**
+     * Récupere les probabilités de tout les trésors.
+     * @return
+     */
     public ArrayList<ProbabilityType> getProbabilityTypes(){
         ArrayList<ProbabilityType> res = new ArrayList<>();
 
@@ -73,6 +81,10 @@ public class CustomTreasureRecyclerView extends RecyclerView.Adapter<CustomTreas
         return res;
     }
 
+    /**
+     * Récupere les prix donnés à tout les trésors
+     * @return
+     */
     public ArrayList<Double> getPrices(){
         ArrayList<Double> res = new ArrayList<Double>();
 

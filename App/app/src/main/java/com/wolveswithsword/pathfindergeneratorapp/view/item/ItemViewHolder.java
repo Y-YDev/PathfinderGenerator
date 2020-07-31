@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.wolveswithsword.pathfindergeneratorapp.view.RewardRecyclerView;
+import com.wolveswithsword.pathfindergeneratorapp.view.RewardRecyclerViewAdapter;
 
 public class ItemViewHolder extends RecyclerView.ViewHolder {
 
@@ -18,7 +18,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    public void setDeleteButtonListener(final RewardRecyclerView rewardRecyclerView) {
+    public void setDeleteButtonListener(final RewardRecyclerViewAdapter rewardRecyclerView) {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

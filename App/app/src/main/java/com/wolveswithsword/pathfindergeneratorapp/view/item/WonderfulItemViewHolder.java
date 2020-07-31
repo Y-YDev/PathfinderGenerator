@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
-import com.wolveswithsword.pathfindergeneratorapp.listener.SmartItemShowButton;
+import com.wolveswithsword.pathfindergeneratorapp.listener.SmartItemButtonListener;
 import com.wolveswithsword.pathfindergeneratorapp.view.Activity.RewardActivity;
 
 import item.wonderfulObject.WonderfulObject;
@@ -60,7 +60,7 @@ public class WonderfulItemViewHolder extends ItemViewHolder {
 
         if(wonderfulObject.getSmartItem() != null){
             smartItemLayout.setVisibility(View.VISIBLE);
-            smartItem.setOnClickListener(new SmartItemShowButton((RewardActivity) context,wonderfulObject.getSmartItem()));
+            smartItem.setOnClickListener(new SmartItemButtonListener((RewardActivity) context,wonderfulObject.getSmartItem()));
         }
         else{
             smartItemLayout.setVisibility(View.GONE);

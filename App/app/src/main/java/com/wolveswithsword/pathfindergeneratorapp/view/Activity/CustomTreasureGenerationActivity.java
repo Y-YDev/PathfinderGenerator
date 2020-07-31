@@ -10,19 +10,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
-import com.wolveswithsword.pathfindergeneratorapp.view.custom_treasure.CustomTreasureRecyclerView;
+import com.wolveswithsword.pathfindergeneratorapp.view.custom_treasure.CustomTreasureRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 import generator.ProbabilityType;
 import generator.Treasure;
-import generator.TreasureType;
 
+/**
+ * Activité de création custom de trésor
+ */
 public class CustomTreasureGenerationActivity extends AppCompatActivity {
 
     private Button createButton;
     private RecyclerView recyclerView;
-    private CustomTreasureRecyclerView adapter;
+    private CustomTreasureRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +48,10 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
             }
         });
 
-        adapter = new CustomTreasureRecyclerView(Treasure.getAllTreasure());
-
+        adapter = new CustomTreasureRecyclerViewAdapter(Treasure.getAllTreasure());
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
     public void switchIntent(){

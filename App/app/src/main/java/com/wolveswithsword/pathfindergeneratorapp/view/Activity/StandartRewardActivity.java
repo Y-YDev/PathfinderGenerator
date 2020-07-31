@@ -22,17 +22,16 @@ public class StandartRewardActivity extends RewardActivity {
         po = getIntent().getDoubleExtra("po",0);
         bonusType = getIntent().getBooleanExtra("bonus",false);
 
-        //generate treasure and update view
+        //Génère les récompense et actualise la vue.
         roll();
     }
 
 
     @Override
     public void roll() {
-
         rewards = treasureBuilder.createRandomRewardWithMonster(monsterType,bonusType,probabilityType,po);
-        rewardRecyclerView.updateData(rewards);
-
+        rewardRecyclerViewAdapter.updateData(rewards);
+        //Affichage textuel du trésor pour débug.
         Debug.printReward(rewards);
     }
 }

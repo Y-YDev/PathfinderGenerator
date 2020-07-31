@@ -10,29 +10,27 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
-import com.wolveswithsword.pathfindergeneratorapp.view.RewardRecyclerView;
+import com.wolveswithsword.pathfindergeneratorapp.view.RewardRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 import generator.TreasureBuilder;
 import item.Item;
 import item.smartItem.SmartItem;
-import utility.Debug;
 
 public abstract class RewardActivity extends AppCompatActivity {
 
-    ArrayList<Item> rewards;
-    TreasureBuilder treasureBuilder;
-    RecyclerView rewardView;
-    protected RewardRecyclerView rewardRecyclerView;
+    private Button rerollButton;
 
-    Button rerollButton;
+    protected RecyclerView rewardRecyclerView;
+    protected ArrayList<Item> rewards;
+    protected TreasureBuilder treasureBuilder;
+    protected RewardRecyclerViewAdapter rewardRecyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rewardlayout);
-
 
         rerollButton = findViewById(R.id.reroll);
         rerollButton.setOnClickListener(new View.OnClickListener(){
@@ -44,27 +42,27 @@ public abstract class RewardActivity extends AppCompatActivity {
 
         treasureBuilder = new TreasureBuilder();
 
-        //set adapter reward
-        rewardRecyclerView = new RewardRecyclerView();
-        rewardView = findViewById(R.id.rewardView);
-        rewardView.setAdapter(rewardRecyclerView);
-        rewardView.setLayoutManager(new LinearLayoutManager(this));
-
+        //Mise en place de l'adapter pour les récompenses
+        rewardRecyclerView = findViewById(R.id.rewardView);
+        rewardRecyclerViewAdapter = new RewardRecyclerViewAdapter();
+        rewardRecyclerView.setAdapter(rewardRecyclerViewAdapter);
+        rewardRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-
     }
 
+    /**
+     * Lance/Relance les récompenses générées
+     */
     public abstract void roll();
 
 
     /**
-     * Create intent for resume a smart item
-     * @param smartItem smart item concerned
+     * Créer un intent vers la page d'affichage de smart item
+     * @param smartItem : l'objet intelligent
      */
     public void smartItemIntent(SmartItem smartItem){
         Intent intent = new Intent(RewardActivity.this, SmartItemActivity.class);

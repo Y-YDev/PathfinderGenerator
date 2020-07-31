@@ -25,7 +25,7 @@ import utility.Tuple;
 
 public class TreasureBuilder {
 	private Random r;
-	
+
 	public TreasureBuilder() {
 		r = new Random();
 	}
@@ -41,123 +41,122 @@ public class TreasureBuilder {
 	public ArrayList<Item> createRandomRewardWithMonster(MonsterType monsterType,Boolean bonusType,ProbabilityType probabilityTypes, double money){
 		ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityList = new ArrayList<Tuple<TreasureType,ProbabilityType>>();
 		ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
-		
+
 		Debug.debug("Create reward for monster "+monsterType+"...");
-		
+
 		switch (monsterType) {
-		case Aberration:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
-			
-			if(bonusType) {
-				treasureList.add(new Treasure(TreasureType.F));
-				treasureList.add(new Treasure(TreasureType.G));
-				treasureList.add(new Treasure(TreasureType.H));
-			}
-			break;
+			case Aberration:
+				treasureList.add(new Treasure(TreasureType.A));
+				treasureList.add(new Treasure(TreasureType.B));
+				treasureList.add(new Treasure(TreasureType.D));
+				treasureList.add(new Treasure(TreasureType.E));
 
-		case Animal :
-		case Magic_creature:
-		case Plant:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
-			break;
+				if(bonusType) {
+					treasureList.add(new Treasure(TreasureType.F));
+					treasureList.add(new Treasure(TreasureType.G));
+					treasureList.add(new Treasure(TreasureType.H));
+				}
+				break;
 
+			case Animal :
+			case Magic_creature:
+			case Plant:
+				treasureList.add(new Treasure(TreasureType.A));
+				treasureList.add(new Treasure(TreasureType.B));
+				treasureList.add(new Treasure(TreasureType.D));
+				treasureList.add(new Treasure(TreasureType.E));
+				break;
 
 			case Artificial_creature:
-			treasureList.add(new Treasure(TreasureType.E));
-			treasureList.add(new Treasure(TreasureType.F));
-			
-			if(bonusType) {
+				treasureList.add(new Treasure(TreasureType.E));
+				treasureList.add(new Treasure(TreasureType.F));
+
+				if(bonusType) {
+					treasureList.add(new Treasure(TreasureType.B));
+					treasureList.add(new Treasure(TreasureType.C));
+					treasureList.add(new Treasure(TreasureType.H));
+				}
+				break;
+
+			case Dragon:
+				treasureList.add(new Treasure(TreasureType.A));
 				treasureList.add(new Treasure(TreasureType.B));
 				treasureList.add(new Treasure(TreasureType.C));
 				treasureList.add(new Treasure(TreasureType.H));
-			}
-			break;
-			
-		case Dragon:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.C));
-			treasureList.add(new Treasure(TreasureType.H));
-			treasureList.add(new Treasure(TreasureType.I));
+				treasureList.add(new Treasure(TreasureType.I));
 
-			break;
-			
-		case Exterior:
-			treasureList.addAll(Treasure.getAllTreasure());
+				break;
 
-			break;
-			
-		case Fairy:
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.C));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.G));
+			case Exterior:
+				treasureList.addAll(Treasure.getAllTreasure());
 
-			break;
-			
-		case Humanoid:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
-			treasureList.add(new Treasure(TreasureType.F));
-			treasureList.add(new Treasure(TreasureType.G));
-			
-			if(bonusType) treasureList.add(new Treasure(TreasureType.H));
+				break;
 
-			break;
-			
-		case Monstrous_umanoid:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.C));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
-			treasureList.add(new Treasure(TreasureType.H));
-			
-			break;
-			
-		case Undead:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
-			treasureList.add(new Treasure(TreasureType.E));
-			
-			if(bonusType) {
+			case Fairy:
+				treasureList.add(new Treasure(TreasureType.B));
+				treasureList.add(new Treasure(TreasureType.C));
+				treasureList.add(new Treasure(TreasureType.D));
+				treasureList.add(new Treasure(TreasureType.G));
+
+				break;
+
+			case Humanoid:
+				treasureList.add(new Treasure(TreasureType.A));
+				treasureList.add(new Treasure(TreasureType.B));
+				treasureList.add(new Treasure(TreasureType.D));
+				treasureList.add(new Treasure(TreasureType.E));
 				treasureList.add(new Treasure(TreasureType.F));
 				treasureList.add(new Treasure(TreasureType.G));
-			}
-			break;
+
+				if(bonusType) treasureList.add(new Treasure(TreasureType.H));
+
+				break;
+
+			case Monstrous_umanoid:
+				treasureList.add(new Treasure(TreasureType.A));
+				treasureList.add(new Treasure(TreasureType.B));
+				treasureList.add(new Treasure(TreasureType.C));
+				treasureList.add(new Treasure(TreasureType.D));
+				treasureList.add(new Treasure(TreasureType.E));
+				treasureList.add(new Treasure(TreasureType.H));
+
+				break;
+
+			case Undead:
+				treasureList.add(new Treasure(TreasureType.A));
+				treasureList.add(new Treasure(TreasureType.B));
+				treasureList.add(new Treasure(TreasureType.D));
+				treasureList.add(new Treasure(TreasureType.E));
+
+				if(bonusType) {
+					treasureList.add(new Treasure(TreasureType.F));
+					treasureList.add(new Treasure(TreasureType.G));
+				}
+				break;
 
 
-		case Vase:
-		case Vermine:
-			treasureList.add(new Treasure(TreasureType.A));
-			treasureList.add(new Treasure(TreasureType.B));
-			treasureList.add(new Treasure(TreasureType.D));
+			case Vase:
+			case Vermine:
+				treasureList.add(new Treasure(TreasureType.A));
+				treasureList.add(new Treasure(TreasureType.B));
+				treasureList.add(new Treasure(TreasureType.D));
 
-			break;
+				break;
 
 			default:
-			Debug.error("No such Monster Type.");
-			break;
+				Debug.error("No such Monster Type.");
+				break;
 		}
-		
+
 		//On ajoute la probabilités aux trésors.
 		for(Treasure treasure : treasureList) {
 			probabilityList.add(new Tuple<TreasureType, ProbabilityType>(treasure.getType(), probabilityTypes));
 		}
-		
+
 		//On créer et renvoie le trésor.
 		return createRandomReward(treasureList, probabilityList, money);
 	}
-	
+
 	/**
 	 * Permet de créer des récompense selon un trésor et un montant d'argent.
 	 * @param treasure : le trésor
@@ -169,7 +168,7 @@ public class TreasureBuilder {
 		treasureList.add(treasure);//La liste n'aura qu'un élément
 		return createRandomReward(treasureList, money);
 	}
-	
+
 	/**
 	 * Permet de créer des récompense selon un trésor et un montant d'argent.
 	 * @param treasure : le trésor
@@ -177,16 +176,16 @@ public class TreasureBuilder {
 	 * @return la liste d'objet obtenu avec l'argent.
 	 */
 	public ArrayList<Item> createRandomReward(Treasure treasure, ProbabilityType probabilityTypes, double money){
-		
+
 		ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
 		treasureList.add(treasure);//La liste n'aura qu'un élément
-		
+
 		ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityList = new ArrayList<Tuple<TreasureType, ProbabilityType>>();
 		probabilityList.add(new Tuple<TreasureType, ProbabilityType>(treasure.getType(), probabilityTypes));//La liste n'aura qu'un élément
-		
+
 		return createRandomReward(treasureList,probabilityList, money);
 	}
-	
+
 	/**
 	 * Permet de créer des récompense selon une liste de trésor et un montant d'argent.
 	 * @param treasures : la liste de trésor
@@ -222,7 +221,7 @@ public class TreasureBuilder {
 
 		return reward;
 	}
-	
+
 	/**
 	 * Permet de créer des récompense selon une liste de trésor, de probabilité et un montant d'argent.
 	 * @param treasures : la liste de trésor
@@ -232,19 +231,19 @@ public class TreasureBuilder {
 	 */
 	public ArrayList<Item> createRandomReward(ArrayList<Treasure> treasures, ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityTypes, double money){
 		Debug.debug("------------------ create reward for money : "+money);
-		
+
 		//On initialise les trésors.
 		initTreasureList(treasures, probabilityTypes);
-		
+
 		ArrayList<Item> reward = new ArrayList<Item>();
 		int index;
 		double startMoney = money;//L'argent de départ
-		
+
 		//Tant qu'on a de l'argent ou qu'on peut acheter (on s'arrete quans on atteind 2% du prix de base)
 		while(treasures.size() > 0 && money > (startMoney * 0.02)) {
 			index = r.nextInt(treasures.size());
 			Treasure treasure = treasures.get(index);//On tire un trésor au hasard
-			
+
 			if(treasure.canBeChooseLevel(money)) {//Si le moins cher du tresor est inferieur à l'argent courant.
 				//On retire les paliers trop cher
 				treasure.removeTooExpensiveLevel(money);
@@ -254,7 +253,7 @@ public class TreasureBuilder {
 				//On obtient les récompense
 				reward.addAll(getReward(level));
 				money -= level.getPrice();//On retire le prix du palier à l'argent courant.
-				
+
 				Debug.debug("------------------------- money is now "+money);
 				Debug.debug("");
 			}
@@ -266,11 +265,11 @@ public class TreasureBuilder {
 		}
 		//On regroupe les pièces du même type pour plus de lisibilité.
 		reward = gatherCoin(reward);
-		
+
 		return reward;
 	}
-	
-	
+
+
 	/**
 	 * Convertit et calcule le gain du drop de pièces .
 	 * @param dice : les dés sous forme de chaines de caractères.
@@ -278,24 +277,24 @@ public class TreasureBuilder {
 	 */
 	public Coin convertCoin(String dice) {
 		Debug.debug("Convert coin of dice : "+ dice);
-		
+
 		int i = 0;
-		String nbDice = "";		
-		String typeDice = "";		
-		String multiplicator = "";		
+		String nbDice = "";
+		String typeDice = "";
+		String multiplicator = "";
 		item.coin.Type typeCoin;
-		
+
 		while(dice.charAt(i) != 'd') {//On lit le chiffre Cd_x_-_....
 			nbDice += dice.charAt(i);
 			i++;
 		}
 		i++;
-		
+
 		while(dice.charAt(i) != 'x' && dice.charAt(i) != '-') {//On lit le chiffre _dCx_-_....
 			typeDice += dice.charAt(i);
 			i++;
 		}
-		
+
 		if(dice.charAt(i) == 'x') {//On lit le chiffre _d_xC-_.... si il existe
 			i++;
 			while(dice.charAt(i) != '-') {
@@ -304,31 +303,31 @@ public class TreasureBuilder {
 			}
 		}
 		i++;
-		
+
 		switch (dice.charAt(i)) {//On lit le chiffre _d_x_-C....
-		case 'C':
-			typeCoin = Type.COPPER;
-			break;
-		case 'S':
-			typeCoin = Type.SILVER;
-			break;
-		case 'G':
-			typeCoin = Type.GOLD;
-			break;
-		case 'P':
-			typeCoin = Type.PLATINIUM;
-			break;
-		default:
-			typeCoin = Type.NONE;
-			break;
+			case 'C':
+				typeCoin = Type.COPPER;
+				break;
+			case 'S':
+				typeCoin = Type.SILVER;
+				break;
+			case 'G':
+				typeCoin = Type.GOLD;
+				break;
+			case 'P':
+				typeCoin = Type.PLATINIUM;
+				break;
+			default:
+				typeCoin = Type.NONE;
+				break;
 		}
-	
+
 		//On calcule maintenant
 		double res = 0;
 		for(int j = 0; j < Integer.parseInt(nbDice);j++) {
 			res += r.nextInt(Integer.parseInt(typeDice))+1;
 		}
-		
+
 		if(multiplicator != "") {
 			res *= Integer.parseInt(multiplicator);
 		}
@@ -337,7 +336,7 @@ public class TreasureBuilder {
 		//On convertir le resultat en Coin.
 		return new Coin(typeCoin, res);
 	}
-	
+
 	/**
 	 * Convertit un code en un item généré (selon le code)
 	 * @param code : le code de génération
@@ -349,12 +348,12 @@ public class TreasureBuilder {
 			return convertCoin(code);
 		}
 		//On recupere la rareté.
-		int rarity = Character.getNumericValue(code.charAt(3)); 
-			
+		int rarity = Character.getNumericValue(code.charAt(3));
+
 		if(code.subSequence(0, 3).equals("GEM")) {//On doit créer un gemme
 			GemAndJewelBuilder gemAndJewelBuilder = new GemAndJewelBuilder();
 			Tuple<Gem, Jewel> tuple = gemAndJewelBuilder.createGemOrJewel(rarity);
-				
+
 			if(tuple.getX() != null) return tuple.getX();//C'est une gemme
 			else return tuple.getY();//C'est un bijoux
 		}
@@ -414,7 +413,7 @@ public class TreasureBuilder {
 			StaffBuilder staffBuilder = new StaffBuilder();
 			return staffBuilder.createStaff(rarity);
 		}
-		
+
 		Debug.error("No Such Type of Item exist");
 		return null;
 	}
@@ -426,7 +425,7 @@ public class TreasureBuilder {
 	 */
 	public ArrayList<Item> getReward(Level level){
 		ArrayList<Item> reward = new ArrayList<Item>();
-		
+
 		for(String code : level.getReward()) {
 			reward.add(convertToItem(code));
 		}
@@ -444,28 +443,28 @@ public class TreasureBuilder {
 		double po = 0;
 		double pa = 0;
 		double pc = 0;
-		
+
 		for(Item item : reward) {
 			//Si l'item est une pièce
 			if(item.getTypeItem() == TypeItem.COIN) {//TODO ERREUR SUR UN NULL QUELQUE FOIS
 				//Selon le type de pièce on ajoute.
 				switch (((Coin) item).getTypeCoin()) {
-				case PLATINIUM:
-					pp += item.getPrice();
-					break;
-				case GOLD:
-					po += item.getPrice();
-					break;
-				case SILVER:
-					pa += item.getPrice();
-					break;
-				case COPPER:
-					pc += item.getPrice();
-					break;
-					
-				default:
-					Debug.error("Impossible case");
-					return null;
+					case PLATINIUM:
+						pp += item.getPrice();
+						break;
+					case GOLD:
+						po += item.getPrice();
+						break;
+					case SILVER:
+						pa += item.getPrice();
+						break;
+					case COPPER:
+						pc += item.getPrice();
+						break;
+
+					default:
+						Debug.error("Impossible case");
+						return null;
 				}
 			}
 			else {//On ajoute l'objet car on ne peux combiner
@@ -486,22 +485,22 @@ public class TreasureBuilder {
 		}
 		return res;
 	}
-	
+
 	/**
 	 * Permet d'initialiser une liste de trésors selon une liste de probabilités potentiellement nulle.
 	 * @param treasures : la liste de trésors
 	 * @param probabilityTypes : la liste de probabilités
 	 */
 	public void initTreasureList(ArrayList<Treasure> treasures, ArrayList<Tuple<TreasureType, ProbabilityType>> probabilityTypes) {
-		
+
 		//On initialise de base à médium
 		for(Treasure treasure : treasures) {
 			treasure.createLevel(ProbabilityType.MEDIUM);
 		}
-		
+
 		if(probabilityTypes != null) {
 			Debug.debug("Affect wanted probability for treasure");
-			
+
 			//On set toutes les probabilités aux trésors.
 			for(Tuple<TreasureType, ProbabilityType> tuple : probabilityTypes) {
 				for(Treasure treasure : treasures) {
@@ -516,5 +515,5 @@ public class TreasureBuilder {
 		}
 		Debug.debug("");
 	}
-	
+
 }

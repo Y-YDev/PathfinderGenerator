@@ -5,7 +5,11 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 import generator.ProbabilityType;
+import utility.Debug;
 
+/**
+ * Activité pour afficher une récompense créée avec une génération custom de trésor.
+ */
 public class CustomRewardActivity extends RewardActivity {
 
     ArrayList<Double> prices;
@@ -15,19 +19,21 @@ public class CustomRewardActivity extends RewardActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setExtraValue();
+        getExtraValue();
         roll();
     }
 
     @SuppressWarnings("unchecked")
-    private void setExtraValue(){
+    private void getExtraValue(){
         prices = (ArrayList<Double>) getIntent().getSerializableExtra("prices");
         probabilityTypes = (ArrayList<ProbabilityType>) getIntent().getSerializableExtra("probabilityTypes");
     }
 
     @Override
     public void roll() {
-        //TODO generate and update
-
+        rewards = treasureBuilder.createCustomReward(probabilityTypes,prices);
+        rewardRecyclerViewAdapter.updateData(rewards);
+        //Affichage textuel du trésor pour débug.
+        Debug.printReward(rewards);
     }
 }

@@ -40,21 +40,21 @@ import item.wand.Wand;
 import item.weapon.Weapon;
 import item.wonderfulObject.WonderfulObject;
 
-public class RewardRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     ArrayList<Item> rewardList;
 
-    public RewardRecyclerView(){
+    public RewardRecyclerViewAdapter(){
         rewardList = new ArrayList<>();
     }
-    public RewardRecyclerView( ArrayList<Item> rewardList){
+    public RewardRecyclerViewAdapter(ArrayList<Item> rewardList){
         this.rewardList = rewardList;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+        //En fonction du viewType on créer le viewHolder adapté.
         if (viewType == 1) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coinlayout, parent, false);
             return new CoinViewHolder(view);
@@ -114,11 +114,12 @@ public class RewardRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public int getItemViewType(int position){
         Item item = rewardList.get(position);
-        return item.getTypeItem().getID();
+        return item.getTypeItem().getID();//On récupère l'ID de l'item.
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        //On affecte l'item en fonction du viewType
         if(holder.getItemViewType() == 1){
             ((CoinViewHolder) holder).setCoin((Coin) rewardList.get(position));
         }
@@ -167,12 +168,20 @@ public class RewardRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHo
         return rewardList.size();
     }
 
+    /**
+     * Permet de mettre à jour les données du recycler view
+     * @param items : les nouveaux items.
+     */
     public void updateData(ArrayList<Item> items) {
         rewardList.clear();
         rewardList.addAll(items);
         notifyDataSetChanged();
     }
 
+    /**
+     * Permet de retirer un item
+     * @param position : la position de l'item a retirer
+     */
     public void removeItem(int position){
         rewardList.remove(position);
         notifyItemRemoved(position);

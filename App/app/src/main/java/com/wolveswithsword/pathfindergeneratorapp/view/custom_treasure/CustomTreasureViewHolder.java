@@ -31,6 +31,8 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         probability = itemView.findViewById(R.id.probability_input);
         context = itemView.getContext();
         error = itemView.findViewById(R.id.errorCustomGen);
+
+        error.setVisibility(View.GONE);
     }
 
     public void setNameField(String nameField) {
@@ -47,7 +49,7 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
     }
 
     public double getPoInput(){
-        if(poInput.getText() == null || poInput.getText().toString() == null || poInput.getText().toString().isEmpty()){
+        if(poInput.getText().toString().isEmpty()){
             return 0;
         }
         return Double.valueOf(poInput.getText().toString());

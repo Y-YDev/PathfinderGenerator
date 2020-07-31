@@ -6,6 +6,9 @@ import android.widget.CheckBox;
 
 import generator.MonsterType;
 
+/**
+ * Listener du spinner pour selectionner le type de monstre.
+ */
 public class MonsterSpinnerSelectedListener implements AdapterView.OnItemSelectedListener {
 
     CheckBox bonusBox;
@@ -19,7 +22,7 @@ public class MonsterSpinnerSelectedListener implements AdapterView.OnItemSelecte
 
         MonsterType type = MonsterType.getType(parent.getItemAtPosition(position).toString());
 
-
+        //En fonction du type du monstre on affiche la checkBox pour activer le bonus
         if(type == MonsterType.Aberration){
             bonusBox.setVisibility(View.VISIBLE);
             bonusBox.setText("Créature rusée ?");

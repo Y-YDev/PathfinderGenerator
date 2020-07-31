@@ -46,7 +46,7 @@ public class StandartGenerationActivity extends AppCompatActivity {
 
         monsterTypeSpinner = (Spinner) findViewById(R.id.monstertype);
         monsterTypeSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, MonsterType.toArray()));
-        monsterTypeSpinner.setOnItemSelectedListener(new MonsterSpinnerSelectedListener(bonusBox));
+        monsterTypeSpinner.setOnItemSelectedListener(new MonsterSpinnerSelectedListener(bonusBox));//Mise en place du listener
 
         probabilityTypeSpinner = (Spinner) findViewById(R.id.proba);
         probabilityTypeSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, ProbabilityType.toArray()));
@@ -58,7 +58,6 @@ public class StandartGenerationActivity extends AppCompatActivity {
 
         //Mise en place du listener
         createButton = findViewById(R.id.generate);
-
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,13 +68,18 @@ public class StandartGenerationActivity extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * Vérifie l'argent que l'utilisateur rentre dans l'EditText
+     * @return true ou false si le check est correct ou non
+     */
     public boolean checkField(){
+        //L'EditText est vide
         if(poInput.getText().toString().equals("")){
             error.setVisibility(View.VISIBLE);
             error.setText("Veuillez renseigner une quantité d'argent...");
             return false;
         }
+        //La valeur est trop élévée (crash de l'application)
         else if(Double.parseDouble(poInput.getText().toString()) > 1000000){
             error.setVisibility(View.VISIBLE);
             error.setText("La somme d'argent doit être inférieure à 1 000 000 po...");
