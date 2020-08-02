@@ -1,10 +1,11 @@
-package com.wolveswithsword.pathfindergeneratorapp.view.Activity;
+package com.wolveswithsword.pathfindergeneratorapp.view.Activity.Reward;
 
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
 import generator.ProbabilityType;
+import generator.TreasureElement;
 import utility.Debug;
 
 /**
@@ -12,8 +13,7 @@ import utility.Debug;
  */
 public class CustomRewardActivity extends RewardActivity {
 
-    ArrayList<Double> prices;
-    ArrayList<ProbabilityType> probabilityTypes;
+    ArrayList<TreasureElement> treasureList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +25,13 @@ public class CustomRewardActivity extends RewardActivity {
 
     @SuppressWarnings("unchecked")
     private void getExtraValue(){
-        prices = (ArrayList<Double>) getIntent().getSerializableExtra("prices");
-        probabilityTypes = (ArrayList<ProbabilityType>) getIntent().getSerializableExtra("probabilityTypes");
+        treasureList = (ArrayList<TreasureElement>) getIntent().getSerializableExtra("treasureList");
+
     }
 
     @Override
     public void roll() {
-        rewards = treasureBuilder.createCustomReward(probabilityTypes,prices);
+        rewards = treasureBuilder.createCustomReward(treasureList);
         rewardRecyclerViewAdapter.updateData(rewards);
         //Affichage textuel du trésor pour débug.
         Debug.printReward(rewards);

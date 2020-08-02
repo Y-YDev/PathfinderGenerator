@@ -2,7 +2,7 @@ package com.wolveswithsword.pathfindergeneratorapp.listener;
 
 import android.view.View;
 
-import com.wolveswithsword.pathfindergeneratorapp.view.Activity.RewardActivity;
+import com.wolveswithsword.pathfindergeneratorapp.view.Activity.Reward.RewardActivity;
 
 import item.smartItem.SmartItem;
 

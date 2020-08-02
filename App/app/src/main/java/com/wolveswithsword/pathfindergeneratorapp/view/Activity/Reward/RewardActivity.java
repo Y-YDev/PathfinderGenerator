@@ -1,4 +1,4 @@
-package com.wolveswithsword.pathfindergeneratorapp.view.Activity;
+package com.wolveswithsword.pathfindergeneratorapp.view.Activity.Reward;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.view.Activity.SmartItemActivity;
 import com.wolveswithsword.pathfindergeneratorapp.view.RewardRecyclerViewAdapter;
 
 import java.util.ArrayList;

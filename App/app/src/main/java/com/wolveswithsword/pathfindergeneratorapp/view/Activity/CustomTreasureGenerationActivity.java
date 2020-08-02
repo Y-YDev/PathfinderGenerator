@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.view.Activity.Reward.CustomRewardActivity;
 import com.wolveswithsword.pathfindergeneratorapp.view.custom_treasure.CustomTreasureRecyclerViewAdapter;
 
-import java.util.ArrayList;
-
-import generator.ProbabilityType;
-import generator.Treasure;
+import generator.TreasureElement;
 
 /**
  * Activité de création custom de trésor
@@ -30,11 +28,6 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_generate_treasure);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
 
         createButton = findViewById(R.id.custom_gen_button);
         recyclerView = findViewById(R.id.custom_gen_recycler);
@@ -42,25 +35,27 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO afficher un message d'erreur claire pour l'utilisateur
                 if(adapter.checkIfCorrectInput()){
                     switchIntent();
                 }
             }
         });
 
-        adapter = new CustomTreasureRecyclerViewAdapter(Treasure.getAllTreasure());
+        adapter = new CustomTreasureRecyclerViewAdapter();
+        adapter.setTreasureList(TreasureElement.generateAll());
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+
     public void switchIntent(){
-        ArrayList<Double> prices = adapter.getPrices();
-        ArrayList<ProbabilityType> probabilityTypes = adapter.getProbabilityTypes();
 
         Intent intent = new Intent(CustomTreasureGenerationActivity.this, CustomRewardActivity.class);
-        intent.putExtra("prices",prices);
-        intent.putExtra("probabilityTypes",probabilityTypes);
+
+        intent.putExtra("treasureList",adapter.getTreasureList());
+
         startActivity(intent);
     }
 }

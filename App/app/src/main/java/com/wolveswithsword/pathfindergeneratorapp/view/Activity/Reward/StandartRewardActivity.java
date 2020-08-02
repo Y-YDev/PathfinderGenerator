@@ -1,4 +1,4 @@
-package com.wolveswithsword.pathfindergeneratorapp.view.Activity;
+package com.wolveswithsword.pathfindergeneratorapp.view.Activity.Reward;
 
 import android.os.Bundle;
 

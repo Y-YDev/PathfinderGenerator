@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.listener.MonsterSpinnerSelectedListener;
+import com.wolveswithsword.pathfindergeneratorapp.view.Activity.Reward.StandartRewardActivity;
 
 import generator.MonsterType;
 import generator.ProbabilityType;
@@ -36,11 +37,6 @@ public class StandartGenerationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.standardcreation);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
 
         bonusBox = findViewById(R.id.checkbox_bonus);
 
@@ -54,7 +50,6 @@ public class StandartGenerationActivity extends AppCompatActivity {
         poInput = findViewById(R.id.po);
 
         error = findViewById(R.id.errorStdGen);
-        error.setVisibility(View.INVISIBLE);
 
         //Mise en place du listener
         createButton = findViewById(R.id.generate);
@@ -66,6 +61,13 @@ public class StandartGenerationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        error.setVisibility(View.INVISIBLE);
+
     }
 
     /**

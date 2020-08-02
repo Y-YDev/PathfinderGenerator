@@ -1,7 +1,11 @@
 package com.wolveswithsword.pathfindergeneratorapp.view.custom_treasure;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -15,6 +19,7 @@ import com.wolveswithsword.pathfindergeneratorapp.R;
 import java.util.List;
 
 import generator.ProbabilityType;
+import generator.TreasureElement;
 
 public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
 
@@ -24,6 +29,8 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
     private Context context;
     private TextView error;
 
+    private TreasureElement treasureElement;
+
     public CustomTreasureViewHolder(@NonNull View itemView) {
         super(itemView);
         poInput = itemView.findViewById(R.id.po_input);
@@ -32,30 +39,62 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         context = itemView.getContext();
         error = itemView.findViewById(R.id.errorCustomGen);
 
+        this.probability.setAdapter(new ArrayAdapter<>(context,android.R.layout.simple_spinner_item, ProbabilityType.toArray()));
         error.setVisibility(View.GONE);
+
+        //auto update treasureElement avec la nouvelle probabilité selectionner
+        probability.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                treasureElement.setProba(ProbabilityType.getType(probability.getSelectedItem().toString()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        poInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.toString().isEmpty()) treasureElement.setPo(0);
+                else treasureElement.setPo(Double.parseDouble(s.toString()));
+                checkInput();
+            }
+        });
+
     }
 
-    public void setNameField(String nameField) {
-        this.nameField.setText(nameField);
+    public void initView(TreasureElement treasureElement){
+        this.treasureElement = treasureElement;
+        this.nameField.setText(this.treasureElement.getTreasureType().toString());
+        poInput.setText((treasureElement.getPo() != 0  ? Double.toString(treasureElement.getPo()) : ""));
+        probability.setSelection(((ArrayAdapter<CharSequence>) probability.getAdapter()).getPosition(treasureElement.getProba().toString()));
+        probability.setSelection(((ArrayAdapter<CharSequence>) probability.getAdapter()).getPosition(treasureElement.getProba().toString()));
+        checkInput();
     }
 
-    public void setSpinner(List<String> probabilityList){
-        this.probability.setAdapter(new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, probabilityList));
+    public void checkInput(){
+        if(treasureElement.checkCorrectValue())  error.setVisibility(View.GONE);
+        else setError("La somme d'argent doit être inférieure à 1 000 000 po...");
     }
+
 
     public void setError(String errorMsg){
         error.setVisibility(View.VISIBLE);
         error.setText(errorMsg);
     }
 
-    public double getPoInput(){
-        if(poInput.getText().toString().isEmpty()){
-            return 0;
-        }
-        return Double.valueOf(poInput.getText().toString());
-    }
 
     public ProbabilityType getProbabilitySelected(){
         return ProbabilityType.getType(probability.getSelectedItem().toString());
     }
 }
+
+
+
+

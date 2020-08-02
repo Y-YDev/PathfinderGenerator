@@ -196,27 +196,20 @@ public class TreasureBuilder {
 		return createRandomReward(treasures, null, money);
 	}
 
+
 	/**
 	 * Permet de créer des récompenses via le générateur personalisé de trésor
-	 * @param probabilityTypes : les probabilités de chaque trésor
-	 * @param prices : les prix donné à chaques trésor
-	 * @return
+	 * @param treasureList la list des tresor a generer
+	 * @return la list des recompense
 	 */
-	public ArrayList<Item> createCustomReward(ArrayList<ProbabilityType> probabilityTypes, ArrayList<Double> prices){
+	public ArrayList<Item> createCustomReward(ArrayList<TreasureElement> treasureList){
 		ArrayList<Item> reward = new ArrayList<Item>();
-		TreasureType[] treasures = TreasureType.getValues();
 
-		//Si les listes n'ont pas la meme taille on retourne une liste vide
-		if(treasures.length != probabilityTypes.size() || treasures.length != prices.size()){
-			Debug.error("Error on createCustomReward : different size");
-			return reward;
-		}
-
-		for(int i = 0; i < treasures.length; i++){
+		for(TreasureElement treasure : treasureList){
 			reward.addAll(createRandomReward(
-					new Treasure(treasures[i]),
-					probabilityTypes.get(i),
-					prices.get(i)));
+					new Treasure(treasure.getTreasureType()),
+					treasure.getProba(),
+					treasure.getPo()));
 		}
 
 		return reward;

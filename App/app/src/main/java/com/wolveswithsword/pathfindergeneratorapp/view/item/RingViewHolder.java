@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.listener.SmartItemButtonListener;
-import com.wolveswithsword.pathfindergeneratorapp.view.Activity.RewardActivity;
+import com.wolveswithsword.pathfindergeneratorapp.view.Activity.Reward.RewardActivity;
 
 import item.ring.Ring;
 

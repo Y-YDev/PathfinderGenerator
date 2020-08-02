@@ -10,23 +10,31 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import generator.ProbabilityType;
 import generator.Treasure;
 import generator.TreasureBuilder;
+import generator.TreasureElement;
 import utility.Debug;
 import utility.Tuple;
 
 public class CustomTreasureRecyclerViewAdapter extends RecyclerView.Adapter<CustomTreasureViewHolder> {
 
-    ArrayList<Treasure> treasuresList;
-    ArrayList<CustomTreasureViewHolder> holderList;
-    TreasureBuilder treasureBuilder;
+    private ArrayList<CustomTreasureViewHolder> holderList;
 
-    public CustomTreasureRecyclerViewAdapter(ArrayList<Treasure> treasuresList){
+    private ArrayList<TreasureElement> treasureList;
+
+    public CustomTreasureRecyclerViewAdapter(){
         holderList = new ArrayList<>();
-        this.treasuresList = treasuresList;
-        this.treasureBuilder = new TreasureBuilder();
+    }
+
+    public void setTreasureList(ArrayList<TreasureElement> treasureList){
+        this.treasureList = treasureList;
+    }
+
+    public ArrayList<TreasureElement> getTreasureList(){
+        return treasureList;
     }
 
     @NonNull
@@ -38,35 +46,25 @@ public class CustomTreasureRecyclerViewAdapter extends RecyclerView.Adapter<Cust
 
     @Override
     public void onBindViewHolder(@NonNull CustomTreasureViewHolder holder, int position) {
-        Treasure treasure = treasuresList.get(position);
-        holder.setSpinner(ProbabilityType.toArray());
-        holder.setNameField(treasure.getType().toString());
-        holderList.add(holder);
+        holder.initView(treasureList.get(position));
     }
 
-
-    @Override
-    public void onViewRecycled(@NonNull CustomTreasureViewHolder holder) {
-        //TODO enregistrer hors des viewHolder les information ou remplacer par une listView
-        Debug.debug("value : "+holder.getPoInput() +" : "+holder.getLayoutPosition());
-        super.onViewRecycled(holder);
-    }
 
     /**
      * Regarde si l'input des po est correct.
      * @return true ou false selon que l'input est valide ou non.
      */
     public boolean checkIfCorrectInput(){
-        boolean res = true;
         //La somme est trop élévée
-        for(CustomTreasureViewHolder holder : holderList) {
-            if (holder.getPoInput() > 1000000) {
-                holder.setError("La somme d'argent doit être inférieure à 1 000 000 po...");
-                res = false;
+        for(TreasureElement treasureElement : treasureList) {
+            if (!treasureElement.checkCorrectValue()) {
+                return false;
             }
         }
-        return res;
+        return true;
     }
+
+
 
     /**
      * Récupere les probabilités de tout les trésors.
@@ -81,21 +79,9 @@ public class CustomTreasureRecyclerViewAdapter extends RecyclerView.Adapter<Cust
         return res;
     }
 
-    /**
-     * Récupere les prix donnés à tout les trésors
-     * @return
-     */
-    public ArrayList<Double> getPrices(){
-        ArrayList<Double> res = new ArrayList<Double>();
-
-        for(CustomTreasureViewHolder holder : holderList){
-            res.add(holder.getPoInput());
-        }
-        return res;
-    }
 
     @Override
     public int getItemCount() {
-        return treasuresList.size();
+        return (null != treasureList ? treasureList.size() : 0);
     }
 }
