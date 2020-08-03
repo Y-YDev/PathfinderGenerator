@@ -21,13 +21,7 @@ import utility.Tuple;
 
 public class CustomTreasureRecyclerViewAdapter extends RecyclerView.Adapter<CustomTreasureViewHolder> {
 
-    private ArrayList<CustomTreasureViewHolder> holderList;
-
     private ArrayList<TreasureElement> treasureList;
-
-    public CustomTreasureRecyclerViewAdapter(){
-        holderList = new ArrayList<>();
-    }
 
     public void setTreasureList(ArrayList<TreasureElement> treasureList){
         this.treasureList = treasureList;
@@ -63,22 +57,6 @@ public class CustomTreasureRecyclerViewAdapter extends RecyclerView.Adapter<Cust
         }
         return true;
     }
-
-
-
-    /**
-     * Récupere les probabilités de tout les trésors.
-     * @return
-     */
-    public ArrayList<ProbabilityType> getProbabilityTypes(){
-        ArrayList<ProbabilityType> res = new ArrayList<>();
-
-        for(CustomTreasureViewHolder holder : holderList){
-            res.add(holder.getProbabilitySelected());
-        }
-        return res;
-    }
-
 
     @Override
     public int getItemCount() {

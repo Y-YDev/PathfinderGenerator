@@ -62,6 +62,7 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void afterTextChanged(Editable s) {
                 if(s.toString().isEmpty()) treasureElement.setPo(0);
+                else if(s.charAt(0)=='.') s.insert(0,"0") ;
                 else treasureElement.setPo(Double.parseDouble(s.toString()));
                 checkInput();
             }
@@ -73,7 +74,6 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         this.treasureElement = treasureElement;
         this.nameField.setText(this.treasureElement.getTreasureType().toString());
         poInput.setText((treasureElement.getPo() != 0  ? Double.toString(treasureElement.getPo()) : ""));
-        probability.setSelection(((ArrayAdapter<CharSequence>) probability.getAdapter()).getPosition(treasureElement.getProba().toString()));
         probability.setSelection(((ArrayAdapter<CharSequence>) probability.getAdapter()).getPosition(treasureElement.getProba().toString()));
         checkInput();
     }
@@ -89,10 +89,6 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         error.setText(errorMsg);
     }
 
-
-    public ProbabilityType getProbabilitySelected(){
-        return ProbabilityType.getType(probability.getSelectedItem().toString());
-    }
 }
 
 
