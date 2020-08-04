@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.Activity.Reward.StandartRewardActivity"/>
-        <activity android:name=".view.Activity.Reward.CustomRewardActivity"/>
-        <activity android:name=".view.Activity.SmartItemActivity"/>
-        <activity android:name=".view.Activity.StandartGenerationActivity">
+        <activity android:name=".View.Activity.Reward.StandartRewardActivity"/>
+        <activity android:name=".View.Activity.Reward.CustomRewardActivity"/>
+        <activity android:name=".View.Activity.SmartItemActivity"/>
+        <activity android:name=".View.Activity.Generation.StandartGenerationActivity"/>
+        <activity android:name=".View.Activity.Generation.CustomTreasureGenerationActivity"/>
+        <activity android:name=".View.Activity.MainMenuActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
