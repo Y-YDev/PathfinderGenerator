@@ -36,7 +36,7 @@ public class StandartGenerationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.standardcreation);
+        setContentView(R.layout.standard_creation);
 
         bonusBox = findViewById(R.id.checkbox_bonus);
 

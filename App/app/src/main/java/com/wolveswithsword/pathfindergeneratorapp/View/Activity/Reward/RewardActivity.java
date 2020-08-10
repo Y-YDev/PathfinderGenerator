@@ -31,7 +31,7 @@ public abstract class RewardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rewardlayout);
+        setContentView(R.layout.reward_layout);
 
         rerollButton = findViewById(R.id.reroll);
         rerollButton.setOnClickListener(new View.OnClickListener(){

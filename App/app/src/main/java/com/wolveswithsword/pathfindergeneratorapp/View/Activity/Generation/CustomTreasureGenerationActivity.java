@@ -27,7 +27,7 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custom_generate_treasure);
+        setContentView(R.layout.custom_treasure_creation);
 
         createButton = findViewById(R.id.custom_gen_button);
         recyclerView = findViewById(R.id.custom_gen_recycler);
@@ -35,7 +35,7 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO afficher un message d'erreur claire pour l'utilisateur
+                //TODO afficher un message d'erreur clair pour l'utilisateur
                 if(adapter.checkIfCorrectInput()){
                     switchIntent();
                 }

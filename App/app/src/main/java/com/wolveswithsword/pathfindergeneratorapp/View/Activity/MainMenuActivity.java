@@ -3,18 +3,19 @@ package com.wolveswithsword.pathfindergeneratorapp.View.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomItemGenerationActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomTreasureGenerationActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.StandartGenerationActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
     Button standardCreation;//Bouton de création standard
     Button customTreasureGeneration;//Bouton de création personnalisé par trésor
+    Button customItemGeneration;//Bouton de création d'objet personnalisé
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         standardCreation = findViewById(R.id.creation_standard);
         customTreasureGeneration = findViewById(R.id.creation_treasure);
+        customItemGeneration = findViewById(R.id.creation_item);
 
         //Mise en place des listeners
         standardCreation.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +38,13 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 customTreasureIntent();
+            }
+        });
+
+        customItemGeneration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customItemIntent();
             }
         });
     }
@@ -52,6 +61,11 @@ public class MainMenuActivity extends AppCompatActivity {
 
     private void customTreasureIntent(){
         Intent intent = new Intent(MainMenuActivity.this, CustomTreasureGenerationActivity.class);
+        startActivity(intent);
+    }
+
+    private void customItemIntent(){
+        Intent intent = new Intent(MainMenuActivity.this, CustomItemGenerationActivity.class);
         startActivity(intent);
     }
 }
