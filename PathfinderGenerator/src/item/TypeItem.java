@@ -1,6 +1,10 @@
 package item;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public enum TypeItem {
 	COIN(1,"Pièces"),ARMOR(2,"Armure"),ART(3,"Objet d'Art"),
@@ -32,4 +36,29 @@ public enum TypeItem {
 
 		return res;
 	}
+
+    public String toString() {
+        return this.name;
+    }
+
+    //La hashmap pour retrouver le type
+    private static final Map<String, TypeItem> lookup = new HashMap<>();
+
+    //Remplie la hashmap au chargement.
+    static
+    {
+        for(TypeItem type : TypeItem.values())
+        {
+            lookup.put(type.toString(), type);
+        }
+    }
+
+    /**
+     * Renvoie le type correspondant à sa chaine de caractères.
+     * @param type : la représentation en string du TypeItem
+     * @return : le TypeItem
+     */
+    public static TypeItem getTypeItem(String type) {
+        return lookup.get(type);
+    }
 }

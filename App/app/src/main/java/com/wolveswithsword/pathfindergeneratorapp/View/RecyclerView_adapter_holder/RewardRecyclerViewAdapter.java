@@ -187,4 +187,9 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,rewardList.size());
     }
+
+    public void addItem(Item item){
+        rewardList.add(item);
+        notifyItemInserted(getItemCount());
+    }
 }
