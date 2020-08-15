@@ -5,6 +5,7 @@ import java.util.Random;
 import constant.GemAndJewelConstant;
 import utility.Data;
 import utility.Debug;
+import utility.Tools;
 import utility.Tuple;
 
 /**
@@ -218,7 +219,8 @@ public class GemAndJewelBuilder {
     	
     	//FORMULE : (PRIX BIJ * PRIX MAT + PRIX GEM N,N-1,N-2) * (1 + MODIF TAILLE + MODIF WORK + MODIF TYPE)
     	jewel.setPrice(modificator * price);
-    	
+    	jewel.setPrice(Tools.truncateTo(jewel.getPrice(),2));//On tronque le prix à deux décimale.
+
     	//Affichage de fin de creation car affichage de blanc lors de l'appel de jewelWork.
     	Debug.debug("");
     	return jewel;

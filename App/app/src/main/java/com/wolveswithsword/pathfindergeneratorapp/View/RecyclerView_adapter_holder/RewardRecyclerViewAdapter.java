@@ -3,6 +3,7 @@ package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_hol
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,10 +40,14 @@ import item.staff.Staff;
 import item.wand.Wand;
 import item.weapon.Weapon;
 import item.wonderfulObject.WonderfulObject;
+import utility.Tools;
 
 public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     ArrayList<Item> rewardList;
+
+    TextView realPriceField;
+    TextView theoricalPriceField;
 
     public RewardRecyclerViewAdapter(){
         rewardList = new ArrayList<>();
@@ -176,6 +181,8 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
         rewardList.clear();
         rewardList.addAll(items);
         notifyDataSetChanged();
+        updatePricesFields();//On met à jour.
+
     }
 
     /**
@@ -186,10 +193,46 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
         rewardList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,rewardList.size());
+        updatePricesFields();//On doit mettre à jour les textView des prix
     }
 
+    /**
+     * Permet d'ajouter un item (à la fin)
+     * @param item : l'item à ajouter
+     */
     public void addItem(Item item){
         rewardList.add(item);
         notifyItemInserted(getItemCount());
+        updatePricesFields();//On doit mettre à jour les textView des prix
+    }
+
+    /**
+     * Permet de renvoyer le prix réel total du trésor.
+     * @return le prix total du trésor.
+     */
+    public double getTotalRealPriceOfItems(){
+        double res = 0;
+
+        for(Item item : rewardList){
+            res += item.getPrice();
+        }
+        return res;
+    }
+
+    public void setRealPriceField(TextView realPriceField){
+        this.realPriceField = realPriceField;
+    }
+    public void setTheoricalPriceField(TextView theoricalPriceField){
+        this.theoricalPriceField = theoricalPriceField;
+    }
+
+    /**
+     * Met à jour les textView avec le prix actuel.
+     */
+    private void updatePricesFields(){
+        if(realPriceField != null)
+            realPriceField.setText(Double.toString(Tools.truncateTo(getTotalRealPriceOfItems(),2))+" po");
+        //if(theoricalPriceField != null)
+        //    theoricalPriceField.setText(Double.toString(Tools.truncateTo(getTotalTheoricalPriceOfItems(),2))+" po");
     }
 }
