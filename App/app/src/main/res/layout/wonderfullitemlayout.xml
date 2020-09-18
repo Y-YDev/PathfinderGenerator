@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/wond_image"
             android:layout_width="0dp"
-            android:layout_height="115dp"
+            android:layout_height="75dp"
             android:layout_marginStart="10dp"
             android:layout_weight="2"
             tools:srcCompat="@tools:sample/avatars[0]" />
@@ -42,15 +42,16 @@
                 android:id="@+id/wond_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Name"
                 android:textAlignment="center"
 
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -59,19 +60,18 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Prix : "
-                    android:textAlignment="center"
-                    android:textSize="18sp"
+                    android:textAlignment="textStart"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/wond_price"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:text="prix"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -87,8 +87,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Emplacement :"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -98,7 +98,7 @@
                     android:layout_weight="1"
                     android:text="type"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -115,8 +115,10 @@
     <LinearLayout
         android:id="@+id/wond_part_layout"
         android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -126,8 +128,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Propriété particulière : "
-            android:textAlignment="center"
-            android:textSize="18sp"
+            android:textAlignment="textStart"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -137,7 +139,7 @@
             android:layout_weight="1"
             android:text="prop"
             android:textAlignment="center"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
