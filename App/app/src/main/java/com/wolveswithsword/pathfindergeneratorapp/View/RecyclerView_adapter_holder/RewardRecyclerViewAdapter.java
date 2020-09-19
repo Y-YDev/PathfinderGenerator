@@ -189,6 +189,7 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
      * @param position : la position de l'item a retirer
      */
     public void removeItem(int position){
+        if(position<0) return; //correctif bug appuis multiple supression item
         rewardList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,rewardList.size());
