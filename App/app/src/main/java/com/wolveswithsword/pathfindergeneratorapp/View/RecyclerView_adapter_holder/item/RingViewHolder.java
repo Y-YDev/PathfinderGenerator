@@ -59,7 +59,7 @@ public class RingViewHolder extends ItemViewHolder {
 
         if(ring.getSmartItem() != null){
             smartItemLayout.setVisibility(View.VISIBLE);
-            smartItem.setOnClickListener(new SmartItemButtonListener((RewardActivity) context,ring.getSmartItem()));
+            smartItem.setOnClickListener(new SmartItemButtonListener(context,ring.getSmartItem()));
         }
         else{
             smartItemLayout.setVisibility(View.GONE);

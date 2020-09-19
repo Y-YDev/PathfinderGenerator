@@ -47,7 +47,6 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     ArrayList<Item> rewardList;
 
     TextView realPriceField;
-    TextView theoricalPriceField;
 
     public RewardRecyclerViewAdapter(){
         rewardList = new ArrayList<>();
@@ -222,9 +221,6 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     public void setRealPriceField(TextView realPriceField){
         this.realPriceField = realPriceField;
     }
-    public void setTheoricalPriceField(TextView theoricalPriceField){
-        this.theoricalPriceField = theoricalPriceField;
-    }
 
     /**
      * Met à jour les textView avec le prix actuel.
@@ -232,7 +228,5 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     private void updatePricesFields(){
         if(realPriceField != null)
             realPriceField.setText(Double.toString(Tools.truncateTo(getTotalRealPriceOfItems(),2))+" po");
-        //if(theoricalPriceField != null)
-        //    theoricalPriceField.setText(Double.toString(Tools.truncateTo(getTotalTheoricalPriceOfItems(),2))+" po");
     }
 }

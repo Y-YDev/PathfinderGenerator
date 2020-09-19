@@ -59,15 +59,4 @@ public abstract class RewardActivity extends AppCompatActivity {
      * Lance/Relance les récompenses générées
      */
     public abstract void roll();
-
-
-    /**
-     * Créer un intent vers la page d'affichage de smart item
-     * @param smartItem : l'objet intelligent
-     */
-    public void smartItemIntent(SmartItem smartItem){
-        Intent intent = new Intent(RewardActivity.this, SmartItemActivity.class);
-        intent.putExtra("smartItem",smartItem);
-        startActivity(intent);
-    }
 }

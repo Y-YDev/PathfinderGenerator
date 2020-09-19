@@ -13,6 +13,7 @@ import item.weapon.Munition;
 import item.weapon.RangeWeapon;
 import item.weapon.Type;
 import item.weapon.Weapon;
+import utility.Tools;
 
 public class WeaponViewHolder extends ItemViewHolder {
 
@@ -117,8 +118,8 @@ public class WeaponViewHolder extends ItemViewHolder {
             propPartLayout.setVisibility(View.GONE);
         }
 
-        price.setText(weapon.getPrice()+" po");
-        weight.setText(weapon.getWeight()+" kg");
+        price.setText(Tools.truncateTo(weapon.getPrice(),2)+" po");
+        weight.setText(Tools.truncateTo(weapon.getWeight(),2)+" kg");
 
         if(weapon.getType() == Type.DIST){
             image.setImageResource(R.drawable.bow_image);
@@ -127,9 +128,9 @@ public class WeaponViewHolder extends ItemViewHolder {
             if(((RangeWeapon)weapon).getMunition().getQuantity() != 0){
                 munitionLayout.setVisibility(View.VISIBLE);
                 munName.setText(((RangeWeapon) weapon).getMunition().getName());
-                munPrice.setText(((RangeWeapon) weapon).getMunition().getPrice()+" po");
+                munPrice.setText(Tools.truncateTo(((RangeWeapon) weapon).getMunition().getPrice(),2)+" po");
                 munQuantity.setText(Integer.toString(((RangeWeapon) weapon).getMunition().getQuantity()));
-                munWeight.setText(((RangeWeapon) weapon).getMunition().getWeight()+" kg");
+                munWeight.setText(Tools.truncateTo(((RangeWeapon) weapon).getMunition().getWeight(),2)+" kg");
             }
             else{
                 munitionLayout.setVisibility(View.GONE);

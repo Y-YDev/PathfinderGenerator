@@ -60,7 +60,7 @@ public class WonderfulItemViewHolder extends ItemViewHolder {
 
         if(wonderfulObject.getSmartItem() != null){
             smartItemLayout.setVisibility(View.VISIBLE);
-            smartItem.setOnClickListener(new SmartItemButtonListener((RewardActivity) context,wonderfulObject.getSmartItem()));
+            smartItem.setOnClickListener(new SmartItemButtonListener(context,wonderfulObject.getSmartItem()));
         }
         else{
             smartItemLayout.setVisibility(View.GONE);

@@ -40,7 +40,6 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
     RewardRecyclerViewAdapter rewardRecyclerViewAdapter;
 
     TextView realPrice;
-    TextView theoricalPrice;
 
     Button addButton;
     Spinner objectSpinner;
@@ -81,7 +80,6 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
 
         poField = findViewById(R.id.po_field);
         realPrice = findViewById(R.id.real_value);
-        theoricalPrice = findViewById(R.id.theorical_value);
         poInput = findViewById(R.id.po_input);
 
         errorText = findViewById(R.id.error_itemGen);

@@ -27,7 +27,7 @@
         <ImageView
             android:id="@+id/par_image"
             android:layout_width="0dp"
-            android:layout_height="115dp"
+            android:layout_height="80dp"
             android:layout_marginStart="10dp"
             android:layout_weight="2"
             tools:srcCompat="@tools:sample/avatars[0]" />
@@ -43,15 +43,16 @@
                 android:id="@+id/par_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Name"
                 android:textAlignment="center"
 
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -60,24 +61,24 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Prix :"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
+                    android:textAlignment="textStart"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/par_price"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_weight="2"
                     android:text="price"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
@@ -86,19 +87,19 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Type du sort :"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
+                    android:textAlignment="textStart"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/par_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="2"
                     android:text="divin"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -115,8 +116,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -125,8 +126,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="Niveau du sort :"
-            android:textAlignment="center"
-            android:textSize="16sp"
+            android:textAlignment="textStart"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -136,17 +137,16 @@
             android:layout_weight="1"
             android:text="TextView "
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
+        android:layout_marginStart="10dp"
         android:orientation="horizontal"
         android:visibility="visible">
 
@@ -156,8 +156,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="Niveau du lanceur de sort :"
-            android:textAlignment="center"
-            android:textSize="16sp"
+            android:textAlignment="textStart"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -167,7 +167,7 @@
             android:layout_weight="1"
             android:text="TextView"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>

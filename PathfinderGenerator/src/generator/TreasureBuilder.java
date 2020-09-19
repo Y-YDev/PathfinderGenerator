@@ -232,7 +232,7 @@ public class TreasureBuilder {
 		int index;
 		double startMoney = money;//L'argent de départ
 
-		//Tant qu'on a de l'argent ou qu'on peut acheter (on s'arrete quans on atteind 2% du prix de base)
+		//Tant qu'on a de l'argent ou qu'on peut acheter (on s'arrete quand on atteind 2% du prix de base)
 		while(treasures.size() > 0 && money > (startMoney * 0.02)) {
 			index = r.nextInt(treasures.size());
 			Treasure treasure = treasures.get(index);//On tire un trésor au hasard

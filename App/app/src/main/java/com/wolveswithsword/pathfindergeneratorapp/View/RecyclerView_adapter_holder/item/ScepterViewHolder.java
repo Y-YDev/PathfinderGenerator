@@ -73,7 +73,7 @@ public class ScepterViewHolder extends ItemViewHolder {
 
         if(scepter.getSmartItem() != null){
             smartItemLayout.setVisibility(View.VISIBLE);
-            smartItem.setOnClickListener(new SmartItemButtonListener((RewardActivity) context,scepter.getSmartItem()));
+            smartItem.setOnClickListener(new SmartItemButtonListener(context,scepter.getSmartItem()));
         }
         else{
             smartItemLayout.setVisibility(View.GONE);
