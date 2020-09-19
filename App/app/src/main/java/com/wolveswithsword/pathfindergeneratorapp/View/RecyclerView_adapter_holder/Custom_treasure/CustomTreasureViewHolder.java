@@ -67,6 +67,7 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    @SuppressWarnings("unchecked")
     public void initView(TreasureElement treasureElement){
         this.treasureElement = treasureElement;
         this.nameField.setText(this.treasureElement.getTreasureType().toString());
