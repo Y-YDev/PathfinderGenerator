@@ -1,12 +1,14 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.Custom_treasure;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -20,6 +22,8 @@ import generator.TreasureElement;
 
 public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
 
+    private LinearLayout itemLinearLayout;
+
     private TextView nameField;
     private EditText poInput;
     private Spinner probability;
@@ -30,6 +34,7 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
 
     public CustomTreasureViewHolder(@NonNull View itemView) {
         super(itemView);
+        itemLinearLayout = itemView.findViewById(R.id.main_item_lin_layout);
         poInput = itemView.findViewById(R.id.po_input);
         nameField = itemView.findViewById(R.id.name_field);
         probability = itemView.findViewById(R.id.probability_input);
@@ -77,8 +82,16 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void checkInput(){
-        if(treasureElement.checkCorrectValue())  error.setVisibility(View.GONE);
-        else setError("La somme d'argent doit être inférieure à 1 000 000 po...");
+        if(treasureElement.checkCorrectValue()){
+            error.setVisibility(View.GONE);
+
+            if(treasureElement.getPo() != 0) itemLinearLayout.setBackgroundColor(Color.WHITE);
+            else itemLinearLayout.setBackgroundColor(Color.LTGRAY);
+        }
+        else {
+            setError("La somme d'argent doit être inférieure à 1 000 000 po...");
+            itemLinearLayout.setBackgroundColor(0x77FF0000);
+        }
     }
 
 

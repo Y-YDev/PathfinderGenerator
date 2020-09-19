@@ -1,14 +1,17 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +45,7 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
     TextView realPrice;
 
     Button addButton;
+    ImageButton deleteAllButton;
     Spinner objectSpinner;
     Spinner raritySpinner;
 
@@ -77,6 +81,13 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
                 addItemToRecyclerView();
             }
         });
+        deleteAllButton = findViewById(R.id.delete_all_Button);
+        deleteAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                askDeleteAll();
+            }
+        });
 
         poField = findViewById(R.id.po_field);
         realPrice = findViewById(R.id.real_value);
@@ -93,7 +104,7 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
         objectSpinner.setOnItemSelectedListener(new ItemSpinnerSelectedListener(getApplicationContext(),poField,poInput,raritySpinner,errorText));
 
         poTypeSpinner = findViewById(R.id.po_type_spin);
-        poTypeSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, new String[]{"pc","po","pa","pp"}));
+        poTypeSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, new String[]{"pc","pa","po","pp"}));
 
         rewardRecyclerView = findViewById(R.id.reward_recyclerview);
         rewardRecyclerViewAdapter = new RewardRecyclerViewAdapter();
@@ -182,5 +193,32 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Créer une fenetre pour demander la confirmation de la supression de la liste d'item.
+     */
+    private void askDeleteAll(){
+        if(rewardRecyclerViewAdapter.getItemCount() != 0) {//Inutile de demander de supprimer une liste vide...CQFD
+            //Création de la fenetre de création.
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Tout supprimer ?");
+            builder.setMessage("Voulez-vous vraiment supprimer tout les éléments du trésor ?");
+            builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    rewardRecyclerViewAdapter.deleteAll();//Suppression acceptée
+                    dialog.dismiss();
+                }
+            });
+            builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();//Affichage de la fenetre.
+        }
     }
 }

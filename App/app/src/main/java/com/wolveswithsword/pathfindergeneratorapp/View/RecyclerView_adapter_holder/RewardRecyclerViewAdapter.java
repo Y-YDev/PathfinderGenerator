@@ -206,6 +206,15 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     }
 
     /**
+     * Supprime toutes la liste des items.
+     */
+    public void deleteAll(){
+        rewardList.clear();
+        notifyDataSetChanged();
+        updatePricesFields();
+    }
+
+    /**
      * Permet de renvoyer le prix réel total du trésor.
      * @return le prix total du trésor.
      */
