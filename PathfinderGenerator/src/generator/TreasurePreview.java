@@ -1,8 +1,9 @@
 package generator;
 
-public class TreasurePreviews {
+public class TreasurePreview {
+
     private String name;
-    private int Po;
+    private double Po;
     private int nbItem;
 
     public String getName() {
@@ -13,11 +14,11 @@ public class TreasurePreviews {
         this.name = name;
     }
 
-    public int getPo() {
+    public double getPo() {
         return Po;
     }
 
-    public void setPo(int po) {
+    public void setPo(double po) {
         Po = po;
     }
 

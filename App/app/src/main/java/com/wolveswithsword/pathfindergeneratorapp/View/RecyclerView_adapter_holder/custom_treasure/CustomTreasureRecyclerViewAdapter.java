@@ -1,4 +1,4 @@
-package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.Custom_treasure;
+package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.custom_treasure;
 
 import android.view.LayoutInflater;
 import android.view.View;

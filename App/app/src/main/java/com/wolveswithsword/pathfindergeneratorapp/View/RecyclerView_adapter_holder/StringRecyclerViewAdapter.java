@@ -11,11 +11,11 @@ import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import java.util.ArrayList;
 
-public class StringRecyclerView extends RecyclerView.Adapter<StringViewHolder> {
+public class StringRecyclerViewAdapter extends RecyclerView.Adapter<StringViewHolder> {
 
     ArrayList<String> allMsg;
 
-    public StringRecyclerView(ArrayList<String> allMsg){
+    public StringRecyclerViewAdapter(ArrayList<String> allMsg){
         this.allMsg = allMsg;
     }
 

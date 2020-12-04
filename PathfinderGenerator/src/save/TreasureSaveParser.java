@@ -6,12 +6,10 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.List;
 
-import generator.TreasurePreviews;
+import generator.TreasurePreview;
 import item.Item;
 import item.ItemJsonAdapter;
 
@@ -30,9 +28,9 @@ public class TreasureSaveParser {
      * @param input le string a decoder
      * @return le preview
      */
-    public TreasurePreviews parseTresorPreviews(String input){
+    public TreasurePreview parseTresorPreviews(String input){
         JsonReader reader = new JsonReader(new StringReader(input));
-        TreasurePreviews result = gson.fromJson(input,TreasurePreviews.class);
+        TreasurePreview result = gson.fromJson(reader, TreasurePreview.class);
         try {
             reader.close();
         } catch (IOException e) {
@@ -69,7 +67,7 @@ public class TreasureSaveParser {
      * @param preview l'objet a transformer
      * @return le string du json
      */
-    public String previewsToJson(TreasurePreviews preview){
+    public String previewsToJson(TreasurePreview preview){
 
         return gson.toJson(preview);
     }

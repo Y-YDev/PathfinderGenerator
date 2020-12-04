@@ -80,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:text="Création d'Objet"
                 android:textAllCaps="false"
                 android:textSize="18sp"
@@ -90,8 +90,19 @@
                 android:id="@+id/delete_all_Button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
+                android:layout_marginEnd="20dp"
                 app:srcCompat="@android:drawable/btn_dialog" />
+
+            <Button
+                android:id="@+id/custom_item_save_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:layout_weight="2"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Sauvegarder" />
         </LinearLayout>
 
         <LinearLayout

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward.CustomRewardActivity;
-import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.Custom_treasure.CustomTreasureRecyclerViewAdapter;
+import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.custom_treasure.CustomTreasureRecyclerViewAdapter;
 
 import generator.TreasureElement;
 

@@ -1,21 +1,19 @@
 package save;
 
 import java.io.File;
-import java.io.Reader;
 import java.util.ArrayList;
 
 
-import generator.Treasure;
-import generator.TreasurePreviews;
+import generator.TreasurePreview;
 import item.Item;
 import utility.Debug;
 import utility.FileManager;
 
 public class HandlerTreasureSave {
 
-    File directory;
-    private final String extention = ".json";
-    TreasureSaveParser parser = new TreasureSaveParser();
+    private File directory;
+    private final String extension = ".json";
+    private TreasureSaveParser parser = new TreasureSaveParser();
 
 
 
@@ -25,7 +23,6 @@ public class HandlerTreasureSave {
      */
     public HandlerTreasureSave (String directoryPath) {
         initDirectory(new File(directoryPath));
-        this.directory = directory;
     }
 
     /**
@@ -34,23 +31,23 @@ public class HandlerTreasureSave {
      */
     public HandlerTreasureSave (File directory) {
         initDirectory(directory);
-        this.directory = directory;
-
-
     }
 
     private void initDirectory(File directory){
         if(!directory.exists()){
             boolean isCreate = directory.mkdir();
             if(!isCreate){
-                Debug.error("impossible de generer le fichier de sauvegarde : "+directory.getName());
+                Debug.error("impossible de générer le fichier de sauvegarde : "+directory.getName());
+                return;
             }
 
         }
         else if(!directory.isDirectory()){
-            Debug.error("Un fichier a le nom du repertoire de sauvegarde : "+directory.getName());
+            Debug.error("Un fichier à déjà le nom du répertoire de sauvegarde : "+directory.getName());
+            return;
         }
 
+        this.directory = directory;
     }
 
 
@@ -69,9 +66,10 @@ public class HandlerTreasureSave {
      *
      * @return list de preview sauvegarder
      */
-    public ArrayList<TreasurePreviews> getPreviewList(){
+    public ArrayList<TreasurePreview> getPreviewList(){
         ArrayList<File> saveFiles = getAllSaveFiles();
-        ArrayList<TreasurePreviews> allPreviews = new ArrayList<>();
+        ArrayList<TreasurePreview> allPreviews = new ArrayList<>();
+
         for(File saveFile : saveFiles){
             FileManager save = new FileManager(saveFile);
             allPreviews.add(parser.parseTresorPreviews(save.getRaw()));
@@ -86,12 +84,14 @@ public class HandlerTreasureSave {
      * @return permet de recuperer la liste du tresor sauvegarder
      */
     public ArrayList<Item> getTreasureSave(String name){
-        FileManager treasureFile = new FileManager(new File(directory,name+extention));
+
+        FileManager treasureFile = new FileManager(new File(directory,name+extension));
+
         if(!treasureFile.exists()){
             Debug.error("le fichier de sauvegarde n'existe pas");
             return null;
         }
-        ArrayList<Item> items = parser.parseListItems(treasureFile.getRaw());
+        //ArrayList<Item> items = parser.parseListItems(treasureFile.getRaw());
         return parser.parseListItems(treasureFile.getRaw());
     }
 
@@ -101,16 +101,14 @@ public class HandlerTreasureSave {
      * @param preview apercus de la sauvegarde
      * @return true -> sauvegarde effectuer/ false -> echec
      */
-    public boolean saveTreasure(ArrayList<Item> listItems, TreasurePreviews preview){
-        FileManager saveFile = new FileManager(new File(directory,preview.getName()));
+    public boolean saveTreasure(ArrayList<Item> listItems, TreasurePreview preview){
+
+        FileManager saveFile = new FileManager(new File(directory,preview.getName()+extension));
+
         boolean isSaved = saveFile.write(parser.previewsToJson(preview),false);
+
         if(isSaved) isSaved = saveFile.write(parser.listItemsToJson(listItems),true);
 
         return isSaved;
     }
-
-
-
-
-
 }

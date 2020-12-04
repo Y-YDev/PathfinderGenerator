@@ -211,6 +211,7 @@ public class TreasureBuilder {
 					treasure.getProba(),
 					treasure.getPo()));
 		}
+		reward = gatherCoin(reward);
 
 		return reward;
 	}

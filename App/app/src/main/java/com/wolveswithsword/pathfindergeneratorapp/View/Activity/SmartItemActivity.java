@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
-import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.StringRecyclerView;
+import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.StringRecyclerViewAdapter;
 
 import item.smartItem.SmartItem;
 
@@ -97,13 +97,13 @@ public class SmartItemActivity extends AppCompatActivity {
             dedicateLayout.setVisibility(View.GONE);
         }
 
-        communication.setAdapter(new StringRecyclerView(smartItem.communicationToArray()));
+        communication.setAdapter(new StringRecyclerViewAdapter(smartItem.communicationToArray()));
         communication.setLayoutManager(new LinearLayoutManager(this));
 
-        skill.setAdapter(new StringRecyclerView(smartItem.skillToArray()));
+        skill.setAdapter(new StringRecyclerViewAdapter(smartItem.skillToArray()));
         skill.setLayoutManager(new LinearLayoutManager(this));
 
-        trait.setAdapter(new StringRecyclerView(smartItem.getTraits()));
+        trait.setAdapter(new StringRecyclerViewAdapter(smartItem.getTraits()));
         trait.setLayoutManager(new LinearLayoutManager(this));
 
         //Button pour quitter

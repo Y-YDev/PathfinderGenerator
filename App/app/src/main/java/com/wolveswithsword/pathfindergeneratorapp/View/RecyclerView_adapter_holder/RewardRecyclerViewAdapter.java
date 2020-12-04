@@ -26,7 +26,9 @@ import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_hold
 
 import java.util.ArrayList;
 
+import generator.TreasureBuilder;
 import item.Item;
+import item.TypeItem;
 import item.armor.ArmorShield;
 import item.artItem.ArtItem;
 import item.coin.Coin;
@@ -46,13 +48,21 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 
     ArrayList<Item> rewardList;
 
-    TextView realPriceField;
+    TextView priceField;
+
+    TreasureBuilder treasureBuilder;
 
     public RewardRecyclerViewAdapter(){
         rewardList = new ArrayList<>();
+        this.treasureBuilder = new TreasureBuilder();
     }
     public RewardRecyclerViewAdapter(ArrayList<Item> rewardList){
         this.rewardList = rewardList;
+        this.treasureBuilder = new TreasureBuilder();
+    }
+
+    public ArrayList<Item> getRewardList(){
+        return this.rewardList;
     }
 
     @NonNull
@@ -202,8 +212,16 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
      */
     public void addItem(Item item){
         rewardList.add(item);
-        notifyItemInserted(getItemCount());
+
+        //notifyItemInserted(getItemCount());
         updatePricesFields();//On doit mettre à jour les textView des prix
+
+        if(item.getTypeItem() == TypeItem.COIN){//Réunion des pièces
+            ArrayList<Item> temp = new ArrayList<>(rewardList);
+            rewardList.clear();
+            rewardList.addAll(treasureBuilder.gatherCoin(temp));
+        }
+        notifyDataSetChanged();
     }
 
     /**
@@ -219,7 +237,7 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
      * Permet de renvoyer le prix réel total du trésor.
      * @return le prix total du trésor.
      */
-    public double getTotalRealPriceOfItems(){
+    public double getTotalPriceOfItems(){
         double res = 0;
 
         for(Item item : rewardList){
@@ -228,15 +246,15 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
         return res;
     }
 
-    public void setRealPriceField(TextView realPriceField){
-        this.realPriceField = realPriceField;
+    public void setPriceField(TextView priceField){
+        this.priceField = priceField;
     }
 
     /**
      * Met à jour les textView avec le prix actuel.
      */
     private void updatePricesFields(){
-        if(realPriceField != null)
-            realPriceField.setText(Double.toString(Tools.truncateTo(getTotalRealPriceOfItems(),2))+" po");
+        if(priceField != null)
+            priceField.setText(Double.toString(Tools.truncateTo(getTotalPriceOfItems(),2))+" po");
     }
 }
