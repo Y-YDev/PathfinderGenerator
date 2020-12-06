@@ -1,9 +1,7 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,14 +17,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
-import com.wolveswithsword.pathfindergeneratorapp.View.Activity.SaveMenuActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.SaveMenuActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.ItemSpinnerSelectedListener;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
 import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Constants;
 
 import java.util.Random;
 
-import generator.TreasurePreview;
 import item.TypeItem;
 import item.armor.ArmorBuilder;
 import item.artItem.ArtItemBuilder;
@@ -46,7 +43,7 @@ import save.HandlerTreasureSave;
 public class CustomItemGenerationActivity extends AppCompatActivity {
 
     RecyclerView rewardRecyclerView;
-    RewardRecyclerViewAdapter rewardRecyclerViewAdapter;
+    protected RewardRecyclerViewAdapter rewardRecyclerViewAdapter;
 
     TextView totalPrice;
 
@@ -75,9 +72,6 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
     StaffBuilder staffBuilder;
     WandBuilder wandBuilder;
     WonderfulObjectBuilder wonderfulObjectBuilder;
-
-    //Save Manager
-    HandlerTreasureSave handlerTreasureSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,8 +138,6 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
         wandBuilder = new WandBuilder();
         wonderfulObjectBuilder = new WonderfulObjectBuilder();
 
-        /* Mise en place du gestionnaire de sauvegarde */
-        handlerTreasureSave = new HandlerTreasureSave(getFilesDir().getAbsolutePath()+ Constants.SAVES);
     }
 
     /**
@@ -245,9 +237,9 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
     /**
      * Créer une fenetre de dialogue qui demande le nom de la sauvegarde.
      */
-    private void saveTreasure(){
+    protected void saveTreasure(){
         if(rewardRecyclerViewAdapter.getItemCount() != 0) {//Inutile de save une liste vide...CQFD
-            SaveMenuActivity.createSave(this,rewardRecyclerViewAdapter,handlerTreasureSave);
+            SaveMenuActivity.createSave(this,rewardRecyclerViewAdapter);
         }
     }
 }

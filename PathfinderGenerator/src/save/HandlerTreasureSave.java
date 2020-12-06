@@ -1,5 +1,10 @@
 package save;
 
+import android.content.Context;
+
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Constants;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -15,22 +20,22 @@ public class HandlerTreasureSave {
     private final String extension = ".json";
     private TreasureSaveParser parser = new TreasureSaveParser();
 
+    private static HandlerTreasureSave handlerTreasureSave;
 
 
     /**
      * Constructeur a l'aide d'une String
-     * @param directoryPath une String representant le chemin du fichier voulue
      */
-    public HandlerTreasureSave (String directoryPath) {
-        initDirectory(new File(directoryPath));
+    private HandlerTreasureSave () {
+        initDirectory(new File(AppObject.getContext().getFilesDir() + Constants.SAVES));
     }
 
-    /**
-     * Constructeur a l'aide d'un file
-     * @param directory le repertoire qui vas etre utiliser
-     */
-    public HandlerTreasureSave (File directory) {
-        initDirectory(directory);
+    public static HandlerTreasureSave getInstance(){
+        if(handlerTreasureSave == null){
+            handlerTreasureSave = new HandlerTreasureSave();
+        }
+
+        return handlerTreasureSave;
     }
 
     private void initDirectory(File directory){

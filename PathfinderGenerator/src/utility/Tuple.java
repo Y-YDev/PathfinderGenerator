@@ -1,4 +1,7 @@
 package utility;
+
+import java.io.Serializable;
+
 /**
  * Sert pour représenté un élément dans la base de données.
  * @author Mentra20
@@ -6,7 +9,7 @@ package utility;
  * @param <E> Element X
  * @param <T> Element Y
  */
-public class Tuple<E,T>{
+public class Tuple<E,T> implements Serializable {
     private E x;
     private T y;
     

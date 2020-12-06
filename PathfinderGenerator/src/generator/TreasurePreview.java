@@ -1,6 +1,8 @@
 package generator;
 
-public class TreasurePreview {
+import java.io.Serializable;
+
+public class TreasurePreview implements Serializable {
 
     private String name;
     private double Po;

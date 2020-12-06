@@ -79,6 +79,6 @@ public class TreasureSaveParser {
      */
 
     public String listItemsToJson(ArrayList<Item> listItems){
-        return gson.toJson(listItems);
+        return gson.toJson(listItems, new TypeToken<ArrayList<Item>>(){}.getType());
     }
 }

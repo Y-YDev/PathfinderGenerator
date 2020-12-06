@@ -10,7 +10,6 @@ import item.smartItem.SmartItem;
  *
  */
 public class Scepter extends Item{
-	private ScepterBuilder sb = new ScepterBuilder();//Pour générer les sceptres métamagique
 	
 	private Type type;//Mineur, normal ou superieur
 	private boolean particularPropertie;//True si le sceptre a un indice.
@@ -27,7 +26,7 @@ public class Scepter extends Item{
 	public Scepter(int spellLevel,Type type,double price) {
 		super("_", price, TypeItem.SCEPTER);
 		//On creer le sceptre metamagique
-		this.setName("Métamagie, "+sb.createMetamagicScepter(spellLevel));
+		this.setName("Métamagie, "+new ScepterBuilder().createMetamagicScepter(spellLevel));//Pour générer les sceptres métamagique
 		this.setType(type);
 	}
 	

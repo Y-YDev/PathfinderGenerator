@@ -1,9 +1,11 @@
 package item;
 
+import java.io.Serializable;
+
 /**
  * représente un élément du trésor
  */
-public class Item {
+public class Item implements Serializable {
 	private String name;//Nom de l'item
 	private double price;//Prix de l'item
 	private TypeItem typeItem;//Type de l'item

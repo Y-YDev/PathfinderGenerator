@@ -1,5 +1,7 @@
 package item.coin;
 
+import java.io.Serializable;
+
 import item.Item;
 import item.TypeItem;
 

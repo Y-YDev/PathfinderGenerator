@@ -1,4 +1,4 @@
-package com.wolveswithsword.pathfindergeneratorapp.View.Activity;
+package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,7 +29,6 @@ import save.HandlerTreasureSave;
 public class SaveMenuActivity extends AppCompatActivity {
 
     ArrayList<TreasurePreview> saveList;
-    HandlerTreasureSave handler;
 
     RecyclerView saveRecyclerView;
     TreasurePreviewRecyclerViewAdapter saveRecyclerViewAdapter;
@@ -41,19 +40,23 @@ public class SaveMenuActivity extends AppCompatActivity {
 
         saveRecyclerView = findViewById(R.id.save_list);
 
-        handler = new HandlerTreasureSave(getFilesDir().getAbsolutePath()+ Constants.SAVES);
-        saveList = handler.getPreviewList();
-
-        saveRecyclerViewAdapter = new TreasurePreviewRecyclerViewAdapter(saveList, handler, this);
-        saveRecyclerView.setAdapter(saveRecyclerViewAdapter);
 
         saveRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        saveList = HandlerTreasureSave.getInstance().getPreviewList();
+
+        saveRecyclerViewAdapter = new TreasurePreviewRecyclerViewAdapter(saveList,this);
+        saveRecyclerView.setAdapter(saveRecyclerViewAdapter);
+    }
+
     //Créer la fenetre de dialogue pour le nom de la sauvegarde.
     public static void createSave(Context context,
-                                  final RewardRecyclerViewAdapter rewardRecyclerViewAdapter,
-                                  final HandlerTreasureSave handler){
+                                  final RewardRecyclerViewAdapter rewardRecyclerViewAdapter){
 
         //Creation de la vue du dialog.
         final EditText input = new EditText(context);
@@ -100,7 +103,7 @@ public class SaveMenuActivity extends AppCompatActivity {
                         if(TextUtils.isEmpty(input.getText())){
                             errorField.setText("Le nom de la sauvegarde ne peut pas être vide.");
                         }
-                        else if(handler.alreadyExist(input.getText().toString())){
+                        else if(HandlerTreasureSave.getInstance().alreadyExist(input.getText().toString())){
                             errorField.setText("Ce nom de sauvegarde existe déjà.");
                         }
                         else{
@@ -110,7 +113,7 @@ public class SaveMenuActivity extends AppCompatActivity {
                             treasurePreview.setPo(rewardRecyclerViewAdapter.getTotalPriceOfItems());
                             treasurePreview.setNbItem(rewardRecyclerViewAdapter.getItemCount());
 
-                            handler.saveTreasure(
+                            HandlerTreasureSave.getInstance().saveTreasure(
                                     rewardRecyclerViewAdapter.getRewardList(),
                                     treasurePreview
                             );

@@ -1,6 +1,8 @@
 package item.weapon;
 
-public class WeaponSpecialPropertie {
+import java.io.Serializable;
+
+public class WeaponSpecialPropertie implements Serializable {
 	private String name;//nom de la propriété magique
 	private int magicAlterationOrPrice;//Alteration magique (ou prix) à ajouter au prix.
 	//Si magicAlteration < 10, il s'agit de l'alteration magique, le prix fixe sinon.

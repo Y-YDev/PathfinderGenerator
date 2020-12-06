@@ -8,15 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".View.Utils.AppObject">
 
         <activity android:name=".View.Activity.Reward.StandartRewardActivity"/>
         <activity android:name=".View.Activity.Reward.CustomRewardActivity"/>
         <activity android:name=".View.Activity.SmartItemActivity"/>
-        <activity android:name=".View.Activity.SaveMenuActivity"/>
+        <activity android:name=".View.Activity.Save.SaveMenuActivity"/>
         <activity android:name=".View.Activity.Generation.CustomItemGenerationActivity"/>
         <activity android:name=".View.Activity.Generation.StandartGenerationActivity"/>
         <activity android:name=".View.Activity.Generation.CustomTreasureGenerationActivity"/>
+        <activity android:name=".View.Activity.Save.EditSaveActivity"/>
         <activity android:name=".View.Activity.MainMenuActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

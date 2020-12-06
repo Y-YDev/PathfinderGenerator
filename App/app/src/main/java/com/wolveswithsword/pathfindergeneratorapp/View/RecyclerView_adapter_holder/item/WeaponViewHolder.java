@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
+import java.io.Serializable;
+
 import item.weapon.Material;
 import item.weapon.Munition;
 import item.weapon.RangeWeapon;
@@ -15,7 +17,7 @@ import item.weapon.Type;
 import item.weapon.Weapon;
 import utility.Tools;
 
-public class WeaponViewHolder extends ItemViewHolder {
+public class WeaponViewHolder extends ItemViewHolder{
 
     LinearLayout materialLayout;
     LinearLayout alterationLayout;

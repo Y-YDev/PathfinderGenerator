@@ -11,6 +11,7 @@ import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomItemGenerationActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomTreasureGenerationActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.StandartGenerationActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.SaveMenuActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
     Button standardCreation;//Bouton de création standard

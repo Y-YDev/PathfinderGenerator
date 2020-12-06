@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
 import generator.TreasurePreview;
-import save.HandlerTreasureSave;
 
 public class TreasurePreviewViewHolder extends RecyclerView.ViewHolder  {
 
@@ -20,6 +19,7 @@ public class TreasurePreviewViewHolder extends RecyclerView.ViewHolder  {
     TextView nbItem;
 
     ImageButton deleteButton;
+    ImageButton editButton;
 
     public TreasurePreviewViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -28,19 +28,27 @@ public class TreasurePreviewViewHolder extends RecyclerView.ViewHolder  {
         price = itemView.findViewById(R.id.save_value);
         nbItem = itemView.findViewById(R.id.save_nb_item);
         deleteButton = itemView.findViewById(R.id.save_delete_button);
+        editButton = itemView.findViewById(R.id.save_edit_button);
     }
 
-    public void initView(TreasurePreview treasurePreview, HandlerTreasureSave handlerTreasureSave){
+    public void initView(TreasurePreview treasurePreview){
         name.setText(treasurePreview.getName());
         price.setText(Double.toString(treasurePreview.getPo()));
         nbItem.setText(Integer.toString(treasurePreview.getNbItem()));
     }
 
-    public void setDeleteButtonListener(final TreasurePreviewRecyclerViewAdapter treasurePreviewRecyclerViewAdapter){
+    public void setButtonsListeners(final TreasurePreviewRecyclerViewAdapter treasurePreviewRecyclerViewAdapter){
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 treasurePreviewRecyclerViewAdapter.deleteSave(getAdapterPosition());
+            }
+        });
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                treasurePreviewRecyclerViewAdapter.editSave(getAdapterPosition());
             }
         });
     }
