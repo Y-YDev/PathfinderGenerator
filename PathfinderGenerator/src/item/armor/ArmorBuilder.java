@@ -103,7 +103,7 @@ public class ArmorBuilder {
     public ArmorShield createLightOrShield() {
     	ArmorShield armorShield = createMasterArmor();
     	//Tant que l'on a pas de bouclier ou d'armure legere on relance.
-    	while(armorShield.getType() != Type.LIGTH && armorShield.getType() != Type.SHIELD) {
+    	while(armorShield.getTypeArmor() != Type.LIGTH && armorShield.getTypeArmor() != Type.SHIELD) {
     		armorShield = createMasterArmor();
     	}
     	return armorShield;
@@ -116,7 +116,7 @@ public class ArmorBuilder {
     public ArmorShield createIntermediate() {
     	ArmorShield armorShield = createMasterArmor();
     	//Tant que l'on a pas d'armure intermediaire
-    	while(armorShield.getType() != Type.INTERMEDIATE) {
+    	while(armorShield.getTypeArmor() != Type.INTERMEDIATE) {
     		armorShield = createMasterArmor();
     	}
     	return armorShield;
@@ -129,7 +129,7 @@ public class ArmorBuilder {
     public ArmorShield createHeavy() {
     	ArmorShield armorShield = createMasterArmor();
     	//Tant que l'on a pas d'armure lourde
-    	while(armorShield.getType() != Type.HEAVY) {
+    	while(armorShield.getTypeArmor() != Type.HEAVY) {
     		armorShield = createMasterArmor();
     	}
     	return armorShield;
@@ -290,13 +290,13 @@ public class ArmorBuilder {
     	}
     	
     	if(select == Material.OR) {
-    		if(armor.getType() == Type.HEAVY) {
+    		if(armor.getTypeArmor() == Type.HEAVY) {
     			return false;
     		}
     	}
     	
     	if(select == Material.BRONZE) {
-    		if(armor.getType() == Type.HEAVY) return false;
+    		if(armor.getTypeArmor() == Type.HEAVY) return false;
     	}
     	
     	if(select == Material.EBENITE) {//Il ne fait pas exclure le TypeMaterial.NOTHING
@@ -401,7 +401,7 @@ public class ArmorBuilder {
     	
     	//Chargement de data.
     	//Une armure
-    	if(armor.getType() == Type.LIGTH || armor.getType() == Type.INTERMEDIATE || armor.getType() == Type.HEAVY) {
+    	if(armor.getTypeArmor() == Type.LIGTH || armor.getTypeArmor() == Type.INTERMEDIATE || armor.getTypeArmor() == Type.HEAVY) {
     		switch(magicAlteration) {
     		case 1: data.addAll(ArmorConstant.armorSpecialProperties1());
     			break;
@@ -417,7 +417,7 @@ public class ArmorBuilder {
     			break;
     		}
     	}
-    	if(armor.getType() == Type.SHIELD) {
+    	if(armor.getTypeArmor() == Type.SHIELD) {
     		switch(magicAlteration) {
     		case 1: data.addAll(ArmorConstant.shieldSpecialProperties1());
     			break;
@@ -463,15 +463,15 @@ public class ArmorBuilder {
     	//Ne jamais oublier d'inclure NOTHING (d'où les conditions parfois illogiques)
     	
     	if(specialPropertie.getName() == "Équilibrée") {
-    		if(armor.getType() == Type.HEAVY) return false;
+    		if(armor.getTypeArmor() == Type.HEAVY) return false;
     	}
     	
     	if(specialPropertie.getName() == "Renforcement") {
-    		if(armor.getType() == Type.LIGTH) return false;
+    		if(armor.getTypeArmor() == Type.LIGTH) return false;
     	}
     	
     	if(specialPropertie.getName() == "Pugilat") {
-    		if(armor.getType() == Type.HEAVY || armor.getType() == Type.INTERMEDIATE) return false;
+    		if(armor.getTypeArmor() == Type.HEAVY || armor.getTypeArmor() == Type.INTERMEDIATE) return false;
     	}
     	
     	if(specialPropertie.getName() == "Opposition") {//tirage au sort comme tueuse pour l'arme
@@ -592,10 +592,10 @@ public class ArmorBuilder {
 		case ACIER_VIVANT :
 			change = true;
 			
-			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 1500;
-			else if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1000;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 500;
-			else if(armor.getType() == Type.SHIELD) newPrice = armor.getPrice() + 100;
+			if(armor.getTypeArmor() == Type.HEAVY) newPrice = armor.getPrice() + 1500;
+			else if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1000;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 500;
+			else if(armor.getTypeArmor() == Type.SHIELD) newPrice = armor.getPrice() + 100;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -604,9 +604,9 @@ public class ArmorBuilder {
 		case ACIER_ARDENT ://Prix de maitre déduit
 			change = true;
 			
-			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 2850;
-			else if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 2350;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 850;
+			if(armor.getTypeArmor() == Type.HEAVY) newPrice = armor.getPrice() + 2850;
+			else if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 2350;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 850;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -615,9 +615,9 @@ public class ArmorBuilder {
 		case ACIER_GLACE ://Prix de maitre déduit
 			change = true;
 			
-			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 2850;
-			else if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 2350;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 850;
+			if(armor.getTypeArmor() == Type.HEAVY) newPrice = armor.getPrice() + 2850;
+			else if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 2350;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 850;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -628,10 +628,10 @@ public class ArmorBuilder {
 			
 			newWeight = armor.getWeight() * 0.5;
 			
-			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 8850;
-			else if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 3850;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 850;
-			else if(armor.getType() == Type.SHIELD) newPrice = armor.getPrice() + 850;
+			if(armor.getTypeArmor() == Type.HEAVY) newPrice = armor.getPrice() + 8850;
+			else if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 3850;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 850;
+			else if(armor.getTypeArmor() == Type.SHIELD) newPrice = armor.getPrice() + 850;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -641,9 +641,9 @@ public class ArmorBuilder {
 		case BRONZE_ELYSEEN ://Prix de maitre déduit
 			change = true;
 			
-			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 3000;
-			else if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 2000;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 1000;
+			if(armor.getTypeArmor() == Type.HEAVY) newPrice = armor.getPrice() + 3000;
+			else if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 2000;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 1000;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -652,10 +652,10 @@ public class ArmorBuilder {
 		case ADAMENTIUM :
 			change = true;
 			
-			if(armor.getType() == Type.HEAVY) newPrice = armor.getPrice() + 14850;
-			else if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 9850;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 4850;
-			else if(armor.getType() == Type.SHIELD) newPrice = armor.getPrice() + 2850;
+			if(armor.getTypeArmor() == Type.HEAVY) newPrice = armor.getPrice() + 14850;
+			else if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 9850;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 4850;
+			else if(armor.getTypeArmor() == Type.SHIELD) newPrice = armor.getPrice() + 2850;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -686,8 +686,8 @@ public class ArmorBuilder {
 		case PEAU_D_ANGUILLE ://Prix de maitre déduit
 			change = true;
 			
-			if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1650;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 1050;
+			if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1650;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 1050;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -696,8 +696,8 @@ public class ArmorBuilder {
 		case PEAU_D_ANGE ://Prix de maitre déduit
 			change = true;
 			
-			if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1850;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 850;
+			if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1850;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 850;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);
@@ -708,8 +708,8 @@ public class ArmorBuilder {
 			
 			newWeight = armor.getWeight() *0.5;
 			
-			if(armor.getType() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1350;
-			else if(armor.getType() == Type.LIGTH) newPrice = armor.getPrice() + 600;
+			if(armor.getTypeArmor() == Type.INTERMEDIATE) newPrice = armor.getPrice() + 1350;
+			else if(armor.getTypeArmor() == Type.LIGTH) newPrice = armor.getPrice() + 600;
 			else newPrice = armor.getPrice();
 			
 			armor.setPrice(newPrice);

@@ -62,6 +62,20 @@ public class HandlerTreasureSave {
     }
 
 
+    private ArrayList<String> getAllSaveName(){
+        ArrayList<String> savesNames = new ArrayList<>();
+
+        for(File file : directory.listFiles()){
+            savesNames.add(file.getName());//On ajoute.
+        }
+        return savesNames;
+    }
+
+    public boolean alreadyExist(String name){
+        return this.getAllSaveName().contains(name + extension);
+    }
+
+
     /**
      *
      * @return list de preview sauvegarder
@@ -110,5 +124,11 @@ public class HandlerTreasureSave {
         if(isSaved) isSaved = saveFile.write(parser.listItemsToJson(listItems),true);
 
         return isSaved;
+    }
+
+    public boolean deleteSaveFile(TreasurePreview preview){
+        FileManager file = new FileManager(new File(directory,preview.getName()+extension));
+
+        return file.deleteFile();
     }
 }

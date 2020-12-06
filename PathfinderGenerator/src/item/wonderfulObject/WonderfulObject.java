@@ -3,7 +3,6 @@ package item.wonderfulObject;
 import item.Item;
 import item.TypeItem;
 import item.smartItem.SmartItem;
-import item.wonderfulObject.Type;
 
 /**
  * Représente un objet merveilleux
@@ -11,23 +10,23 @@ import item.wonderfulObject.Type;
  *
  */
 public class WonderfulObject extends Item{
-	private Type type;//Type de l'objet merveilleux
+	private Type typeWonder;//Type de l'objet merveilleux
 	private boolean particularPropertie;//Indice sur l'objet
 	private SmartItem smartItem;//Objet intelligent.
 	
-	public WonderfulObject(String name,double price,Type type) {
+	public WonderfulObject(String name,double price,Type typeWonder) {
 		super(name, price, TypeItem.WONDERFUL);
-		this.setType(type);
+		this.setTypeWonder(typeWonder);
 		this.setParticularPropertie(false);
 		this.setSmartItem(null);
 	}
 
-	public Type getType() {
-		return type;
+	public Type getTypeWonder() {
+		return typeWonder;
 	}
 
-	public void setType(Type type) {
-		this.type = type;
+	public void setTypeWonder(Type typeWonder) {
+		this.typeWonder = typeWonder;
 	}
 
 	public boolean isParticularPropertie() {

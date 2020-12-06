@@ -89,7 +89,7 @@ public class ArmorViewHolder extends ItemViewHolder{
         price.setText(armorShield.getPrice()+" po");
         weight.setText(armorShield.getWeight()+" kg");
 
-        if(armorShield.getType() == Type.SHIELD){
+        if(armorShield.getTypeArmor() == Type.SHIELD){
             image.setImageResource(R.drawable.shield_image);
         }
         else{

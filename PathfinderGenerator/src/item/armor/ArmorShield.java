@@ -11,19 +11,19 @@ public class ArmorShield extends Item{
 	private int alteration;//L'altération de l'armure ou bouclier
 	private Material material;//Materiel de l'armure ou bouclier
 	private TypeMaterial typeMaterial;//Type du materiel de l'armure ou bouclier
-	private Type type;//Type de l'armure ou bouclier (lourde, légère...)
+	private Type typeArmor;//Type de l'armure ou bouclier (lourde, légère...)
 	private boolean isMasterWork;//Si l'armure ou le bouclier est de maitre
 	private ArmorSpecialPropertie specialPropertie1;//La premiere propriété spéciale.
 	private ArmorSpecialPropertie specialPropertie2;//La deuxieme propriété spéciale.
 	private double weight;//Poids de l'armure ou bouclier
 	
 	/* CONSTRUCTOR */
-	public ArmorShield(String name, TypeMaterial typeMaterial, Type type, double price,double weight) {
+	public ArmorShield(String name, TypeMaterial typeMaterial, Type typeArmor, double price, double weight) {
 		super(name, price, TypeItem.ARMOR);
 		this.setAlteration(0);
 		this.setMaterial(null);
 		this.setTypeMaterial(typeMaterial);
-		this.setType(type);
+		this.setTypeArmor(typeArmor);
 		this.setMasterWork(false);
 		this.specialPropertie1 = new ArmorSpecialPropertie("_",-1);
         this.specialPropertie2 = new ArmorSpecialPropertie("_",-1);
@@ -31,12 +31,12 @@ public class ArmorShield extends Item{
 	}
 	
 	//Constructeur pour armure ou bouclier spécifique
-	public ArmorShield(String name, Type type, double price) {
+	public ArmorShield(String name, Type typeArmor, double price) {
 		super(name, price, TypeItem.ARMOR);
 		this.setAlteration(-1);
 		this.setMaterial(Material.NOTHING);
 		this.setTypeMaterial(TypeMaterial.NOTHING);
-		this.setType(type);
+		this.setTypeArmor(typeArmor);
 		this.setMasterWork(false);
 		this.specialPropertie1 = new ArmorSpecialPropertie("_",-1);
         this.specialPropertie2 = new ArmorSpecialPropertie("_",-1);
@@ -68,12 +68,12 @@ public class ArmorShield extends Item{
 		this.typeMaterial = typeMaterial;
 	}
 
-	public Type getType() {
-		return type;
+	public Type getTypeArmor() {
+		return typeArmor;
 	}
 
-	public void setType(Type type) {
-		this.type = type;
+	public void setTypeArmor(Type typeArmor) {
+		this.typeArmor = typeArmor;
 	}
 
 	public boolean isMasterWork() {

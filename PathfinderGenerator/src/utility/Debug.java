@@ -265,7 +265,7 @@ public class Debug {
 			
 			//Info de debug.
 			if(debugMode) {
-				display += "\nTYPE : "+ armor.getType();
+				display += "\nTYPE : "+ armor.getTypeArmor();
 			}
 			
 			//Si l'arme a des propriétés spéciales.
@@ -511,7 +511,7 @@ public class Debug {
 			
 			display += "\nWONDERFUL OBJECT : "+ wonderfulObject.getName();		
 			display += "\nPRICE : "+ wonderfulObject.getPrice()+" po";
-			display += "\nLOCATION : "+wonderfulObject.getType();
+			display += "\nLOCATION : "+wonderfulObject.getTypeWonder();
 
 			if(wonderfulObject.isParticularPropertie()) display += "\nPARTICULAR PROPERTIE : indice";
 			

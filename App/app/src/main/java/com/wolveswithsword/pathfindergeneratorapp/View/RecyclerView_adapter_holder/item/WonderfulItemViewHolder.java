@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
-import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward.RewardActivity;
 
 import item.wonderfulObject.WonderfulObject;
 
@@ -48,7 +47,7 @@ public class WonderfulItemViewHolder extends ItemViewHolder {
     public void setWonderfulItem(WonderfulObject wonderfulObject){
         name.setText(wonderfulObject.getName());
         price.setText(wonderfulObject.getPrice()+" po");
-        location.setText(wonderfulObject.getType().toString());
+        location.setText(wonderfulObject.getTypeWonder().toString());
 
         if(wonderfulObject.isParticularPropertie()){
             partPropLayout.setVisibility(View.VISIBLE);
@@ -66,7 +65,7 @@ public class WonderfulItemViewHolder extends ItemViewHolder {
             smartItemLayout.setVisibility(View.GONE);
         }
 
-        switch (wonderfulObject.getType()){
+        switch (wonderfulObject.getTypeWonder()){
             case BODY:
                 image.setImageResource(R.drawable.body_image);
                 break;
