@@ -4,6 +4,7 @@ import java.util.Random;
 
 import constant.ArmorConstant;
 import constant.WeaponConstant;
+import item.smartItem.SmartItemBuilder;
 import utility.Data;
 import utility.Debug;
 import utility.Tuple;
@@ -18,10 +19,12 @@ import utility.Tuple;
 public class ArmorBuilder {
 	
 	Random r; //Le random pour les tirages.
+	SmartItemBuilder smartItemBuilder;
     
     /* CONSTRUCTOR */
     public ArmorBuilder(){
         this.r = new Random();
+        this.smartItemBuilder = new SmartItemBuilder();
     }
 
     /**
@@ -79,8 +82,15 @@ public class ArmorBuilder {
         }
         //Ajout du prix des propriétés spéciales à l'armure/bouclier.
         armor = armorSpecialPrice(armor);
-        
-        //Pour le debug de plusieures armures.
+
+        //L'armure ou bouclier peut etre intelligent seulement si magique.
+		int randomValue2 = r.nextInt(100)+1;
+		if(randomValue2 == 1 && alteration > 0) {
+			armor.setSmartItem(smartItemBuilder.createSmartItem(armor.getPrice()));
+			armor.setPrice(armor.getPrice() + armor.getSmartItem().getPrice());
+		}
+
+		//Pour le debug de plusieures armures.
         Debug.debug("");
         return armor;
     }
@@ -164,7 +174,7 @@ public class ArmorBuilder {
         
         //Rend éventuellement l'armure en armure de maitre.
         currentArmor = isArmorMaster(currentArmor);
-        
+
         return currentArmor;
     }
     
@@ -732,7 +742,7 @@ public class ArmorBuilder {
     
     /**
      * ajoute le prix des deux propriété spéciales à l'armure ou bouclier.
-     * @param weapon : l'armure ou bouclier où il faut ajouter le prix.
+     * @param : l'armure ou bouclier où il faut ajouter le prix.
      * @return l'armure ou bouclier modifié.
      */
     public ArmorShield armorSpecialPrice(ArmorShield armor) {

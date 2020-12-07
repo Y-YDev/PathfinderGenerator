@@ -2,6 +2,7 @@ package item.armor;
 
 import item.Item;
 import item.TypeItem;
+import item.smartItem.SmartItem;
 
 /**
  * Représente une armure ou un bouclier généré
@@ -15,6 +16,7 @@ public class ArmorShield extends Item{
 	private boolean isMasterWork;//Si l'armure ou le bouclier est de maitre
 	private ArmorSpecialPropertie specialPropertie1;//La premiere propriété spéciale.
 	private ArmorSpecialPropertie specialPropertie2;//La deuxieme propriété spéciale.
+	private SmartItem smartItem;//Objet intelligent.
 	private double weight;//Poids de l'armure ou bouclier
 	
 	/* CONSTRUCTOR */
@@ -28,6 +30,7 @@ public class ArmorShield extends Item{
 		this.specialPropertie1 = new ArmorSpecialPropertie("_",-1);
         this.specialPropertie2 = new ArmorSpecialPropertie("_",-1);
         this.setWeight(weight);
+        this.setSmartItem(null);
 	}
 	
 	//Constructeur pour armure ou bouclier spécifique
@@ -106,6 +109,13 @@ public class ArmorShield extends Item{
 
 	public void setWeight(double weight) {
 		this.weight = weight;
-	}	
-	
+	}
+
+	public SmartItem getSmartItem() {
+		return smartItem;
+	}
+
+	public void setSmartItem(SmartItem smartItem) {
+		this.smartItem = smartItem;
+	}
 }

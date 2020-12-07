@@ -136,6 +136,10 @@ public class Debug {
 				
 				display += "\nPARTICULAR PROPERTIE : "+ weapon.getParticularPropertie();
 			}
+
+			if(weapon.getSmartItem() != null){
+				display += smartItemToString(weapon.getSmartItem());
+			}
 			
 			display += "\nWEIGHT : "+ weapon.getWeight()+" kg";
 			display += "\nPRICE : "+ weapon.getPrice()+" po";
@@ -297,7 +301,11 @@ public class Debug {
 					}
 				}
 			}
-			
+
+			if(armor.getSmartItem() != null){
+				display += smartItemToString(armor.getSmartItem());
+			}
+
 			display += "\nWEIGHT : "+ armor.getWeight()+" kg";
 			display += "\nPRICE : "+ armor.getPrice()+" po";
 			

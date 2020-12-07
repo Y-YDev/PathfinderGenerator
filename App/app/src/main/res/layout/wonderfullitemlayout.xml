@@ -146,14 +146,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/wond_smartitem_layout"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/wond_smartitem"
             android:layout_width="wrap_content"
-            android:layout_height="23dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:background="#00DACFCF"
+            android:background="#9FB5BBBB"
             android:text="Objet intelligent"
             android:textAlignment="center" />
     </LinearLayout>

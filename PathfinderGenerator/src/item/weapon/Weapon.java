@@ -2,6 +2,7 @@ package item.weapon;
 
 import item.Item;
 import item.TypeItem;
+import item.smartItem.SmartItem;
 
 /**
  * Weapon représente l'arme générée.
@@ -19,6 +20,7 @@ public class Weapon extends Item{
     private String particularPropertie;//Propriété particulière de l'arme.
     private boolean masterWork = false;//True si l'arme est une arme de maitre.
     private double weight;//Poid de l'arme.
+	private SmartItem smartItem;//Objet intelligent
     
     /* CONSTRUCTOR */
     public Weapon(String name, Type type, TypeDamage typeDamage, TypeMaterial typeMaterial, double price,double weight){
@@ -32,6 +34,7 @@ public class Weapon extends Item{
         this.specialPropertie2 = new WeaponSpecialPropertie("_",-1);
         this.particularPropertie = "_";
         this.setWeight(weight);
+        this.setSmartItem(null);
     }
     
     //Constructeur pour les armes spécifiques
@@ -46,6 +49,7 @@ public class Weapon extends Item{
     	this.specialPropertie2 = new WeaponSpecialPropertie("_",-1);
     	this.particularPropertie = "_";
     	this.setWeight(0);
+    	this.setSmartItem(null);
     }
     
     /* GETTERS AND SETTERS */
@@ -124,5 +128,13 @@ public class Weapon extends Item{
 
 	public void setWeight(double weight) {
 		this.weight = weight;
+	}
+
+	public SmartItem getSmartItem() {
+		return smartItem;
+	}
+
+	public void setSmartItem(SmartItem smartItem) {
+		this.smartItem = smartItem;
 	}
 }

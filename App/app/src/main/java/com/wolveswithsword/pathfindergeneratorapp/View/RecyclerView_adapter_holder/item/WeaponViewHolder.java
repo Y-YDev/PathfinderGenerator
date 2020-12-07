@@ -1,12 +1,15 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.item;
 
+import android.content.Context;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
 
 import java.io.Serializable;
 
@@ -25,6 +28,7 @@ public class WeaponViewHolder extends ItemViewHolder{
     LinearLayout propPartLayout;
     LinearLayout quantityLayout;
     LinearLayout munitionLayout;
+    LinearLayout smartItemLayout;
 
     TextView name;
     TextView alteration;
@@ -40,6 +44,10 @@ public class WeaponViewHolder extends ItemViewHolder{
     TextView munPrice;
     TextView munWeight;
     TextView munQuantity;
+
+    Button smartItem;
+
+    Context context;
 
     public WeaponViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -67,6 +75,11 @@ public class WeaponViewHolder extends ItemViewHolder{
         propPartLayout = itemView.findViewById(R.id.wea_partispe_layout);
         quantityLayout = itemView.findViewById(R.id.wea_onlyquantity_layout);
         munitionLayout = itemView.findViewById(R.id.wea_mun_layout);
+        smartItemLayout = itemView.findViewById(R.id.weapon_smartitem_layout);
+
+        smartItem = itemView.findViewById(R.id.weapon_smartitem);
+
+        context = itemView.getContext();
     }
 
     public void setWeapon(Weapon weapon){
@@ -149,6 +162,15 @@ public class WeaponViewHolder extends ItemViewHolder{
             munitionLayout.setVisibility(View.GONE);
             quantityLayout.setVisibility(View.GONE);
             image.setImageResource(R.drawable.weapon_image);
+        }
+
+        //Smart Item
+        if(weapon.getSmartItem() != null){
+            smartItemLayout.setVisibility(View.VISIBLE);
+            smartItem.setOnClickListener(new SmartItemButtonListener(context,weapon.getSmartItem()));
+        }
+        else{
+            smartItemLayout.setVisibility(View.GONE);
         }
     }
 }

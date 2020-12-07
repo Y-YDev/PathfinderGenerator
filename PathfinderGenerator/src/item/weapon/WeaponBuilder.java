@@ -2,6 +2,7 @@ package item.weapon;
 import java.util.Random;
 
 import constant.WeaponConstant;
+import item.smartItem.SmartItemBuilder;
 import utility.Data;
 import utility.Debug;
 import utility.Tuple;
@@ -14,10 +15,12 @@ import utility.Tuple;
 public class WeaponBuilder{
     
     Random r; //Le random pour les tirages.
+	SmartItemBuilder smartItemBuilder;
     
     /* CONSTRUCTOR */
     public WeaponBuilder(){
         this.r = new Random();
+        this.smartItemBuilder = new SmartItemBuilder();
     }
 
     /**
@@ -76,7 +79,14 @@ public class WeaponBuilder{
         
         //Ajout du prix des propriétés spéciales à l'arme.
         weapon = weaponSpecialPrice(weapon);
-        
+
+		//L'arme peut etre intelligent seulement si magique et non une munition.
+		int randomValue2 = r.nextInt(100)+1;
+		if(randomValue2 == 1 && alteration > 0 && weapon.getType() != Type.MUN) {
+			weapon.setSmartItem(smartItemBuilder.createSmartItem(weapon.getPrice()));
+			weapon.setPrice(weapon.getPrice() + weapon.getSmartItem().getPrice());
+		}
+
         //Pour le debug de plusieures armes.
         Debug.debug("");
         return weapon;

@@ -1,12 +1,16 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.item;
 
+import android.content.Context;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Constants;
 
 import item.armor.ArmorShield;
 import item.armor.Material;
@@ -17,6 +21,7 @@ public class ArmorViewHolder extends ItemViewHolder{
     LinearLayout materialLayout;
     LinearLayout alterationLayout;
     LinearLayout propSpeLayout;
+    LinearLayout smartItemLayout;
 
     TextView name;
     TextView alteration;
@@ -25,6 +30,10 @@ public class ArmorViewHolder extends ItemViewHolder{
     TextView propSpe2;
     TextView price;
     TextView weight;
+
+    Button smartItem;
+
+    Context context;
 
     public ArmorViewHolder(@NonNull View itemView){
         super(itemView);
@@ -39,9 +48,14 @@ public class ArmorViewHolder extends ItemViewHolder{
         materialLayout = itemView.findViewById(R.id.arm_material_layout);
         alterationLayout = itemView.findViewById(R.id.arm_alteration_layout);
         propSpeLayout = itemView.findViewById(R.id.arm_propspe_layout);
+        smartItemLayout = itemView.findViewById(R.id.armor_smartitem_layout);
 
         image = itemView.findViewById(R.id.arm_image);
         delete = itemView.findViewById(R.id.armor_delete);
+
+        smartItem = itemView.findViewById(R.id.armor_smartitem);
+
+        context = itemView.getContext();
     }
 
     public void setArmor(ArmorShield armorShield){
@@ -94,6 +108,15 @@ public class ArmorViewHolder extends ItemViewHolder{
         }
         else{
             image.setImageResource(R.drawable.armor_image);
+        }
+
+        //Smart Item
+        if(armorShield.getSmartItem() != null){
+            smartItemLayout.setVisibility(View.VISIBLE);
+            smartItem.setOnClickListener(new SmartItemButtonListener(context,armorShield.getSmartItem()));
+        }
+        else{
+            smartItemLayout.setVisibility(View.GONE);
         }
     }
 }
