@@ -18,12 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.SaveMenuActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.ItemSpinnerSelectedListener;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
 import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Constants;
 
 import java.util.Random;
 
+import generator.TreasurePreview;
 import item.TypeItem;
 import item.armor.ArmorBuilder;
 import item.artItem.ArtItemBuilder;
@@ -40,7 +42,7 @@ import item.weapon.WeaponBuilder;
 import item.wonderfulObject.WonderfulObjectBuilder;
 import save.HandlerTreasureSave;
 
-public class CustomItemGenerationActivity extends AppCompatActivity {
+public class CustomItemGenerationActivity extends AppCompatActivity implements SaveNameDialog.SaveNameDialogListener {
 
     RecyclerView rewardRecyclerView;
     protected RewardRecyclerViewAdapter rewardRecyclerViewAdapter;
@@ -72,6 +74,7 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
     StaffBuilder staffBuilder;
     WandBuilder wandBuilder;
     WonderfulObjectBuilder wonderfulObjectBuilder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -239,7 +242,22 @@ public class CustomItemGenerationActivity extends AppCompatActivity {
      */
     protected void saveTreasure(){
         if(rewardRecyclerViewAdapter.getItemCount() != 0) {//Inutile de save une liste vide...CQFD
-            SaveMenuActivity.createSave(this,rewardRecyclerViewAdapter);
+            SaveNameDialog saveNameDialog = new SaveNameDialog();
+
+            saveNameDialog.show(getSupportFragmentManager()," save name dialog ");
         }
+    }
+
+    @Override
+    public void saveTreasure(String saveName) {
+        TreasurePreview treasurePreview = new TreasurePreview();
+        treasurePreview.setName(saveName);
+        treasurePreview.setPo(rewardRecyclerViewAdapter.getTotalPriceOfItems());
+        treasurePreview.setNbItem(rewardRecyclerViewAdapter.getItemCount());
+
+        HandlerTreasureSave.getInstance().saveTreasure(
+                rewardRecyclerViewAdapter.getRewardList(),
+                treasurePreview
+        );
     }
 }

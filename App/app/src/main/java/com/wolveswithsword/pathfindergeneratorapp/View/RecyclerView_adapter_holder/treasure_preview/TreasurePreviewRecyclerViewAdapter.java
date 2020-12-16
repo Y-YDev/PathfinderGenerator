@@ -9,10 +9,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.EditSaveActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.SaveMenuActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
+
 
 import java.util.ArrayList;
 
@@ -20,7 +24,7 @@ import generator.TreasurePreview;
 import item.Item;
 import save.HandlerTreasureSave;
 
-public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<TreasurePreviewViewHolder> {
+public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<TreasurePreviewViewHolder>{
 
     ArrayList<TreasurePreview> treasurePreviews;
     Context context;
@@ -87,5 +91,16 @@ public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<Tre
         intent.putExtra("itemList",items);
         intent.putExtra("treasurePreview",treasurePreview);
         context.startActivity(intent);
+    }
+
+    public void renameSave(int position){
+        TreasurePreview treasurePreview = treasurePreviews.get(position);
+        //Liste des objets
+        ArrayList<Item> items = HandlerTreasureSave.getInstance().getTreasureSave(treasurePreview.getName());
+
+        ((SaveMenuActivity) context).getRenamedFile(items,treasurePreview);
+
+        SaveNameDialog saveNameDialog = new SaveNameDialog();
+        saveNameDialog.show(((AppCompatActivity)context).getSupportFragmentManager()," save name dialog ");
     }
 }

@@ -20,6 +20,7 @@ public class TreasurePreviewViewHolder extends RecyclerView.ViewHolder  {
 
     ImageButton deleteButton;
     ImageButton editButton;
+    ImageButton renameButton;
 
     public TreasurePreviewViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -29,6 +30,7 @@ public class TreasurePreviewViewHolder extends RecyclerView.ViewHolder  {
         nbItem = itemView.findViewById(R.id.save_nb_item);
         deleteButton = itemView.findViewById(R.id.save_delete_button);
         editButton = itemView.findViewById(R.id.save_edit_button);
+        renameButton = itemView.findViewById(R.id.save_rename_button);
     }
 
     public void initView(TreasurePreview treasurePreview){
@@ -49,6 +51,13 @@ public class TreasurePreviewViewHolder extends RecyclerView.ViewHolder  {
             @Override
             public void onClick(View v) {
                 treasurePreviewRecyclerViewAdapter.editSave(getAdapterPosition());
+            }
+        });
+
+        renameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                treasurePreviewRecyclerViewAdapter.renameSave(getAdapterPosition());
             }
         });
     }
