@@ -20,6 +20,9 @@ android {
 
     sourceSets {
         main.java.srcDirs += '../../PathfinderGenerator/src'
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res/layouts/item', 'src/main/res/layouts/activity']
+        }
     }
 }
 allprojects {
