@@ -52,7 +52,10 @@ public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<Tre
         return treasurePreviews.size();
     }
 
-
+    /**
+     * Suppresion d'une sauvegarde
+     * @param position de la sauvegarde
+     */
     public void deleteSave(final int position){
         if(position<0) return; //correctif bug appuis multiple supression item
 
@@ -60,6 +63,7 @@ public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<Tre
         builder.setTitle("Supprimer ?");
         builder.setMessage("Voulez-vous vraiment supprimer la sauvegarde ?");
 
+        //Suppresion de la sauvegarde
         builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -82,6 +86,9 @@ public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<Tre
         dialog.show();//Affichage de la fenetre.
     }
 
+    /**
+     * Intent vers l'editeur de sauvegarde.
+     */
     public void editSave(int position){
 
         ArrayList<Item> items = HandlerTreasureSave.getInstance().getTreasureSave(treasurePreviews.get(position).getName());
@@ -93,6 +100,10 @@ public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<Tre
         context.startActivity(intent);
     }
 
+    /**
+     * Renomme la sauvegarde.
+     * @param position
+     */
     public void renameSave(int position){
         TreasurePreview treasurePreview = treasurePreviews.get(position);
         //Liste des objets

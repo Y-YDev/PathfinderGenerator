@@ -46,15 +46,19 @@ public class SaveMenuActivity extends AppCompatActivity implements SaveNameDialo
         saveRecyclerView.setAdapter(saveRecyclerViewAdapter);
     }
 
+    //Permet de récupérer des informations sur la sauvegarde renommée
     public void getRenamedFile(ArrayList<Item> items, TreasurePreview treasurePreview){
         this.currentItemList = items;
         this.currentTreasurePreview = treasurePreview;
     }
 
 
+    /**
+     * Renommage de la sauvegarde
+     * @param saveName : le nouveau nom de la sauvegarde
+     */
     @Override
     public void saveTreasure(String saveName) {
-
         //On supprime l'ancienne et créer la nouvelle sauvegarde
         if(HandlerTreasureSave.getInstance().deleteSaveFile(currentTreasurePreview)){
             currentTreasurePreview.setName(saveName);

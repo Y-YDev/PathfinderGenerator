@@ -66,7 +66,7 @@ public class StandartGenerationActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        error.setVisibility(View.INVISIBLE);
+        error.setVisibility(View.INVISIBLE);//L'erreur redeviens invisible
 
     }
 

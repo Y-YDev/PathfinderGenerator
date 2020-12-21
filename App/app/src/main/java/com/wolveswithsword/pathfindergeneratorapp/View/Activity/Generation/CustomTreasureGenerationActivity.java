@@ -49,7 +49,9 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-
+    /**
+     * Changement d'intent
+     */
     public void switchIntent(){
 
         Intent intent = new Intent(CustomTreasureGenerationActivity.this, CustomRewardActivity.class);

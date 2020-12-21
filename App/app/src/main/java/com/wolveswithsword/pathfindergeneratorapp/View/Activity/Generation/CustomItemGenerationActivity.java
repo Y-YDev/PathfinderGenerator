@@ -17,11 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
-import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.SaveMenuActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.ItemSpinnerSelectedListener;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
-import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Constants;
 
 import java.util.Random;
 
@@ -60,7 +58,7 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
     EditText poInput;
     Spinner poTypeSpinner;
 
-    //Builder
+    //----- Builder
     Random r;
 
     WeaponBuilder weaponBuilder;
@@ -248,6 +246,10 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
         }
     }
 
+    /**
+     * Sauvegarde le trésor. implements de SaveDialog.
+     * @param saveName
+     */
     @Override
     public void saveTreasure(String saveName) {
         TreasurePreview treasurePreview = new TreasurePreview();

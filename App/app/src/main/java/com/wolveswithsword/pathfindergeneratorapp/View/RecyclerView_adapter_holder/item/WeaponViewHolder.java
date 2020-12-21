@@ -11,8 +11,6 @@ import androidx.annotation.NonNull;
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
 
-import java.io.Serializable;
-
 import item.weapon.Material;
 import item.weapon.Munition;
 import item.weapon.RangeWeapon;

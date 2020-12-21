@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 
-import generator.TreasurePreview;
 import save.HandlerTreasureSave;
 
 public class SaveNameDialog extends AppCompatDialogFragment {
@@ -32,6 +31,7 @@ public class SaveNameDialog extends AppCompatDialogFragment {
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.save_name_catcher,null);
 
+        //Affectation de la vue
         builder.setView(view)
                 .setTitle("Sauvegarde :")
                 .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
@@ -83,6 +83,7 @@ public class SaveNameDialog extends AppCompatDialogFragment {
         return dialog;
     }
 
+    //On récupère le listener pour l'implémentation de la sauvegarde.
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

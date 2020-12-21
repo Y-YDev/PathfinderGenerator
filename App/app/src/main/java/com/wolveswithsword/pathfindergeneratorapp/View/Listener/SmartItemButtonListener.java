@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward.RewardActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.SmartItemActivity;
 
 import item.smartItem.SmartItem;

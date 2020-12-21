@@ -1,13 +1,10 @@
 package save;
 
-import android.content.Context;
-
 import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Constants;
 
 import java.io.File;
 import java.util.ArrayList;
-
 
 import generator.TreasurePreview;
 import item.Item;
@@ -16,11 +13,11 @@ import utility.FileManager;
 
 public class HandlerTreasureSave {
 
-    private File directory;
+    private File directory;//Repertoire de base
     private final String extension = ".json";
     private TreasureSaveParser parser = new TreasureSaveParser();
 
-    private static HandlerTreasureSave handlerTreasureSave;
+    private static HandlerTreasureSave handlerTreasureSave;//SINGLETON
 
 
     /**
@@ -30,6 +27,10 @@ public class HandlerTreasureSave {
         initDirectory(new File(AppObject.getContext().getFilesDir() + Constants.SAVES));
     }
 
+    /**
+     * SINGLETON
+     * @return l'instance de handler de save.
+     */
     public static HandlerTreasureSave getInstance(){
         if(handlerTreasureSave == null){
             handlerTreasureSave = new HandlerTreasureSave();
@@ -38,6 +39,10 @@ public class HandlerTreasureSave {
         return handlerTreasureSave;
     }
 
+    /**
+     * Initialise le répertoire.
+     * @param directory : le répertoire.
+     */
     private void initDirectory(File directory){
         if(!directory.exists()){
             boolean isCreate = directory.mkdir();
@@ -56,7 +61,10 @@ public class HandlerTreasureSave {
     }
 
 
-
+    /**
+     * Recupère tous les fichiers de sauvegarde.
+     * @return
+     */
     private ArrayList<File> getAllSaveFiles(){
         ArrayList<File> saveFiles = new ArrayList<>();
 
@@ -66,7 +74,10 @@ public class HandlerTreasureSave {
         return saveFiles;
     }
 
-
+    /**
+     * Récupère tout les nom de sauvegardes.
+     * @return
+     */
     private ArrayList<String> getAllSaveName(){
         ArrayList<String> savesNames = new ArrayList<>();
 
@@ -76,6 +87,11 @@ public class HandlerTreasureSave {
         return savesNames;
     }
 
+    /**
+     * Renvoie true ou false si la sauvegarde existe.
+     * @param name : nom de la sauvegarde
+     * @return true ou false
+     */
     public boolean alreadyExist(String name){
         return this.getAllSaveName().contains(name + extension);
     }
@@ -131,6 +147,11 @@ public class HandlerTreasureSave {
         return isSaved;
     }
 
+    /**
+     * Supprime une sauvegarde
+     * @param preview : l'objet de la sauvegarde
+     * @return
+     */
     public boolean deleteSaveFile(TreasurePreview preview){
         FileManager file = new FileManager(new File(directory,preview.getName()+extension));
 

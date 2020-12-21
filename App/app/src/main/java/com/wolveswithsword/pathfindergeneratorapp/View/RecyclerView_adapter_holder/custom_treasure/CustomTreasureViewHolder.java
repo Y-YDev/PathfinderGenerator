@@ -81,6 +81,9 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         checkInput();
     }
 
+    /**
+     * On check l'input du prix donné.
+     */
     public void checkInput(){
         if(treasureElement.checkCorrectValue()){
             error.setVisibility(View.GONE);
@@ -94,7 +97,10 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-
+    /**
+     * Affiche l'erreur
+     * @param errorMsg : le message d'erreur
+     */
     public void setError(String errorMsg){
         error.setVisibility(View.VISIBLE);
         error.setText(errorMsg);

@@ -1,6 +1,5 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,18 +9,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
-import com.wolveswithsword.pathfindergeneratorapp.View.Activity.SmartItemActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 import generator.TreasureBuilder;
+import generator.TreasurePreview;
 import item.Item;
-import item.smartItem.SmartItem;
+import save.HandlerTreasureSave;
 
-public abstract class RewardActivity extends AppCompatActivity {
+public abstract class RewardActivity extends AppCompatActivity implements SaveNameDialog.SaveNameDialogListener {
 
     private Button rerollButton;
+    private Button saveButton;
 
     protected RecyclerView rewardRecyclerView;
     protected ArrayList<Item> rewards;
@@ -38,6 +39,14 @@ public abstract class RewardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 roll();
+            }
+        });
+
+        saveButton = findViewById(R.id.save);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                save();
             }
         });
 
@@ -59,4 +68,32 @@ public abstract class RewardActivity extends AppCompatActivity {
      * Lance/Relance les récompenses générées
      */
     public abstract void roll();
+
+    /**
+     * Fenetre de dialogue du nom de la sauvegarde
+     */
+    public void save(){
+        if(rewardRecyclerViewAdapter.getItemCount() != 0) {//Inutile de save une liste vide...CQFD
+            SaveNameDialog saveNameDialog = new SaveNameDialog();
+
+            saveNameDialog.show(getSupportFragmentManager()," save name dialog ");
+        }
+    }
+
+    /**
+     * Sauvegarde un trésor.
+     * @param saveName
+     */
+    @Override
+    public void saveTreasure(String saveName) {
+        TreasurePreview treasurePreview = new TreasurePreview();
+        treasurePreview.setName(saveName);
+        treasurePreview.setPo(rewardRecyclerViewAdapter.getTotalPriceOfItems());
+        treasurePreview.setNbItem(rewardRecyclerViewAdapter.getItemCount());
+
+        HandlerTreasureSave.getInstance().saveTreasure(
+                rewardRecyclerViewAdapter.getRewardList(),
+                treasurePreview
+        );
+    }
 }

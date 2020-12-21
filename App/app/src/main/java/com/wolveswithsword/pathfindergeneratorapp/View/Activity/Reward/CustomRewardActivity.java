@@ -12,7 +12,7 @@ import utility.Debug;
  */
 public class CustomRewardActivity extends RewardActivity {
 
-    ArrayList<TreasureElement> treasureList;
+    ArrayList<TreasureElement> treasureList;//On retient les paramètres de création de trésor.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

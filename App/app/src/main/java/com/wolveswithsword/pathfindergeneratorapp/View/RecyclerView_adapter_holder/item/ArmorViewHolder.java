@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
-import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Constants;
 
 import item.armor.ArmorShield;
 import item.armor.Material;

@@ -71,6 +71,9 @@ public class SmartItemActivity extends AppCompatActivity {
         initView();
     }
 
+    /**
+     * Remplissage des champs du smart item.
+     */
     private void initView(){
         alignment.setText(smartItem.getAlignement());
         ego.setText(Integer.toString(smartItem.getEgo()));

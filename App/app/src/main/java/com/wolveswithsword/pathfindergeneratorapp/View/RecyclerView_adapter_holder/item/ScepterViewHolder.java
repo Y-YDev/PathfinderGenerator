@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
-import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward.RewardActivity;
 
 import item.scepter.Scepter;
 import item.scepter.Type;
