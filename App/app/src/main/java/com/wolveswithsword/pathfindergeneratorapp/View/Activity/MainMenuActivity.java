@@ -2,10 +2,12 @@ package com.wolveswithsword.pathfindergeneratorapp.View.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomItemGenerationActivity;
@@ -18,6 +20,8 @@ public class MainMenuActivity extends AppCompatActivity {
     Button customTreasureGeneration;//Bouton de création personnalisé par trésor
     Button customItemGeneration;//Bouton de création d'objet personnalisé
     Button saveManager;//Bouton de gestion des sauvegardes.
+
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ public class MainMenuActivity extends AppCompatActivity {
                 saveManagerIntent();
             }
         });
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -83,4 +90,11 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent intent = new Intent(MainMenuActivity.this, SaveMenuActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main_toolbar,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 }
