@@ -27,16 +27,16 @@ public class CoinViewHolder extends ItemViewHolder {
 
         switch (coin.getTypeCoin()){
             case GOLD:
-                image.setImageResource(R.drawable.gold_image);
+                image.setImageResource(R.drawable.item_gold_image);
                 break;
             case COPPER:
-                image.setImageResource(R.drawable.copper_image);
+                image.setImageResource(R.drawable.item_copper_image);
                 break;
             case SILVER:
-                image.setImageResource(R.drawable.silver_image);
+                image.setImageResource(R.drawable.item_silver_image);
                 break;
             case PLATINIUM:
-                image.setImageResource(R.drawable.platinium_image);
+                image.setImageResource(R.drawable.item_platinium_image);
                 break;
             default:
                 break;

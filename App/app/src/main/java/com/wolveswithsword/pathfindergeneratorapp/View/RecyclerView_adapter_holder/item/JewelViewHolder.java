@@ -66,7 +66,7 @@ public class JewelViewHolder extends ItemViewHolder{
         material.setText(jewel.getMaterial().getName());
         size.setText(jewel.getSize().getName());
 
-        image.setImageResource(R.drawable.jewel_image);
+        image.setImageResource(R.drawable.item_jewel_image);
 
         if(jewel.getGemN() != null){
             gemGradeN.setVisibility(View.VISIBLE);

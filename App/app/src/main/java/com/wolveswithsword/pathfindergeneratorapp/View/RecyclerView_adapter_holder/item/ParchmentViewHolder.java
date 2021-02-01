@@ -45,6 +45,6 @@ public class ParchmentViewHolder extends ItemViewHolder{
         nls.setText(Integer.toString(parchment.getNls()));
         nds.setText(Integer.toString(parchment.getNds()));
 
-        image.setImageResource(R.drawable.parchment_image);
+        image.setImageResource(R.drawable.item_parchment_image);
     }
 }

@@ -32,6 +32,6 @@ public class GemViewHolder extends ItemViewHolder {
         name.setText(gem.getName());
         price.setText(gem.getPrice()+" po");
         cut.setText(gem.getCut().toString());
-        image.setImageResource(R.drawable.gem_image);
+        image.setImageResource(R.drawable.item_gem_image);
     }
 }

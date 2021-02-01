@@ -103,10 +103,10 @@ public class ArmorViewHolder extends ItemViewHolder{
         weight.setText(armorShield.getWeight()+" kg");
 
         if(armorShield.getTypeArmor() == Type.SHIELD){
-            image.setImageResource(R.drawable.shield_image);
+            image.setImageResource(R.drawable.item_shield_image);
         }
         else{
-            image.setImageResource(R.drawable.armor_image);
+            image.setImageResource(R.drawable.item_armor_image);
         }
 
         //Smart Item

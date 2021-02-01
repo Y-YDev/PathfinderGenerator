@@ -44,7 +44,7 @@ public class StaffViewHolder extends ItemViewHolder {
             propPartLayout.setVisibility(View.GONE);
         }
 
-        image.setImageResource(R.drawable.staff_image);
+        image.setImageResource(R.drawable.item_staff_image);
     }
 
 }

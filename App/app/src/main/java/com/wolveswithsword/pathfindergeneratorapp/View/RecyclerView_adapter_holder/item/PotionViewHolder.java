@@ -35,6 +35,6 @@ public class PotionViewHolder extends ItemViewHolder {
         nds.setText(Integer.toString(potion.getNds()));
         nls.setText(Integer.toString(potion.getNls()));
 
-        image.setImageResource(R.drawable.potion_image);
+        image.setImageResource(R.drawable.item_potion_image);
     }
 }

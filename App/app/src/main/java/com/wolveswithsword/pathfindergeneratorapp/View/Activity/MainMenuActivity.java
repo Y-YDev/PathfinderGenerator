@@ -21,7 +21,7 @@ public class MainMenuActivity extends AppCompatActivity {
     Button customItemGeneration;//Bouton de création d'objet personnalisé
     Button saveManager;//Bouton de gestion des sauvegardes.
 
-    Toolbar toolbar;
+    //Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,8 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        toolbar = findViewById(R.id.main_toolbar);
-        setSupportActionBar(toolbar);
+        //toolbar = findViewById(R.id.main_toolbar);
+        //setSupportActionBar(toolbar);
     }
 
     @Override
@@ -91,10 +91,10 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main_toolbar,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_main_toolbar,menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
 }

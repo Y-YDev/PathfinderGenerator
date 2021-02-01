@@ -135,7 +135,7 @@ public class WeaponViewHolder extends ItemViewHolder{
         weight.setText(Tools.truncateTo(weapon.getWeight(),2)+" kg");
 
         if(weapon.getType() == Type.DIST){
-            image.setImageResource(R.drawable.bow_image);
+            image.setImageResource(R.drawable.item_bow_image);
             quantityLayout.setVisibility(View.GONE);
 
             if(((RangeWeapon)weapon).getMunition().getQuantity() != 0){
@@ -152,14 +152,14 @@ public class WeaponViewHolder extends ItemViewHolder{
         else if(weapon.getType() == Type.MUN){
             munitionLayout.setVisibility(View.GONE);
             quantityLayout.setVisibility(View.VISIBLE);
-            image.setImageResource(R.drawable.arrow_image);
+            image.setImageResource(R.drawable.item_arrow_image);
 
             quantity.setText(Integer.toString(((Munition)weapon).getQuantity()));
         }
         else{
             munitionLayout.setVisibility(View.GONE);
             quantityLayout.setVisibility(View.GONE);
-            image.setImageResource(R.drawable.weapon_image);
+            image.setImageResource(R.drawable.item_weapon_image);
         }
 
         //Smart Item

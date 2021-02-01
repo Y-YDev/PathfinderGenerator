@@ -27,6 +27,6 @@ public class ArtItemViewHolder extends ItemViewHolder {
         name.setText(artItem.getName());
         price.setText(artItem.getPrice()+" po");
 
-        image.setImageResource(R.drawable.artitem_image);
+        image.setImageResource(R.drawable.item_artitem_image);
     }
 }

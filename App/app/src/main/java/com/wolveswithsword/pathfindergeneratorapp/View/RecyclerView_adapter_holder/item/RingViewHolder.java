@@ -54,7 +54,7 @@ public class RingViewHolder extends ItemViewHolder {
             propPartLayout.setVisibility(View.GONE);
         }
 
-        image.setImageResource(R.drawable.ring_image);
+        image.setImageResource(R.drawable.item_ring_image);
 
         if(ring.getSmartItem() != null){
             smartItemLayout.setVisibility(View.VISIBLE);

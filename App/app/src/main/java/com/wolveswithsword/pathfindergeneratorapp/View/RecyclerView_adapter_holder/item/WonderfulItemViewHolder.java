@@ -67,40 +67,40 @@ public class WonderfulItemViewHolder extends ItemViewHolder {
 
         switch (wonderfulObject.getTypeWonder()){
             case BODY:
-                image.setImageResource(R.drawable.body_image);
+                image.setImageResource(R.drawable.item_body_image);
                 break;
             case EYES:
-                image.setImageResource(R.drawable.eyes_image);
+                image.setImageResource(R.drawable.item_eyes_image);
                 break;
             case FEET:
-                image.setImageResource(R.drawable.feet_image);
+                image.setImageResource(R.drawable.item_feet_image);
                 break;
             case HEAD:
-                image.setImageResource(R.drawable.head_image);
+                image.setImageResource(R.drawable.item_head_image);
                 break;
             case NECK:
-                image.setImageResource(R.drawable.neck_image);
+                image.setImageResource(R.drawable.item_neck_image);
                 break;
             case HANDS:
-                image.setImageResource(R.drawable.hands_image);
+                image.setImageResource(R.drawable.item_hands_image);
                 break;
             case TORSO:
-                image.setImageResource(R.drawable.torso_image);
+                image.setImageResource(R.drawable.item_torso_image);
                 break;
             case WAIST:
-                image.setImageResource(R.drawable.waist_image);
+                image.setImageResource(R.drawable.item_waist_image);
                 break;
             case WRIST:
-                image.setImageResource(R.drawable.wrist_image);
+                image.setImageResource(R.drawable.item_wrist_image);
                 break;
             case FOREHEAD:
-                image.setImageResource(R.drawable.forehead_image);
+                image.setImageResource(R.drawable.item_forehead_image);
                 break;
             case SHOULDERS:
-                image.setImageResource(R.drawable.shoudler_image);
+                image.setImageResource(R.drawable.item_shoudler_image);
                 break;
             case WITHOUT_LOCATION:
-                image.setImageResource(R.drawable.without_loc_image);
+                image.setImageResource(R.drawable.item_without_loc_image);
                 break;
             case NONE:
                 image.setImageResource(R.drawable.ic_launcher_foreground);

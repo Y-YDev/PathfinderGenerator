@@ -47,7 +47,7 @@ public class WandViewHolder extends ItemViewHolder {
             propPartLayout.setVisibility(View.GONE);
         }
 
-        image.setImageResource(R.drawable.wand_image);
+        image.setImageResource(R.drawable.item_wand_image);
         nds.setText(Integer.toString(wand.getNds()));
         nls.setText(Integer.toString(wand.getNls()));
     }

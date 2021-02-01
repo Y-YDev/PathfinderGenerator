@@ -68,7 +68,7 @@ public class ScepterViewHolder extends ItemViewHolder {
             propPartLayout.setVisibility(View.GONE);
         }
 
-        image.setImageResource(R.drawable.scepter_image);
+        image.setImageResource(R.drawable.item_scepter_image);
 
         if(scepter.getSmartItem() != null){
             smartItemLayout.setVisibility(View.VISIBLE);
