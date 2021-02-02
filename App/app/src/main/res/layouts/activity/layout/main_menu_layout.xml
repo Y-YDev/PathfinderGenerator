@@ -33,7 +33,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3.2"
+        android:layout_weight="3"
         android:adjustViewBounds="true"
         android:background="@color/theme_color_6"
         android:scaleType="fitXY"
@@ -49,9 +49,10 @@
         <Button
             android:id="@+id/creation_standard"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
 
             android:text="Création Standard"
             android:textAllCaps="false"
@@ -65,8 +66,10 @@
         <Button
             android:id="@+id/creation_treasure"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+
 
             android:text="Création par Trésor"
             android:textAllCaps="false"
@@ -80,8 +83,10 @@
         <Button
             android:id="@+id/creation_item"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+
 
             android:text="Création d'objets"
             android:textAllCaps="false"
@@ -95,8 +100,10 @@
         <Button
             android:id="@+id/save_manager"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+
 
             android:text="Sauvegardes"
             android:textAllCaps="false"

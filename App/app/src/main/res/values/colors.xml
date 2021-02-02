@@ -5,7 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="ic_launcher_pathfinder_background">#676967</color>
     <color name="toolbar">#0C575C</color>
-    
+
+    <color name="transparent">#00FFFFFF</color>
     
     <color name="theme_color_1">#040C0E</color>
     <color name="theme_color_2">#132226</color>

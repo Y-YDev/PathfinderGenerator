@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/table"
-        android:title="table de rencontre."></item>
+        android:id="@+id/treasure_table"
+        android:title="Trésor par rencontre"
+        app:showAsAction="always"
+        android:icon="@drawable/treasure_table_icon"></item>
     <item
         android:id="@+id/table2"
         android:title="table de rencontre2."></item>

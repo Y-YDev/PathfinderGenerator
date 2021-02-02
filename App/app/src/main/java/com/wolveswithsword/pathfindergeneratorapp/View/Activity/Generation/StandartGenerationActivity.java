@@ -1,10 +1,17 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -32,6 +39,8 @@ public class StandartGenerationActivity extends AppCompatActivity {
     private ProbabilityType probabilityType;
     private double po;
     private boolean bonusType;
+
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +70,60 @@ public class StandartGenerationActivity extends AppCompatActivity {
                 }
             }
         });
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);//Flèche de retour
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         error.setVisibility(View.INVISIBLE);//L'erreur redeviens invisible
-
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main_toolbar,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id == R.id.treasure_table){
+
+            treasureTableDialog();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void treasureTableDialog(){
+        final Dialog treasureDialog = new Dialog(this);
+        treasureDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        treasureDialog.setContentView(R.layout.treasure_table_layout);
+        treasureDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        Button closeButton = treasureDialog.findViewById(R.id.close_treasure_table);
+
+        closeButton.setEnabled(true);
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                treasureDialog.cancel();
+            }
+        });
+
+        treasureDialog.show();
+    }
+
 
     /**
      * Vérifie l'argent que l'utilisateur rentre dans l'EditText

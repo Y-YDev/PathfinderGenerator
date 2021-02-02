@@ -16,10 +16,16 @@
         <activity android:name=".View.Activity.SmartItemActivity"/>
         <activity android:name=".View.Activity.Save.SaveMenuActivity"/>
         <activity android:name=".View.Activity.Generation.CustomItemGenerationActivity"/>
-        <activity android:name=".View.Activity.Generation.StandartGenerationActivity"/>
+
+        <activity android:name=".View.Activity.Generation.StandartGenerationActivity"
+            android:theme="@style/MainMenu"
+            android:parentActivityName=".View.Activity.MainMenuActivity"
+            android:label="Création Standard"/>
+
         <activity android:name=".View.Activity.Generation.CustomTreasureGenerationActivity"/>
         <activity android:name=".View.Activity.Save.EditSaveActivity"/>
         <activity android:name=".View.Activity.MainToolbarActivity"/>
+
         <activity android:name=".View.Activity.MainMenuActivity" android:theme="@style/MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
