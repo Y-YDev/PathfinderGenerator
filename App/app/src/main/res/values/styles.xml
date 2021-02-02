@@ -11,4 +11,29 @@
     <style name="MainMenu" parent="Theme.AppCompat.NoActionBar">
     </style>
 
+    <style name="ToolBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/seagram</item>
+    </style>
+
+    <style name="SpinnerTheme">
+        <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:fontFamily">@font/seagram</item>
+        <item name="android:background">@color/theme_color_2</item>
+    </style>
+    <style name="SpinnerSelectedItem">
+        <item name="android:fontFamily">@font/seagram</item>
+        <item name="android:textColor">@color/text_color_1</item>
+    </style>
+
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@color/theme_color_8</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
 </resources>

@@ -23,7 +23,7 @@
             android:fontFamily="@font/seagram"
             android:text="Pathfinder Generator"
             android:textAlignment="center"
-            android:textColor="#041A25"
+            android:textColor="#C2CFD5"
             android:textSize="36sp"
             android:textStyle="bold" />
     </LinearLayout>

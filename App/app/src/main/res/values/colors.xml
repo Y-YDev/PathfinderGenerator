@@ -15,7 +15,11 @@
     <color name="theme_color_5">#91857D</color>
     <color name="theme_color_6">#044743</color>
     <color name="theme_color_7">#233E46</color>
+    <color name="theme_color_8">#312420</color>
 
     <color name="text_color_1">#BDB8B7</color>
     <color name="text_color_2">#8BA4AF</color>
+    <color name="text_color_3">#47342E</color>
+    <color name="text_error">#940404</color>
+
 </resources>

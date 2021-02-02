@@ -1,17 +1,20 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -51,10 +54,25 @@ public class StandartGenerationActivity extends AppCompatActivity {
 
         monsterTypeSpinner = (Spinner) findViewById(R.id.monstertype);
         monsterTypeSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, MonsterType.toArray()));
-        monsterTypeSpinner.setOnItemSelectedListener(new MonsterSpinnerSelectedListener(bonusBox));//Mise en place du listener
+        monsterTypeSpinner.setOnItemSelectedListener(new MonsterSpinnerSelectedListener(bonusBox,this));//Mise en place du listener
 
         probabilityTypeSpinner = (Spinner) findViewById(R.id.proba);
         probabilityTypeSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, ProbabilityType.toArray()));
+        probabilityTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //SET FONT AND COLOR OF SELECTED ITEM
+                TextView selectedItemTV = (TextView) parent.getSelectedView();
+                if(selectedItemTV != null)
+                    selectedItemTV.setTextAppearance(R.style.SpinnerSelectedItem);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //NOTHING
+            }
+        });
 
         poInput = findViewById(R.id.po);
 
@@ -81,7 +99,7 @@ public class StandartGenerationActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        error.setVisibility(View.INVISIBLE);//L'erreur redeviens invisible
+        error.setVisibility(View.GONE);//L'erreur redeviens invisible
     }
 
     @Override
@@ -95,7 +113,7 @@ public class StandartGenerationActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if(id == R.id.treasure_table){
+        if(id == R.id.treasure_table){//table des trésors
 
             treasureTableDialog();
             return true;
@@ -108,12 +126,12 @@ public class StandartGenerationActivity extends AppCompatActivity {
         final Dialog treasureDialog = new Dialog(this);
         treasureDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         treasureDialog.setContentView(R.layout.treasure_table_layout);
+        //Fond transparant
         treasureDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         Button closeButton = treasureDialog.findViewById(R.id.close_treasure_table);
 
         closeButton.setEnabled(true);
-
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
