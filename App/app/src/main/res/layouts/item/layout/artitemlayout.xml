@@ -1,87 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/itemborder">
+    android:layout_height="wrap_content">
 
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Objet d'Art"
-        android:textAlignment="textEnd"
-        android:textSize="12sp"
-        android:textStyle="italic" />
+    <ImageView
+        android:src="@drawable/background_item_image"
+        android:scaleType="fitXY"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignTop="@id/container"
+        android:layout_alignBottom="@id/container"
+        android:layout_alignLeft="@id/container"
+        android:layout_alignRight="@id/container"/>
 
     <LinearLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        style="@style/Item_style">
 
-        <ImageView
-            android:id="@+id/art_image"
-            android:layout_width="0dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="10dp"
-            android:layout_weight="2"
-            tools:srcCompat="@tools:sample/avatars[0]" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Objet d'Art"
+            android:textAlignment="textEnd"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_weight="5"
-            android:orientation="vertical">
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/art_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Name"
-                android:textAlignment="center"
-
-                android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/art_image"
+                android:layout_width="0dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="2"
+                tools:srcCompat="@tools:sample/avatars[0]" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="5"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/art_price_info"
-                    android:layout_width="0dp"
+                    android:id="@+id/art_name"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Prix : "
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Name"
                     android:textAlignment="center"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/art_price"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="prix"
-                    android:textAlignment="center"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/art_price_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prix : "
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/art_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="prix"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
+            <ImageButton
+                android:id="@+id/artitem_delete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
         </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/artitem_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

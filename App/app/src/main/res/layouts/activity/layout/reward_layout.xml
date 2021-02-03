@@ -10,7 +10,8 @@
         android:id="@+id/rewardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10" >
+        android:layout_weight="10"
+        android:background="@color/theme_color_1">
 
     </androidx.recyclerview.widget.RecyclerView>
 
