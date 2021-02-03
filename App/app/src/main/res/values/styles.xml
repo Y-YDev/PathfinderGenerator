@@ -13,16 +13,20 @@
 
     <style name="ToolBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:fontFamily">@font/seagram</item>
+        <item name="android:textColor">@color/text_color_2</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="SpinnerTheme">
         <item name="android:textColor">@color/text_color_1</item>
         <item name="android:fontFamily">@font/seagram</item>
         <item name="android:background">@color/theme_color_2</item>
+        <item name="android:textSize">20sp</item>
     </style>
     <style name="SpinnerSelectedItem">
         <item name="android:fontFamily">@font/seagram</item>
         <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 

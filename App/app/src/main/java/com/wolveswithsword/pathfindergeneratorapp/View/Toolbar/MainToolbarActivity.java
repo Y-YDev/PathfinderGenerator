@@ -1,4 +1,4 @@
-package com.wolveswithsword.pathfindergeneratorapp.View.Activity;
+package com.wolveswithsword.pathfindergeneratorapp.View.Toolbar;
 
 import android.os.Bundle;
 import android.view.Menu;
