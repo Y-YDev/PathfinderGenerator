@@ -77,25 +77,25 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_gravity="center"
-                            android:background="@drawable/title_border"
-
+                            android:layout_marginHorizontal="5dp"
                             android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp">
+
+                            android:background="@drawable/title_border"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/gem_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="Name"
-
-                                android:padding="4dp"
                                 android:background="@color/theme_error_opacity"
-                                android:textAlignment="center"
-                                android:textSize="16sp"
+
                                 android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"/>
+                                android:padding="4dp"
+                                android:text="Name"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_color_5"
+                                android:textSize="16sp" />
 
                         </LinearLayout>
 
@@ -103,10 +103,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:padding="3dp"
                             android:layout_marginHorizontal="5dp"
-                            android:background="@color/theme_color_8_opacity">
+                            android:background="@color/theme_color_8_opacity"
+                            android:orientation="horizontal"
+                            android:padding="3dp">
 
                             <TextView
                                 android:id="@+id/gem_work_info"
@@ -115,9 +115,9 @@
                                 android:layout_weight="3"
 
                                 android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_3"
                                 android:text="Travail de la gemme :"
                                 android:textAlignment="center"
+                                android:textColor="@color/text_color_3"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -125,25 +125,25 @@
                                 android:id="@+id/gem_work"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="4"
                                 android:layout_gravity="center"
+                                android:layout_weight="4"
 
-                                android:textColor="@color/text_color_5"
                                 android:fontFamily="@font/seagram"
                                 android:text="work"
                                 android:textAlignment="center"
+                                android:textColor="@color/text_color_5"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:layout_marginHorizontal="5dp"
 
                             android:layout_marginTop="5dp"
-                            android:padding="3dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:background="@color/theme_color_8_opacity">
+                            android:background="@color/theme_color_8_opacity"
+                            android:orientation="horizontal"
+                            android:padding="3dp">
 
                             <TextView
                                 android:id="@+id/gem_price_info"
@@ -152,9 +152,9 @@
                                 android:layout_weight="1"
 
                                 android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_3"
                                 android:text="Prix : "
                                 android:textAlignment="textStart"
+                                android:textColor="@color/text_color_3"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -164,10 +164,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:textColor="@color/text_color_5"
                                 android:fontFamily="@font/seagram"
                                 android:text="prix"
                                 android:textAlignment="center"
+                                android:textColor="@color/text_color_5"
                                 android:textSize="14sp" />
                         </LinearLayout>
 

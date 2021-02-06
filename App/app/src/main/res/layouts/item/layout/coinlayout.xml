@@ -62,7 +62,7 @@
                     android:textColor="@color/text_color_5"
                     android:text="Pièces"
                     android:textAlignment="textEnd"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:textStyle="italic" />
 
                 <LinearLayout
