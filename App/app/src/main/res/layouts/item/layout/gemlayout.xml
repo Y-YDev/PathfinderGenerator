@@ -128,10 +128,10 @@
                                 android:layout_gravity="center"
                                 android:layout_weight="4"
 
+                                android:textColor="@color/text_color_5"
                                 android:fontFamily="@font/seagram"
                                 android:text="work"
                                 android:textAlignment="center"
-                                android:textColor="@color/text_color_5"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
@@ -151,10 +151,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
 
+                                android:textColor="@color/text_color_3"
                                 android:fontFamily="@font/seagram"
                                 android:text="Prix : "
                                 android:textAlignment="textStart"
-                                android:textColor="@color/text_color_3"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
