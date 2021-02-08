@@ -90,7 +90,7 @@
 
             android:fontFamily="@font/seagram"
             android:gravity="center"
-            android:hint="entrez la somme"
+            android:hint="Entrez la somme"
             android:inputType="number"
             android:textAlignment="center"
             android:textSize="20sp" />

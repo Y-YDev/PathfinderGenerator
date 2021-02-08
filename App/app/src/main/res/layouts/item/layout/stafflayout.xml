@@ -22,15 +22,6 @@
         android:orientation="vertical"
         style="@style/Item_style">
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bâton"
-            android:textAlignment="textEnd"
-            android:textSize="12sp"
-            android:textStyle="italic" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,94 +29,159 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/staff_image"
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_marginStart="10dp"
-                android:layout_weight="2"
-                tools:srcCompat="@tools:sample/avatars[0]" />
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:background="@drawable/item_button_border">
+
+                <ImageView
+                    android:id="@+id/staff_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:srcCompat="@tools:sample/avatars[0]" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="5"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="7">
 
                 <TextView
-                    android:id="@+id/staff_name"
+                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="Name"
-                    android:textAlignment="center"
 
-                    android:textSize="16sp" />
+                    android:text="Bâton"
+                    android:fontFamily="@font/seagram"
+                    android:textColor="@color/text_color_5"
+                    android:textAlignment="textEnd"
+                    android:textSize="10sp"
+                    android:textStyle="italic" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/staff_price_info"
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Prix :"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="4"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/staff_price"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_marginVertical="7dp"
+
+                            android:background="@drawable/title_border"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/staff_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/theme_error_opacity"
+
+                                android:fontFamily="@font/seagram"
+                                android:padding="4dp"
+                                android:text="Name"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_color_5"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@color/theme_color_8_opacity"
+                            android:orientation="horizontal"
+                            android:padding="3dp">
+
+                            <TextView
+                                android:id="@+id/staff_price_info"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+
+                                android:textColor="@color/text_color_3"
+                                android:fontFamily="@font/seagram"
+                                android:text="Prix :"
+                                android:textAlignment="center"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/staff_price"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+
+                                android:textColor="@color/text_color_5"
+                                android:fontFamily="@font/seagram"
+                                android:text="price"
+                                android:textAlignment="center"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/staff_delete"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="price"
-                        android:textAlignment="center"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/staff_part_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/staff_part_info"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Propriété particulière :"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/staff_part"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="39dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:text="price"
-                        android:textAlignment="center"
-                        android:textSize="14sp" />
+
+                        android:background="@drawable/item_button_border"
+                        android:backgroundTint="@color/theme_button_1_opacity"
+                        app:srcCompat="@android:drawable/ic_menu_delete" />
+
                 </LinearLayout>
-
             </LinearLayout>
+        </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/staff_delete"
+        <LinearLayout
+            android:id="@+id/staff_part_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/theme_color_8_opacity"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/staff_part_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_delete" />
 
+                android:fontFamily="@font/seagram"
+                android:text="Propriété particulière : "
+                android:textAlignment="center"
+                android:textColor="@color/text_color_3"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/staff_part"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:textColor="@color/text_color_5"
+                android:fontFamily="@font/seagram"
+                android:text="prop"
+                android:textAlignment="center"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -17,6 +17,7 @@
     <color name="theme_color_7">#233E46</color>
     <color name="theme_color_8">#312420</color>
     <color name="theme_color_9">#A3962A</color>
+    <color name="theme_color_10">#0B3746</color>
 
 
     <color name="text_color_1">#BDB8B7</color>
@@ -32,6 +33,9 @@
     <color name="theme_error_opacity">#C4570303</color>
     <color name="theme_color_8_opacity">#393C1F1A</color>
     <color name="theme_button_1_opacity">#8B271511</color>
+    <color name="theme_color_3_opacity">#90525B56</color>
+    <color name="theme_color_6_opacity">#88044743</color>
+
 
 
 </resources>

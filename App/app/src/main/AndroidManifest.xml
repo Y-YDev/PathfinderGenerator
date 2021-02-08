@@ -14,27 +14,33 @@
         <activity android:name=".View.Activity.Reward.StandartRewardActivity"
             android:theme="@style/MainMenu"
             android:parentActivityName=".View.Activity.Generation.StandartGenerationActivity"
-            android:label="Butin"/>
+            android:label="Butin"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".View.Activity.Reward.CustomRewardActivity"/>
-        <activity android:name=".View.Activity.SmartItemActivity"/>
+
+        <activity android:name=".View.Activity.SmartItemActivity"
+            android:theme="@style/MainMenu"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".View.Activity.Save.SaveMenuActivity"/>
         <activity android:name=".View.Activity.Generation.CustomItemGenerationActivity"/>
 
         <activity android:name=".View.Activity.Generation.StandartGenerationActivity"
             android:theme="@style/MainMenu"
             android:parentActivityName=".View.Activity.MainMenuActivity"
-            android:label="Création Standard"/>
-
-
+            android:label="Création Standard"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".View.Activity.Generation.CustomTreasureGenerationActivity"/>
+
         <activity android:name=".View.Activity.Save.EditSaveActivity"/>
         <activity android:name=".View.Toolbar.MainToolbarActivity"/>
         <activity android:name=".View.Toolbar.RewardToolbarActivity"/>
 
-
-        <activity android:name=".View.Activity.MainMenuActivity" android:theme="@style/MainMenu">
+        <activity android:name=".View.Activity.MainMenuActivity"
+            android:theme="@style/MainMenu"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
