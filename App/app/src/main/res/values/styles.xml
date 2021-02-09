@@ -21,7 +21,7 @@
         <item name="android:textColor">@color/text_color_1</item>
         <item name="android:fontFamily">@font/seagram</item>
         <item name="android:background">@color/theme_color_2</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
     <style name="SpinnerSelectedItem">
         <item name="android:fontFamily">@font/seagram</item>
@@ -46,6 +46,19 @@
         <item name="android:layout_marginRight">6dp</item>
         <item name="android:layout_marginTop">3dp</item>
         <item name="android:layout_marginBottom">3dp</item>
+    </style>
+
+    <style name="Item_style_2">
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="Dialog_style">
+        <item name="android:fontFamily">@font/seagram</item>
+        <item name="android:textColor">@color/text_color_2</item>
     </style>
     
 </resources>

@@ -2,17 +2,21 @@ package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_hol
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
@@ -22,13 +26,14 @@ import generator.TreasureElement;
 
 public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
 
-    private LinearLayout itemLinearLayout;
+    private RelativeLayout itemLinearLayout;
 
     private TextView nameField;
     private EditText poInput;
     private Spinner probability;
     private Context context;
     private TextView error;
+    private ImageView image;
 
     private TreasureElement treasureElement;
 
@@ -40,14 +45,22 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         probability = itemView.findViewById(R.id.probability_input);
         context = itemView.getContext();
         error = itemView.findViewById(R.id.errorCustomGen);
+        image = itemView.findViewById(R.id.treasure_img);
 
         this.probability.setAdapter(new ArrayAdapter<>(context,android.R.layout.simple_spinner_item, ProbabilityType.toArray()));
         error.setVisibility(View.GONE);
 
         //auto update treasureElement avec la nouvelle probabilité selectionner
         probability.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                //SET FONT AND COLOR OF SELECTED ITEM
+                TextView selectedItemTV = (TextView) parent.getSelectedView();
+                if(selectedItemTV != null)
+                    selectedItemTV.setTextAppearance(R.style.SpinnerSelectedItem);
+
                 treasureElement.setProba(ProbabilityType.getType(probability.getSelectedItem().toString()));
             }
 
@@ -76,6 +89,37 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
     public void initView(TreasureElement treasureElement){
         this.treasureElement = treasureElement;
         this.nameField.setText(this.treasureElement.getTreasureType().toString());
+
+        switch (this.treasureElement.getTreasureType()){
+            case A:
+                this.image.setImageResource(R.drawable.item_gold_image);
+                break;
+            case B:
+                this.image.setImageResource(R.drawable.item_gem_image);
+                break;
+            case C:
+                this.image.setImageResource(R.drawable.item_artitem_image);
+                break;
+            case D:
+                this.image.setImageResource(R.drawable.treasure_jewels);
+                break;
+            case E:
+                this.image.setImageResource(R.drawable.treasure_armor_weap);
+                break;
+            case F:
+                this.image.setImageResource(R.drawable.treasure_warrior);
+                break;
+            case G:
+                this.image.setImageResource(R.drawable.treasure_wizard);
+                break;
+            case H:
+                this.image.setImageResource(R.drawable.treasure_dragon);
+                break;
+            default:
+                this.image.setImageResource(R.drawable.treasure_treasure);
+                break;
+        }
+
         poInput.setText((treasureElement.getPo() != 0  ? Double.toString(treasureElement.getPo()) : ""));
         probability.setSelection(((ArrayAdapter<CharSequence>) probability.getAdapter()).getPosition(treasureElement.getProba().toString()));
         checkInput();
@@ -88,12 +132,12 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
         if(treasureElement.checkCorrectValue()){
             error.setVisibility(View.GONE);
 
-            if(treasureElement.getPo() != 0) itemLinearLayout.setBackgroundColor(Color.WHITE);
-            else itemLinearLayout.setBackgroundColor(Color.LTGRAY);
+            if(treasureElement.getPo() != 0) itemLinearLayout.setBackgroundResource(R.color.theme_color_5);
+            else itemLinearLayout.setBackgroundResource(R.color.theme_color_1);
         }
         else {
             setError("La somme d'argent doit être inférieure à 1 000 000 po...");
-            itemLinearLayout.setBackgroundColor(0x77FF0000);
+            itemLinearLayout.setBackgroundResource(R.color.theme_error_opacity);
         }
     }
 

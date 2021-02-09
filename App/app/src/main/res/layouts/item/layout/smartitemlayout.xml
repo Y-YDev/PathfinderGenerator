@@ -218,7 +218,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/title_border_2"
-        android:layout_marginVertical="5dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/textView13"
@@ -248,7 +248,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/title_border_2"
-        android:layout_marginVertical="5dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/textView14"
@@ -310,7 +310,7 @@
                 android:id="@+id/plan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="5dp"
                 android:padding="10dp"
 
                 android:background="@color/theme_color_3_opacity"
@@ -356,7 +356,7 @@
                 android:id="@+id/power"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="5dp"
                 android:padding="10dp"
 
                 android:background="@color/theme_color_3_opacity"

@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -22,6 +24,8 @@ public class SaveNameDialog extends AppCompatDialogFragment {
 
     private EditText editTextSaveName;
     private TextView errorText;
+    private Button OKButton;
+    private Button cancelButton;
     private SaveNameDialogListener listener;
 
     @Override
@@ -29,56 +33,45 @@ public class SaveNameDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.save_name_catcher,null);
-
-        //Affectation de la vue
-        builder.setView(view)
-                .setTitle("Sauvegarde :")
-                .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                })
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
+        View view = layoutInflater.inflate(R.layout.save_dialog,null);
 
         editTextSaveName = view.findViewById(R.id.input_name);
         errorText = view.findViewById(R.id.error_field);
+        OKButton = view.findViewById(R.id.OK_button);
+        cancelButton = view.findViewById(R.id.cancel_button);
+
+        //Affectation de la vue
+        builder.setView(view);
 
         final Dialog dialog = builder.create();
 
-        //Permet de fermer quand on le veut. (sorte d'override)
-        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+        OKButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onShow(DialogInterface dialogInterface) {
-                //Override du onclick listener pour ne pas fermer après appuie sur ok si erreur.
-                Button button = ((AlertDialog) dialog).getButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE);
-                button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(TextUtils.isEmpty(editTextSaveName.getText())){
+                    errorText.setText("Le nom de la sauvegarde ne peut pas être vide.");
+                }
+                else if(HandlerTreasureSave.getInstance().alreadyExist(editTextSaveName.getText().toString())){
+                    errorText.setText("Ce nom de sauvegarde existe déjà.");
+                }
+                else {
+                    String saveName = editTextSaveName.getText().toString();
 
-                    @Override
-                    public void onClick(View view) {
-                        if(TextUtils.isEmpty(editTextSaveName.getText())){
-                            errorText.setText("Le nom de la sauvegarde ne peut pas être vide.");
-                        }
-                        else if(HandlerTreasureSave.getInstance().alreadyExist(editTextSaveName.getText().toString())){
-                            errorText.setText("Ce nom de sauvegarde existe déjà.");
-                        }
-                        else {
-                            String saveName = editTextSaveName.getText().toString();
+                    listener.saveTreasure(saveName);
 
-                            listener.saveTreasure(saveName);
-
-                            dialog.dismiss();
-                        }
-                    }
-                });
+                    dialog.dismiss();
+                }
             }
         });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         return dialog;
     }

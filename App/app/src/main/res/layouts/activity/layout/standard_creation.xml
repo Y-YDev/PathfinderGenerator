@@ -3,8 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="top"
-    android:background="@color/theme_color_5"
-    >
+    android:background="@color/theme_color_5">
 
     <include layout="@layout/main_toolbar"/>
 
@@ -86,7 +85,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
+            android:layout_marginHorizontal="20dp"
 
+            android:textCursorDrawable="@drawable/cursor_1"
+            android:backgroundTint="@color/theme_color_3"
 
             android:fontFamily="@font/seagram"
             android:gravity="center"
@@ -154,8 +156,7 @@
 
             android:backgroundTint="@color/theme_color_2"
             android:theme="@style/SpinnerTheme"
-            android:textAlignment="viewStart"
-            />
+            android:textAlignment="viewStart" />
 
     </LinearLayout>
 
