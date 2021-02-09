@@ -2,7 +2,9 @@ package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,7 @@ public class SaveMenuActivity extends AppCompatActivity implements SaveNameDialo
 
     private TreasurePreview currentTreasurePreview;
     private ArrayList<Item> currentItemList;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,12 @@ public class SaveMenuActivity extends AppCompatActivity implements SaveNameDialo
         saveRecyclerView = findViewById(R.id.save_list);
 
         saveRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);//Flèche de retour
     }
 
     @Override
