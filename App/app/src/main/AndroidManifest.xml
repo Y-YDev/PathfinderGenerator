@@ -17,7 +17,11 @@
             android:label="Butin"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".View.Activity.Reward.CustomRewardActivity"/>
+        <activity android:name=".View.Activity.Reward.CustomRewardActivity"
+            android:theme="@style/MainMenu"
+            android:parentActivityName=".View.Activity.Generation.CustomTreasureGenerationActivity"
+            android:label="Butin"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".View.Activity.SmartItemActivity"
             android:theme="@style/MainMenu"
@@ -37,7 +41,11 @@
             android:label="Création Standard"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".View.Activity.Generation.CustomTreasureGenerationActivity"/>
+        <activity android:name=".View.Activity.Generation.CustomTreasureGenerationActivity"
+            android:theme="@style/MainMenu"
+            android:parentActivityName=".View.Activity.MainMenuActivity"
+            android:label="Création par Trésor"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".View.Activity.Save.EditSaveActivity"/>
         <activity android:name=".View.Toolbar.MainToolbarActivity"/>

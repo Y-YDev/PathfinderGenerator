@@ -52,6 +52,19 @@ public class CustomTreasureRecyclerViewAdapter extends RecyclerView.Adapter<Cust
         return true;
     }
 
+    /**
+     * Regarde si aucun trésor n'a été rempli (po)
+     * @return true si aucun trésor n'a été rempli
+     */
+    public boolean isEmptyInput(){
+        for(TreasureElement treasureElement : treasureList) {
+            if (treasureElement.getPo() > 0) {//Treasure avec PO remplit
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public int getItemCount() {
         return (null != treasureList ? treasureList.size() : 0);
