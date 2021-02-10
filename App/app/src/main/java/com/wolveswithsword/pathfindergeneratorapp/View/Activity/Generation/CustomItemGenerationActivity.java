@@ -1,8 +1,12 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,13 +15,17 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.TreasureTableDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.ItemSpinnerSelectedListener;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
 
@@ -44,9 +52,11 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
 
     RecyclerView rewardRecyclerView;
     protected RewardRecyclerViewAdapter rewardRecyclerViewAdapter;
+    LinearLayout menuLayout;
 
     TextView totalPrice;
 
+    ImageButton hideShowButton;
     Button addButton;
     Button saveButton;
     ImageButton deleteAllButton;
@@ -73,6 +83,10 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
     WandBuilder wandBuilder;
     WonderfulObjectBuilder wonderfulObjectBuilder;
 
+    Toolbar toolbar;
+
+    //For hide show menu
+    boolean hidded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +114,13 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
                 saveTreasure();
             }
         });
+        hideShowButton = findViewById(R.id.hide_show_button);
+        hideShowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideShowMenu();
+            }
+        });
 
         poField = findViewById(R.id.po_field);
         totalPrice = findViewById(R.id.real_value);
@@ -125,6 +146,14 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
         rewardRecyclerView.setAdapter(rewardRecyclerViewAdapter);
         rewardRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        menuLayout = findViewById(R.id.creation_menu);
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);//Flèche de retour
+
         /* Mise en place des builder */
         r = new Random();
         weaponBuilder = new WeaponBuilder();
@@ -139,6 +168,27 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
         wandBuilder = new WandBuilder();
         wonderfulObjectBuilder = new WonderfulObjectBuilder();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main_toolbar,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id == R.id.treasure_table){//table des trésors
+
+            TreasureTableDialog treasureTableDialog = new TreasureTableDialog();
+            treasureTableDialog.show(getSupportFragmentManager()," treasure table dialog ");
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -261,5 +311,17 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
                 rewardRecyclerViewAdapter.getRewardList(),
                 treasurePreview
         );
+    }
+
+    public void hideShowMenu(){
+        if(hidded){//SHOW
+            menuLayout.setVisibility(View.VISIBLE);
+            hideShowButton.setImageResource(android.R.drawable.arrow_up_float);
+        }
+        else{//HIDE
+            menuLayout.setVisibility(View.GONE);
+            hideShowButton.setImageResource(android.R.drawable.arrow_down_float);
+        }
+        hidded = !hidded;//Inverse boolean
     }
 }

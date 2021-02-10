@@ -33,7 +33,11 @@
             android:label="Vos sauvegardes"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".View.Activity.Generation.CustomItemGenerationActivity"/>
+        <activity android:name=".View.Activity.Generation.CustomItemGenerationActivity"
+            android:theme="@style/MainMenu"
+            android:parentActivityName=".View.Activity.MainMenuActivity"
+            android:label="Création d'objets"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".View.Activity.Generation.StandartGenerationActivity"
             android:theme="@style/MainMenu"

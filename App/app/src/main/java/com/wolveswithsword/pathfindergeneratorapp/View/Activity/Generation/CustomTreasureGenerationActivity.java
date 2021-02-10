@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward.CustomRewardActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.TreasureTableDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.custom_treasure.CustomTreasureRecyclerViewAdapter;
 
 import generator.TreasureElement;
@@ -78,33 +79,13 @@ public class CustomTreasureGenerationActivity extends AppCompatActivity {
 
         if(id == R.id.treasure_table){//table des trésors
 
-            treasureTableDialog();
+            TreasureTableDialog treasureTableDialog = new TreasureTableDialog();
+            treasureTableDialog.show(getSupportFragmentManager()," treasure table dialog ");
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-    private void treasureTableDialog(){
-        final Dialog treasureDialog = new Dialog(this);
-        treasureDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        treasureDialog.setContentView(R.layout.treasure_table_layout);
-        //Fond transparant
-        treasureDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-        Button closeButton = treasureDialog.findViewById(R.id.close_treasure_table);
-
-        closeButton.setEnabled(true);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                treasureDialog.cancel();
-            }
-        });
-
-        treasureDialog.show();
-    }
-
 
     /**
      * Changement d'intent

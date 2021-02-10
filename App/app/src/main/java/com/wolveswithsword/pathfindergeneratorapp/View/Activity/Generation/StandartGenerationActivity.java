@@ -23,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.TreasureTableDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.MonsterSpinnerSelectedListener;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward.StandartRewardActivity;
 
@@ -115,33 +116,13 @@ public class StandartGenerationActivity extends AppCompatActivity {
 
         if(id == R.id.treasure_table){//table des trésors
 
-            treasureTableDialog();
+            TreasureTableDialog treasureTableDialog = new TreasureTableDialog();
+            treasureTableDialog.show(getSupportFragmentManager()," treasure table dialog ");
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-    private void treasureTableDialog(){
-        final Dialog treasureDialog = new Dialog(this);
-        treasureDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        treasureDialog.setContentView(R.layout.treasure_table_layout);
-        //Fond transparant
-        treasureDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-        Button closeButton = treasureDialog.findViewById(R.id.close_treasure_table);
-
-        closeButton.setEnabled(true);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                treasureDialog.cancel();
-            }
-        });
-
-        treasureDialog.show();
-    }
-
 
     /**
      * Vérifie l'argent que l'utilisateur rentre dans l'EditText
