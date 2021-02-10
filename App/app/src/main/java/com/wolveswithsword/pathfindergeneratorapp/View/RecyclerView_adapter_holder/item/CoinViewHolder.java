@@ -22,7 +22,7 @@ public class CoinViewHolder extends ItemViewHolder {
     }
 
     public void setCoin(Coin coin){
-        coin_quantity.setText(Double.toString(coin.getPrice()));
+        coin_quantity.setText(Integer.toString(coin.getQuantity()));
         coin_type.setText(coin.getTypeCoin().toString());
 
         switch (coin.getTypeCoin()){
