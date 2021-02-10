@@ -317,7 +317,7 @@ public class TreasureBuilder {
 		}
 
 		//On calcule maintenant
-		double res = 0;
+		int res = 0;
 		for(int j = 0; j < Integer.parseInt(nbDice);j++) {
 			res += r.nextInt(Integer.parseInt(typeDice))+1;
 		}
@@ -433,27 +433,30 @@ public class TreasureBuilder {
 	 */
 	public ArrayList<Item> gatherCoin(ArrayList<Item> reward){
 		ArrayList<Item> res = new ArrayList<Item>();
-		double pp = 0;
-		double po = 0;
-		double pa = 0;
-		double pc = 0;
+		int pp = 0;
+		int po = 0;
+		int pa = 0;
+		int pc = 0;
 
 		for(Item item : reward) {
 			//Si l'item est une pièce
 			if(item.getTypeItem() == TypeItem.COIN) {//TODO ERREUR SUR UN NULL QUELQUE FOIS
+
+				Coin coinItem = (Coin) item;
+
 				//Selon le type de pièce on ajoute.
-				switch (((Coin) item).getTypeCoin()) {
+				switch (coinItem.getTypeCoin()) {
 					case PLATINIUM:
-						pp += item.getPrice();
+						pp += coinItem.getQuantity();
 						break;
 					case GOLD:
-						po += item.getPrice();
+						po += coinItem.getQuantity();
 						break;
 					case SILVER:
-						pa += item.getPrice();
+						pa += coinItem.getQuantity();
 						break;
 					case COPPER:
-						pc += item.getPrice();
+						pc += coinItem.getQuantity();
 						break;
 
 					default:

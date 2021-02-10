@@ -201,10 +201,10 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
         switch (TypeItem.getTypeItem(objectSpinner.getSelectedItem().toString())){
             case COIN://Creation des pièces
                 if(checkPoInput()) {
-                    double value = Double.parseDouble(poInput.getText().toString());
+                    int quantity = Integer.parseInt(poInput.getText().toString());
                     Type type = Type.getType(poTypeSpinner.getSelectedItem().toString());
 
-                    rewardRecyclerViewAdapter.addItem(new Coin(type, value));
+                    rewardRecyclerViewAdapter.addItem(new Coin(type, quantity));
                 }
                 break;
             case WEAPON:
