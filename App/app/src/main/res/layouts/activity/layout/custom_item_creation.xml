@@ -41,7 +41,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="3"
 
                     android:fontFamily="@font/seagram"
                     android:text="Valeur Totale :"
@@ -53,14 +53,15 @@
                 <TextView
                     android:id="@+id/real_value"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
 
                     android:fontFamily="@font/seagram"
                     android:textColor="@color/text_color_7"
                     android:textAlignment="center"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:text="0"/>
+
             </LinearLayout>
 
 
@@ -88,37 +89,57 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/create_item_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/button_border_2"
+
+                    android:textColor="@color/text_color_5"
+                    android:fontFamily="@font/seagram"
                     android:text="Création d'Objet"
                     android:textAllCaps="false"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/delete_all_Button"
-                    android:layout_width="36dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="3"
-                    app:srcCompat="@android:drawable/btn_dialog" />
 
                 <Button
                     android:id="@+id/custom_item_save_b"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:textAllCaps="false"
-                    android:layout_weight="2"
+                    android:layout_weight="4"
+
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/button_border_2"
+
+                    android:textColor="@color/text_color_5"
+                    android:fontFamily="@font/seagram"
                     android:textStyle="bold"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:text="Sauvegarder" />
+
+                <ImageButton
+                    android:id="@+id/delete_all_Button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+
+                    android:background="@drawable/button_border_2"
+                    android:layout_marginHorizontal="5dp"
+
+                    android:tint="@color/text_color_5"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="10dp"
+                    app:srcCompat="@drawable/cross" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -132,8 +153,17 @@
                     android:id="@+id/textView23"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="Objets"
+                    android:layout_weight="2"
+                    android:layout_marginEnd="10dp"
+
+                    android:background="@color/theme_color_8_opacity"
+
+                    android:fontFamily="@font/seagram"
+                    android:textColor="@color/theme_color_8"
+                    android:paddingVertical="3dp"
+                    android:paddingStart="10dp"
+                    android:text="Objets :"
+                    android:textSize="18sp"
                     android:textAlignment="textStart"
                     android:textStyle="bold" />
 
@@ -142,7 +172,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Rareté"
+
+                    android:background="@color/theme_color_8_opacity"
+                    android:paddingVertical="3dp"
+                    android:paddingStart="10dp"
+
+                    android:fontFamily="@font/seagram"
+                    android:textColor="@color/theme_color_8"
+                    android:text="Rareté :"
+                    android:textSize="18sp"
                     android:textAlignment="textStart"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -154,17 +192,42 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginHorizontal="10dp">
 
-                <Spinner
-                    android:id="@+id/object_spinner"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3" />
+                    android:layout_weight="2"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical"
+                    android:background="@color/theme_color_3_v2_opacity">
+
+                    <Spinner
+                        android:id="@+id/object_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:backgroundTint="@color/theme_color_2"
+                        android:theme="@style/SpinnerTheme2"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/theme_color_3_v2_opacity">
+
 
                 <Spinner
-                    android:id="@+id/rarity_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                        android:id="@+id/rarity_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:backgroundTint="@color/theme_color_2"
+                        android:theme="@style/SpinnerTheme2"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -184,7 +247,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Quantité"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/theme_color_8_opacity"
+
+                        android:fontFamily="@font/seagram"
+                        android:textColor="@color/theme_color_8"
+                        android:textSize="18sp"
+                        android:paddingVertical="3dp"
+                        android:paddingStart="10dp"
+                        android:text="Quantité :"
                         android:textStyle="bold" />
 
                     <TextView
@@ -192,7 +263,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Type"
+                        android:background="@color/theme_color_8_opacity"
+
+
+                        android:fontFamily="@font/seagram"
+                        android:textColor="@color/theme_color_8"
+                        android:textSize="18sp"
+                        android:paddingVertical="3dp"
+                        android:paddingStart="10dp"
+                        android:text="Type :"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -206,16 +285,35 @@
                     <EditText
                         android:id="@+id/po_input"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_weight="2"
-                        android:ems="10"
-                        android:inputType="number" />
+                        android:backgroundTint="@color/theme_color_3"
 
-                    <Spinner
-                        android:id="@+id/po_type_spin"
+                        android:fontFamily="@font/seagram"
+                        android:inputType="number"
+
+                        android:textColor="@color/text_color_5"
+                        android:textCursorDrawable="@drawable/cursor_1"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@color/theme_color_3_v2_opacity">
+
+                        <Spinner
+                            android:id="@+id/po_type_spin"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:backgroundTint="@color/theme_color_2"
+                            android:theme="@style/SpinnerTheme2"/>
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
                 <TextView
@@ -223,10 +321,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="10dp"
 
+                    android:fontFamily="@font/seagram"
                     android:textAlignment="center"
-                    android:text="! La quantité d'argent ne doit pas être nulle."
-                    android:textColor="#D30F0F" />
+                    android:text="La quantité d'argent ne doit pas être nulle."
+                    android:textColor="@color/text_error" />
 
             </LinearLayout>
         </LinearLayout>

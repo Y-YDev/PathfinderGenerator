@@ -1,7 +1,9 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save;
 
 import android.os.Bundle;
+import android.view.Menu;
 
+import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomItemGenerationActivity;
 import java.util.ArrayList;
 
@@ -20,6 +22,12 @@ public class EditSaveActivity extends CustomItemGenerationActivity {
 
         getExtraValue();
         this.rewardRecyclerViewAdapter.updateData(rewards);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.empty_menu,menu);
+        return true;
     }
 
     //On recupéère les données du gestionnaires de sauvegardes.

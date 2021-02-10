@@ -2,11 +2,13 @@ package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -131,6 +134,22 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
 
         raritySpinner = findViewById(R.id.rarity_spinner);
         raritySpinner.setAdapter(new ArrayAdapter<Integer>(getApplicationContext(),android.R.layout.simple_spinner_item, new Integer[]{1,2,3,4,5,6}));
+        raritySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //SET FONT AND COLOR OF SELECTED ITEM
+                TextView selectedItemTV = (TextView) parent.getSelectedView();
+                if(selectedItemTV != null)
+                    selectedItemTV.setTextAppearance(R.style.SpinnerSelectedItem);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //NOTHING
+            }
+        });
+
 
         objectSpinner = findViewById(R.id.object_spinner);
         objectSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, TypeItem.nameToArray()));
@@ -138,6 +157,21 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
 
         poTypeSpinner = findViewById(R.id.po_type_spin);
         poTypeSpinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, new String[]{"pc","pa","po","pp"}));
+        poTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //SET FONT AND COLOR OF SELECTED ITEM
+                TextView selectedItemTV = (TextView) parent.getSelectedView();
+                if(selectedItemTV != null)
+                    selectedItemTV.setTextAppearance(R.style.SpinnerSelectedItem);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //NOTHING
+            }
+        });
 
         rewardRecyclerView = findViewById(R.id.reward_recyclerview);
         rewardRecyclerViewAdapter = new RewardRecyclerViewAdapter();
@@ -252,7 +286,13 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
      */
     private boolean checkPoInput(){
         if(poInput.getText().toString().equals("")) {
+            errorText.setText("La quantité d'argent ne doit pas être nulle.");
             errorText.setVisibility(View.VISIBLE);
+            return false;
+        }
+        else if(Double.parseDouble(poInput.getText().toString()) > 1000000){
+            errorText.setVisibility(View.VISIBLE);
+            errorText.setText("La somme d'argent doit être inférieure à 1 000 000 po...");
             return false;
         }
         return true;

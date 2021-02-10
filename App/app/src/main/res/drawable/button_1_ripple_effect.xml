@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple android:color="#3056585d"
+<ripple android:color="#32A3A4AA"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/button_border_1">
     </item>

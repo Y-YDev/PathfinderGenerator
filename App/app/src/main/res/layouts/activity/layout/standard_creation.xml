@@ -37,8 +37,6 @@
             android:layout_height="wrap_content"
 
             android:backgroundTint="@color/theme_color_6"
-            android:minWidth="20dp"
-            android:textAlignment="viewStart"
             android:theme="@style/SpinnerTheme" />
     </LinearLayout>
 
@@ -153,10 +151,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-
             android:backgroundTint="@color/theme_color_2"
-            android:theme="@style/SpinnerTheme"
-            android:textAlignment="viewStart" />
+            android:theme="@style/SpinnerTheme"/>
 
     </LinearLayout>
 
