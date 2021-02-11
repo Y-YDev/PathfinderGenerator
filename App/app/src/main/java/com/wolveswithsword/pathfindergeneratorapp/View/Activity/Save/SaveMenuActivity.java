@@ -38,7 +38,7 @@ public class SaveMenuActivity extends AppCompatActivity implements SaveNameDialo
 
         saveRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        toolbar = findViewById(R.id.main_toolbar);
+        toolbar = findViewById(R.id.reward_toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();

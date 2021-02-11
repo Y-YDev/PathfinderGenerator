@@ -6,10 +6,22 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/defaultTextFont</item>
     </style>
 
     <style name="MainMenu" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:fontFamily">@style/defaultTextFont</item>
     </style>
+
+    <style name="defaultTextFont" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/seagram</item>
+    </style>
+
+    <style name="SavePreviewStyle" parent="MainMenu">
+        <item name="android:textColor">@color/text_color_5</item>
+    </style>
+
+
 
     <style name="ToolBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:fontFamily">@font/seagram</item>
