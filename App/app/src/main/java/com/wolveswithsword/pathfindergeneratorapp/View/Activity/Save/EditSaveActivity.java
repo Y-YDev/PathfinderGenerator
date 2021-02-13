@@ -22,6 +22,8 @@ public class EditSaveActivity extends CustomItemGenerationActivity {
 
         getExtraValue();
         this.rewardRecyclerViewAdapter.updateData(rewards);
+
+        hideShowMenu();//Hide for the save edition
     }
 
     @Override

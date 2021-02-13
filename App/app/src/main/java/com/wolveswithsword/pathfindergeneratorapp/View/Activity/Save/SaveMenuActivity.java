@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.YesNoDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.treasure_preview.TreasurePreviewRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -18,7 +19,9 @@ import generator.TreasurePreview;
 import item.Item;
 import save.HandlerTreasureSave;
 
-public class SaveMenuActivity extends AppCompatActivity implements SaveNameDialog.SaveNameDialogListener {
+public class SaveMenuActivity extends AppCompatActivity
+        implements SaveNameDialog.SaveNameDialogListener,
+        YesNoDialog.YesNoDialogListener {
 
     ArrayList<TreasurePreview> saveList;
 
@@ -75,5 +78,10 @@ public class SaveMenuActivity extends AppCompatActivity implements SaveNameDialo
 
             saveRecyclerViewAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void action(boolean doAction, int position) {
+        saveRecyclerViewAdapter.deleteSave(doAction, position);
     }
 }

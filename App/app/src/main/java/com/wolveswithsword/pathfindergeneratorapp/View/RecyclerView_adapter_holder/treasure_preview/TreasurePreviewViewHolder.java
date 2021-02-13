@@ -42,7 +42,7 @@ public class TreasurePreviewViewHolder extends RecyclerView.ViewHolder  {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                treasurePreviewRecyclerViewAdapter.deleteSave(getAdapterPosition());
+                treasurePreviewRecyclerViewAdapter.askDeleteSave(getAdapterPosition());
             }
         });
 

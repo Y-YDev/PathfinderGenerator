@@ -16,6 +16,8 @@ import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.EditSaveActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save.SaveMenuActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.YesNoDialog;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 
 import java.util.ArrayList;
@@ -24,7 +26,8 @@ import generator.TreasurePreview;
 import item.Item;
 import save.HandlerTreasureSave;
 
-public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<TreasurePreviewViewHolder>{
+public class TreasurePreviewRecyclerViewAdapter
+        extends RecyclerView.Adapter<TreasurePreviewViewHolder> {
 
     ArrayList<TreasurePreview> treasurePreviews;
     Context context;
@@ -56,35 +59,14 @@ public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<Tre
      * Suppresion d'une sauvegarde
      * @param position de la sauvegarde
      */
-    public void deleteSave(final int position){
+    public void askDeleteSave(final int position){
         if(position<0) return; //correctif bug appuis multiple supression item
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Supprimer ?");
-        builder.setMessage("Voulez-vous vraiment supprimer la sauvegarde ?");
-
-        //Suppresion de la sauvegarde
-        builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if(HandlerTreasureSave.getInstance().deleteSaveFile(treasurePreviews.get(position))){//Suppression du fichier
-                    treasurePreviews.remove(position);//Supression de la vue
-                    notifyItemRemoved(position);
-                    notifyItemRangeChanged(position,treasurePreviews.size());
-                }
-                dialog.dismiss();
-            }
-        });
-
-        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();//Affichage de la fenetre.
+        YesNoDialog dialog = new YesNoDialog(position, "Supprimer ?",
+                "Voulez-vous vraiment supprimer la sauvegarde ?");
+        dialog.show(((AppCompatActivity)context).getSupportFragmentManager()," yes no dialog ");//Affichage de la fenetre.
     }
+
 
     /**
      * Intent vers l'editeur de sauvegarde.
@@ -113,5 +95,13 @@ public class TreasurePreviewRecyclerViewAdapter extends RecyclerView.Adapter<Tre
 
         SaveNameDialog saveNameDialog = new SaveNameDialog();
         saveNameDialog.show(((AppCompatActivity)context).getSupportFragmentManager()," save name dialog ");
+    }
+
+    public void deleteSave(boolean doAction, int position) {
+        if(doAction && HandlerTreasureSave.getInstance().deleteSaveFile(treasurePreviews.get(position))){//Suppression du fichier
+            treasurePreviews.remove(position);//Supression de la vue
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position,treasurePreviews.size());
+        }
     }
 }

@@ -29,6 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.TreasureTableDialog;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.YesNoDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.ItemSpinnerSelectedListener;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
 
@@ -51,7 +52,9 @@ import item.weapon.WeaponBuilder;
 import item.wonderfulObject.WonderfulObjectBuilder;
 import save.HandlerTreasureSave;
 
-public class CustomItemGenerationActivity extends AppCompatActivity implements SaveNameDialog.SaveNameDialogListener {
+public class CustomItemGenerationActivity extends AppCompatActivity
+        implements SaveNameDialog.SaveNameDialogListener,
+        YesNoDialog.YesNoDialogListener {
 
     RecyclerView rewardRecyclerView;
     protected RewardRecyclerViewAdapter rewardRecyclerViewAdapter;
@@ -304,24 +307,10 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
     private void askDeleteAll(){
         if(rewardRecyclerViewAdapter.getItemCount() != 0) {//Inutile de demander de supprimer une liste vide...CQFD
             //Création de la fenetre de dialogue.
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Tout supprimer ?");
-            builder.setMessage("Voulez-vous vraiment supprimer tout les éléments du trésor ?");
-            builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    rewardRecyclerViewAdapter.deleteAll();//Suppression acceptée
-                    dialog.dismiss();
-                }
-            });
-            builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            AlertDialog dialog = builder.create();
-            dialog.show();//Affichage de la fenetre.
+            YesNoDialog dialog = new YesNoDialog(-1,"Tout supprimer ?",
+                    "Voulez-vous vraiment supprimer tout les éléments du trésor ?");
+
+            dialog.show(getSupportFragmentManager(), " Yes No Dialog");//Affichage de la fenetre.
         }
     }
 
@@ -363,5 +352,10 @@ public class CustomItemGenerationActivity extends AppCompatActivity implements S
             hideShowButton.setImageResource(android.R.drawable.arrow_down_float);
         }
         hidded = !hidded;//Inverse boolean
+    }
+
+    @Override
+    public void action(boolean doAction, int position) {
+        if(doAction) rewardRecyclerViewAdapter.deleteAll();//Suppression acceptée
     }
 }

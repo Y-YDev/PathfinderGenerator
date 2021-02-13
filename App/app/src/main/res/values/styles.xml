@@ -19,6 +19,7 @@
 
     <style name="SavePreviewStyle" parent="MainMenu">
         <item name="android:textColor">@color/text_color_5</item>
+        <item name="android:fontFamily">@font/seagram</item>
     </style>
 
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:src="@drawable/dialog_background"
+        android:scaleType="fitXY"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignTop="@id/container"
+        android:layout_alignBottom="@id/container"
+        android:layout_alignLeft="@id/container"
+        android:layout_alignRight="@id/container"/>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:paddingTop="2dp"
+
+            android:textColor="@color/theme_color_1"
+            android:text="TITRE"
+            android:fontFamily="@font/seagram"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            />
+
+
+        <TextView
+            android:id="@+id/dialog_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:layout_marginHorizontal="30dp"
+
+            android:text="Ceci est un texte de remplacement"
+            android:textColor="@color/text_color_3"
+            android:fontFamily="@font/seagram"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp">
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+
+                android:textColor="@color/text_color_1"
+                android:text="Annuler"
+                android:fontFamily="@font/seagram"
+                android:backgroundTint="@color/theme_button_1_opacity">
+
+            </Button>
+
+            <Button
+                android:id="@+id/OK_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="5dp"
+
+                android:textColor="@color/text_color_1"
+                android:fontFamily="@font/seagram"
+                android:text="OK"
+                android:backgroundTint="@color/theme_button_1_opacity"
+                android:layout_height="match_parent">
+
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
