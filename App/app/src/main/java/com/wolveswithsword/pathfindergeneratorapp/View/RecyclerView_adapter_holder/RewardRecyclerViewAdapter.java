@@ -47,18 +47,15 @@ import utility.Tools;
 public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     ArrayList<Item> rewardList;
-
     TextView priceField;
-
     TreasureBuilder treasureBuilder;
+
+    private boolean hasChanges;//Des changements à sauvegarder.
 
     public RewardRecyclerViewAdapter(){
         rewardList = new ArrayList<>();
         this.treasureBuilder = new TreasureBuilder();
-    }
-    public RewardRecyclerViewAdapter(ArrayList<Item> rewardList){
-        this.rewardList = rewardList;
-        this.treasureBuilder = new TreasureBuilder();
+        hasChanges = false;
     }
 
     public ArrayList<Item> getRewardList(){
@@ -200,10 +197,15 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
      */
     public void removeItem(int position){
         if(position<0) return; //correctif bug appuis multiple supression item
+
         rewardList.remove(position);
+
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,rewardList.size());
+
         updatePricesFields();//On doit mettre à jour les textView des prix
+
+        hasChanges = true;
     }
 
     /**
@@ -222,6 +224,7 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
             rewardList.addAll(treasureBuilder.gatherCoin(temp));
         }
         notifyDataSetChanged();
+        hasChanges = true;
     }
 
     /**
@@ -231,6 +234,7 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
         rewardList.clear();
         notifyDataSetChanged();
         updatePricesFields();
+        hasChanges = true;
     }
 
     /**
@@ -256,5 +260,18 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     private void updatePricesFields(){
         if(priceField != null)
             priceField.setText(Double.toString(Tools.truncateTo(getTotalPriceOfItems(),2))+" po");
+    }
+
+
+    public void setHasChanges(boolean value){
+        hasChanges = value;
+    }
+
+    /**
+     * Renvoie true ou false selon qu'il y a eu des changements.
+     * @return
+     */
+    public boolean hasChanges(){
+        return hasChanges;
     }
 }

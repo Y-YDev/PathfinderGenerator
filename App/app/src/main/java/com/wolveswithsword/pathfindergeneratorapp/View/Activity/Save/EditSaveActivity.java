@@ -2,9 +2,12 @@ package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomItemGenerationActivity;
+import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.YesNoDialog;
+
 import java.util.ArrayList;
 
 import generator.TreasurePreview;
@@ -32,6 +35,26 @@ public class EditSaveActivity extends CustomItemGenerationActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+
+                //Si il y a des changements on demande la confirmation.
+                if(rewardRecyclerViewAdapter.hasChanges()){
+                    YesNoDialog dialog = new YesNoDialog(-2,"Quitter ?",
+                            "Il y a des changements non sauvegardés. Voulez-vous vraiment quitter ?");
+
+                    dialog.show(getSupportFragmentManager(), " yes no dialog ");
+                }
+                else onBackPressed();
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     //On recupéère les données du gestionnaires de sauvegardes.
     @SuppressWarnings("unchecked")
     private void getExtraValue(){
@@ -50,5 +73,15 @@ public class EditSaveActivity extends CustomItemGenerationActivity {
                 rewardRecyclerViewAdapter.getRewardList(),
                 treasurePreview
         );
+
+        rewardRecyclerViewAdapter.setHasChanges(false);//Plus de changements.
+    }
+
+    @Override
+    public void action(boolean doAction, int position) {
+        if(doAction && position == -2) {//Dialog de changements non sauvegardés
+            onBackPressed();
+        }
+        else super.action(doAction, position);
     }
 }
