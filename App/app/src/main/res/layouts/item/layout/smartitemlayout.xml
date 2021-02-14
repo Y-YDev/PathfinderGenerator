@@ -21,7 +21,6 @@
                 android:layout_height="wrap_content"
 
                 android:background="@color/theme_color_10"
-                android:fontFamily="@font/seagram"
                 android:paddingVertical="10dp"
 
                 android:text="Objet intelligent "
@@ -47,7 +46,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="Alignement :"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_1"
@@ -60,7 +58,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="Chaotique mauvais"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_2"
@@ -72,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="Ego :"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_1"
@@ -85,7 +81,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="14"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_2"
@@ -107,7 +102,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="INT :"
                 android:textAlignment="center"
                 android:textColor="#2E0303"
@@ -120,7 +114,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="20"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_2"
@@ -132,7 +125,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="SAG :"
                 android:textAlignment="center"
                 android:textColor="#1E0B3F"
@@ -145,7 +137,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="20"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_2"
@@ -157,7 +148,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="CHA :"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -171,7 +161,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:text="20"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_2"
@@ -193,7 +182,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:textColor="@color/text_color_1"
                 android:text="Nombres de langages parlés :"
                 android:textAlignment="center"
@@ -206,7 +194,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:fontFamily="@font/seagram"
                 android:textColor="@color/text_color_2"
                 android:text="1"
                 android:textAlignment="center"
@@ -226,7 +213,6 @@
             android:layout_height="wrap_content"
 
             android:background="@color/theme_color_10"
-            android:fontFamily="@font/seagram"
             android:textColor="@color/text_color_2"
             android:paddingVertical="10dp"
 
@@ -255,7 +241,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:fontFamily="@font/seagram"
             android:textColor="@color/text_color_2"
             android:background="@color/theme_color_10"
             android:paddingVertical="10dp"
@@ -295,7 +280,6 @@
                     android:layout_height="wrap_content"
 
                     android:paddingVertical="10dp"
-                    android:fontFamily="@font/seagram"
                     android:textColor="@color/text_color_2"
                     android:background="@color/theme_color_10"
                     android:text="Objectif"
@@ -314,7 +298,6 @@
                 android:padding="10dp"
 
                 android:background="@color/theme_color_3_opacity"
-                android:fontFamily="@font/seagram"
                 android:text="Vaincre/tuer les lanceurs de sorts divins (y compris les entités divines et leurs serviteurs)"
                 android:textAlignment="center"
                 android:textSize="16sp"
@@ -340,7 +323,6 @@
                     android:layout_height="wrap_content"
 
                     android:paddingVertical="10dp"
-                    android:fontFamily="@font/seagram"
                     android:textColor="@color/text_color_2"
                     android:background="@color/theme_color_10"
                     android:text="Pouvoir dédié"
@@ -360,7 +342,6 @@
                 android:padding="10dp"
 
                 android:background="@color/theme_color_3_opacity"
-                android:fontFamily="@font/seagram"
                 android:textColor="@color/text_color_1"
                 android:textSize="16sp"
                 android:text="L’objet peut lancer un sort de niveau 7, à volonté"
@@ -381,7 +362,6 @@
             android:layout_height="wrap_content"
 
             android:paddingVertical="10dp"
-            android:fontFamily="@font/seagram"
             android:textColor="@color/text_color_2"
             android:background="@color/theme_color_10"
             android:text="Traits : "
@@ -403,11 +383,9 @@
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
 
-            android:fontFamily="@font/seagram"
-            android:textColor="@color/text_color_2"
-            android:background="@drawable/button_border_1"
+            style="@style/Button_style_1"
             android:text="Quitter"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 </ScrollView>

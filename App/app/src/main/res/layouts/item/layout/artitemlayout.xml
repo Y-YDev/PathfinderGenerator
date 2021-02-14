@@ -56,11 +56,7 @@
                     android:layout_height="wrap_content"
 
                     android:text="Objet d'Art"
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:textAlignment="textEnd"
-                    android:textSize="10sp"
-                    android:textStyle="italic" />
+                    style="@style/Item_info" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -88,14 +84,9 @@
                                 android:id="@+id/art_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="Name"
 
-                                android:padding="4dp"
-                                android:background="@color/theme_error_opacity"
-                                android:textAlignment="center"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"/>
+                                android:text="Name"
+                                style="@style/Item_title" />
 
                         </LinearLayout>
 
@@ -114,12 +105,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:textColor="@color/text_color_3"
-                                android:fontFamily="@font/seagram"
-                                android:text="Prix : "
-                                android:textAlignment="center"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                style="@style/Item_section"
+                                android:text="Prix : "/>
 
                             <TextView
                                 android:id="@+id/art_price"
@@ -127,11 +114,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="4"
 
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"
-                                android:text="prix"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"
+                                android:text="prix"/>
                         </LinearLayout>
 
                     </LinearLayout>

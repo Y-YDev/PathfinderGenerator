@@ -56,12 +56,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:text="Armure / Bouclier"
-                    android:textAlignment="textEnd"
-                    android:textSize="10sp"
-                    android:textStyle="italic" />
+                    style="@style/Item_info"
+                    android:text="Armure / Bouclier" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -89,15 +85,9 @@
                                 android:id="@+id/arm_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+
                                 android:text="Name"
-
-                                android:padding="4dp"
-                                android:background="@color/theme_error_opacity"
-                                android:textAlignment="center"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"/>
-
+                                style="@style/Item_title"/>
                         </LinearLayout>
 
 
@@ -117,25 +107,17 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_3"
-                                android:text="Altération :"
-                                android:textAlignment="textStart"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                style="@style/Item_section"
+                                android:text="Altération :"/>
 
                             <TextView
                                 android:id="@+id/arm_alteration"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:fontFamily="@font/seagram"
 
-                                android:text="alteration"
-                                android:textAlignment="center"
-                                android:textColor="@color/text_color_5"
-                                android:textSize="14sp"
-                                android:textStyle="normal"/>
+                                style="@style/Item_text"
+                                android:text="alteration"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -157,13 +139,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
 
-                            android:textColor="@color/text_color_3"
-                            android:fontFamily="@font/seagram"
-                            android:text="Matériel :"
-                            android:textSize="14sp"
-
-                            android:textAlignment="textStart"
-                            android:textStyle="bold" />
+                            style="@style/Item_section"
+                            android:text="Matériel :"/>
 
                             <TextView
                                 android:id="@+id/arm_material"
@@ -171,11 +148,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
 
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"
-                                android:text="material"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"
+                                android:text="material"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -222,12 +196,8 @@
                     android:layout_weight="1"
                     android:layout_gravity="center"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Propriété spéciale :"
-                    android:textAlignment="center"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Propriété spéciale :"/>
 
                 <TextView
                     android:id="@+id/arm_propspe1"
@@ -236,7 +206,6 @@
                     android:layout_gravity="center"
 
                     android:layout_weight="1"
-                    android:fontFamily="@font/seagram"
                     android:text="TextView "
                     android:textAlignment="center"
                     android:textColor="@color/text_color_6"
@@ -250,7 +219,6 @@
                     android:layout_gravity="center"
 
                     android:layout_weight="1"
-                    android:fontFamily="@font/seagram"
                     android:text="TextView"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -273,12 +241,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
 
-                    android:fontFamily="@font/seagram"
-                    android:text="Prix : "
-                    android:textAlignment="center"
-                    android:textColor="@color/text_color_3"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Prix : "/>
 
                 <TextView
                     android:id="@+id/arm_price"
@@ -286,10 +250,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3.5"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:text="TextView"
-                    android:textSize="14sp" />
+                    style="@style/Item_text"
+                    android:text="TextView"/>
 
                 <TextView
                     android:id="@+id/arm_weight_info"
@@ -297,12 +259,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Poids : "
-                    android:textAlignment="center"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Poids : " />
 
                 <TextView
                     android:id="@+id/arm_weight"
@@ -310,10 +268,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:text="TextView"
-                    android:textSize="14sp" />
+                    style="@style/Item_text"
+                    android:text="TextView"/>
             </LinearLayout>
 
             <LinearLayout
@@ -331,12 +287,9 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
 
-                    android:background="@drawable/button_border_2"
+                    style="@style/Button_style_2"
                     android:text="Objet intelligent"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="12sp"/>
+                    android:textSize="14sp"/>
             </LinearLayout>
 
         </LinearLayout>

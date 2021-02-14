@@ -57,11 +57,7 @@
                     android:layout_height="wrap_content"
 
                     android:text="Sceptre"
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:textAlignment="textEnd"
-                    android:textSize="10sp"
-                    android:textStyle="italic" />
+                    style="@style/Item_info"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,16 +83,11 @@
 
                             <TextView
                                 android:id="@+id/scepter_name"
+                                style="@style/Item_title"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/theme_error_opacity"
 
-                                android:fontFamily="@font/seagram"
-                                android:padding="4dp"
-                                android:text="Name"
-                                android:textAlignment="center"
-                                android:textColor="@color/text_color_5"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:text="Name" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -113,24 +104,17 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:textColor="@color/text_color_3"
-                                android:fontFamily="@font/seagram"
-                                android:text="Prix :"
-                                android:textAlignment="center"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                style="@style/Item_section"
+                                android:text="Prix :"/>
 
                             <TextView
                                 android:id="@+id/scepter_price"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
+                                android:layout_height="26dp"
 
-                                android:textColor="@color/text_color_5"
-                                android:fontFamily="@font/seagram"
-                                android:text="price"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"
+                                android:layout_weight="2"
+                                android:text="price" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -149,12 +133,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:textColor="@color/text_color_3"
-                                android:fontFamily="@font/seagram"
+                                style="@style/Item_section"
                                 android:text="Type : "
-                                android:textAlignment="center"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                />
 
                             <TextView
                                 android:id="@+id/scepter_type"
@@ -162,11 +143,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:textColor="@color/text_color_5"
-                                android:fontFamily="@font/seagram"
-                                android:text="type"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"
+                                android:text="type" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -202,12 +180,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:textColor="@color/text_color_3"
-                android:fontFamily="@font/seagram"
                 android:text="Propriété particulière : "
-                android:textAlignment="center"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Item_section" />
 
             <TextView
                 android:id="@+id/scepter_part"
@@ -215,11 +189,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:textColor="@color/text_color_5"
-                android:fontFamily="@font/seagram"
                 android:text="prop"
-                android:textAlignment="center"
-                android:textSize="14sp" />
+                style="@style/Item_text"/>
         </LinearLayout>
 
         <LinearLayout
@@ -237,12 +208,9 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
 
-                android:background="@drawable/button_border_2"
+                style="@style/Button_style_2"
                 android:text="Objet intelligent"
-                android:textAlignment="center"
-                android:fontFamily="@font/seagram"
-                android:textColor="@color/text_color_1"
-                android:textSize="12sp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

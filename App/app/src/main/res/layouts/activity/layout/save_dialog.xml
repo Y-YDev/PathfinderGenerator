@@ -28,7 +28,6 @@
 
             android:textColor="@color/theme_color_1"
             android:text="Sauvegarde"
-            android:fontFamily="@font/seagram"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textAlignment="center"
@@ -46,7 +45,6 @@
 
             android:textColor="@color/theme_color_1"
             android:background="@color/theme_color_8_opacity"
-            android:fontFamily="@font/seagram"
             android:inputType="text"
             android:textAlignment="center"
             android:textSize="18sp"
@@ -62,7 +60,6 @@
 
             android:textSize="16sp"
             android:textAlignment="center"
-            android:fontFamily="@font/seagram"
             android:textColor="@color/text_error">
         </TextView>
 
@@ -83,7 +80,6 @@
 
                 android:textColor="@color/text_color_1"
                 android:text="Annuler"
-                android:fontFamily="@font/seagram"
                 android:backgroundTint="@color/theme_button_1_opacity">
 
             </Button>
@@ -95,7 +91,6 @@
                 android:layout_marginHorizontal="5dp"
 
                 android:textColor="@color/text_color_1"
-                android:fontFamily="@font/seagram"
                 android:text="OK"
                 android:backgroundTint="@color/theme_button_1_opacity"
                 android:layout_height="match_parent">

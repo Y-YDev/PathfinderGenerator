@@ -57,11 +57,7 @@
                     android:layout_height="wrap_content"
 
                     android:text="Potion"
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:textAlignment="textEnd"
-                    android:textSize="10sp"
-                    android:textStyle="italic" />
+                    style="@style/Item_info" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -89,14 +85,9 @@
                                 android:id="@+id/pot_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@color/theme_error_opacity"
 
-                                android:fontFamily="@font/seagram"
-                                android:padding="4dp"
-                                android:text="Name"
-                                android:textAlignment="center"
-                                android:textColor="@color/text_color_5"
-                                android:textSize="16sp" />
+                                style="@style/Item_title"
+                                android:text="Name"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -113,12 +104,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:textColor="@color/text_color_3"
-                                android:fontFamily="@font/seagram"
-                                android:text="Prix :"
-                                android:textAlignment="center"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                style="@style/Item_section"
+                                android:text="Prix :" />
 
                             <TextView
                                 android:id="@+id/pot_price"
@@ -126,11 +113,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:textColor="@color/text_color_5"
-                                android:fontFamily="@font/seagram"
-                                android:text="price"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"
+                                android:text="price" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -163,12 +147,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
 
-                android:fontFamily="@font/seagram"
                 android:text="Niveau du sort :"
-                android:textAlignment="center"
-                android:textColor="@color/text_color_3"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Item_section"/>
 
             <TextView
                 android:id="@+id/pot_nds"
@@ -176,11 +156,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:textColor="@color/text_color_5"
-                android:fontFamily="@font/seagram"
-                android:text="TextView "
-                android:textAlignment="center"
-                android:textSize="14sp" />
+                style="@style/Item_text"
+                android:text="TextView " />
 
         </LinearLayout>
 
@@ -199,12 +176,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
 
-                android:textColor="@color/text_color_3"
-                android:fontFamily="@font/seagram"
                 android:text="Niveau du lanceur de sort :"
-                android:textAlignment="center"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Item_section" />
 
             <TextView
                 android:id="@+id/pot_nls"
@@ -212,11 +185,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:textColor="@color/text_color_5"
-                android:fontFamily="@font/seagram"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textSize="14sp" />
+                style="@style/Item_text"
+                android:text="TextView" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

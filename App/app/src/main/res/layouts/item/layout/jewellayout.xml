@@ -55,10 +55,9 @@
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:text="Bijoux"
-                    android:textAlignment="textEnd"
-                    android:textSize="12sp"
-                    android:textStyle="italic" />
+                    style="@style/Item_info" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -86,14 +85,9 @@
                                 android:id="@+id/jewel_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="Name"
 
-                                android:padding="4dp"
-                                android:background="@color/theme_error_opacity"
-                                android:textAlignment="center"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"/>
+                                style="@style/Item_title"
+                                android:text="Name" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -112,10 +106,7 @@
                                 android:layout_gravity="center"
 
                                 android:text="Matériel :"
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_3"
-                                android:textAlignment="center"
-                                android:textStyle="bold" />
+                                style="@style/Item_section" />
 
                             <TextView
                                 android:id="@+id/jewel_material"
@@ -124,11 +115,8 @@
                                 android:layout_weight="1"
                                 android:layout_gravity="center"
 
-                                android:textColor="@color/text_color_5"
-                                android:fontFamily="@font/seagram"
                                 android:text="material"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -146,11 +134,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
 
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_3"
                                 android:text="Taille : "
-                                android:textAlignment="center"
-                                android:textStyle="bold" />
+                                style="@style/Item_section" />
 
                             <TextView
                                 android:id="@+id/jewel_size"
@@ -159,11 +144,8 @@
                                 android:layout_marginBottom="5dp"
                                 android:layout_weight="1"
 
-                                android:textColor="@color/text_color_5"
-                                android:fontFamily="@font/seagram"
-                                android:text="taille"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"
+                                android:text="taille" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -182,12 +164,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
 
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_3"
                                 android:text="Travail du bijoux : "
-                                android:textAlignment="center"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                style="@style/Item_section" />
 
                             <TextView
                                 android:id="@+id/jewel_work"
@@ -195,11 +173,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
 
-                                android:textColor="@color/text_color_5"
-                                android:fontFamily="@font/seagram"
-                                android:text="simple"
-                                android:textAlignment="center"
-                                android:textSize="14sp" />
+                                style="@style/Item_text"
+                                android:text="simple" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -240,13 +215,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
-                    android:padding="2dp"
-                    android:background="@color/theme_error_opacity"
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
+                    style="@style/Item_title"
                     android:text="Gemme incrustée de Grade N : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    android:padding="2dp"
+                    android:textSize="14sp"/>
 
             </LinearLayout>
 
@@ -266,11 +238,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Gemme : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Gemme : " />
 
                 <TextView
                     android:id="@+id/jewel_gem"
@@ -278,11 +247,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
-                    android:text="gem"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    style="@style/Item_text"
+                    android:text="gem" />
             </LinearLayout>
 
             <LinearLayout
@@ -301,11 +267,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Travail :"
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Travail :"/>
 
                 <TextView
                     android:id="@+id/jewel_workgem"
@@ -313,11 +276,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
+                    style="@style/Item_text"
                     android:text="travail"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -343,13 +304,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
+                    style="@style/Item_title"
+                    android:text="Gemme incrustée de Grade N-1 : "
                     android:padding="2dp"
-                    android:background="@color/theme_error_opacity"
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:text="Gemmes incrustées de Grade N-1 : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -369,11 +327,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Gemme : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Gemme : " />
 
                 <TextView
                     android:id="@+id/jewel_gem2"
@@ -381,10 +336,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
-                    android:text="gem"
-                    android:textAlignment="center" />
+                    style="@style/Item_text"
+                    android:text="gem" />
             </LinearLayout>
 
             <LinearLayout
@@ -403,11 +356,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Nombre : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Nombre : " />
 
                 <TextView
                     android:id="@+id/jewel_number2"
@@ -415,10 +365,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
-                    android:text="Nombre"
-                    android:textAlignment="center" />
+                    style="@style/Item_text"
+                    android:text="Nombre" />
 
                 <TextView
                     android:id="@+id/jewel_workgem2_info"
@@ -426,11 +374,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Travail :"
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Travail :" />
 
                 <TextView
                     android:id="@+id/jewel_workgem2"
@@ -438,10 +383,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
+                    style="@style/Item_text"
                     android:text="travail"
-                    android:textAlignment="center" />
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -467,13 +411,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
+                    style="@style/Item_title"
+                    android:text="Gemme incrustée de Grade N-2 : "
                     android:padding="2dp"
-                    android:background="@color/theme_error_opacity"
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
-                    android:text="Gemmes incrustées de Grade N-2 : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -492,11 +433,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Gemme : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Gemme : " />
 
                 <TextView
                     android:id="@+id/jewel_gem3"
@@ -504,10 +442,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
                     android:text="gem"
-                    android:textAlignment="center" />
+                    style="@style/Item_text"/>
             </LinearLayout>
 
             <LinearLayout
@@ -526,11 +462,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Nombre : "
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Nombre : " />
 
                 <TextView
                     android:id="@+id/jewel_number3"
@@ -538,10 +471,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
-                    android:text="Nombre"
-                    android:textAlignment="center" />
+                    style="@style/Item_text"
+                    android:text="Nombre" />
 
                 <TextView
                     android:id="@+id/jewel_workgem3_info"
@@ -549,11 +480,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_3"
-                    android:text="Travail :"
-                    android:textAlignment="center"
-                    android:textStyle="bold" />
+                    style="@style/Item_section"
+                    android:text="Travail :" />
 
                 <TextView
                     android:id="@+id/jewel_workgem3"
@@ -561,10 +489,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:textColor="@color/text_color_5"
-                    android:fontFamily="@font/seagram"
-                    android:text="travail"
-                    android:textAlignment="center" />
+                    style="@style/Item_text"
+                    android:text="travail" />
             </LinearLayout>
 
         </LinearLayout>
@@ -573,7 +499,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:padding="3dp"
             android:layout_marginHorizontal="10dp"
@@ -585,12 +511,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
 
-                android:fontFamily="@font/seagram"
-                android:textColor="@color/text_color_3"
-                android:text="Prix :"
-                android:textAlignment="center"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Item_section"
+                android:text="Prix :"/>
 
             <TextView
                 android:id="@+id/jewel_price"
@@ -598,11 +520,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
 
-                android:fontFamily="@font/seagram"
                 android:text="prix"
-                android:textAlignment="center"
-                android:textColor="@color/text_color_5"
-                android:textSize="14sp" />
+                style="@style/Item_text" />
 
         </LinearLayout>
     </LinearLayout>

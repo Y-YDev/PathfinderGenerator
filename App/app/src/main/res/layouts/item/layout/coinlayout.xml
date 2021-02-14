@@ -58,12 +58,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:fontFamily="@font/seagram"
-                    android:textColor="@color/text_color_5"
                     android:text="Pièces"
-                    android:textAlignment="textEnd"
-                    android:textSize="10sp"
-                    android:textStyle="italic" />
+                    style="@style/Item_info"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -94,15 +90,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:padding="4dp"
-                                android:background="@color/theme_error_opacity"
-
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"
-                                android:text="0"
-                                android:textAlignment="center"
+                                style="@style/Item_title"
                                 android:textSize="18sp"
-                                android:textStyle="bold" />
+                                android:text="0"/>
 
                             <TextView
                                 android:id="@+id/coin_type"
@@ -110,15 +100,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
 
-                                android:padding="4dp"
-                                android:background="@color/theme_error_opacity"
-
-                                android:fontFamily="@font/seagram"
-                                android:textColor="@color/text_color_5"
-                                android:text="po"
-                                android:textAlignment="textStart"
                                 android:textSize="18sp"
-                                android:textStyle="bold" />
+                                style="@style/Item_title"
+                                android:text="po" />
                         </LinearLayout>
 
 

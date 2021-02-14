@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
 
-        android:fontFamily="@font/seagram"
         android:text="Type de créatures :"
         android:textAlignment="textStart"
         android:textColor="@color/text_color_3"
@@ -48,7 +47,6 @@
         android:layout_marginEnd="80dp"
 
         android:buttonTint="@color/theme_color_2"
-        android:fontFamily="@font/seagram"
         android:text="Communauté entière ?"
         android:textAlignment="center"
         android:textColor="@color/text_color_1"
@@ -63,7 +61,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
 
-        android:fontFamily="@font/seagram"
         android:text="Valeur globale du trésor :"
         android:textAlignment="viewStart"
         android:textColor="@color/text_color_3"
@@ -88,7 +85,6 @@
             android:textCursorDrawable="@drawable/cursor_1"
             android:backgroundTint="@color/theme_color_3"
 
-            android:fontFamily="@font/seagram"
             android:gravity="center"
             android:hint="Entrez la somme"
             android:inputType="number"
@@ -103,8 +99,8 @@
 
             android:textColor="@color/text_color_3"
             android:textSize="16sp"
-            android:fontFamily="@font/seagram"
-            android:text="PO" />
+            android:text="PO"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -116,7 +112,6 @@
         android:layout_marginBottom="5dp"
 
         android:visibility="gone"
-        android:fontFamily="@font/seagram"
         android:text="Veuillez renseigner une quantité d'argent..."
         android:textAlignment="viewStart"
         android:textColor="@color/text_error"
@@ -131,7 +126,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
 
-        android:fontFamily="@font/seagram"
         android:text="Probabilité d'apparition :"
         android:textAlignment="viewStart"
         android:textColor="@color/text_color_3"
@@ -173,11 +167,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="15dp"
 
-            android:background="@drawable/button_border_1"
-            android:fontFamily="@font/seagram"
+            style="@style/Button_style_1"
             android:text="Créer"
-            android:textColor="@color/text_color_2"
-            android:textSize="16sp" />
+            android:textSize="22sp" />
     </LinearLayout>
 
 </LinearLayout>

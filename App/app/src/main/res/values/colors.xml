@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="ic_launcher_pathfinder_background">#676967</color>
-    <color name="toolbar">#0C575C</color>
 
+    <color name="ic_launcher_pathfinder_background">#676967</color>
     <color name="transparent">#00FFFFFF</color>
     
     <color name="theme_color_1">#040C0E</color>
     <color name="theme_color_2">#132226</color>
     <color name="theme_color_3">#525B56</color>
-    <color name="theme_color_4">#BE9063</color>
     <color name="theme_color_5">#91857D</color>
     <color name="theme_color_6">#044743</color>
     <color name="theme_color_7">#233E46</color>
@@ -24,7 +19,6 @@
     <color name="text_color_1">#BDB8B7</color>
     <color name="text_color_2">#8BA4AF</color>
     <color name="text_color_3">#3F2E29</color>
-    <color name="text_color_4">#AACCC7</color>
     <color name="text_color_5">#CBCFCC</color>
     <color name="text_color_7">#EBEDEE</color>
     <color name="text_color_6">#143A3D</color>
