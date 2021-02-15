@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -32,6 +33,7 @@ import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.TreasureTableDialo
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.YesNoDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.ItemSpinnerSelectedListener;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Tools;
 
 import java.util.Random;
 
@@ -336,10 +338,13 @@ public class CustomItemGenerationActivity extends AppCompatActivity
         treasurePreview.setPo(rewardRecyclerViewAdapter.getTotalPriceOfItems());
         treasurePreview.setNbItem(rewardRecyclerViewAdapter.getItemCount());
 
-        HandlerTreasureSave.getInstance().saveTreasure(
-                rewardRecyclerViewAdapter.getRewardList(),
-                treasurePreview
-        );
+        if(HandlerTreasureSave.getInstance().saveTreasure(
+                rewardRecyclerViewAdapter.getRewardList(), treasurePreview)){
+            Tools.ShowToast(getApplicationContext(),"Sauvegarde créée");
+        }
+        else{
+            Tools.ShowToast(getApplicationContext(),"Erreur dans la création de la sauvegarde");
+        }
     }
 
     public void hideShowMenu(){

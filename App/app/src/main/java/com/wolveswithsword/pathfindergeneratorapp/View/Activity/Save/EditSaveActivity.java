@@ -3,10 +3,12 @@ package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Save;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Activity.Generation.CustomItemGenerationActivity;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.YesNoDialog;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Tools;
 
 import java.util.ArrayList;
 
@@ -69,10 +71,13 @@ public class EditSaveActivity extends CustomItemGenerationActivity {
         treasurePreview.setPo(rewardRecyclerViewAdapter.getTotalPriceOfItems());
         treasurePreview.setNbItem(rewardRecyclerViewAdapter.getItemCount());
 
-        HandlerTreasureSave.getInstance().saveTreasure(
-                rewardRecyclerViewAdapter.getRewardList(),
-                treasurePreview
-        );
+        if(HandlerTreasureSave.getInstance().saveTreasure(
+                rewardRecyclerViewAdapter.getRewardList(), treasurePreview)){
+            Tools.ShowToast(getApplicationContext(),"Sauvegarde mise à jour");
+        }
+        else{
+            Tools.ShowToast(getApplicationContext(),"Erreur dans la mise à jour de la sauvegarde");
+        }
 
         rewardRecyclerViewAdapter.setHasChanges(false);//Plus de changements.
     }

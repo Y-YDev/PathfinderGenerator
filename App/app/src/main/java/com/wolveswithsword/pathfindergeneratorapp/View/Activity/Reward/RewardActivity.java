@@ -3,6 +3,7 @@ package com.wolveswithsword.pathfindergeneratorapp.View.Activity.Reward;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Dialog.SaveNameDialog;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.RewardRecyclerViewAdapter;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.Tools;
 
 import java.util.ArrayList;
 
@@ -91,9 +93,12 @@ public abstract class RewardActivity extends AppCompatActivity implements SaveNa
         treasurePreview.setPo(rewardRecyclerViewAdapter.getTotalPriceOfItems());
         treasurePreview.setNbItem(rewardRecyclerViewAdapter.getItemCount());
 
-        HandlerTreasureSave.getInstance().saveTreasure(
-                rewardRecyclerViewAdapter.getRewardList(),
-                treasurePreview
-        );
+        if(HandlerTreasureSave.getInstance().saveTreasure(
+                rewardRecyclerViewAdapter.getRewardList(), treasurePreview)){
+            Tools.ShowToast(getApplicationContext(),"Sauvegarde créée");
+        }
+        else{
+            Tools.ShowToast(getApplicationContext(),"Erreur dans la création de la sauvegarde");
+        }
     }
 }
