@@ -9,14 +9,6 @@
         android:title="Trésor par rencontre"
         app:showAsAction="always"
         android:icon="@drawable/treasure_table_icon"></item>
-    <item
-        android:id="@+id/table2"
-        android:title="table de rencontre2."></item>
-    <item
-        android:id="@+id/table3"
-        android:title="table de rencontre3."></item>
-    <item
-        android:id="@+id/table4"
-        android:title="table de rencontre4."></item>
+
 
 </menu>
