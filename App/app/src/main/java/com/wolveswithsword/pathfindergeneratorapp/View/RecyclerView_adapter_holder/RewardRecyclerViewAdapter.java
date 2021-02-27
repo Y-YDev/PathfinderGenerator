@@ -23,6 +23,7 @@ import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_hold
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.item.WandViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.item.WeaponViewHolder;
 import com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.item.WonderfulItemViewHolder;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import java.util.ArrayList;
 
@@ -259,7 +260,7 @@ public class RewardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
      */
     private void updatePricesFields(){
         if(priceField != null)
-            priceField.setText(Double.toString(Tools.truncateTo(getTotalPriceOfItems(),2))+" po");
+            priceField.setText(Double.toString(Tools.truncateTo(getTotalPriceOfItems(),2))+" "+ AppObject.getRessource().getString(R.string.gp));
     }
 
 

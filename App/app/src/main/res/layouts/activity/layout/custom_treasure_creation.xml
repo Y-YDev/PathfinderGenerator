@@ -19,5 +19,5 @@
 
         style="@style/Button_style_1"
         android:textSize="22sp"
-        android:text="Générer" />
+        android:text="@string/generate" />
 </LinearLayout>

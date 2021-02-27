@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Anneau"
+                    android:text="@string/ring"
                     style="@style/Item_info"/>
 
                 <LinearLayout
@@ -104,7 +104,7 @@
                                 android:layout_weight="2"
 
                                 style="@style/Item_section"
-                                android:text="Prix :" />
+                                android:text="@string/price_title" />
 
                             <TextView
                                 android:id="@+id/ring_price"
@@ -149,7 +149,7 @@
                 android:layout_weight="1"
 
                 style="@style/Item_section"
-                android:text="Propriété particulière : " />
+                android:text="@string/particular_prop_title" />
 
             <TextView
                 android:id="@+id/ring_part"
@@ -177,7 +177,7 @@
                 android:layout_marginEnd="30dp"
 
                 style="@style/Button_style_2"
-                android:text="Objet intelligent"
+                android:text="@string/smart_item"
                 android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>

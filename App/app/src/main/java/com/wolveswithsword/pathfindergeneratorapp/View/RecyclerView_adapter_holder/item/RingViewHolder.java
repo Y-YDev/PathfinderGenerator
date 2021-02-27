@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.ring.Ring;
 
@@ -44,11 +45,11 @@ public class RingViewHolder extends ItemViewHolder {
 
     public void setRing(Ring ring){
         name.setText(ring.getName());
-        price.setText(ring.getPrice()+" po");
+        price.setText(ring.getPrice()+" "+ context.getString(R.string.gp));
 
         if(ring.isParticularPropertie()){
             propPartLayout.setVisibility(View.VISIBLE);
-            propPart.setText("Indice");
+            propPart.setText(R.string.hint);
         }
         else{
             propPartLayout.setVisibility(View.GONE);

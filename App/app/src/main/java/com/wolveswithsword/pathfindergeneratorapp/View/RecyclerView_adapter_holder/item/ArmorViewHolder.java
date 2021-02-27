@@ -66,7 +66,7 @@ public class ArmorViewHolder extends ItemViewHolder{
         }
         else if(armorShield.getAlteration() == -2){
             alterationLayout.setVisibility(View.VISIBLE);
-            alteration.setText("de maître");
+            alteration.setText(R.string.masterwork);
         }
         else{
             alterationLayout.setVisibility(View.VISIBLE);
@@ -99,8 +99,8 @@ public class ArmorViewHolder extends ItemViewHolder{
             propSpeLayout.setVisibility(View.GONE);
         }
 
-        price.setText(armorShield.getPrice()+" po");
-        weight.setText(armorShield.getWeight()+" kg");
+        price.setText(armorShield.getPrice()+" "+context.getString(R.string.gp));
+        weight.setText(armorShield.getWeight()+" "+context.getString(R.string.kg));
 
         if(armorShield.getTypeArmor() == Type.SHIELD){
             image.setImageResource(R.drawable.item_shield_image);

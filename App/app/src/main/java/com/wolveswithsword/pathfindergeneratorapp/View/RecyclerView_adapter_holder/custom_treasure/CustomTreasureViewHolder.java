@@ -1,6 +1,7 @@
 package com.wolveswithsword.pathfindergeneratorapp.View.RecyclerView_adapter_holder.custom_treasure;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.text.Editable;
@@ -20,6 +21,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import generator.ProbabilityType;
 import generator.TreasureElement;
@@ -136,7 +138,7 @@ public class CustomTreasureViewHolder extends RecyclerView.ViewHolder {
             else itemLinearLayout.setBackgroundResource(R.color.theme_color_1);
         }
         else {
-            setError("La somme d'argent doit être inférieure à 1 000 000 po...");
+            setError(context.getString(R.string.error_money_toobig));
             itemLinearLayout.setBackgroundResource(R.color.theme_error_opacity);
         }
     }

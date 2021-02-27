@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.parchment.Parchment;
 
@@ -33,13 +34,13 @@ public class ParchmentViewHolder extends ItemViewHolder{
 
     public void setParchment(Parchment parchment){
         name.setText(parchment.getName());
-        price.setText(parchment.getPrice()+" po");
+        price.setText(parchment.getPrice()+" "+ AppObject.getRessource().getString(R.string.gp));
 
         if(parchment.isDivine()){
-            type.setText("Divin");
+            type.setText(R.string.divine);
         }
         else{
-            type.setText("Profane");
+            type.setText(R.string.profane);
         }
 
         nls.setText(Integer.toString(parchment.getNls()));

@@ -23,7 +23,7 @@
                 android:background="@color/theme_color_10"
                 android:paddingVertical="10dp"
 
-                android:text="Objet intelligent "
+                android:text="@string/smart_item"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_2"
                 android:textSize="24sp"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:text="Alignement :"
+                android:text="@string/alignment_title"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_1"
                 android:textSize="16sp"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:text="Ego :"
+                android:text="@string/ego_title"
                 android:textAlignment="center"
                 android:textColor="@color/text_color_1"
                 android:textSize="16sp"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:text="INT :"
+                android:text="@string/int_title"
                 android:textAlignment="center"
                 android:textColor="#2E0303"
                 android:textSize="16sp"
@@ -125,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:text="SAG :"
+                android:text="@string/sag_title"
                 android:textAlignment="center"
                 android:textColor="#1E0B3F"
                 android:textSize="16sp"
@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:text="CHA :"
+                android:text="@string/cha_title"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FA0A2635"
@@ -183,7 +183,7 @@
                 android:layout_weight="1"
 
                 android:textColor="@color/text_color_1"
-                android:text="Nombres de langages parlés :"
+                android:text="@string/langage_speak_title"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -216,7 +216,7 @@
             android:textColor="@color/text_color_2"
             android:paddingVertical="10dp"
 
-            android:text="Capacités de communication :"
+            android:text="@string/communication_skill_title"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textSize="20sp"
@@ -246,7 +246,7 @@
             android:paddingVertical="10dp"
 
 
-            android:text="Capacités magiques :"
+            android:text="@string/magic_skill_title"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textSize="20sp"
@@ -282,7 +282,7 @@
                     android:paddingVertical="10dp"
                     android:textColor="@color/text_color_2"
                     android:background="@color/theme_color_10"
-                    android:text="Objectif"
+                    android:text="@string/goal_title"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -325,7 +325,7 @@
                     android:paddingVertical="10dp"
                     android:textColor="@color/text_color_2"
                     android:background="@color/theme_color_10"
-                    android:text="Pouvoir dédié"
+                    android:text="@string/dedicate_power_title"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -364,7 +364,7 @@
             android:paddingVertical="10dp"
             android:textColor="@color/text_color_2"
             android:background="@color/theme_color_10"
-            android:text="Traits : "
+            android:text="@string/trait_title"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -384,7 +384,7 @@
             android:layout_marginTop="15dp"
 
             style="@style/Button_style_1"
-            android:text="Quitter"
+            android:text="@string/close"
             android:textSize="20sp" />
 
     </LinearLayout>

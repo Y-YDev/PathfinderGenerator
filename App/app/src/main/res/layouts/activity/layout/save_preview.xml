@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
 
                 android:textColor="@color/text_color_7"
-                android:text="Valeur du trésor :"
+                android:text="@string/treasure_value_title"
                 android:textAlignment="center"
                 />
 
@@ -74,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="po" />
+                android:text="@string/gp" />
 
         </LinearLayout>
 
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
 
                 android:textAlignment="center"
-                android:text="Nombre d'item :"
+                android:text="@string/item_nb_title"
                 />
 
             <TextView

@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
 
-                    android:text="Valeur Totale :"
+                    android:text="@string/total_value_title"
                     android:textAlignment="center"
                     android:textColor="@color/text_color_5"
                     android:textSize="18sp"
@@ -98,7 +98,7 @@
                     android:layout_marginHorizontal="5dp"
 
                     style="@style/Button_style_2"
-                    android:text="Création d'Objet"
+                    android:text="@string/object_creation"
                     android:textSize="16sp" />
 
                 <Button
@@ -111,7 +111,7 @@
 
                     style="@style/Button_style_2"
                     android:textSize="16sp"
-                    android:text="Sauvegarder" />
+                    android:text="@string/save_verb" />
 
                 <ImageButton
                     android:id="@+id/delete_all_Button"
@@ -149,7 +149,7 @@
                     android:textColor="@color/theme_color_8"
                     android:paddingVertical="3dp"
                     android:paddingStart="10dp"
-                    android:text="Objets :"
+                    android:text="@string/object_title"
                     android:textSize="18sp"
                     android:textAlignment="textStart"
                     android:textStyle="bold" />
@@ -165,7 +165,7 @@
                     android:paddingStart="10dp"
 
                     android:textColor="@color/theme_color_8"
-                    android:text="Rareté :"
+                    android:text="@string/rarity_title"
                     android:textSize="18sp"
                     android:textAlignment="textStart"
                     android:textStyle="bold" />
@@ -232,15 +232,15 @@
                         android:id="@+id/textView26"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
                         android:layout_marginEnd="10dp"
+                        android:layout_weight="2"
                         android:background="@color/theme_color_8_opacity"
 
-                        android:textColor="@color/theme_color_8"
-                        android:textSize="18sp"
                         android:paddingVertical="3dp"
                         android:paddingStart="10dp"
-                        android:text="Quantité :"
+                        android:text="@string/quantity_title"
+                        android:textColor="@color/theme_color_8"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -254,7 +254,7 @@
                         android:textSize="18sp"
                         android:paddingVertical="3dp"
                         android:paddingStart="10dp"
-                        android:text="Type :"
+                        android:text="@string/type_title"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -306,7 +306,7 @@
                     android:layout_marginBottom="10dp"
 
                     android:textAlignment="center"
-                    android:text="La quantité d'argent ne doit pas être nulle."
+                    android:text="@string/error_money_null"
                     android:textColor="@color/text_error" />
 
             </LinearLayout>

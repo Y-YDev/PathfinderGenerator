@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.wand.Wand;
 
@@ -37,11 +38,11 @@ public class WandViewHolder extends ItemViewHolder {
 
     public void setWand(Wand wand){
         name.setText(wand.getName());
-        price.setText(wand.getPrice()+" po");
+        price.setText(wand.getPrice()+" "+ AppObject.getRessource().getString(R.string.gp));
 
         if(wand.isParticularPropertie()){
             propPartLayout.setVisibility(View.VISIBLE);
-            propPart.setText("Indice");
+            propPart.setText(R.string.hint);
         }
         else{
             propPartLayout.setVisibility(View.GONE);

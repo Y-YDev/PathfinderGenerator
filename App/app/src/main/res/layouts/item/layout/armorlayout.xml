@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
 
                     style="@style/Item_info"
-                    android:text="Armure / Bouclier" />
+                    android:text="@string/armor_shield" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                                 android:layout_weight="2"
 
                                 style="@style/Item_section"
-                                android:text="Altération :"/>
+                                android:text="@string/alteration_title"/>
 
                             <TextView
                                 android:id="@+id/arm_alteration"
@@ -140,7 +140,7 @@
                             android:layout_weight="2"
 
                             style="@style/Item_section"
-                            android:text="Matériel :"/>
+                            android:text="@string/material_title"/>
 
                             <TextView
                                 android:id="@+id/arm_material"
@@ -197,7 +197,7 @@
                     android:layout_gravity="center"
 
                     style="@style/Item_section"
-                    android:text="Propriété spéciale :"/>
+                    android:text="@string/special_prop_title"/>
 
                 <TextView
                     android:id="@+id/arm_propspe1"
@@ -242,7 +242,7 @@
                     android:layout_weight="4"
 
                     style="@style/Item_section"
-                    android:text="Prix : "/>
+                    android:text="@string/price_title"/>
 
                 <TextView
                     android:id="@+id/arm_price"
@@ -260,7 +260,7 @@
                     android:layout_weight="4"
 
                     style="@style/Item_section"
-                    android:text="Poids : " />
+                    android:text="@string/weight_title" />
 
                 <TextView
                     android:id="@+id/arm_weight"
@@ -288,7 +288,7 @@
                     android:layout_marginEnd="20dp"
 
                     style="@style/Button_style_2"
-                    android:text="Objet intelligent"
+                    android:text="@string/smart_item"
                     android:textSize="14sp"/>
             </LinearLayout>
 

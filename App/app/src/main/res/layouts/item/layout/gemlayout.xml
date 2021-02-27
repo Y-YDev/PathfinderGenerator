@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Gemme"
+                    android:text="@string/gem"
                     style="@style/Item_info" />
 
                 <LinearLayout
@@ -106,7 +106,7 @@
                                 android:layout_weight="3"
 
                                 style="@style/Item_section"
-                                android:text="Travail de la gemme :"/>
+                                android:text="@string/work_gem_title"/>
 
                             <TextView
                                 android:id="@+id/gem_work"
@@ -136,7 +136,7 @@
                                 android:layout_weight="1"
 
                                 style="@style/Item_section"
-                                android:text="Prix : "/>
+                                android:text="@string/price_title"/>
 
                             <TextView
                                 android:id="@+id/gem_price"

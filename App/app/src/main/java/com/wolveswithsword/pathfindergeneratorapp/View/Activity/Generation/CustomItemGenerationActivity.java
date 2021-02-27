@@ -291,13 +291,13 @@ public class CustomItemGenerationActivity extends AppCompatActivity
      */
     private boolean checkPoInput(){
         if(poInput.getText().toString().equals("")) {
-            errorText.setText("La quantité d'argent ne doit pas être nulle.");
+            errorText.setText(R.string.error_money_null);
             errorText.setVisibility(View.VISIBLE);
             return false;
         }
         else if(Double.parseDouble(poInput.getText().toString()) > 1000000){
             errorText.setVisibility(View.VISIBLE);
-            errorText.setText("La somme d'argent doit être inférieure à 1 000 000 po...");
+            errorText.setText(R.string.error_money_toobig);
             return false;
         }
         return true;
@@ -309,8 +309,8 @@ public class CustomItemGenerationActivity extends AppCompatActivity
     private void askDeleteAll(){
         if(rewardRecyclerViewAdapter.getItemCount() != 0) {//Inutile de demander de supprimer une liste vide...CQFD
             //Création de la fenetre de dialogue.
-            YesNoDialog dialog = new YesNoDialog(-1,"Tout supprimer ?",
-                    "Voulez-vous vraiment supprimer tout les éléments du trésor ?");
+            YesNoDialog dialog = new YesNoDialog(-1,getString(R.string.all_delete),
+                    getString(R.string.all_delete_sentence));
 
             dialog.show(getSupportFragmentManager(), " Yes No Dialog");//Affichage de la fenetre.
         }
@@ -340,10 +340,10 @@ public class CustomItemGenerationActivity extends AppCompatActivity
 
         if(HandlerTreasureSave.getInstance().saveTreasure(
                 rewardRecyclerViewAdapter.getRewardList(), treasurePreview)){
-            Tools.ShowToast(getApplicationContext(),"Sauvegarde créée");
+            Tools.ShowToast(getApplicationContext(),getString(R.string.create_save_success));
         }
         else{
-            Tools.ShowToast(getApplicationContext(),"Erreur dans la création de la sauvegarde");
+            Tools.ShowToast(getApplicationContext(),getString(R.string.error_create_save));
         }
     }
 

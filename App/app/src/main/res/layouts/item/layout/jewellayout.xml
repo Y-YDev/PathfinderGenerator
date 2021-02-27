@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Bijoux"
+                    android:text="@string/jewel"
                     style="@style/Item_info" />
 
                 <LinearLayout
@@ -105,7 +105,7 @@
                                 android:layout_weight="1"
                                 android:layout_gravity="center"
 
-                                android:text="Matériel :"
+                                android:text="@string/material_title"
                                 style="@style/Item_section" />
 
                             <TextView
@@ -134,7 +134,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
 
-                                android:text="Taille : "
+                                android:text="@string/size_title"
                                 style="@style/Item_section" />
 
                             <TextView
@@ -164,7 +164,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
 
-                                android:text="Travail du bijoux : "
+                                android:text="@string/work_jewel_title"
                                 style="@style/Item_section" />
 
                             <TextView
@@ -216,7 +216,7 @@
                     android:layout_height="match_parent"
 
                     style="@style/Item_title"
-                    android:text="Gemme incrustée de Grade N : "
+                    android:text="@string/gem_N"
                     android:padding="2dp"
                     android:textSize="14sp"/>
 
@@ -239,7 +239,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Gemme : " />
+                    android:text="@string/gem_title" />
 
                 <TextView
                     android:id="@+id/jewel_gem"
@@ -268,7 +268,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Travail :"/>
+                    android:text="@string/work_title"/>
 
                 <TextView
                     android:id="@+id/jewel_workgem"
@@ -305,7 +305,7 @@
                     android:layout_height="match_parent"
 
                     style="@style/Item_title"
-                    android:text="Gemme incrustée de Grade N-1 : "
+                    android:text="@string/gem_N1"
                     android:padding="2dp"
                     android:textSize="14sp" />
 
@@ -328,7 +328,7 @@
                     android:layout_weight="1"
 
                     style="@style/Item_section"
-                    android:text="Gemme : " />
+                    android:text="@string/gem_title" />
 
                 <TextView
                     android:id="@+id/jewel_gem2"
@@ -357,7 +357,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Nombre : " />
+                    android:text="@string/number_title" />
 
                 <TextView
                     android:id="@+id/jewel_number2"
@@ -375,7 +375,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Travail :" />
+                    android:text="@string/work_title" />
 
                 <TextView
                     android:id="@+id/jewel_workgem2"
@@ -412,7 +412,7 @@
                     android:layout_height="wrap_content"
 
                     style="@style/Item_title"
-                    android:text="Gemme incrustée de Grade N-2 : "
+                    android:text="@string/gem_N2"
                     android:padding="2dp"
                     android:textSize="14sp" />
 
@@ -434,7 +434,7 @@
                     android:layout_weight="1"
 
                     style="@style/Item_section"
-                    android:text="Gemme : " />
+                    android:text="@string/gem_title" />
 
                 <TextView
                     android:id="@+id/jewel_gem3"
@@ -463,7 +463,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Nombre : " />
+                    android:text="@string/number_title" />
 
                 <TextView
                     android:id="@+id/jewel_number3"
@@ -481,7 +481,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Travail :" />
+                    android:text="@string/work_title" />
 
                 <TextView
                     android:id="@+id/jewel_workgem3"
@@ -512,7 +512,7 @@
                 android:layout_weight="2"
 
                 style="@style/Item_section"
-                android:text="Prix :"/>
+                android:text="@string/price_title"/>
 
             <TextView
                 android:id="@+id/jewel_price"

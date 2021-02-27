@@ -1,5 +1,7 @@
 package generator;
 
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
+
 import java.util.ArrayList;
 import java.util.Random;
 

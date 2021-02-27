@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.gemAndJewel.Gem;
 
@@ -30,7 +31,7 @@ public class GemViewHolder extends ItemViewHolder {
 
     public void setGem(Gem gem){
         name.setText(gem.getName());
-        price.setText(gem.getPrice()+" po");
+        price.setText(gem.getPrice()+" "+ AppObject.getRessource().getString(R.string.gp));
         cut.setText(gem.getCut().toString());
         image.setImageResource(R.drawable.item_gem_image);
     }

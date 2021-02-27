@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Potion"
+                    android:text="@string/potion"
                     style="@style/Item_info" />
 
                 <LinearLayout
@@ -105,7 +105,7 @@
                                 android:layout_weight="2"
 
                                 style="@style/Item_section"
-                                android:text="Prix :" />
+                                android:text="@string/price_title" />
 
                             <TextView
                                 android:id="@+id/pot_price"
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
 
-                android:text="Niveau du sort :"
+                android:text="@string/nds_title"
                 style="@style/Item_section"/>
 
             <TextView
@@ -176,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
 
-                android:text="Niveau du lanceur de sort :"
+                android:text="@string/nls_title"
                 style="@style/Item_section" />
 
             <TextView

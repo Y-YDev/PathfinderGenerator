@@ -45,19 +45,19 @@ public class MonsterSpinnerSelectedListener implements AdapterView.OnItemSelecte
         //En fonction du type du monstre on affiche la checkBox pour activer le bonus
         if(type == MonsterType.Aberration){
             bonusBox.setVisibility(View.VISIBLE);
-            bonusBox.setText("Créature rusée ?");
+            bonusBox.setText(R.string.smart_creature);
         }
         else if(type == MonsterType.Artificial_creature){
             bonusBox.setVisibility(View.VISIBLE);
-            bonusBox.setText("Garde un trésor ?");
+            bonusBox.setText(R.string.treasure_keeper_creature);
         }
         else if(type == MonsterType.Humanoid){
             bonusBox.setVisibility(View.VISIBLE);
-            bonusBox.setText("Communauté entière ?");
+            bonusBox.setText(R.string.whole_community);
         }
         else if(type == MonsterType.Undead){
             bonusBox.setVisibility(View.VISIBLE);
-            bonusBox.setText("Morts-vivants intelligents ?");
+            bonusBox.setText(R.string.smart_undead);
         }
         else {
             bonusBox.setVisibility(View.GONE);

@@ -50,7 +50,6 @@ public class StandartGenerationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.standard_creation);
-
         bonusBox = findViewById(R.id.checkbox_bonus);
 
         monsterTypeSpinner = (Spinner) findViewById(R.id.monstertype);
@@ -132,13 +131,13 @@ public class StandartGenerationActivity extends AppCompatActivity {
         //L'EditText est vide
         if(poInput.getText().toString().equals("")){
             error.setVisibility(View.VISIBLE);
-            error.setText("Veuillez renseigner une quantité d'argent...");
+            error.setText(R.string.error_money_null);
             return false;
         }
         //La valeur est trop élévée (crash de l'application)
         else if(Double.parseDouble(poInput.getText().toString()) > 1000000){
             error.setVisibility(View.VISIBLE);
-            error.setText("La somme d'argent doit être inférieure à 1 000 000 po...");
+            error.setText(R.string.error_money_toobig);
             return false;
         }
         else{

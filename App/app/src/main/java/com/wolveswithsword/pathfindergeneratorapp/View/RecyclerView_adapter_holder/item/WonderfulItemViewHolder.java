@@ -46,12 +46,12 @@ public class WonderfulItemViewHolder extends ItemViewHolder {
 
     public void setWonderfulItem(WonderfulObject wonderfulObject){
         name.setText(wonderfulObject.getName());
-        price.setText(wonderfulObject.getPrice()+" po");
+        price.setText(wonderfulObject.getPrice()+" "+context.getString(R.string.gp));
         location.setText(wonderfulObject.getTypeWonder().toString());
 
         if(wonderfulObject.isParticularPropertie()){
             partPropLayout.setVisibility(View.VISIBLE);
-            partProp.setText("Indice");
+            partProp.setText(R.string.hint);
         }
         else{
             partPropLayout.setVisibility(View.GONE);

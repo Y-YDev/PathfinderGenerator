@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
 
-        android:text="Type de créatures :"
+        android:text="@string/creature_type_title"
         android:textAlignment="textStart"
         android:textColor="@color/text_color_3"
         android:textSize="24sp"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
 
-        android:text="Valeur globale du trésor :"
+        android:text="@string/treasure_value_title"
         android:textAlignment="viewStart"
         android:textColor="@color/text_color_3"
         android:textSize="24sp"
@@ -80,13 +80,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="10dp"
 
             android:textCursorDrawable="@drawable/cursor_1"
             android:backgroundTint="@color/theme_color_3"
 
             android:gravity="center"
-            android:hint="Entrez la somme"
+            android:hint="@string/enter_coin"
             android:inputType="number"
             android:textAlignment="center"
             android:textSize="20sp" />
@@ -97,10 +97,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
+            android:text="@string/gp"
             android:textColor="@color/text_color_3"
-            android:textSize="16sp"
-            android:text="PO"
-            android:textStyle="bold"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
 
-        android:text="Probabilité d'apparition :"
+        android:text="@string/appearance_probability_title"
         android:textAlignment="viewStart"
         android:textColor="@color/text_color_3"
         android:textSize="24sp"
@@ -168,7 +168,7 @@
             android:layout_marginBottom="15dp"
 
             style="@style/Button_style_1"
-            android:text="Créer"
+            android:text="@string/create"
             android:textSize="22sp" />
     </LinearLayout>
 

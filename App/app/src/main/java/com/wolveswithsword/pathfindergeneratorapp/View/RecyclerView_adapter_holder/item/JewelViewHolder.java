@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.gemAndJewel.Jewel;
 
@@ -61,7 +62,7 @@ public class JewelViewHolder extends ItemViewHolder{
 
     public void setJewel(Jewel jewel){
         name.setText(jewel.getType().getName());
-        price.setText(jewel.getPrice()+" po");
+        price.setText(jewel.getPrice()+" "+ AppObject.getRessource().getString(R.string.gp));
         work.setText(jewel.getWork().getName());
         material.setText(jewel.getMaterial().getName());
         size.setText(jewel.getSize().getName());

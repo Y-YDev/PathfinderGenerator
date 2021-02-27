@@ -62,8 +62,8 @@ public class TreasurePreviewRecyclerViewAdapter
     public void askDeleteSave(final int position){
         if(position<0) return; //correctif bug appuis multiple supression item
 
-        YesNoDialog dialog = new YesNoDialog(position, "Supprimer ?",
-                "Voulez-vous vraiment supprimer la sauvegarde ?");
+        YesNoDialog dialog = new YesNoDialog(position, context.getString(R.string.delete),
+                context.getString(R.string.delete_save));
         dialog.show(((AppCompatActivity)context).getSupportFragmentManager()," yes no dialog ");//Affichage de la fenetre.
     }
 

@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
 
                     style="@style/Item_info"
-                    android:text="Arme" />
+                    android:text="@string/weapon" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                                 android:layout_weight="2"
 
                                 style="@style/Item_section"
-                                android:text="Altération :" />
+                                android:text="@string/alteration_title" />
 
                             <TextView
                                 android:id="@+id/wea_alteration"
@@ -142,7 +142,7 @@
                                 android:layout_weight="2"
 
                                 style="@style/Item_section"
-                                android:text="Matériel :" />
+                                android:text="@string/material_title" />
 
                             <TextView
                                 android:id="@+id/wea_material"
@@ -173,7 +173,7 @@
                                 android:layout_weight="3"
 
                                 style="@style/Item_section"
-                                android:text="Quantité :" />
+                                android:text="@string/quantity_title" />
 
                             <TextView
                                 android:id="@+id/wea_onlyquantity"
@@ -228,7 +228,7 @@
                     android:layout_weight="1"
 
                     style="@style/Item_section"
-                    android:text="Propriété spéciale :" />
+                    android:text="@string/special_prop_title" />
 
                 <TextView
                     android:id="@+id/wea_propspe1"
@@ -278,7 +278,7 @@
                     android:layout_weight="1"
 
                     style="@style/Item_section"
-                    android:text="Propriété particulière :" />
+                    android:text="@string/particular_prop_title" />
 
                 <TextView
                     android:id="@+id/wea_partispe"
@@ -306,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
 
-                    android:text="Prix : "
+                    android:text="@string/price_title"
                     style="@style/Item_section"
                     />
 
@@ -326,7 +326,7 @@
                     android:layout_weight="4"
 
                     style="@style/Item_section"
-                    android:text="Poids : " />
+                    android:text="@string/weight_title" />
 
                 <TextView
                     android:id="@+id/wea_weigth"
@@ -365,7 +365,7 @@
                     android:layout_height="match_parent"
 
                     style="@style/Item_title"
-                    android:text="Munition"
+                    android:text="@string/ammo_title"
                     />
 
             </LinearLayout>
@@ -384,7 +384,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Munition: " />
+                    android:text="@string/ammo_title" />
 
                 <TextView
                     android:id="@+id/wea_mun"
@@ -401,7 +401,7 @@
                     android:layout_height="26dp"
                     android:layout_weight="2"
 
-                    android:text="Quantité: "
+                    android:text="@string/quantity_title"
                     style="@style/Item_section"
                     />
 
@@ -430,7 +430,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Prix : " />
+                    android:text="@string/price_title" />
 
                 <TextView
                     android:id="@+id/wea_munprice"
@@ -448,7 +448,7 @@
                     android:layout_weight="2"
 
                     style="@style/Item_section"
-                    android:text="Poids : " />
+                    android:text="@string/weight_title" />
 
                 <TextView
                     android:id="@+id/wea_munweight"
@@ -477,7 +477,7 @@
                 android:layout_marginEnd="30dp"
 
                 style="@style/Button_style_2"
-                android:text="Objet intelligent"
+                android:text="@string/smart_item"
                 android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>

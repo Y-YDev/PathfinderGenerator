@@ -44,8 +44,8 @@ public class EditSaveActivity extends CustomItemGenerationActivity {
 
                 //Si il y a des changements on demande la confirmation.
                 if(rewardRecyclerViewAdapter.hasChanges()){
-                    YesNoDialog dialog = new YesNoDialog(-2,"Quitter ?",
-                            "Il y a des changements non sauvegardés. Voulez-vous vraiment quitter ?");
+                    YesNoDialog dialog = new YesNoDialog(-2,getString(R.string.quit),
+                            getString(R.string.unsave_changes));
 
                     dialog.show(getSupportFragmentManager(), " yes no dialog ");
                 }
@@ -73,10 +73,10 @@ public class EditSaveActivity extends CustomItemGenerationActivity {
 
         if(HandlerTreasureSave.getInstance().saveTreasure(
                 rewardRecyclerViewAdapter.getRewardList(), treasurePreview)){
-            Tools.ShowToast(getApplicationContext(),"Sauvegarde mise à jour");
+            Tools.ShowToast(getApplicationContext(),getString(R.string.save_update));
         }
         else{
-            Tools.ShowToast(getApplicationContext(),"Erreur dans la mise à jour de la sauvegarde");
+            Tools.ShowToast(getApplicationContext(),getString(R.string.error_update_save));
         }
 
         rewardRecyclerViewAdapter.setHasChanges(false);//Plus de changements.

@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Objet d'Art"
+                    android:text="@string/art_item"
                     style="@style/Item_info" />
 
                 <LinearLayout
@@ -106,7 +106,7 @@
                                 android:layout_weight="2"
 
                                 style="@style/Item_section"
-                                android:text="Prix : "/>
+                                android:text="@string/price_title"/>
 
                             <TextView
                                 android:id="@+id/art_price"

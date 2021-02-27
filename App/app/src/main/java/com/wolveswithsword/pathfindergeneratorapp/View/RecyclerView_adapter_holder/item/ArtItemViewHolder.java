@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.artItem.ArtItem;
 
@@ -25,7 +26,7 @@ public class ArtItemViewHolder extends ItemViewHolder {
 
     public void setArtItem(ArtItem artItem){
         name.setText(artItem.getName());
-        price.setText(artItem.getPrice()+" po");
+        price.setText(artItem.getPrice()+" "+ AppObject.getRessource().getString(R.string.gp));
 
         image.setImageResource(R.drawable.item_artitem_image);
     }

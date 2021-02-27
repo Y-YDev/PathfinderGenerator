@@ -18,7 +18,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
 
-            android:text="Pathfinder Generator"
+            android:text="@string/app_name"
             android:textAlignment="center"
             android:textColor="@color/text_color_7"
             android:textSize="36sp"
@@ -52,7 +52,7 @@
             android:layout_weight="1"
 
             style="@style/Button_style_1"
-            android:text="Création Standard"
+            android:text="@string/standard_creation"
             android:textSize="25sp" />
 
         <Button
@@ -63,7 +63,7 @@
             android:layout_weight="1"
 
             style="@style/Button_style_1"
-            android:text="Création par Trésor"
+            android:text="@string/treasure_creation"
             android:textSize="25sp"/>
 
         <Button
@@ -74,7 +74,7 @@
             android:layout_weight="1"
 
             style="@style/Button_style_1"
-            android:text="Création d'objets"
+            android:text="@string/item_creation"
             android:textSize="25sp"
             />
 
@@ -86,7 +86,7 @@
             android:layout_weight="1"
 
             style="@style/Button_style_1"
-            android:text="Sauvegardes"
+            android:text="@string/saves"
             android:textSize="25sp" />
 
     </LinearLayout>

@@ -30,7 +30,7 @@
             android:layout_margin="3dp"
 
             style="@style/Button_style_2"
-            android:text="Relancer"
+            android:text="@string/reroll"
             android:textSize="20sp" />
 
         <Button
@@ -41,7 +41,7 @@
             android:layout_margin="3dp"
 
             style="@style/Button_style_2"
-            android:text="Sauvegarder"
+            android:text="@string/save_verb"
             android:textSize="20sp"/>
     </LinearLayout>
 

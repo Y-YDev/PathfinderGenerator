@@ -89,7 +89,7 @@ public class WeaponViewHolder extends ItemViewHolder{
         }
         else if(weapon.getAlteration() == -2){
             alterationLayout.setVisibility(View.VISIBLE);
-            alteration.setText("de maître");
+            alteration.setText(R.string.masterwork);
         }
         else{
             alterationLayout.setVisibility(View.VISIBLE);
@@ -131,8 +131,8 @@ public class WeaponViewHolder extends ItemViewHolder{
             propPartLayout.setVisibility(View.GONE);
         }
 
-        price.setText(Tools.truncateTo(weapon.getPrice(),2)+" po");
-        weight.setText(Tools.truncateTo(weapon.getWeight(),2)+" kg");
+        price.setText(Tools.truncateTo(weapon.getPrice(),2)+" "+context.getString(R.string.gp));
+        weight.setText(Tools.truncateTo(weapon.getWeight(),2)+" "+context.getString(R.string.kg));
 
         if(weapon.getType() == Type.DIST){
             image.setImageResource(R.drawable.item_bow_image);
@@ -141,9 +141,9 @@ public class WeaponViewHolder extends ItemViewHolder{
             if(((RangeWeapon)weapon).getMunition().getQuantity() != 0){
                 munitionLayout.setVisibility(View.VISIBLE);
                 munName.setText(((RangeWeapon) weapon).getMunition().getName());
-                munPrice.setText(Tools.truncateTo(((RangeWeapon) weapon).getMunition().getPrice(),2)+" po");
+                munPrice.setText(Tools.truncateTo(((RangeWeapon) weapon).getMunition().getPrice(),2)+" "+context.getString(R.string.gp));
                 munQuantity.setText(Integer.toString(((RangeWeapon) weapon).getMunition().getQuantity()));
-                munWeight.setText(Tools.truncateTo(((RangeWeapon) weapon).getMunition().getWeight(),2)+" kg");
+                munWeight.setText(Tools.truncateTo(((RangeWeapon) weapon).getMunition().getWeight(),2)+" "+context.getString(R.string.kg));
             }
             else{
                 munitionLayout.setVisibility(View.GONE);

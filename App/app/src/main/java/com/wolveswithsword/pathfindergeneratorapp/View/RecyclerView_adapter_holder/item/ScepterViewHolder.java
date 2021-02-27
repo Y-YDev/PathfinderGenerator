@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
 import com.wolveswithsword.pathfindergeneratorapp.View.Listener.SmartItemButtonListener;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.scepter.Scepter;
 import item.scepter.Type;
@@ -49,7 +50,7 @@ public class ScepterViewHolder extends ItemViewHolder {
 
     public void setScepter(Scepter scepter){
         name.setText(scepter.getName());
-        price.setText(scepter.getPrice()+" po");
+        price.setText(scepter.getPrice()+" "+ context.getString(R.string.gp));
 
         if(scepter.getType() != Type.NONE){
             typeLayout.setVisibility(View.VISIBLE);
@@ -62,7 +63,7 @@ public class ScepterViewHolder extends ItemViewHolder {
 
         if(scepter.isParticularPropertie()){
             propPartLayout.setVisibility(View.VISIBLE);
-            propPart.setText("Indice");
+            propPart.setText(R.string.hint);
         }
         else{
             propPartLayout.setVisibility(View.GONE);

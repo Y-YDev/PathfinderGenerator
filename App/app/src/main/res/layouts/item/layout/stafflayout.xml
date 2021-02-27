@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Bâton"
+                    android:text="@string/staff"
                     style="@style/Item_info" />
 
                 <LinearLayout
@@ -103,7 +103,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:text="Prix :"
+                                android:text="@string/price_title"
                                 style="@style/Item_section"/>
 
                             <TextView
@@ -135,7 +135,7 @@
         <LinearLayout
             android:id="@+id/staff_part_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:background="@color/theme_color_8_opacity"
             android:layout_marginTop="10dp"
@@ -146,10 +146,10 @@
                 android:id="@+id/staff_part_info"
                 style="@style/Item_section"
                 android:layout_width="0dp"
-                android:layout_height="10dp"
+                android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:text="Propriété particulière : " />
+                android:text="@string/particular_prop_title" />
 
             <TextView
                 android:id="@+id/staff_part"

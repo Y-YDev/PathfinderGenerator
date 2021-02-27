@@ -95,10 +95,10 @@ public abstract class RewardActivity extends AppCompatActivity implements SaveNa
 
         if(HandlerTreasureSave.getInstance().saveTreasure(
                 rewardRecyclerViewAdapter.getRewardList(), treasurePreview)){
-            Tools.ShowToast(getApplicationContext(),"Sauvegarde créée");
+            Tools.ShowToast(getApplicationContext(),getString(R.string.create_save_success));
         }
         else{
-            Tools.ShowToast(getApplicationContext(),"Erreur dans la création de la sauvegarde");
+            Tools.ShowToast(getApplicationContext(),getString(R.string.error_create_save));
         }
     }
 }

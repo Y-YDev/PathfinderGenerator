@@ -64,7 +64,7 @@
                 android:layout_marginHorizontal="5dp"
 
                 android:textColor="@color/text_color_1"
-                android:text="Annuler"
+                android:text="@string/cancel"
                 android:backgroundTint="@color/theme_button_1_opacity">
 
             </Button>
@@ -76,7 +76,7 @@
                 android:layout_marginHorizontal="5dp"
 
                 android:textColor="@color/text_color_1"
-                android:text="OK"
+                android:text="@string/ok"
                 android:backgroundTint="@color/theme_button_1_opacity"
                 android:layout_height="match_parent">
 

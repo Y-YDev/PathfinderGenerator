@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Objet Merveilleux"
+                    android:text="@string/wonderfullitem"
                     style="@style/Item_info" />
 
                 <LinearLayout
@@ -104,7 +104,7 @@
                                 android:layout_weight="2"
 
                                 style="@style/Item_section"
-                                android:text="Prix :"
+                                android:text="@string/price_title"
                                 />
 
                             <TextView
@@ -132,7 +132,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
 
-                                android:text="Emplacement : "
+                                android:text="@string/location_title"
                                 style="@style/Item_section" />
 
                             <TextView
@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:text="Propriété particulière : " />
+                android:text="@string/particular_prop_title" />
 
             <TextView
                 android:id="@+id/wond_part"
@@ -207,7 +207,7 @@
                 android:layout_weight="1"
 
                 style="@style/Button_style_2"
-                android:text="Objet intelligent"
+                android:text="@string/smart_item"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>

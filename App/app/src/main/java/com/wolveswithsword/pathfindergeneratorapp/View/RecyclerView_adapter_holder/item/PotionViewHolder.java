@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.potion.Potion;
 
@@ -30,7 +31,7 @@ public class PotionViewHolder extends ItemViewHolder {
 
     public void setPotion(Potion potion){
         name.setText(potion.getName());
-        price.setText(potion.getPrice()+ " po");
+        price.setText(potion.getPrice()+ " "+ AppObject.getRessource().getString(R.string.gp));
 
         nds.setText(Integer.toString(potion.getNds()));
         nls.setText(Integer.toString(potion.getNls()));

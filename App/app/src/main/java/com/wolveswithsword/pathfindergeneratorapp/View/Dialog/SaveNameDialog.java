@@ -49,10 +49,10 @@ public class SaveNameDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(editTextSaveName.getText())){
-                    errorText.setText("Le nom de la sauvegarde ne peut pas être vide.");
+                    errorText.setText(R.string.error_save_empty_name);
                 }
                 else if(HandlerTreasureSave.getInstance().alreadyExist(editTextSaveName.getText().toString())){
-                    errorText.setText("Ce nom de sauvegarde existe déjà.");
+                    errorText.setText(R.string.error_save_already_exist);
                 }
                 else {
                     String saveName = editTextSaveName.getText().toString();

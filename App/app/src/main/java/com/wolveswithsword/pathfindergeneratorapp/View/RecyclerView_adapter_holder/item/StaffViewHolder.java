@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wolveswithsword.pathfindergeneratorapp.R;
+import com.wolveswithsword.pathfindergeneratorapp.View.Utils.AppObject;
 
 import item.staff.Staff;
 
@@ -34,11 +35,11 @@ public class StaffViewHolder extends ItemViewHolder {
 
     public void setStaff(Staff staff){
         name.setText(staff.getName());
-        price.setText(staff.getPrice()+" po");
+        price.setText(staff.getPrice()+" "+ AppObject.getRessource().getString(R.string.gp));
 
         if(staff.isParticularPropertie()){
             propPartLayout.setVisibility(View.VISIBLE);
-            propPart.setText("Indice");
+            propPart.setText(R.string.hint);
         }
         else{
             propPartLayout.setVisibility(View.GONE);
